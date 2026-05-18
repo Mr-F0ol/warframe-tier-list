@@ -10,3 +10,8 @@ yarn-error.log*
 
 server.err.log
 server.out.log
+
+.vercel
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+

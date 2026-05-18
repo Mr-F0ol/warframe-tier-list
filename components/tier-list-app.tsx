@@ -63,7 +63,7 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
 
   return (
     <>
-      <section className="surface-panel sticky top-3 z-20 rounded-lg p-3 md:p-4">
+      <section className="surface-panel md:sticky md:top-3 z-20 rounded-lg p-3 md:p-4">
         <div className="grid gap-4 2xl:grid-cols-[auto_1fr_auto] 2xl:items-center">
           <div className="flex min-w-0 flex-wrap items-center gap-3">
             <a href="#top" aria-label="Tier List Warframe" className="shrink-0">
@@ -276,7 +276,7 @@ function TierRows(props: {
         return (
           <article
             key={`${props.category?.id || props.context}-${row.tier}`}
-            className="tier-row-shell grid min-h-[82px] grid-cols-[74px_1fr] overflow-hidden rounded-lg border border-border/70 bg-card/80 md:grid-cols-[92px_1fr]"
+            className="tier-row-shell grid min-h-[78px] grid-cols-[62px_1fr] overflow-hidden rounded-lg border border-border/70 bg-card/80 sm:grid-cols-[74px_1fr] md:grid-cols-[92px_1fr]"
           >
             <div className={cn("grid place-items-center border-r border-white/10 p-2 text-center font-black", `tier-label-${row.tier}`)}>
               <div>
@@ -319,8 +319,8 @@ function ItemCard(props: {
       type="button"
       onClick={props.onSelect}
       className={cn(
-        "tier-item-card group grid min-w-[146px] max-w-[210px] gap-1 overflow-hidden rounded-md border border-border/70 bg-secondary/75 p-2 text-left transition duration-200 hover:-translate-y-0.5 hover:border-yellow-300/60 hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-        props.viewMode === "detailed" && "min-w-[230px] max-w-[310px] grid-cols-[46px_1fr] gap-x-3",
+        "tier-item-card group grid min-w-[146px] max-w-[210px] max-[520px]:min-w-full max-[520px]:max-w-full gap-1 overflow-hidden rounded-md border border-border/70 bg-secondary/75 p-2 text-left transition duration-200 hover:-translate-y-0.5 hover:border-yellow-300/60 hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        props.viewMode === "detailed" && "min-w-[230px] max-w-[310px] max-[520px]:min-w-full max-[520px]:max-w-full grid-cols-[46px_1fr] gap-x-3",
         props.viewMode === "compact" && "min-h-[54px] content-center"
       )}
     >
@@ -398,6 +398,7 @@ function initialsFor(name = "") {
       .toUpperCase() || "?"
   );
 }
+
 
 
 

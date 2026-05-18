@@ -9,6 +9,10 @@ export async function GET() {
     ok: true,
     service: "warframe-tier-list",
     stack: "next-react-typescript-tailwind-shadcn-postgresql",
-    updatedAt: tierList.updatedAt
+    updatedAt: tierList.updatedAt,
+    database: {
+      configured: Boolean(process.env.DATABASE_URL),
+      provider: process.env.DATABASE_URL ? "postgresql" : "not-configured"
+    }
   });
 }
