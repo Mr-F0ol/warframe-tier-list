@@ -1,7 +1,6 @@
-.git
-.next
 node_modules
-.vercel
+.next
+.vercel/output
 *.log
 server.out.log
 server.err.log
