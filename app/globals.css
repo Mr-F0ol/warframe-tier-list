@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 190 55% 4%;
+    --foreground: 190 45% 95%;
+    --card: 196 32% 9%;
+    --card-foreground: 190 45% 95%;
+    --popover: 196 32% 9%;
+    --popover-foreground: 190 45% 95%;
+    --primary: 190 100% 72%;
+    --primary-foreground: 192 90% 6%;
+    --secondary: 196 30% 15%;
+    --secondary-foreground: 190 45% 95%;
+    --muted: 196 22% 15%;
+    --muted-foreground: 194 16% 69%;
+    --accent: 43 91% 66%;
+    --accent-foreground: 34 95% 5%;
+    --destructive: 0 93% 71%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 190 20% 22%;
+    --input: 190 20% 23%;
+    --ring: 190 100% 72%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background: hsl(var(--background));
+  }
+
+  body {
+    @apply min-h-screen text-foreground antialiased;
+    background:
+      linear-gradient(rgba(105, 235, 255, .035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(105, 235, 255, .035) 1px, transparent 1px),
+      linear-gradient(180deg, hsl(190 55% 4%) 0%, hsl(198 48% 5%) 46%, hsl(190 52% 4%) 100%);
+    background-size: 44px 44px, 44px 44px, auto;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / .32);
+    color: hsl(var(--foreground));
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(190 50% 5%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(var(--primary) / .8), hsl(var(--accent) / .78));
+    border: 2px solid hsl(190 50% 5%);
+  }
+}
+
+@layer components {
+  .hero-bg {
+    background:
+      linear-gradient(180deg, rgba(5, 12, 15, .14) 0%, rgba(5, 12, 15, .50) 42%, rgba(5, 12, 15, .93) 100%),
+      linear-gradient(90deg, rgba(247, 198, 91, .18) 0%, rgba(6, 18, 22, .12) 38%, rgba(105, 235, 255, .16) 100%),
+      url("https://www-static.warframe.com/uploads/eea9dc8a3e67bb177ac2bc125ccc51a5.png") center top / cover no-repeat;
+  }
+
+  .surface-panel {
+    @apply border border-border/70 bg-card/80 shadow-[0_22px_70px_rgba(0,0,0,.28)] backdrop-blur-xl;
+  }
+
+  .panel-highlight {
+    @apply border border-cyan-300/20 bg-cyan-300/10 text-cyan-50;
+  }
+
+  .gold-line {
+    @apply h-px bg-gradient-to-r from-transparent via-yellow-300/70 to-transparent;
+  }
+
+  .tier-row-shell {
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.03), 0 14px 34px rgba(0,0,0,.18);
+  }
+
+  .tier-item-card {
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.035), 0 10px 24px rgba(0,0,0,.16);
+  }
+
+  .tier-label-S,
+  .tier-label-A,
+  .tier-label-B,
+  .tier-label-C,
+  .tier-label-D,
+  .tier-label-U {
+    text-shadow: 0 2px 5px rgba(0, 0, 0, .92), 0 0 12px rgba(0, 0, 0, .65);
+  }
+
+  .tier-label-S {
+    @apply bg-gradient-to-br from-yellow-950 via-yellow-500 to-yellow-300 text-yellow-100;
+  }
+
+  .tier-label-A {
+    @apply bg-gradient-to-br from-cyan-950 via-cyan-600 to-cyan-300 text-yellow-100;
+  }
+
+  .tier-label-B {
+    @apply bg-gradient-to-br from-blue-950 via-blue-600 to-blue-300 text-yellow-100;
+  }
+
+  .tier-label-C {
+    @apply bg-gradient-to-br from-emerald-950 via-emerald-600 to-emerald-300 text-yellow-100;
+  }
+
+  .tier-label-D {
+    @apply bg-gradient-to-br from-red-950 via-red-600 to-red-300 text-yellow-100;
+  }
+
+  .tier-label-U {
+    @apply bg-gradient-to-br from-zinc-950 via-zinc-700 to-zinc-400 text-yellow-100;
+  }
+}
+

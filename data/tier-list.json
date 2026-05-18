@@ -1,0 +1,3034 @@
+{
+  "updatedAt": "2026-05-14",
+  "currentPatch": "Update 42.0.10 - Voruna Prime",
+  "warframes": [
+    {
+      "tier": "S",
+      "label": "S Top meta",
+      "items": [
+        {
+          "name": "Dante",
+          "note": "Overguard, slash nuke e segurança para qualquer conteúdo alto.",
+          "baseName": "Dante",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Pagemaster.png"
+        },
+        {
+          "name": "Protea Prime",
+          "note": "Versão Prime de uma das melhores all-rounders: dano, energia, escudo e defesa de objetivo.",
+          "baseName": "Protea",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/ProteaPrime.png"
+        },
+        {
+          "name": "Wisp Prime",
+          "note": "Reservoirs, haste e suporte universal com melhor investimento que a normal.",
+          "baseName": "Wisp",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/WispPrime.png"
+        },
+        {
+          "name": "Saryn Prime",
+          "note": "Nuke escalável, status e clear de Steel Path com prioridade alta.",
+          "baseName": "Saryn",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/SarynPrime.png"
+        },
+        {
+          "name": "Revenant Prime",
+          "note": "Mesmer Skin torna solo, boss e Archimedea extremamente seguros.",
+          "baseName": "Revenant",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/RevenantPrime.png"
+        },
+        {
+          "name": "Mesa Prime",
+          "note": "DPS direto excelente para alvo prioritário, bosses e missões rápidas.",
+          "baseName": "Mesa",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/MesaPrime.png"
+        },
+        {
+          "name": "Octavia Prime",
+          "note": "Escala infinito, controla e trivializa endurance quando bem jogada.",
+          "baseName": "Octavia",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/OctaviaPrime.png"
+        },
+        {
+          "name": "Gauss Prime",
+          "note": "Velocidade, defesa, buff de armas e clear fazem dele top meta.",
+          "baseName": "Gauss",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/GaussPrime.png"
+        },
+        {
+          "name": "Kullervo",
+          "note": "Melee crítico, dano em área e overguard com pouco atrito.",
+          "baseName": "Kullervo",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/PaxDuviricus.png"
+        },
+        {
+          "name": "Citrine",
+          "note": "Suporte, status, defesa de equipe e consistência absurda.",
+          "baseName": "Citrine",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Citrine.png"
+        },
+        {
+          "name": "Xaku Prime",
+          "note": "Escala muito bem com armas roubadas, strip e limpeza de mapa.",
+          "baseName": "Xaku",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/XakuPrime.png"
+        },
+        {
+          "name": "Temple",
+          "note": "Heat DPS e suporte musical; forte demais em squads e SP geral.",
+          "baseName": "Temple",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Temple.png"
+        }
+      ]
+    },
+    {
+      "tier": "A",
+      "label": "A Muito forte",
+      "items": [
+        {
+          "name": "Protea",
+          "note": "Mesmo kit absurdo da Prime; use até trocar para Protea Prime no investimento final.",
+          "baseName": "Protea",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Odalisk.png"
+        },
+        {
+          "name": "Wisp",
+          "note": "Reservoirs seguem top meta; a Prime é a melhor versão para forma/reactor.",
+          "baseName": "Wisp",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Wisp.png"
+        },
+        {
+          "name": "Saryn",
+          "note": "Nuke e status continuam excelentes; priorize Saryn Prime quando puder.",
+          "baseName": "Saryn",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Saryn.png"
+        },
+        {
+          "name": "Revenant",
+          "note": "Mesmer Skin segue seguro; Prime é a versão ideal para investimento definitivo.",
+          "baseName": "Revenant",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Revenant.png"
+        },
+        {
+          "name": "Mesa",
+          "note": "DPS direto ainda fortíssimo; Mesa Prime é o alvo final.",
+          "baseName": "Mesa",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Mesa.png"
+        },
+        {
+          "name": "Octavia",
+          "note": "Escala infinito e controla; Prime fica como prioridade de longo prazo.",
+          "baseName": "Octavia",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Octavia.png"
+        },
+        {
+          "name": "Gauss",
+          "note": "Velocidade, defesa e buff de armas; Prime é o upgrade recomendado.",
+          "baseName": "Gauss",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Gauss.png"
+        },
+        {
+          "name": "Wukong Prime",
+          "note": "Solo carry confortável, mobilidade e sobrevivência simples para conta inteira.",
+          "baseName": "Wukong",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/WukongPrime.png"
+        },
+        {
+          "name": "Khora Prime",
+          "note": "Farm, controle e dano alto; excelente quando a build de Whipclaw está pronta.",
+          "baseName": "Khora",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/KhoraPrime.png"
+        },
+        {
+          "name": "Nezha Prime",
+          "note": "Tank ágil e versátil, ótimo para Steel Path com baixo atrito.",
+          "baseName": "Nezha",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/NezhaPrime.png"
+        },
+        {
+          "name": "Rhino Prime",
+          "note": "Roar, Iron Skin e simplicidade seguem ótimos para início e boss.",
+          "baseName": "Rhino",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/RhinoPrime.png"
+        },
+        {
+          "name": "Baruuk Prime",
+          "note": "DPS melee fortíssimo quando a build embala, especialmente em conteúdo alto.",
+          "baseName": "Baruuk",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/BaruukPrime.png"
+        },
+        {
+          "name": "Xaku",
+          "note": "Escala muito bem e limpa mapa; Prime sobe por ser melhor investimento final.",
+          "baseName": "Xaku",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/BrokenFrame.png"
+        },
+        {
+          "name": "Gyre Prime",
+          "note": "Crítico elétrico e clear agressivo; quase S com setup e energia estável.",
+          "baseName": "Gyre",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/GyrePrime.png"
+        },
+        {
+          "name": "Harrow Prime",
+          "note": "Crítico, energia, proteção e buff de armas para jogadores ativos.",
+          "baseName": "Harrow",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/HarrowPrime.png"
+        },
+        {
+          "name": "Styanax",
+          "note": "Overguard, energia e dano em área.",
+          "baseName": "Styanax",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Styanax.png"
+        },
+        {
+          "name": "Titania Prime",
+          "note": "Rainha de missões rápidas, fissuras e objetivos que pedem velocidade.",
+          "baseName": "Titania",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/TitaniaPrime.png"
+        },
+        {
+          "name": "Volt Prime",
+          "note": "Top em Eidolon, speedrun, buff de armas e nukes específicos.",
+          "baseName": "Volt",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/VoltPrime.png"
+        },
+        {
+          "name": "Nova Prime",
+          "note": "Controle de velocidade e utilidade única em defesa, farm e missões longas.",
+          "baseName": "Nova",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/NovaPrime.png"
+        },
+        {
+          "name": "Mirage Prime",
+          "note": "Dano de armas absurdo e nuke situacional, mas depende do ambiente/build.",
+          "baseName": "Mirage",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/MiragePrime.png"
+        },
+        {
+          "name": "Jade",
+          "note": "Suporte ofensivo e dano confortável.",
+          "baseName": "Jade",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Jade.png"
+        },
+        {
+          "name": "Garuda Prime",
+          "note": "Slash, sustain e dano alto com ótimo teto de endgame.",
+          "baseName": "Garuda",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/GarudaPrime.png"
+        },
+        {
+          "name": "Gara Prime",
+          "note": "Defesa, redução de dano e scaling fortes em missões paradas.",
+          "baseName": "Gara",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/GaraPrime.png"
+        },
+        {
+          "name": "Mag Prime",
+          "note": "Controle, armor strip e sinergia absurda com projéteis certos.",
+          "baseName": "Mag",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/MagPrime.png"
+        },
+        {
+          "name": "Lavos Prime",
+          "note": "Status universal sem energia; excelente para conteúdo com restrição.",
+          "baseName": "Lavos",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/LavosPrime.png"
+        },
+        {
+          "name": "Hildryn Prime",
+          "note": "Tank de escudo, strip e suporte estável para Steel Path.",
+          "baseName": "Hildryn",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/HildrynPrime.png"
+        },
+        {
+          "name": "Yareli Prime",
+          "note": "Secundárias ficam muito fortes com Merulina e conforto melhorado.",
+          "baseName": "Yareli",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/YareliPrime.png"
+        },
+        {
+          "name": "Qorvex",
+          "note": "Controle, radiação e boa resistência.",
+          "baseName": "Qorvex",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Qorvex.png"
+        },
+        {
+          "name": "Nidus Prime",
+          "note": "Tanque escalável e forte em endurance; começa mais lento que os S.",
+          "baseName": "Nidus",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/NidusPrime.png"
+        },
+        {
+          "name": "Caliban Prime",
+          "note": "Strip, summons e sobrevivência de equipe melhores após reworks.",
+          "baseName": "Caliban",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/CalibanPrime.png"
+        },
+        {
+          "name": "Nokko",
+          "note": "Viral, sleep, energia/força e nuke com Sporespring; ótimo SP com setup.",
+          "baseName": "Nokko",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Nokko.png"
+        },
+        {
+          "name": "Oraxia",
+          "note": "Stealth, vulnerabilidade de dano, Toxin em armas e mobilidade forte.",
+          "baseName": "Oraxia",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Oraxia.png"
+        },
+        {
+          "name": "Follie",
+          "note": "Dano e controle por Inkblot/Shadowgraph; forte, mas exige leitura da missão.",
+          "baseName": "Follie",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Inkblot.png"
+        },
+        {
+          "name": "Uriel",
+          "note": "Kit recente de dano/controle, promissor e já viável em SP.",
+          "baseName": "Uriel",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Demonframe.png"
+        },
+        {
+          "name": "Cyte-09",
+          "note": "Sniper exaltado poderoso; top no nicho, menos universal.",
+          "baseName": "Cyte-09",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Frumentarius.png"
+        },
+        {
+          "name": "Voruna Prime",
+          "note": "Status, melee e sobrevivência agressiva; excelente após Prime.",
+          "baseName": "Voruna",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/VorunaPrime.png"
+        },
+        {
+          "name": "Sevagoth Prime",
+          "note": "Muito forte com investimento pesado; Gloom e Shadow recompensam forma alta.",
+          "baseName": "Sevagoth",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/SevagothPrime.png"
+        }
+      ]
+    },
+    {
+      "tier": "B",
+      "label": "B Bom",
+      "items": [
+        {
+          "name": "Wukong",
+          "note": "Solo carry confortável, mas a versão normal perde prioridade para Wukong Prime.",
+          "baseName": "Wukong",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Wukong.png"
+        },
+        {
+          "name": "Khora",
+          "note": "Farm e controle fortes; Khora Prime é a versão que vale maximizar.",
+          "baseName": "Khora",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Khora.png"
+        },
+        {
+          "name": "Nezha",
+          "note": "Tank ágil e simples; Prime é o investimento preferido.",
+          "baseName": "Nezha",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Nezha.png"
+        },
+        {
+          "name": "Rhino",
+          "note": "Roar e Iron Skin seguem úteis; Prime é melhor destino de recursos.",
+          "baseName": "Rhino",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Rhino.png"
+        },
+        {
+          "name": "Baruuk",
+          "note": "DPS melee muito forte com setup; Prime vale mais no endgame.",
+          "baseName": "Baruuk",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Pacifist.png"
+        },
+        {
+          "name": "Gyre",
+          "note": "Clear elétrico forte; Prime reduz a prioridade da versão normal.",
+          "baseName": "Gyre",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Gyre.png"
+        },
+        {
+          "name": "Harrow",
+          "note": "Crítico, energia e proteção bons; Prime é a versão recomendada.",
+          "baseName": "Harrow",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Harrow.png"
+        },
+        {
+          "name": "Titania",
+          "note": "Excelente para missões rápidas; Prime é a opção final.",
+          "baseName": "Titania",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Titania.png"
+        },
+        {
+          "name": "Volt",
+          "note": "Ótimo em speedrun, Eidolon e buffs; Prime é o melhor investimento.",
+          "baseName": "Volt",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Volt.png"
+        },
+        {
+          "name": "Nova",
+          "note": "Controle de velocidade único; Prime fica acima por investimento.",
+          "baseName": "Nova",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Nova.png"
+        },
+        {
+          "name": "Mirage",
+          "note": "Dano alto e nuke situacional; Prime é mais interessante para build final.",
+          "baseName": "Mirage",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Mirage.png"
+        },
+        {
+          "name": "Garuda",
+          "note": "Slash e sustain fortes; Prime é o destino de forma.",
+          "baseName": "Garuda",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Garuda.png"
+        },
+        {
+          "name": "Gara",
+          "note": "Defesa e scaling bons; Prime é melhor investimento.",
+          "baseName": "Gara",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Gara.png"
+        },
+        {
+          "name": "Mag",
+          "note": "Controle e armor strip fortes; Prime é preferível quando disponível.",
+          "baseName": "Mag",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Mag.png"
+        },
+        {
+          "name": "Lavos",
+          "note": "Status universal sem energia; Prime é o upgrade ideal.",
+          "baseName": "Lavos",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Lavos.png"
+        },
+        {
+          "name": "Hildryn",
+          "note": "Tank de escudo e strip; Prime vale mais no endgame.",
+          "baseName": "Hildryn",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/IronFrame.png"
+        },
+        {
+          "name": "Yareli",
+          "note": "Secundárias fortes com Merulina; Prime é melhor investimento.",
+          "baseName": "Yareli",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Yareli.png"
+        },
+        {
+          "name": "Nidus",
+          "note": "Endurance forte, mas lento; Prime sobe na prioridade.",
+          "baseName": "Nidus",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Nidus.png"
+        },
+        {
+          "name": "Caliban",
+          "note": "Strip e summons úteis; Prime é a versão preferida.",
+          "baseName": "Caliban",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Caliban.png"
+        },
+        {
+          "name": "Voruna",
+          "note": "Status, melee e sobrevivência agressiva; ótima, mas hoje a Prime é melhor investimento.",
+          "baseName": "Voruna",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Voruna.png"
+        },
+        {
+          "name": "Sevagoth",
+          "note": "Muito forte, porém caro; Prime justifica melhor o investimento.",
+          "baseName": "Sevagoth",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Wraith.png"
+        },
+        {
+          "name": "Dagath",
+          "note": "Dano bom, menos universal.",
+          "baseName": "Dagath",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Dagath.png"
+        },
+        {
+          "name": "Frost Prime",
+          "note": "Defesa, armor strip e controle bons após reworks, mas menos universal.",
+          "baseName": "Frost",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/FrostPrime.png"
+        },
+        {
+          "name": "Ember Prime",
+          "note": "Boa limpeza em área, mas pede energia e gerenciamento de heat.",
+          "baseName": "Ember",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/EmberPrime.png"
+        },
+        {
+          "name": "Hydroid Prime",
+          "note": "Farm e corrosivo úteis, forte em nichos de loot e controle.",
+          "baseName": "Hydroid",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/HydroidPrime.png"
+        },
+        {
+          "name": "Zephyr Prime",
+          "note": "Defesa e dano com projéteis excelentes em missões certas.",
+          "baseName": "Zephyr",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/ZephyrPrime.png"
+        },
+        {
+          "name": "Nekros Prime",
+          "note": "Farm essencial e utilidade alta, mas combate direto mediano.",
+          "baseName": "Nekros",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/NekrosPrime.png"
+        },
+        {
+          "name": "Nyx Prime",
+          "note": "Controle e strip bons, exigindo ritmo e atenção.",
+          "baseName": "Nyx",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/NyxPrime.png"
+        },
+        {
+          "name": "Equinox Prime",
+          "note": "Versátil e forte com setup, mas exige investimento e forma.",
+          "baseName": "Equinox",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/EquinoxPrime.png"
+        },
+        {
+          "name": "Valkyr Prime",
+          "note": "Melee segura e invulnerabilidade situacional, menos eficiente para geral.",
+          "baseName": "Valkyr",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/ValkyrPrime.png"
+        },
+        {
+          "name": "Limbo Prime",
+          "note": "Controle poderoso em missões certas; ruim quando atrapalha o ritmo do squad.",
+          "baseName": "Limbo",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/LimboPrime.png"
+        },
+        {
+          "name": "Koumei",
+          "note": "Status e buffs aleatórios, forte em mãos pacientes.",
+          "baseName": "Koumei",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Koumei.png"
+        },
+        {
+          "name": "Ash Prime",
+          "note": "Assassinato, slash e invisibilidade fortes, mas com ritmo específico.",
+          "baseName": "Ash",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/AshPrime.png"
+        },
+        {
+          "name": "Atlas Prime",
+          "note": "Melee/tank bom com stat-stick e setup moderno.",
+          "baseName": "Atlas",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/AtlasPrime.png"
+        },
+        {
+          "name": "Grendel Prime",
+          "note": "Tank e suporte sólido, menos universal que os A.",
+          "baseName": "Grendel",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/GrendelPrime.png"
+        }
+      ]
+    },
+    {
+      "tier": "C",
+      "label": "C Nicho",
+      "items": [
+        {
+          "name": "Frost",
+          "note": "Defesa e strip bons, mas Prime tem prioridade maior.",
+          "baseName": "Frost",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Frost.png"
+        },
+        {
+          "name": "Ember",
+          "note": "Clear em área funcional; Prime tem melhor valor de investimento.",
+          "baseName": "Ember",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Ember.png"
+        },
+        {
+          "name": "Hydroid",
+          "note": "Farm e corrosivo úteis; Prime é melhor para manter build definitiva.",
+          "baseName": "Hydroid",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Hydroid.png"
+        },
+        {
+          "name": "Zephyr",
+          "note": "Defesa e projéteis fortes em nichos; Prime é preferível.",
+          "baseName": "Zephyr",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Zephyr.png"
+        },
+        {
+          "name": "Nekros",
+          "note": "Farm essencial, mas Prime vale mais para build permanente.",
+          "baseName": "Nekros",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Nekros.png"
+        },
+        {
+          "name": "Nyx",
+          "note": "Controle e strip bons; Prime é melhor se você gosta do kit.",
+          "baseName": "Nyx",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Nyx.png"
+        },
+        {
+          "name": "Equinox",
+          "note": "Versátil, mas setup pesado; Prime é melhor destino de forma.",
+          "baseName": "Equinox",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Equinox.png"
+        },
+        {
+          "name": "Valkyr",
+          "note": "Melee segura e invulnerável em nichos; Prime é preferível.",
+          "baseName": "Valkyr",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Valkyr.png"
+        },
+        {
+          "name": "Limbo",
+          "note": "Controle poderoso em missões certas; Prime tem prioridade maior.",
+          "baseName": "Limbo",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Limbo.png"
+        },
+        {
+          "name": "Ash",
+          "note": "Slash e assassinato bons, mas Prime vale mais.",
+          "baseName": "Ash",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Ash.png"
+        },
+        {
+          "name": "Atlas",
+          "note": "Tank/melee bom com stat-stick; Prime é melhor investimento.",
+          "baseName": "Atlas",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Atlas.png"
+        },
+        {
+          "name": "Grendel",
+          "note": "Tank e suporte sólido; Prime é melhor destino de recursos.",
+          "baseName": "Grendel",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Grendel.png"
+        },
+        {
+          "name": "Trinity Prime",
+          "note": "Suporte clássico ainda funcional, mas menos necessário no meta atual.",
+          "baseName": "Trinity",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/TrinityPrime.png"
+        },
+        {
+          "name": "Trinity",
+          "note": "Suporte clássico, menos necessário hoje.",
+          "baseName": "Trinity",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Trinity.png"
+        },
+        {
+          "name": "Vauban Prime",
+          "note": "Controle excelente, porém frágil e dependente do tipo de missão.",
+          "baseName": "Vauban",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/VaubanPrime.png"
+        },
+        {
+          "name": "Vauban",
+          "note": "Controle excelente, frágil fora do nicho.",
+          "baseName": "Vauban",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Vauban.png"
+        },
+        {
+          "name": "Ivara Prime",
+          "note": "Stealth e caça excelentes, lenta para uso geral.",
+          "baseName": "Ivara",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/IvaraPrime.png"
+        },
+        {
+          "name": "Ivara",
+          "note": "Stealth e caça, lenta para geral.",
+          "baseName": "Ivara",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Ivara.png"
+        },
+        {
+          "name": "Chroma Prime",
+          "note": "Buff e boss específicos; perdeu prioridade no meta moderno.",
+          "baseName": "Chroma",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/ChromaPrime.png"
+        },
+        {
+          "name": "Chroma",
+          "note": "Bom para nichos de buff e bosses específicos.",
+          "baseName": "Chroma",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Chroma.png"
+        },
+        {
+          "name": "Banshee Prime",
+          "note": "Multiplicador de dano altíssimo, mas frágil e pouco confortável.",
+          "baseName": "Banshee",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/BansheePrime.png"
+        },
+        {
+          "name": "Banshee",
+          "note": "Multiplica dano, mas é frágil.",
+          "baseName": "Banshee",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Banshee.png"
+        },
+        {
+          "name": "Inaros Prime",
+          "note": "Tanque simples e seguro, mas com pouca utilidade para equipe.",
+          "baseName": "Inaros",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/InarosPrime.png"
+        },
+        {
+          "name": "Excalibur Umbra",
+          "note": "Versão mais completa do Excalibur base.",
+          "baseName": "Excalibur",
+          "variant": "Umbra",
+          "variantTags": [
+            "umbra"
+          ],
+          "image": "https://cdn.warframestat.us/img/ExcaliburUmbra.png"
+        }
+      ]
+    },
+    {
+      "tier": "D",
+      "label": "D Baixa prioridade",
+      "items": [
+        {
+          "name": "Loki Prime",
+          "note": "Stealth útil, mas kit envelhecido e pouca prioridade de investimento.",
+          "baseName": "Loki",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/LokiPrime.png"
+        },
+        {
+          "name": "Loki",
+          "note": "Stealth útil, kit envelhecido.",
+          "baseName": "Loki",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Loki.png"
+        },
+        {
+          "name": "Oberon Prime",
+          "note": "Suporte híbrido superado por opções modernas.",
+          "baseName": "Oberon",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/OberonPrime.png"
+        },
+        {
+          "name": "Oberon",
+          "note": "Suporte superado por opções modernas.",
+          "baseName": "Oberon",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Oberon.png"
+        },
+        {
+          "name": "Inaros",
+          "note": "Tanque simples e seguro, mas pouca utilidade; Prime também é nicho.",
+          "baseName": "Inaros",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Inaros.png"
+        },
+        {
+          "name": "Excalibur Prime",
+          "note": "Founder-only e pouco prático como recomendação; Umbra é a opção relevante para quase todo mundo.",
+          "baseName": "Excalibur",
+          "variant": "Prime",
+          "variantTags": [
+            "prime"
+          ],
+          "image": "https://cdn.warframestat.us/img/ExcaliburPrime.png"
+        },
+        {
+          "name": "Excalibur",
+          "note": "Bom para começo, cai no endgame.",
+          "baseName": "Excalibur",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": "https://cdn.warframestat.us/img/Excalibur.png"
+        }
+      ]
+    },
+    {
+      "tier": "U",
+      "label": "NovoSem nota",
+      "items": [
+        {
+          "name": "Próximos Warframes",
+          "note": "Novos lançamentos entram aqui até haver dados suficientes de Steel Path e Archimedea.",
+          "baseName": "Próximos Warframes",
+          "variant": "Normal",
+          "variantTags": [
+            "normal"
+          ],
+          "image": ""
+        }
+      ]
+    }
+  ],
+  "weapons": [
+    {
+      "id": "primary",
+      "title": "Armas Primárias",
+      "description": "Rifles, shotguns, arcos e lançadores para clear, boss e Steel Path.",
+      "rows": [
+        {
+          "tier": "S",
+          "label": "S Prioridade",
+          "items": [
+            {
+              "name": "Torid Incarnon",
+              "note": "Melhor clear geral: beam, nuvens e escala absurda.",
+              "baseName": "Torid",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Torid.png"
+            },
+            {
+              "name": "Latron Incarnon",
+              "note": "Dano bruto, ricochete e armor strip confiável.",
+              "baseName": "Latron",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Latron.png"
+            },
+            {
+              "name": "Burston Incarnon",
+              "note": "Rifle Incarnon de crítico alto e ótimo conforto.",
+              "baseName": "Burston",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Burston.png"
+            },
+            {
+              "name": "Felarx",
+              "note": "Shotgun de boss e alvo pesado, ainda prioridade.",
+              "baseName": "Felarx",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/ZarimanPumpShotgun.png"
+            },
+            {
+              "name": "Phenmor",
+              "note": "Primária Zariman sólida, estável e ótima para alto nível.",
+              "baseName": "Phenmor",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/ZarimanSemiAutoRifle.png"
+            },
+            {
+              "name": "Tenet Arca Plasmor",
+              "note": "Clear simples, ricochete e dano enorme em corredores.",
+              "baseName": "Arca Plasmor",
+              "variant": "Tenet",
+              "variantTags": [
+                "tenet"
+              ],
+              "image": "https://cdn.warframestat.us/img/CrpBEArcaPlasmor.png"
+            }
+          ]
+        },
+        {
+          "tier": "A",
+          "label": "A Excelente",
+          "items": [
+            {
+              "name": "Miter Incarnon",
+              "note": "Clear forte, scaling e utilidade excelente.",
+              "baseName": "Miter",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Miter.png"
+            },
+            {
+              "name": "Strun Incarnon",
+              "note": "Shotgun top para alvo pesado e SP geral.",
+              "baseName": "Strun",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Strun.png"
+            },
+            {
+              "name": "Boltor Incarnon",
+              "note": "Primária Incarnon versátil com dano muito alto.",
+              "baseName": "Boltor",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Boltor.png"
+            },
+            {
+              "name": "Coda Bassocyst",
+              "note": "Shotgun Coda de maior prioridade: mites, mercy e buff forte.",
+              "baseName": "Bassocyst",
+              "variant": "Coda",
+              "variantTags": [
+                "coda"
+              ],
+              "image": "https://cdn.warframestat.us/img/1999InfShotgunWeapon.png"
+            },
+            {
+              "tier": "A",
+              "name": "Cedo Prime",
+              "note": "Versão Prime do Cedo; primer e clear excelentes, muito forte para SP geral.",
+              "baseName": "Cedo",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/CedoPrime.png"
+            },
+            {
+              "name": "Cedo",
+              "note": "Status primer e dano versátil.",
+              "baseName": "Cedo",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/Cedo.png"
+            },
+            {
+              "tier": "A",
+              "name": "Trumna Prime",
+              "note": "Rifle pesado com alt-fire explosivo absurdo quando carregado.",
+              "baseName": "Trumna",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/TrumnaPrime.png"
+            },
+            {
+              "name": "Trumna",
+              "note": "Rifle pesado com alt-fire explosivo.",
+              "baseName": "Trumna",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/ThanotechRifle.png"
+            },
+            {
+              "name": "Dread Incarnon",
+              "note": "Arco Incarnon forte, com slash e ótimo alvo único.",
+              "baseName": "Dread",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Dread.png"
+            },
+            {
+              "name": "Nataruk",
+              "note": "Arco grátis, munição infinita e ótimo em progressão/endurance.",
+              "baseName": "Nataruk",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/OmicrusBow.png"
+            },
+            {
+              "name": "Fulmin Prime",
+              "note": "Rifle silencioso e versátil para geral.",
+              "baseName": "Fulmin",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/FulminPrime.png"
+            },
+            {
+              "name": "Rubico Prime",
+              "note": "Chefe e Eidolon, nicho valioso.",
+              "baseName": "Rubico",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/RubicoPrime.png"
+            },
+            {
+              "name": "Acceltra Prime",
+              "note": "Explosões rápidas e ótimo conforto.",
+              "baseName": "Acceltra",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/AcceltraPrime.png"
+            },
+            {
+              "name": "Kuva Bramma",
+              "note": "Explosivo ainda forte; munição exige gestão.",
+              "baseName": "Bramma",
+              "variant": "Kuva",
+              "variantTags": [
+                "kuva"
+              ],
+              "image": "https://cdn.warframestat.us/img/KuvaGrnBow.png"
+            },
+            {
+              "name": "Kuva Hek",
+              "note": "Top para bosses e alvo único, menos universal para clear.",
+              "baseName": "Hek",
+              "variant": "Kuva",
+              "variantTags": [
+                "kuva"
+              ],
+              "image": "https://cdn.warframestat.us/img/KuvaHek.png"
+            },
+            {
+              "name": "Kuva Tonkor",
+              "note": "Lançador forte, simples e eficiente.",
+              "baseName": "Tonkor",
+              "variant": "Kuva",
+              "variantTags": [
+                "kuva"
+              ],
+              "image": "https://cdn.warframestat.us/img/KuvaLichTonkorSkin.png"
+            },
+            {
+              "name": "Kuva Zarr",
+              "note": "Clear alto quando a economia de munição está resolvida.",
+              "baseName": "Zarr",
+              "variant": "Kuva",
+              "variantTags": [
+                "kuva"
+              ],
+              "image": "https://cdn.warframestat.us/img/KuvaZarr.png"
+            },
+            {
+              "name": "Tenet Envoy",
+              "note": "Explosivo guiado com clear excelente.",
+              "baseName": "Envoy",
+              "variant": "Tenet",
+              "variantTags": [
+                "tenet"
+              ],
+              "image": "https://cdn.warframestat.us/img/CrpBriefcaseLauncher.png"
+            },
+            {
+              "name": "Tenet Glaxion",
+              "note": "Feixe gelado excelente para status e clear.",
+              "baseName": "Glaxion",
+              "variant": "Tenet",
+              "variantTags": [
+                "tenet"
+              ],
+              "image": "https://cdn.warframestat.us/img/CrpBEGlaxion.png"
+            }
+          ]
+        },
+        {
+          "tier": "B",
+          "label": "B Forte",
+          "items": [
+            {
+              "tier": "B",
+              "name": "Aeolak",
+              "note": "Rifle híbrido versátil com bom clear, mas sem o teto das Incarnon top.",
+              "baseName": "Aeolak",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/TnRifleErsatzWeapon.png"
+            },
+            {
+              "name": "Amprex",
+              "note": "Raio em cadeia bom para hordas.",
+              "baseName": "Amprex",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/Amprex.png"
+            },
+            {
+              "tier": "B",
+              "name": "Astilla Prime",
+              "note": "Shotgun de vidro com slash/status, boa para uso geral com build certa.",
+              "baseName": "Astilla",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/AstillaPrime.png"
+            },
+            {
+              "name": "Boar Incarnon",
+              "note": "Bom dano, pede build e posicionamento.",
+              "baseName": "Boar",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Boar.png"
+            },
+            {
+              "name": "Braton Incarnon",
+              "note": "Rifle confiável e fácil de usar.",
+              "baseName": "Braton",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Braton.png"
+            },
+            {
+              "name": "Bubonico",
+              "note": "Forte, mas superado pela versão Coda em prioridade.",
+              "baseName": "Bubonico",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/InfArmCannon.png"
+            },
+            {
+              "name": "Coda Bubonico",
+              "note": "Arm-cannon Coda com status e clear fortes; exige conforto de munição.",
+              "baseName": "Bubonico",
+              "variant": "Coda",
+              "variantTags": [
+                "coda"
+              ],
+              "image": "https://cdn.warframestat.us/img/CodaBubonico.png"
+            },
+            {
+              "name": "Coda Sporothrix",
+              "note": "Sniper Coda com Viral/AoE; ótimo em setup de status e Mag.",
+              "baseName": "Sporothrix",
+              "variant": "Coda",
+              "variantTags": [
+                "coda"
+              ],
+              "image": "https://cdn.warframestat.us/img/CodaSporothrix.png"
+            },
+            {
+              "name": "Coda Synapse",
+              "note": "Beam crítico corrosivo forte em alvo único, com clear limitado.",
+              "baseName": "Synapse",
+              "variant": "Coda",
+              "variantTags": [
+                "coda"
+              ],
+              "image": "https://cdn.warframestat.us/img/CodaSynapse.png"
+            },
+            {
+              "tier": "B",
+              "name": "Corinth Prime",
+              "note": "Shotgun confortável com alt-fire em área, boa sem depender de Incarnon.",
+              "baseName": "Corinth",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/CorinthPrime.png"
+            },
+            {
+              "tier": "B",
+              "name": "Daikyu",
+              "note": "Arco de alvo único e utilidade com Amalgam Daikyu para melee nikana.",
+              "baseName": "Daikyu",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/Daikyu.png"
+            },
+            {
+              "name": "Dera Incarnon",
+              "note": "Beam moderno, bom com status.",
+              "baseName": "Dera",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Dera.png"
+            },
+            {
+              "name": "Enkaus",
+              "note": "Assinatura da Follie; forte com Inkblot, mais nichada fora dela.",
+              "baseName": "Enkaus",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/TnInkRifleWeapon.png"
+            },
+            {
+              "name": "Gorgon Incarnon",
+              "note": "Divertida e usável, mas não prioridade.",
+              "baseName": "Gorgon",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Gorgon.png"
+            },
+            {
+              "name": "Ignis Wraith",
+              "note": "Ótima para conteúdo médio e farm, cai no endgame duro.",
+              "baseName": "Ignis",
+              "variant": "Wraith",
+              "variantTags": [
+                "wraith"
+              ],
+              "image": "https://cdn.warframestat.us/img/IgnisWraith.png"
+            },
+            {
+              "name": "Kuva Chakkhurr",
+              "note": "Crítico alto e headshots fortes.",
+              "baseName": "Chakkhurr",
+              "variant": "Kuva",
+              "variantTags": [
+                "kuva"
+              ],
+              "image": "https://cdn.warframestat.us/img/GrnKuvaLichRifleWeapon.png"
+            },
+            {
+              "tier": "B",
+              "name": "Kuva Kohm",
+              "note": "Shotgun de status forte, ótima com munição e dano por facção ajustados.",
+              "baseName": "Kohm",
+              "variant": "Kuva",
+              "variantTags": [
+                "kuva"
+              ],
+              "image": "https://cdn.warframestat.us/img/KuvaLichKohmSkin.png"
+            },
+            {
+              "name": "Kuva Ogris",
+              "note": "Área forte, brilha com Napalm.",
+              "baseName": "Ogris",
+              "variant": "Kuva",
+              "variantTags": [
+                "kuva"
+              ],
+              "image": "https://cdn.warframestat.us/img/KuvaLichOgrisSkin.png"
+            },
+            {
+              "name": "Perigale Prime",
+              "note": "Sniper da Voruna Prime, boa para precisão e alvos pesados.",
+              "baseName": "Perigale",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/PerigalePrime.png"
+            },
+            {
+              "name": "Phantasma Prime",
+              "note": "Status e dano contínuo fortes.",
+              "baseName": "Phantasma",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/PhantasmaPrime.png"
+            },
+            {
+              "name": "Proboscis Cernos",
+              "note": "Controle e agrupamento úteis.",
+              "baseName": "Proboscis Cernos",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/DerelictCernos.png"
+            },
+            {
+              "name": "Soma Incarnon",
+              "note": "Confortável, menos explosiva.",
+              "baseName": "Soma",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Soma.png"
+            },
+            {
+              "name": "Sybaris Incarnon",
+              "note": "Burst forte, mas pede mira e build.",
+              "baseName": "Sybaris",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Sybaris.png"
+            },
+            {
+              "tier": "B",
+              "name": "Tenet Flux Rifle",
+              "note": "Feixe com slash/status sólido; menos explosiva, mas muito consistente.",
+              "baseName": "Flux Rifle",
+              "variant": "Tenet",
+              "variantTags": [
+                "tenet"
+              ],
+              "image": "https://cdn.warframestat.us/img/CrpBEFluxRifle.png"
+            },
+            {
+              "name": "Tenet Quanta",
+              "note": "Boa utilidade e dano, ainda abaixo das Incarnon top.",
+              "baseName": "Quanta",
+              "variant": "Tenet",
+              "variantTags": [
+                "tenet"
+              ],
+              "image": "https://cdn.warframestat.us/img/TenetQuanta.png"
+            }
+          ]
+        },
+        {
+          "tier": "C",
+          "label": "C Situacional",
+          "items": [
+            {
+              "tier": "C",
+              "name": "Baza Prime",
+              "note": "Rifle silencioso confortável, bom para gosto pessoal e stealth.",
+              "baseName": "Baza",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/BazaPrime.png"
+            },
+            {
+              "name": "Coda Hema",
+              "note": "Lifesteal e munição por vida; nicho e pede build específica.",
+              "baseName": "Hema",
+              "variant": "Coda",
+              "variantTags": [
+                "coda"
+              ],
+              "image": "https://cdn.warframestat.us/img/CodaHema.png"
+            },
+            {
+              "tier": "C",
+              "name": "Kuva Hind",
+              "note": "Rifle Kuva flexível, bom mas ultrapassado por Incarnon e explosivas.",
+              "baseName": "Hind",
+              "variant": "Kuva",
+              "variantTags": [
+                "kuva"
+              ],
+              "image": "https://cdn.warframestat.us/img/KuvaHind.png"
+            },
+            {
+              "tier": "C",
+              "name": "Kuva Quartakk",
+              "note": "Rifle Kuva com burst forte, porém menos prático que alternativas atuais.",
+              "baseName": "Quartakk",
+              "variant": "Kuva",
+              "variantTags": [
+                "kuva"
+              ],
+              "image": "https://cdn.warframestat.us/img/KuvaLichQuartakkSkin.png"
+            },
+            {
+              "tier": "C",
+              "name": "Panthera Prime",
+              "note": "Serra divertida e útil em nichos, baixa prioridade para Steel Path.",
+              "baseName": "Panthera",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/PantheraPrime.png"
+            },
+            {
+              "name": "Paris Incarnon",
+              "note": "Bom, mas concorre com arcos melhores.",
+              "baseName": "Paris",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Paris.png"
+            },
+            {
+              "name": "Scourge Prime",
+              "note": "Utilidade boa para headshots e status.",
+              "baseName": "Scourge",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/ScourgePrime.png"
+            },
+            {
+              "tier": "C",
+              "name": "Tenora Prime",
+              "note": "Rifle automático preciso, funcional mas exige investimento para brilhar.",
+              "baseName": "Tenora",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/TenoraPrime.png"
+            },
+            {
+              "tier": "C",
+              "name": "Tiberon Prime",
+              "note": "Burst/auto/semi versátil, hoje mais coleção forte que meta.",
+              "baseName": "Tiberon",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/TiberonPrime.png"
+            },
+            {
+              "name": "Tigris Prime",
+              "note": "Dano alto, ritmo antigo e mais limitado.",
+              "baseName": "Tigris",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/TigrisPrime.png"
+            },
+            {
+              "name": "Vectis Prime",
+              "note": "Sniper bom, uso específico.",
+              "baseName": "Vectis",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/VectisPrime.png"
+            },
+            {
+              "tier": "C",
+              "name": "Zhuge Prime",
+              "note": "Besta automática com dano ok, mas sofre perto das opções modernas.",
+              "baseName": "Zhuge",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/ZhugePrime.png"
+            }
+          ]
+        },
+        {
+          "tier": "D",
+          "label": "D Trocar cedo",
+          "items": [
+            {
+              "name": "Dera",
+              "note": "Superada por opções modernas.",
+              "baseName": "Dera",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/Dera.png"
+            },
+            {
+              "name": "Harpak",
+              "note": "Nicho pequeno.",
+              "baseName": "Harpak",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/Harpak.png"
+            },
+            {
+              "name": "MK1-Braton",
+              "note": "Serve para começo e maestria.",
+              "baseName": "MK1-Braton",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/Braton.png"
+            },
+            {
+              "name": "MK1-Paris",
+              "note": "Arco inicial, troque quando possível.",
+              "baseName": "MK1-Paris",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/Paris.png"
+            },
+            {
+              "name": "Snipetron",
+              "note": "Valor baixo fora de coleção/maestria.",
+              "baseName": "Snipetron",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/Snipetron.png"
+            },
+            {
+              "name": "Strun",
+              "note": "Bom para começo, sem Incarnon fica para trás.",
+              "baseName": "Strun",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/Strun.png"
+            }
+          ]
+        },
+        {
+          "tier": "U",
+          "label": "NovoSem nota",
+          "items": [
+            {
+              "name": "Novas primárias 42.x",
+              "note": "Entram aqui até aparecer consenso fora de builds dedicadas.",
+              "baseName": "Novas primárias 42.x",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/InfBarrelEgg.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "secondary",
+      "title": "Armas Secundárias",
+      "description": "Pistolas e armas de suporte para primer, dano em cadeia e alvo único.",
+      "rows": [
+        {
+          "tier": "S",
+          "label": "S Prioridade",
+          "items": [
+            {
+              "name": "Dual Toxocyst Incarnon",
+              "note": "Secundária meta-defining para hordas e alvo único.",
+              "baseName": "Dual Toxocyst",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/DualToxocyst.png"
+            },
+            {
+              "name": "Laetum",
+              "note": "Explosão, dano bruto e consistência em qualquer missão alta.",
+              "baseName": "Laetum",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/ZarimanHeavyPistol.png"
+            },
+            {
+              "name": "Lex Incarnon",
+              "note": "Pocket sniper com burst absurdo e scaling excelente.",
+              "baseName": "Lex",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Lex.png"
+            },
+            {
+              "name": "Kuva Nukor",
+              "note": "Primer e dano em cadeia ainda absurdamente úteis.",
+              "baseName": "Nukor",
+              "variant": "Kuva",
+              "variantTags": [
+                "kuva"
+              ],
+              "image": "https://cdn.warframestat.us/img/KuvaNukor.png"
+            },
+            {
+              "name": "Ocucor",
+              "note": "Clear excelente com Sentient Surge e setup certo.",
+              "baseName": "Ocucor",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/CrpSentExperimentPistol.png"
+            },
+            {
+              "name": "Epitaph Prime",
+              "note": "Primer premium e disparo carregado muito forte.",
+              "baseName": "Epitaph",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/EpitaphPrime.png"
+            }
+          ]
+        },
+        {
+          "tier": "A",
+          "label": "A Excelente",
+          "items": [
+            {
+              "name": "Tenet Cycron",
+              "note": "Feixe sem munição, status e conforto para missões longas.",
+              "baseName": "Cycron",
+              "variant": "Tenet",
+              "variantTags": [
+                "tenet"
+              ],
+              "image": "https://cdn.warframestat.us/img/CrpBECycron.png"
+            },
+            {
+              "name": "Coda Catabolyst",
+              "note": "Grenades triplas no reload vazio; dano alto com setup certo.",
+              "baseName": "Catabolyst",
+              "variant": "Coda",
+              "variantTags": [
+                "coda"
+              ],
+              "image": "https://cdn.warframestat.us/img/CodaCatabolyst.png"
+            },
+            {
+              "name": "Furis Incarnon",
+              "note": "Dano, sustain e excelente valor de investimento.",
+              "baseName": "Furis",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Furis.png"
+            },
+            {
+              "name": "Angstrum Incarnon",
+              "note": "Explosões fortes e boa escala.",
+              "baseName": "Angstrum",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Angstrum.png"
+            },
+            {
+              "name": "Atomos Incarnon",
+              "note": "Secundária em área forte, especialmente com status.",
+              "baseName": "Atomos",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Atomos.png"
+            },
+            {
+              "name": "Grimoire",
+              "note": "Utilidade única com tomos e buffs.",
+              "baseName": "Grimoire",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/Grimoire.png"
+            },
+            {
+              "name": "Sporelacer",
+              "note": "Kitgun explosiva ainda ótima para clear e Arbitrations.",
+              "baseName": "Sporelacer",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/TnBayonetRifle.png"
+            },
+            {
+              "name": "Tenet Plinx",
+              "note": "Alt-fire forte e confortável para alvo pesado.",
+              "baseName": "Plinx",
+              "variant": "Tenet",
+              "variantTags": [
+                "tenet"
+              ],
+              "image": "https://cdn.warframestat.us/img/TenetPlinx.png"
+            },
+            {
+              "name": "Akarius Prime",
+              "note": "Explosiva, prática e forte para clear.",
+              "baseName": "Akarius",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/AkariusPrime.png"
+            },
+            {
+              "tier": "A",
+              "name": "Sepulcrum",
+              "note": "Secundária Entrati pesada com burst excelente e alt-fire forte.",
+              "baseName": "Sepulcrum",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/ThanotechPistol.png"
+            }
+          ]
+        },
+        {
+          "tier": "B",
+          "label": "B Forte",
+          "items": [
+            {
+              "tier": "B",
+              "name": "Akstiletto Prime",
+              "note": "Dual pistols clássicas, confortáveis e ainda eficientes com boa build.",
+              "baseName": "Akstiletto",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/AkstiletoPrime.png"
+            },
+            {
+              "name": "Despair Incarnon",
+              "note": "Boa opção de projéteis e slash.",
+              "baseName": "Despair",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Despair.png"
+            },
+            {
+              "tier": "B",
+              "name": "Hystrix Prime",
+              "note": "Status flexível por elemento, boa secundária utilitária.",
+              "baseName": "Hystrix",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/HystrixPrime.png"
+            },
+            {
+              "tier": "B",
+              "name": "Knell Prime",
+              "note": "Pistola de headshot com teto alto, ótima em mãos precisas.",
+              "baseName": "Knell",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/KnellPrime.png"
+            },
+            {
+              "name": "Kuva Brakk",
+              "note": "Shotgun secundária forte, mas sem o teto das Incarnon.",
+              "baseName": "Brakk",
+              "variant": "Kuva",
+              "variantTags": [
+                "kuva"
+              ],
+              "image": "https://cdn.warframestat.us/img/KuvaLichBrakkSkin.png"
+            },
+            {
+              "tier": "B",
+              "name": "Kuva Twin Stubbas",
+              "note": "Duas automáticas Kuva com bom dano e conforto, sem ser prioridade top.",
+              "baseName": "Twin Stubbas",
+              "variant": "Kuva",
+              "variantTags": [
+                "kuva"
+              ],
+              "image": "https://cdn.warframestat.us/img/KuvaLichStubbaSkin.png"
+            },
+            {
+              "name": "Dual Coda Torxica",
+              "note": "Cold e vulnerabilidade de dano; boa utilidade, menor clear bruto.",
+              "baseName": "Torxica",
+              "variant": "Coda",
+              "variantTags": [
+                "coda"
+              ],
+              "image": "https://cdn.warframestat.us/img/1999InfSporePistolWeapon.png"
+            },
+            {
+              "name": "Lato Incarnon",
+              "note": "Melhora muito a arma, mas é mais nichada.",
+              "baseName": "Lato",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Lato.png"
+            },
+            {
+              "name": "Pyrana Prime",
+              "note": "DPS bom e divertida, exige alcance curto.",
+              "baseName": "Pyrana",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/PyranaPrime.png"
+            },
+            {
+              "name": "Sicarus Incarnon",
+              "note": "Burst secundário sólido.",
+              "baseName": "Sicarus",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Sicarus.png"
+            },
+            {
+              "tier": "B",
+              "name": "Velox Prime",
+              "note": "Automática Prime consistente, boa para quem quer secundária simples.",
+              "baseName": "Velox",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/VeloxPrime.png"
+            },
+            {
+              "name": "Zylok Incarnon",
+              "note": "Dano bom, menos confortável que as top.",
+              "baseName": "Zylok",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/ConclaveLeverPistol.png"
+            }
+          ]
+        },
+        {
+          "tier": "C",
+          "label": "C Situacional",
+          "items": [
+            {
+              "tier": "C",
+              "name": "Aksomati Prime",
+              "note": "Crítico e cadência bons, mas precisa de investimento para acompanhar.",
+              "baseName": "Aksomati",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/AksomatiPrime.png"
+            },
+            {
+              "name": "Cestra Incarnon",
+              "note": "Boa curiosidade de Incarnon, menos meta.",
+              "baseName": "Cestra",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Cestra.png"
+            },
+            {
+              "name": "Gammacor Incarnon",
+              "note": "Agrupa inimigos, mas compete com opções melhores.",
+              "baseName": "Gammacor",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Gammacor.png"
+            },
+            {
+              "name": "Kunai Incarnon",
+              "note": "Funciona, mas não é prioridade.",
+              "baseName": "Kunai",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Kunai.png"
+            },
+            {
+              "tier": "C",
+              "name": "Magnus Prime",
+              "note": "Revólver Prime sólido, confortável, mas sem teto de Incarnon.",
+              "baseName": "Magnus",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/MagnusPrime.png"
+            },
+            {
+              "tier": "C",
+              "name": "Pandero Prime",
+              "note": "Boa pistola de burst, hoje mais nicho do que prioridade.",
+              "baseName": "Pandero",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/PanderoPrime.png"
+            },
+            {
+              "name": "Coda Pox",
+              "note": "Nuvem toxin/status útil para controle, mas dano baixo no endgame.",
+              "baseName": "Pox",
+              "variant": "Coda",
+              "variantTags": [
+                "coda"
+              ],
+              "image": "https://cdn.warframestat.us/img/CodaPox.png"
+            },
+            {
+              "name": "Coda Tysis",
+              "note": "Primer/status para alvo pesado; projétil lento e baixo conforto.",
+              "baseName": "Tysis",
+              "variant": "Coda",
+              "variantTags": [
+                "coda"
+              ],
+              "image": "https://cdn.warframestat.us/img/CodaTysis.png"
+            },
+            {
+              "tier": "C",
+              "name": "Twin Grakatas",
+              "note": "Divertida e rápida, exige build e munição para render no endgame.",
+              "baseName": "Twin Grakatas",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/TwinGrakatas.png"
+            },
+            {
+              "name": "Vasto Incarnon",
+              "note": "Dano alto em janela curta.",
+              "baseName": "Vasto",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Vasto.png"
+            },
+            {
+              "tier": "C",
+              "name": "Zakti Prime",
+              "note": "Status e utilidade decentes, boa para setups específicos.",
+              "baseName": "Zakti",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/ZaktiPrime.png"
+            }
+          ]
+        },
+        {
+          "tier": "D",
+          "label": "D Trocar cedo",
+          "items": [
+            {
+              "tier": "D",
+              "name": "Ballistica Prime",
+              "note": "Mecânica única, mas dano e conforto ficam atrás das secundárias atuais.",
+              "baseName": "Ballistica",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/BallisticaPrime.png"
+            },
+            {
+              "name": "Bronco Incarnon",
+              "note": "Melhor que a base, mas pouco prioritária.",
+              "baseName": "Bronco",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Bronco.png"
+            },
+            {
+              "name": "Stug",
+              "note": "Clássica piada de maestria, quase nunca compensa.",
+              "baseName": "Stug",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/Stug.png"
+            }
+          ]
+        },
+        {
+          "tier": "U",
+          "label": "NovoSem nota",
+          "items": [
+            {
+              "name": "Sagek Prime",
+              "note": "Secundária nova; melhor avaliar com builds completas.",
+              "baseName": "Sagek",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/GrnOrokinPistol.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "melee",
+      "title": "Armas Melee",
+      "description": "Corpo a corpo, mobilidade e híbridas que também ocupam papel de melee.",
+      "rows": [
+        {
+          "tier": "S",
+          "label": "S Top melee",
+          "items": [
+            {
+              "name": "Glaive Prime",
+              "note": "Explosão e slash seguem entre os melhores danos melee.",
+              "baseName": "Glaive",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/GlaivePrime.png"
+            },
+            {
+              "name": "Ceramic Dagger Incarnon",
+              "note": "Combo permanente e stat-stick essencial para várias builds.",
+              "baseName": "Ceramic Dagger",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/CeramicDagger.png"
+            },
+            {
+              "name": "Dual Ichor Incarnon",
+              "note": "Nuvens de status e clear muito fortes.",
+              "baseName": "Dual Ichor",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/DualIchor.png"
+            },
+            {
+              "name": "Magistar Incarnon",
+              "note": "Excelente para stat-stick e heavy attack.",
+              "baseName": "Magistar",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Magistar.png"
+            },
+            {
+              "name": "Hate Incarnon",
+              "note": "Scythe Incarnon com ótima escala e dano.",
+              "baseName": "Hate",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Hate.png"
+            },
+            {
+              "name": "Okina Incarnon",
+              "note": "Incarnon muito forte, com controle de frio e ótimo dano.",
+              "baseName": "Okina",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Okina.png"
+            },
+            {
+              "name": "Praedos",
+              "note": "Mobilidade, parkour e qualidade de vida de valor absurdo.",
+              "baseName": "Praedos",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/ZarimanTonfa.png"
+            }
+          ]
+        },
+        {
+          "tier": "A",
+          "label": "A Excelente",
+          "items": [
+            {
+              "name": "Nikana Prime",
+              "note": "Melee clássica, rápida e confiável.",
+              "baseName": "Nikana",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/NikanaPrime.png"
+            },
+            {
+              "name": "Kronen Prime",
+              "note": "Tonfas rápidas, crítico alto e excelente Blood Rush.",
+              "baseName": "Kronen",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/KronenPrime.png"
+            },
+            {
+              "tier": "A",
+              "name": "Quassus Prime",
+              "note": "Melee Prime recente com lâminas pesadas e bom dano em alvo único.",
+              "baseName": "Quassus",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/QuassusPrime.png"
+            },
+            {
+              "tier": "B",
+              "name": "Reaper Prime",
+              "note": "Scythe Prime confiável, bom slash e uso geral sólido.",
+              "baseName": "Reaper",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/ReaperPrime.png"
+            },
+            {
+              "name": "Redeemer Prime",
+              "note": "Gunblade ainda usável, mas perdeu espaço para Stropha.",
+              "baseName": "Redeemer",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/RedeemerPrime.png"
+            },
+            {
+              "name": "Stropha",
+              "note": "Gunblade excelente para heavy attack e alvos pesados.",
+              "baseName": "Stropha",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/CrpGunBladeWeapon.png"
+            },
+            {
+              "name": "Innodem",
+              "note": "Melee Incarnon sólida, móvel e muito eficiente.",
+              "baseName": "Innodem",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/ZarimanDaggerWeapon.png"
+            },
+            {
+              "name": "Xoris",
+              "note": "Glaive gratuita com utilidade enorme e combo infinito.",
+              "baseName": "Xoris",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/ProteaPolarizerCrpGlaive.png"
+            },
+            {
+              "name": "Coda Pathocyst",
+              "note": "Glaive Viral com miasmites; forte, mas atrás de Glaive Prime/Xoris.",
+              "baseName": "Pathocyst",
+              "variant": "Coda",
+              "variantTags": [
+                "coda"
+              ],
+              "image": "https://cdn.warframestat.us/img/CodaPathocyst.png"
+            },
+            {
+              "name": "Coda Mire",
+              "note": "Toxin, slam e status fortes; ótima Coda melee híbrida.",
+              "baseName": "Mire",
+              "variant": "Coda",
+              "variantTags": [
+                "coda"
+              ],
+              "image": "https://cdn.warframestat.us/img/CodaMire.png"
+            },
+            {
+              "name": "Anku Incarnon",
+              "note": "Scythe forte e barata de usar.",
+              "baseName": "Anku",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Anku.png"
+            },
+            {
+              "name": "Gram Prime",
+              "note": "Heavy blade forte para dano direto e alcance.",
+              "baseName": "Gram",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/GramPrime.png"
+            }
+          ]
+        },
+        {
+          "tier": "B",
+          "label": "B Forte",
+          "items": [
+            {
+              "name": "Furax Incarnon",
+              "note": "Ótima em builds específicas e utilidade de arcanes.",
+              "baseName": "Furax",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Furax.png"
+            },
+            {
+              "tier": "B",
+              "name": "Galatine Prime",
+              "note": "Heavy blade forte e simples, ainda eficiente com build moderna.",
+              "baseName": "Galatine",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/GalatinePrime.png"
+            },
+            {
+              "name": "Guandao Prime",
+              "note": "Boa haste crítica, superada por opções modernas.",
+              "baseName": "Guandao",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/GuandaoPrime.png"
+            },
+            {
+              "name": "Coda Motovore",
+              "note": "Hammer de impacto/slam muito forte, porém mais nichado.",
+              "baseName": "Motovore",
+              "variant": "Coda",
+              "variantTags": [
+                "coda"
+              ],
+              "image": "https://cdn.warframestat.us/img/InfLichHammerWeapon.png"
+            },
+            {
+              "name": "Coda Caustacyst",
+              "note": "Scythe com poças corrosivas e heavy attack bom; ritmo mais lento.",
+              "baseName": "Caustacyst",
+              "variant": "Coda",
+              "variantTags": [
+                "coda"
+              ],
+              "image": "https://cdn.warframestat.us/img/CodaCaustacyst.png"
+            },
+            {
+              "name": "Coda Hirudo",
+              "note": "Sparring crítico com sustain por crit; bom conforto, menor alcance.",
+              "baseName": "Hirudo",
+              "variant": "Coda",
+              "variantTags": [
+                "coda"
+              ],
+              "image": "https://cdn.warframestat.us/img/CodaHirudo.png"
+            },
+            {
+              "tier": "B",
+              "name": "Gunsen Prime",
+              "note": "War fan Prime ágil, boa com status e stance certa.",
+              "baseName": "Gunsen",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/GunsenPrime.png"
+            },
+            {
+              "name": "Kuva Ghoulsaw",
+              "note": "Nova Ghoulsaw Kuva com ataques mais rápidos e estilo único.",
+              "baseName": "Ghoulsaw",
+              "variant": "Kuva",
+              "variantTags": [
+                "kuva"
+              ],
+              "image": "https://cdn.warframestat.us/img/KuvaGhoulSaw.png"
+            },
+            {
+              "tier": "B",
+              "name": "Lesion",
+              "note": "Polearm infested clássica, ainda boa para status e conta intermediária.",
+              "baseName": "Lesion",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/Lesion.png"
+            },
+            {
+              "tier": "B",
+              "name": "Nami Skyla Prime",
+              "note": "Dual swords rápidas, boas para combo/status.",
+              "baseName": "Nami Skyla",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/NamiSkylaPrime.png"
+            },
+            {
+              "name": "Nami Solo Incarnon",
+              "note": "Boa Incarnon de combo, mas menos prioridade.",
+              "baseName": "Nami Solo",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/NamiSolo.png"
+            },
+            {
+              "tier": "B",
+              "name": "Orthos Prime",
+              "note": "Polearm clássica, alcance e conforto bons para limpar grupos.",
+              "baseName": "Orthos",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/OrthosPrime.png"
+            },
+            {
+              "tier": "B",
+              "name": "Pangolin Prime",
+              "note": "Espada Prime com bons números e uso confortável.",
+              "baseName": "Pangolin",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/PangolinPrime.png"
+            },
+            {
+              "tier": "B",
+              "name": "Pennant",
+              "note": "Two-handed nikana com heavy attack excelente e ótimo slash.",
+              "baseName": "Pennant",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/TnRailjackGreatKatana.png"
+            },
+            {
+              "name": "Ruvox",
+              "note": "Incarnon de soco forte, mas específico.",
+              "baseName": "Ruvox",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/EntFistIncarnon.png"
+            },
+            {
+              "name": "Sarofang Prime",
+              "note": "Machado assinatura da Voruna Prime, forte para slash e combo.",
+              "baseName": "Sarofang",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/SarofangPrime.png"
+            },
+            {
+              "tier": "B",
+              "name": "Venka Prime",
+              "note": "Garras Prime com combo máximo elevado e bom scaling.",
+              "baseName": "Venka",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/VenkaPrime.png"
+            }
+          ]
+        },
+        {
+          "tier": "C",
+          "label": "C Situacional",
+          "items": [
+            {
+              "name": "Ack & Brunt Incarnon",
+              "note": "Defensiva e divertida, mas nichada.",
+              "baseName": "Ack & Brunt",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/AckAndBrunt.png"
+            },
+            {
+              "name": "Bo Incarnon",
+              "note": "Mobilidade e alcance, dano mediano.",
+              "baseName": "Bo",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Bo.png"
+            },
+            {
+              "tier": "C",
+              "name": "Broken War",
+              "note": "Espada gratuita muito boa para progressão, cai no endgame.",
+              "baseName": "Broken War",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/BrokenWar.png"
+            },
+            {
+              "tier": "C",
+              "name": "Dakra Prime",
+              "note": "Espada Prime clássica, funcional mas ultrapassada por melees modernas.",
+              "baseName": "Dakra",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/DakraPrime.png"
+            },
+            {
+              "tier": "C",
+              "name": "Destreza Prime",
+              "note": "Rapier Prime precisa, nicho de slash e estilo.",
+              "baseName": "Destreza",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/DestrezaPrime.png"
+            },
+            {
+              "tier": "C",
+              "name": "Fragor Prime",
+              "note": "Hammer Prime de heavy attack, bom nicho de crítico.",
+              "baseName": "Fragor",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/FragorPrime.png"
+            },
+            {
+              "tier": "C",
+              "name": "Karyst Prime",
+              "note": "Dagger Prime com toxin alto, boa em nichos mas sem prioridade.",
+              "baseName": "Karyst",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/KarystPrime.png"
+            },
+            {
+              "tier": "C",
+              "name": "Ninkondi Prime",
+              "note": "Nunchaku Prime rápido, bom mas pouco prioritário.",
+              "baseName": "Ninkondi",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/NinkondiPrime.png"
+            },
+            {
+              "tier": "C",
+              "name": "Paracesis",
+              "note": "Boa contra Sentients e progressão, hoje nicho fora disso.",
+              "baseName": "Paracesis",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/BallasSword.png"
+            },
+            {
+              "tier": "C",
+              "name": "Silva & Aegis Prime",
+              "note": "Sword and shield defensiva, boa por gosto e nicho.",
+              "baseName": "Silva & Aegis",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/SilvaAegisPrime.png"
+            },
+            {
+              "tier": "C",
+              "name": "Tekko Prime",
+              "note": "Sparring Prime com bom crítico, exige gosto pelo alcance curto.",
+              "baseName": "Tekko",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/TekkoPrime.png"
+            },
+            {
+              "tier": "C",
+              "name": "Tipedo Prime",
+              "note": "Staff Prime confortável, hoje mais coleção do que meta.",
+              "baseName": "Tipedo",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/TipedoPrime.png"
+            },
+            {
+              "tier": "C",
+              "name": "Volnus Prime",
+              "note": "Hammer Prime de status, bom em setups casuais.",
+              "baseName": "Volnus",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/VolnusPrime.png"
+            }
+          ]
+        },
+        {
+          "tier": "D",
+          "label": "D Trocar cedo",
+          "items": [
+            {
+              "name": "Sibear Incarnon",
+              "note": "Investimento alto para retorno menor.",
+              "baseName": "Sibear",
+              "variant": "Incarnon",
+              "variantTags": [
+                "incarnon"
+              ],
+              "image": "https://cdn.warframestat.us/img/Sibear.png"
+            }
+          ]
+        },
+        {
+          "tier": "U",
+          "label": "NovoSem nota",
+          "items": [
+            {
+              "name": "Galariak Prime",
+              "note": "Melee nova, sem consenso forte de meta.",
+              "baseName": "Galariak",
+              "variant": "Prime",
+              "variantTags": [
+                "prime"
+              ],
+              "image": "https://cdn.warframestat.us/img/GrnDrillScythe.png"
+            },
+            {
+              "name": "Vinquibus",
+              "note": "Bayonet híbrida primária/melee do Update 41; ainda merece teste de longo prazo.",
+              "baseName": "Vinquibus",
+              "variant": "Normal",
+              "variantTags": [
+                "normal"
+              ],
+              "image": "https://cdn.warframestat.us/img/TnBayonetRifle.png"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variantLabels": {
+    "normal": "Normal",
+    "prime": "Prime",
+    "incarnon": "Incarnon",
+    "kuva": "Kuva",
+    "tenet": "Tenet",
+    "umbra": "Umbra",
+    "prisma": "Prisma",
+    "wraith": "Wraith",
+    "vandal": "Vandal",
+    "dex": "Dex",
+    "coda": "Coda"
+  }
+}
