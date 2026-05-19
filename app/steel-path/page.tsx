@@ -5,7 +5,7 @@ import { guidePages } from "@/data/guide-pages";
 const page = guidePages["steel-path"];
 
 export const metadata: Metadata = {
-  title: "Steel Path Warframe",
+  title: "Steel Path Warframe — Guia Meta Atual",
   description: page.description,
   alternates: { canonical: "/steel-path" },
   openGraph: {

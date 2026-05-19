@@ -3,7 +3,7 @@ import { InternalLinks, RankCardGrid, SectionBlock, SeoPage } from "@/components
 import { warframes } from "@/data/warframes";
 
 export const metadata: Metadata = {
-  title: "Melhores Warframes 2026",
+  title: "Melhores Warframes 2026 — Tier List Meta Atual",
   description: "Melhores Warframes para Steel Path, farm, suporte, bosses e conteúdo geral, com foco em investimento seguro no Warframe.",
   alternates: { canonical: "/melhores-warframes" },
   openGraph: {

@@ -5,7 +5,7 @@ import { weaponsByCategory } from "@/data/weapons";
 const secondaryWeapons = weaponsByCategory("secondary");
 
 export const metadata: Metadata = {
-  title: "Melhores armas secundárias Warframe",
+  title: "Melhores Armas Secundárias Warframe — Guia Meta",
   description: "Melhores secundárias para Steel Path, primer, bosses e dano consistente no Warframe.",
   alternates: { canonical: "/melhores-armas-secundarias" },
   openGraph: {

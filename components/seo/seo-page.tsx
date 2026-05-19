@@ -23,8 +23,21 @@ export interface RankCardItem {
 }
 
 export function SeoPage({ eyebrow, title, description, children }: { eyebrow: string; title: string; description: string; children: ReactNode }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    description,
+    publisher: {
+      "@type": "Organization",
+      name: "WarframeFool"
+    },
+    inLanguage: "pt-BR"
+  };
+
   return (
     <main className="mx-auto w-[min(1180px,calc(100%-32px))] pb-10 pt-6">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="relative overflow-hidden border-b border-border/70 py-8 md:py-12">
         <span className="inline-flex border border-cyan-300/35 bg-cyan-300/10 px-3 py-2 text-xs font-bold uppercase text-cyan-100">
           {eyebrow}

@@ -5,7 +5,7 @@ import { incarnonWeapons } from "@/data/weapons";
 const items = incarnonWeapons();
 
 export const metadata: Metadata = {
-  title: "Armas Incarnon Warframe",
+  title: "Melhores Armas Incarnon Warframe — Guia Meta",
   description: "Guia de armas Incarnon para priorizar investimento no Warframe: primárias, secundárias e melee.",
   alternates: { canonical: "/incarnon" },
   openGraph: {
@@ -54,6 +54,23 @@ export default function IncarnonPage() {
         </div>
       </SectionBlock>
 
+
+      <SectionBlock title="Evoluções Incarnon" description="Use este bloco como checklist antes de fechar uma build cara.">
+        <div className="grid gap-3 md:grid-cols-3">
+          <article className="bg-card/70 p-4">
+            <h2 className="font-black text-yellow-100">Função antes de número</h2>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">Escolha evoluções pensando no papel da arma: clear, boss, primer, stat-stick ou mobilidade.</p>
+          </article>
+          <article className="bg-card/70 p-4">
+            <h2 className="font-black text-yellow-100">Teste em missão real</h2>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">Simulador e teoria ajudam, mas o conforto real aparece em Steel Path, boss ou farm repetido.</p>
+          </article>
+          <article className="bg-card/70 p-4">
+            <h2 className="font-black text-yellow-100">Registre sua escolha</h2>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">Use data/builds.ts para anotar evoluções, motivo da escolha e variações por facção.</p>
+          </article>
+        </div>
+      </SectionBlock>
       <InternalLinks
         links={[
           { title: "Build Felarx", description: "Estrutura para alvo pesado.", href: "/builds/felarx" },

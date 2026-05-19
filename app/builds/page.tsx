@@ -3,7 +3,7 @@ import { InternalLinks, RankCardGrid, SectionBlock, SeoPage } from "@/components
 import { buildGuides } from "@/data/builds";
 
 export const metadata: Metadata = {
-  title: "Builds Warframe",
+  title: "Builds Warframe — Guias Meta Editáveis",
   description: "Guias editáveis de builds para Warframe, começando por Felarx, Laetum e Praedos sem inventar listas falsas de mods.",
   alternates: { canonical: "/builds" },
   openGraph: {

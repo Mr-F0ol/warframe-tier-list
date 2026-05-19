@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { ComparisonPanel } from "@/components/comparison-panel";
 import { TierListApp } from "@/components/tier-list-app";
 import { SeoPage, SectionBlock } from "@/components/seo/seo-page";
 import { getTierListData, getTierMetaData } from "@/lib/tier-data";
 
 export const metadata: Metadata = {
-  title: "Tier List Warframe completa",
+  title: "Tier List Warframe 2026 — Meta Atual",
   description: "Tier list completa de Warframes e armas com filtros, tags, detalhes e recomendações por objetivo.",
   alternates: { canonical: "/tier-list" },
   openGraph: {

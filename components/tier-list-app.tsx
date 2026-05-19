@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { LayoutGrid, ListChecks, Search, Shield, Swords } from "lucide-react";
 import { useMemo, useState } from "react";
+import { CopyLinkButton } from "@/components/copy-link-button";
 import { ItemDetailDialog } from "@/components/item-detail-dialog";
 import { LoadoutsPanel } from "@/components/loadouts-panel";
 import { MissionRecommender } from "@/components/mission-recommender";
@@ -107,7 +108,7 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
               ))}
             </Select>
             <Select value={objectiveFilter} onChange={event => setObjectiveFilter(event.target.value)}>
-              <option value="all">Todos objetivos</option>
+              <option value="all">Todas funções</option>
               <option value="steel">Steel Path</option>
               <option value="farm">Farm</option>
               <option value="boss">Boss</option>
@@ -153,6 +154,15 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
             ))}
           </div>
         ) : null}
+
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-border/70 pt-4">
+          <div className="flex flex-wrap items-center gap-2 text-xs font-bold uppercase">
+            <Badge variant="meta">Meta Atual</Badge>
+            <Badge variant="outline">Atualizado: {tierList.updatedAt}</Badge>
+            <Badge variant="cyan">{tierList.currentPatch}</Badge>
+          </div>
+          <CopyLinkButton label="Copiar link da tier list" url="https://warframefool.vercel.app/tier-list" />
+        </div>
       </section>
 
       <section className="mt-5 grid gap-3 md:grid-cols-3">
@@ -312,21 +322,27 @@ function ItemCard(props: {
   viewMode: ViewMode;
   onSelect: () => void;
 }) {
-  const tags = displayTags(props.item, props.tierMeta).slice(0, 3);
+  const tags = displayTags(props.item, props.tierMeta).slice(0, props.viewMode === "detailed" ? 4 : 2);
+  const isMeta = props.item.tier === "S";
 
   return (
     <button
       type="button"
       onClick={props.onSelect}
       className={cn(
-        "tier-item-card group grid min-w-[146px] max-w-[210px] max-[520px]:min-w-full max-[520px]:max-w-full gap-1 overflow-hidden rounded-md border border-border/70 bg-secondary/75 p-2 text-left transition duration-200 hover:-translate-y-0.5 hover:border-yellow-300/60 hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-        props.viewMode === "detailed" && "min-w-[230px] max-w-[310px] max-[520px]:min-w-full max-[520px]:max-w-full grid-cols-[46px_1fr] gap-x-3",
-        props.viewMode === "compact" && "min-h-[54px] content-center"
+        "tier-item-card group grid min-w-[156px] max-w-[226px] max-[520px]:min-w-full max-[520px]:max-w-full gap-2 overflow-hidden rounded-lg border border-border/70 bg-gradient-to-b from-secondary/90 to-card/85 p-3 text-left transition duration-200 hover:-translate-y-0.5 hover:border-yellow-300/60 hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        isMeta && "border-yellow-300/35 shadow-[0_0_26px_rgba(247,198,91,.10)]",
+        props.viewMode === "detailed" && "min-w-[250px] max-w-[330px] max-[520px]:min-w-full max-[520px]:max-w-full grid-cols-[48px_1fr] gap-x-3",
+        props.viewMode === "compact" && "min-h-[70px] content-between"
       )}
     >
       {props.viewMode === "detailed" ? <ItemImage item={props.item} /> : null}
-      <span className="grid min-w-0 gap-1">
-        <strong className="text-sm leading-tight text-foreground group-hover:text-yellow-100">{props.item.name}</strong>
+      <span className="grid min-w-0 gap-2">
+        <span className="flex min-w-0 items-start justify-between gap-2">
+          <strong className="min-w-0 text-sm leading-tight text-foreground group-hover:text-yellow-100">{props.item.name}</strong>
+          <Badge variant={tierBadgeVariant(props.item.tier)} className="shrink-0">{props.item.tier}</Badge>
+        </span>
+        {isMeta ? <Badge variant="meta" className="w-fit">Meta Atual</Badge> : null}
         {props.viewMode === "detailed" ? (
           <>
             <span className="text-[10px] font-bold uppercase text-yellow-100/90">{props.item.variant || "Normal"}</span>
@@ -334,19 +350,16 @@ function ItemCard(props: {
           </>
         ) : null}
       </span>
-      {props.viewMode === "detailed" ? (
-        <span className="col-span-full flex flex-wrap gap-1 pt-1">
-          {tags.map(tag => (
-            <Badge key={tag} variant={tag === "prime" || tag === "incarnon" ? "cyan" : "gold"}>
-              {labelForTag(tag, props.tierMeta, props.variantLabels)}
-            </Badge>
-          ))}
-        </span>
-      ) : null}
+      <span className={cn("flex flex-wrap gap-1 pt-1", props.viewMode === "detailed" && "col-span-full")}>
+        {tags.map(tag => (
+          <Badge key={tag} variant={tag === "prime" || tag === "incarnon" ? "cyan" : tag === "steel" ? "steel" : tag === "farm" ? "farm" : "gold"}>
+            {labelForTag(tag, props.tierMeta, props.variantLabels)}
+          </Badge>
+        ))}
+      </span>
     </button>
   );
 }
-
 export function ItemImage({ item }: { item: Pick<ItemRecord, "name" | "baseName" | "image" | "variantTags"> }) {
   return (
     <span className="relative h-[46px] w-[46px] overflow-hidden rounded-md border border-yellow-300/30 bg-yellow-300/10 shadow-[0_0_18px_rgba(247,198,91,.12)]">
@@ -385,6 +398,15 @@ function tierSubtitle(tier: TierKey, context: string) {
   };
 
   return subtitles[context]?.[tier] || subtitles.primary[tier] || "";
+}
+
+function tierBadgeVariant(tier: TierKey) {
+  if (tier === "S") return "tierS";
+  if (tier === "A") return "tierA";
+  if (tier === "B") return "tierB";
+  if (tier === "C") return "tierC";
+  if (tier === "D") return "tierD";
+  return "outline";
 }
 
 function initialsFor(name = "") {

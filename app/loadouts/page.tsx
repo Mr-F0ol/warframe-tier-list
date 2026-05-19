@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LoadoutPresetCards } from "@/components/loadout-preset-cards";
 import { LoadoutsPanel } from "@/components/loadouts-panel";
 import { InternalLinks, SectionBlock, SeoPage } from "@/components/seo/seo-page";
 import { getTierListData } from "@/lib/tier-data";

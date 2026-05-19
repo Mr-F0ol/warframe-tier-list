@@ -5,7 +5,7 @@ import { weaponsByCategory } from "@/data/weapons";
 const primaryWeapons = weaponsByCategory("primary");
 
 export const metadata: Metadata = {
-  title: "Melhores armas primárias Warframe",
+  title: "Melhores Armas Primárias Warframe — Guia Meta",
   description: "Melhores armas primárias para Steel Path, Incarnon, bosses e clear no Warframe.",
   alternates: { canonical: "/melhores-armas-primarias" },
   openGraph: {

@@ -5,7 +5,7 @@ import { weaponsByCategory } from "@/data/weapons";
 const meleeWeapons = weaponsByCategory("melee");
 
 export const metadata: Metadata = {
-  title: "Melhores melee Warframe",
+  title: "Melhores Melee Warframe — Guia Meta",
   description: "Melhores armas melee para Steel Path, utilidade, stat-stick, Incarnon e farm no Warframe.",
   alternates: { canonical: "/melhores-melee" },
   openGraph: {

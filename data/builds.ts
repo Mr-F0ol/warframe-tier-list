@@ -6,6 +6,19 @@ export interface BuildGuide {
   category: "Primária" | "Secundária" | "Melee";
   tier: TierKey;
   description: string;
+  summary: string;
+  mainRole: string;
+  strengths: string[];
+  weaknesses: string[];
+  recommendedMods: string[];
+  substituteMods: string[];
+  approximateForma: string;
+  recommendedArcanes: string[];
+  bestUse: string;
+  investmentPriority: "Muito alta" | "Alta" | "Média" | "Baixa";
+  difficulty: "Baixa" | "Média" | "Alta";
+  buildCost: "Baixo" | "Médio" | "Alto";
+  metaWarning: string;
   disclaimer: string;
   bestFor: string[];
   statPriority: string[];
@@ -22,14 +35,29 @@ export interface BuildGuide {
   }>;
 }
 
+const defaultWarning = "Hotfixes, Riven, Arcanes, evoluções Incarnon e balanceamentos podem mudar o valor real desta build. Use como estrutura editável e valide no seu próprio loadout.";
+
 export const buildGuides: BuildGuide[] = [
   {
     slug: "felarx",
     name: "Felarx",
     category: "Primária",
     tier: "S",
-    description: "Guia de estrutura para transformar a Felarx em uma arma de dano bruto contra alvos resistentes.",
-    disclaimer: "Este guia não é uma importação fechada de mods. Ele define prioridades editáveis para você preencher com sua build testada no arquivo data/builds.ts.",
+    description: "Build Felarx Warframe para dano alto em Steel Path, bosses e alvos resistentes.",
+    summary: "Shotgun Incarnon focada em dano bruto. Funciona melhor quando o loadout já resolve sobrevivência e controle de inimigos.",
+    mainRole: "Derreter alvos pesados e bosses, cobrindo o ponto fraco de builds focadas só em clear.",
+    strengths: ["Dano em alvo único muito alto", "Boa para Eximus, bosses e inimigos resistentes", "Escala bem com investimento endgame"],
+    weaknesses: ["Não é a opção mais confortável para limpar mapa inteiro", "Exige atenção às evoluções Incarnon", "Custo de build tende a ser alto para extrair o teto"],
+    recommendedMods: ["Multishot de shotgun", "Dano base ou equivalente disponível", "Elemento conforme facção", "Mods Galvanized quando liberados", "Slot flexível para cadência, recarga ou conforto"],
+    substituteMods: ["Versões não Primed/mais baratas dos mods principais", "Elemento alternativo por facção", "Mod de conforto no lugar de dano máximo", "Opção de economia de munição se necessário"],
+    approximateForma: "3 a 5 Formas, dependendo de mods Primed, polaridades e versão final testada.",
+    recommendedArcanes: ["Primary Merciless", "Primary Deadhead", "Arcane de arma equivalente que favoreça dano consistente"],
+    bestUse: "Bosses, Arquimídia Profunda, Steel Path e inimigos que não caem rápido para armas de clear.",
+    investmentPriority: "Muito alta",
+    difficulty: "Alta",
+    buildCost: "Alto",
+    metaWarning: defaultWarning,
+    disclaimer: "Esta página usa texto estruturado e editável. Ela não tenta fingir uma importação universal perfeita de mods.",
     bestFor: ["Bosses", "Steel Path", "Arquimídia Profunda", "Alvos pesados"],
     statPriority: ["Multishot", "Dano base", "Elemental adequado ao alvo", "Cadência ou recarga conforme conforto", "Evoluções Incarnon corretas"],
     progression: [
@@ -54,8 +82,21 @@ export const buildGuides: BuildGuide[] = [
     name: "Laetum",
     category: "Secundária",
     tier: "S",
-    description: "Guia de estrutura para usar a Laetum como secundária de dano alto e consistente no endgame.",
-    disclaimer: "Este guia deixa os slots de mods como estrutura editável. Use como roteiro, não como dado fechado inventado.",
+    description: "Build Laetum Warframe para secundária de dano consistente no meta Steel Path.",
+    summary: "Secundária Incarnon forte para dano direto, usada como plano seguro quando a primária está ocupada com clear ou utilidade.",
+    mainRole: "Dano consistente contra alvos resistentes sem depender da primária.",
+    strengths: ["Muito consistente no endgame", "Boa como arma reserva de alto dano", "Funciona bem em loadouts gerais"],
+    weaknesses: ["Precisa de evolução Incarnon bem escolhida", "Pode exigir investimento alto", "Conforto depende de recarga, munição e preferência de gameplay"],
+    recommendedMods: ["Multishot de secundária", "Dano base ou equivalente", "Elemento conforme facção", "Mods Galvanized quando disponíveis", "Slot flexível para recarga, cadência ou conforto"],
+    substituteMods: ["Versões comuns antes das Primed", "Elemento alternativo por facção", "Mod de qualidade de vida se o manuseio ficar ruim", "Opção de status quando a build pedir aplicação"],
+    approximateForma: "3 a 5 Formas, variando conforme mods Primed, arcanes e polaridades escolhidas.",
+    recommendedArcanes: ["Secondary Merciless", "Secondary Deadhead", "Arcane de secundária alinhado ao seu padrão de kill"],
+    bestUse: "Steel Path, bosses, Eximus e loadouts que precisam de uma secundária para resolver alvo pesado.",
+    investmentPriority: "Muito alta",
+    difficulty: "Alta",
+    buildCost: "Alto",
+    metaWarning: defaultWarning,
+    disclaimer: "Os campos abaixo são estrutura editável. Complete depois com a sua configuração validada em missão real.",
     bestFor: ["Steel Path", "Bosses", "Alvos resistentes", "Loadouts sem secundária definida"],
     statPriority: ["Multishot", "Dano consistente", "Elemental conforme facção", "Controle de recarga", "Evoluções Incarnon alinhadas ao estilo"],
     progression: [
@@ -80,8 +121,21 @@ export const buildGuides: BuildGuide[] = [
     name: "Praedos",
     category: "Melee",
     tier: "S",
-    description: "Guia de estrutura para usar Praedos como melee utilitária, com foco em mobilidade e qualidade de vida.",
-    disclaimer: "A página não finge uma build perfeita universal. Ela separa uso utilitário e uso melee para você editar depois.",
+    description: "Build Praedos Warframe para mobilidade, utilidade e conforto em farms e missões rápidas.",
+    summary: "Melee Incarnon usada principalmente como ferramenta de mobilidade e qualidade de vida, com opção de virar arma de dano se a build for ajustada.",
+    mainRole: "Aumentar fluidez do loadout, melhorar deslocamento e servir como melee utilitária.",
+    strengths: ["Excelente conforto em missões repetidas", "Valor mesmo quando não é fonte principal de dano", "Boa flexibilidade entre utilidade e melee"],
+    weaknesses: ["Menor prioridade se você não usa mobilidade ativa", "Build de dano compete com outras melee fortes", "Pode parecer fraca se usada sem entender o papel utilitário"],
+    recommendedMods: ["Velocidade de ataque se for usar para melee", "Combo ou sustain conforme estilo", "Elemento se a arma for matar", "Mods de qualidade de vida para mobilidade", "Evoluções Incarnon utilitárias"],
+    substituteMods: ["Slots de conforto no lugar de dano", "Elemento alternativo conforme facção", "Opções mais baratas antes de mods Primed", "Configuração utilitária sem foco em DPS máximo"],
+    approximateForma: "2 a 4 Formas, dependendo se o foco é mobilidade pura ou dano melee.",
+    recommendedArcanes: ["Melee Duplicate quando fizer sentido para a build", "Melee Exposure", "Arcane de melee compatível com seu foco real"],
+    bestUse: "Farm, missões rápidas, deslocamento e loadouts que valorizam qualidade de vida.",
+    investmentPriority: "Alta",
+    difficulty: "Média",
+    buildCost: "Médio",
+    metaWarning: defaultWarning,
+    disclaimer: "A página separa uso utilitário e uso de dano para evitar uma build única que não serve para todos.",
     bestFor: ["Farm", "Missões rápidas", "Mobilidade", "Loadouts gerais"],
     statPriority: ["Mobilidade", "Velocidade de ataque se for usar melee", "Combo conforme variante", "Elemental se virar fonte de dano", "Evoluções Incarnon utilitárias"],
     progression: [
