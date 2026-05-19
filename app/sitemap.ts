@@ -1,12 +1,37 @@
 import type { MetadataRoute } from "next";
+import { buildGuides } from "@/data/builds";
+
+const siteUrl = "https://warframefool.vercel.app";
+const staticRoutes = [
+  { path: "", priority: 1 },
+  { path: "/tier-list", priority: 0.95 },
+  { path: "/melhores-warframes", priority: 0.9 },
+  { path: "/melhores-armas-primarias", priority: 0.88 },
+  { path: "/melhores-armas-secundarias", priority: 0.88 },
+  { path: "/melhores-melee", priority: 0.88 },
+  { path: "/incarnon", priority: 0.86 },
+  { path: "/builds", priority: 0.84 },
+  { path: "/farm-creditos", priority: 0.78 },
+  { path: "/steel-path", priority: 0.82 },
+  { path: "/loadouts", priority: 0.72 },
+  { path: "/sobre", priority: 0.6 }
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date("2026-05-19");
+
   return [
-    {
-      url: "https://warframefool.vercel.app",
-      lastModified: new Date("2026-05-18"),
-      changeFrequency: "weekly",
-      priority: 1
-    }
+    ...staticRoutes.map(route => ({
+      url: `${siteUrl}${route.path}`,
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: route.priority
+    })),
+    ...buildGuides.map(build => ({
+      url: `${siteUrl}/builds/${build.slug}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8
+    }))
   ];
 }
