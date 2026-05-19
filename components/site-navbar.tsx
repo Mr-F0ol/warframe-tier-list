@@ -60,6 +60,7 @@ export function SiteNavbar() {
           className="shrink-0 lg:hidden"
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
+          aria-controls="mobile-navigation"
           onClick={() => setOpen(value => !value)}
         >
           {open ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
@@ -68,7 +69,7 @@ export function SiteNavbar() {
 
       {open ? (
         <div className="border-t border-border/70 bg-card/95 lg:hidden">
-          <nav className="mx-auto grid w-[min(1180px,calc(100%-32px))] gap-2 py-3" aria-label="Navegação mobile">
+          <nav id="mobile-navigation" className="mx-auto grid w-[min(1180px,calc(100%-32px))] gap-2 py-3" aria-label="Navegação mobile">
             {navLinks.map(link => (
               <Link
                 key={link.href}

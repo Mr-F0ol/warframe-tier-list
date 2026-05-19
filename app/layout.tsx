@@ -86,6 +86,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="pt-BR" className="dark">
       <body>
+        <a href="#conteudo" className="skip-link">Pular para o conteúdo</a>
         <SiteNavbar />
         {children}
         <SiteFooter />

@@ -67,7 +67,7 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
       <section className="surface-panel md:sticky md:top-20 z-20 rounded-lg p-3 md:p-4">
         <div className="grid gap-4 lg:grid-cols-[auto_minmax(0,1fr)] lg:items-start min-[1600px]:grid-cols-[auto_minmax(0,1fr)_auto]">
           <div className="flex min-w-0 flex-wrap items-center gap-3">
-            <a href="#top" aria-label="Tier List Warframe" className="shrink-0">
+            <a href="#conteudo" aria-label="Voltar ao conteúdo principal" className="shrink-0">
               <Image
                 src="/assets/site-logo.svg"
                 alt=""
@@ -100,14 +100,14 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
                 onChange={event => setQuery(event.target.value)}
               />
             </label>
-            <Select value={tierFilter} onChange={event => setTierFilter(event.target.value as TierKey | "all")}>
+            <Select aria-label="Filtrar por tier" value={tierFilter} onChange={event => setTierFilter(event.target.value as TierKey | "all")}>
               {tierOptions.map(tier => (
                 <option key={tier} value={tier}>
                   {tier === "all" ? "Todos os tiers" : tier === "U" ? "Novos" : `Tier ${tier}`}
                 </option>
               ))}
             </Select>
-            <Select value={objectiveFilter} onChange={event => setObjectiveFilter(event.target.value)}>
+            <Select aria-label="Filtrar por função" value={objectiveFilter} onChange={event => setObjectiveFilter(event.target.value)}>
               <option value="all">Todas funções</option>
               <option value="steel">Steel Path</option>
               <option value="farm">Farm</option>
@@ -116,7 +116,7 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
               <option value="endurance">Longas</option>
               <option value="beginner">Iniciante</option>
             </Select>
-            <Select className="sm:col-span-2 lg:col-span-1" value={variantFilter} onChange={event => setVariantFilter(event.target.value)}>
+            <Select aria-label="Filtrar por variante" className="sm:col-span-2 lg:col-span-1" value={variantFilter} onChange={event => setVariantFilter(event.target.value)}>
               <option value="all">Todas variantes</option>
               <option value="normal">Normal</option>
               <option value="prime">Prime</option>

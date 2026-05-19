@@ -37,7 +37,7 @@ export default async function HomePage() {
         </div>
       </header>
 
-      <main className="mx-auto w-[min(1180px,calc(100%-32px))] pb-10 pt-6">
+      <main id="conteudo" className="mx-auto w-[min(1180px,calc(100%-32px))] scroll-mt-24 pb-10 pt-6">
         <MetaStatus />
         <QuickPicks itemIndex={itemIndex} />
         <section id="tier-list" className="scroll-mt-24">

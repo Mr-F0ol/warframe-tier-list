@@ -93,11 +93,11 @@ export function LoadoutsPanel({ tierList }: LoadoutsPanelProps) {
       <div className="mt-3 grid gap-3 lg:grid-cols-[380px_1fr]">
         <Card className="p-4">
           <form className="grid gap-3" onSubmit={submitLoadout}>
-            <Field label="Nome do loadout">
-              <Input value={form.name} onChange={event => setForm({ ...form, name: event.target.value })} required placeholder="Ex: Steel Path seguro" />
+            <Field id="loadout-name" label="Nome do loadout">
+              <Input id="loadout-name" value={form.name} onChange={event => setForm({ ...form, name: event.target.value })} required placeholder="Ex: Steel Path seguro" />
             </Field>
-            <Field label="Objetivo">
-              <Select value={form.objective} onChange={event => setForm({ ...form, objective: event.target.value })}>
+            <Field id="loadout-objective" label="Objetivo">
+              <Select id="loadout-objective" value={form.objective} onChange={event => setForm({ ...form, objective: event.target.value })}>
                 <option value="">Sem objetivo fixo</option>
                 <option value="Steel Path">Steel Path</option>
                 <option value="Farm">Farm</option>
@@ -107,8 +107,8 @@ export function LoadoutsPanel({ tierList }: LoadoutsPanelProps) {
                 <option value="Iniciante">Iniciante</option>
               </Select>
             </Field>
-            <Field label="Warframe">
-              <Select value={form.warframe} onChange={event => setForm({ ...form, warframe: event.target.value })} required>
+            <Field id="loadout-warframe" label="Warframe">
+              <Select id="loadout-warframe" value={form.warframe} onChange={event => setForm({ ...form, warframe: event.target.value })} required>
                 <option value="">Escolha um Warframe</option>
                 {choices.warframes.map(name => (
                   <option key={name} value={name}>
@@ -117,8 +117,8 @@ export function LoadoutsPanel({ tierList }: LoadoutsPanelProps) {
                 ))}
               </Select>
             </Field>
-            <Field label="Primária">
-              <Select value={form.primary} onChange={event => setForm({ ...form, primary: event.target.value })}>
+            <Field id="loadout-primary" label="Primária">
+              <Select id="loadout-primary" value={form.primary} onChange={event => setForm({ ...form, primary: event.target.value })}>
                 <option value="">Sem primária</option>
                 {choices.primary.map(name => (
                   <option key={name} value={name}>
@@ -127,8 +127,8 @@ export function LoadoutsPanel({ tierList }: LoadoutsPanelProps) {
                 ))}
               </Select>
             </Field>
-            <Field label="Secundária">
-              <Select value={form.secondary} onChange={event => setForm({ ...form, secondary: event.target.value })}>
+            <Field id="loadout-secondary" label="Secundária">
+              <Select id="loadout-secondary" value={form.secondary} onChange={event => setForm({ ...form, secondary: event.target.value })}>
                 <option value="">Sem secundária</option>
                 {choices.secondary.map(name => (
                   <option key={name} value={name}>
@@ -137,8 +137,8 @@ export function LoadoutsPanel({ tierList }: LoadoutsPanelProps) {
                 ))}
               </Select>
             </Field>
-            <Field label="Melee">
-              <Select value={form.melee} onChange={event => setForm({ ...form, melee: event.target.value })}>
+            <Field id="loadout-melee" label="Melee">
+              <Select id="loadout-melee" value={form.melee} onChange={event => setForm({ ...form, melee: event.target.value })}>
                 <option value="">Sem melee</option>
                 {choices.melee.map(name => (
                   <option key={name} value={name}>
@@ -147,8 +147,8 @@ export function LoadoutsPanel({ tierList }: LoadoutsPanelProps) {
                 ))}
               </Select>
             </Field>
-            <Field label="Notas">
-              <Textarea value={form.notes} onChange={event => setForm({ ...form, notes: event.target.value })} placeholder="Ex: Usar para Steel Path, Arconte ou farm longo" />
+            <Field id="loadout-notes" label="Notas">
+              <Textarea id="loadout-notes" value={form.notes} onChange={event => setForm({ ...form, notes: event.target.value })} placeholder="Ex: Usar para Steel Path, Arconte ou farm longo" />
             </Field>
             <div className="flex flex-wrap items-center gap-3">
               <Button type="submit">Salvar loadout</Button>
@@ -186,10 +186,10 @@ export function LoadoutsPanel({ tierList }: LoadoutsPanelProps) {
   );
 }
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
+function Field({ id, label, children }: { id: string; label: string; children: React.ReactNode }) {
   return (
     <div className="grid gap-2">
-      <Label>{label}</Label>
+      <Label htmlFor={id}>{label}</Label>
       {children}
     </div>
   );

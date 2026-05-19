@@ -65,6 +65,9 @@
 }
 
 @layer components {
+  .skip-link {
+    @apply fixed left-3 top-3 z-[80] -translate-y-20 rounded-md border border-cyan-300/50 bg-background px-3 py-2 text-sm font-bold text-cyan-50 shadow-lg transition focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-ring;
+  }
   .hero-bg {
     background:
       linear-gradient(180deg, rgba(5, 12, 15, .14) 0%, rgba(5, 12, 15, .50) 42%, rgba(5, 12, 15, .93) 100%),
