@@ -64,7 +64,7 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
   return (
     <>
       <section className="surface-panel md:sticky md:top-3 z-20 rounded-lg p-3 md:p-4">
-        <div className="grid gap-4 2xl:grid-cols-[auto_1fr_auto] 2xl:items-center">
+        <div className="grid gap-4 min-[1760px]:grid-cols-[auto_minmax(680px,1fr)_auto] min-[1760px]:items-center">
           <div className="flex min-w-0 flex-wrap items-center gap-3">
             <a href="#top" aria-label="Tier List Warframe" className="shrink-0">
               <Image
@@ -87,7 +87,7 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
             </div>
           </div>
 
-          <div className="grid min-w-0 gap-3 sm:grid-cols-2 lg:grid-cols-[minmax(240px,1fr)_170px_188px] 2xl:grid-cols-[minmax(240px,1fr)_170px_188px_180px]">
+          <div className="grid min-w-0 gap-3 sm:grid-cols-2 lg:grid-cols-[minmax(240px,1fr)_170px_188px] min-[1760px]:grid-cols-[minmax(240px,1fr)_170px_188px_180px]">
             <label className="relative min-w-0 sm:col-span-2 lg:col-span-1">
               <span className="sr-only">Buscar</span>
               <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
@@ -126,7 +126,7 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
             </Select>
           </div>
 
-          <div className="grid w-full grid-cols-2 rounded-lg border border-border/80 bg-background/55 p-1 sm:w-fit sm:min-w-[270px] sm:shrink-0 2xl:justify-self-end">
+          <div className="grid w-full grid-cols-2 rounded-lg border border-border/80 bg-background/55 p-1 sm:w-fit sm:min-w-[270px] sm:shrink-0 min-[1760px]:justify-self-end">
             <Button type="button" size="sm" className="min-w-0 justify-center px-3 sm:min-w-[128px]" variant={viewMode === "compact" ? "secondary" : "ghost"} onClick={() => setViewMode("compact")}>
               <LayoutGrid className="h-4 w-4 shrink-0" aria-hidden="true" />
               <span className="leading-none">Compacto</span>
