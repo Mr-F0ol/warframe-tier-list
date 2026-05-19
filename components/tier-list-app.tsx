@@ -126,14 +126,14 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
             </Select>
           </div>
 
-          <div className="flex w-fit min-w-[228px] shrink-0 justify-self-start rounded-lg border border-border/80 bg-background/55 p-1 2xl:justify-self-end">
-            <Button type="button" size="sm" className="min-w-[108px]" variant={viewMode === "compact" ? "secondary" : "ghost"} onClick={() => setViewMode("compact")}>
-              <LayoutGrid className="h-4 w-4" aria-hidden="true" />
-              Compacto
+          <div className="grid w-full grid-cols-2 rounded-lg border border-border/80 bg-background/55 p-1 sm:w-fit sm:min-w-[270px] sm:shrink-0 2xl:justify-self-end">
+            <Button type="button" size="sm" className="min-w-0 justify-center px-3 sm:min-w-[128px]" variant={viewMode === "compact" ? "secondary" : "ghost"} onClick={() => setViewMode("compact")}>
+              <LayoutGrid className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <span className="leading-none">Compacto</span>
             </Button>
-            <Button type="button" size="sm" className="min-w-[108px]" variant={viewMode === "detailed" ? "secondary" : "ghost"} onClick={() => setViewMode("detailed")}>
-              <ListChecks className="h-4 w-4" aria-hidden="true" />
-              Detalhado
+            <Button type="button" size="sm" className="min-w-0 justify-center px-3 sm:min-w-[128px]" variant={viewMode === "detailed" ? "secondary" : "ghost"} onClick={() => setViewMode("detailed")}>
+              <ListChecks className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <span className="leading-none">Detalhado</span>
             </Button>
           </div>
         </div>
