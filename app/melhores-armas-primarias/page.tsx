@@ -22,7 +22,7 @@ export default function MelhoresArmasPrimariasPage() {
       title="Melhores armas primárias no Warframe"
       description="Primárias para carregar Steel Path, bosses e missões longas, com foco em conforto, dano e investimento responsável."
     >
-      <SectionBlock title="Primárias recomendadas" description="Dados editáveis em data/weapons.ts para facilitar ajustes futuros de meta.">
+      <SectionBlock title="Primárias recomendadas" description="Lista focada em armas que resolvem clear, alvo pesado e consistência no endgame.">
         <RankCardGrid
           items={primaryWeapons.map(weapon => ({
             id: weapon.id,
@@ -56,7 +56,7 @@ export default function MelhoresArmasPrimariasPage() {
 
       <InternalLinks
         links={[
-          { title: "Build Felarx", description: "Estrutura editável para alvo pesado e bosses.", href: "/builds/felarx" },
+          { title: "Build Felarx", description: "Estrutura para alvo pesado e bosses.", href: "/builds/felarx" },
           { title: "Incarnon", description: "Veja outras prioridades Incarnon.", href: "/incarnon" },
           { title: "Steel Path", description: "Monte uma base de conta para endgame.", href: "/steel-path" }
         ]}

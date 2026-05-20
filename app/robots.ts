@@ -6,6 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/"
     },
-    sitemap: "https://warframefool.vercel.app/sitemap.xml"
+    sitemap: "https://warframefool.vercel.app/sitemap.xml",
+    host: "https://warframefool.vercel.app"
   };
 }

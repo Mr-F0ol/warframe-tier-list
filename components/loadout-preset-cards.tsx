@@ -10,7 +10,7 @@ export function LoadoutPresetCards() {
         <h2 className="text-2xl font-black">
           Loadouts prontos
           <span className="mt-1 block text-sm font-normal text-muted-foreground">
-            Estruturas editáveis para copiar, compartilhar e futuramente salvar em PostgreSQL.
+            Estruturas para copiar, compartilhar e adaptar aos seus objetivos.
           </span>
         </h2>
         <Badge variant="meta">Sem login por enquanto</Badge>
@@ -33,7 +33,7 @@ export function LoadoutPresetCards() {
               </dl>
               <p className="mt-3 text-sm leading-6 text-muted-foreground">{loadout.notes}</p>
               <div className="mt-4 flex flex-wrap gap-2">
-                <CopyLinkButton text={text} label="Copiar" copiedLabel="Copiado" />
+                <CopyLinkButton text={text} label="Copiar" copiedLabel="Link copiado" />
                 <CopyLinkButton
                   mode="share"
                   text={text}

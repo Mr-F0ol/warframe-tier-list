@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { SearchableSelect } from "@/components/searchable-select";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import type { Loadout, LoadoutInput, TierListData } from "@/lib/types";
@@ -23,10 +24,12 @@ const emptyForm: LoadoutInput = {
   notes: ""
 };
 
+const storageKey = "warframefool-loadouts";
+
 export function LoadoutsPanel({ tierList }: LoadoutsPanelProps) {
   const [form, setForm] = useState<LoadoutInput>(emptyForm);
   const [loadouts, setLoadouts] = useState<Loadout[]>([]);
-  const [status, setStatus] = useState("Backend: verificando...");
+  const [status, setStatus] = useState("Pronto para salvar localmente");
 
   const choices = useMemo(() => {
     return {
@@ -37,49 +40,39 @@ export function LoadoutsPanel({ tierList }: LoadoutsPanelProps) {
     };
   }, [tierList]);
 
-  async function loadSavedLoadouts() {
-    try {
-      const response = await fetch("/api/loadouts", { cache: "no-store" });
-      if (!response.ok) throw new Error("Backend offline");
-      const data = (await response.json()) as Loadout[];
-      setLoadouts(data);
-      setStatus("Backend: online");
-    } catch {
-      setStatus("Backend: offline ou sem DATABASE_URL");
-      setLoadouts([]);
-    }
-  }
-
   useEffect(() => {
-    void loadSavedLoadouts();
+    const timeout = window.setTimeout(() => {
+      setLoadouts(readStoredLoadouts());
+    }, 0);
+
+    return () => window.clearTimeout(timeout);
   }, []);
 
-  async function submitLoadout(event: React.FormEvent<HTMLFormElement>) {
+  function submitLoadout(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    try {
-      const response = await fetch("/api/loadouts", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form)
-      });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Erro ao salvar loadout.");
-      setForm(emptyForm);
-      await loadSavedLoadouts();
-    } catch (error) {
-      setStatus(error instanceof Error ? error.message : "Erro ao salvar loadout.");
-    }
+    const loadout: Loadout = {
+      id: createId(),
+      name: form.name.trim(),
+      objective: form.objective?.trim() || "",
+      warframe: form.warframe.trim(),
+      primary: form.primary?.trim() || "",
+      secondary: form.secondary?.trim() || "",
+      melee: form.melee?.trim() || "",
+      notes: form.notes?.trim() || "",
+      createdAt: new Date().toISOString()
+    };
+    const nextLoadouts = [loadout, ...loadouts];
+    setLoadouts(nextLoadouts);
+    writeStoredLoadouts(nextLoadouts);
+    setForm(emptyForm);
+    setStatus("Loadout salvo neste navegador.");
   }
 
-  async function deleteLoadout(id: string) {
-    try {
-      const response = await fetch(`/api/loadouts/${id}`, { method: "DELETE" });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Erro ao remover loadout.");
-      await loadSavedLoadouts();
-    } catch (error) {
-      setStatus(error instanceof Error ? error.message : "Erro ao remover loadout.");
-    }
+  function deleteLoadout(id: string) {
+    const nextLoadouts = loadouts.filter(loadout => loadout.id !== id);
+    setLoadouts(nextLoadouts);
+    writeStoredLoadouts(nextLoadouts);
+    setStatus("Loadout removido.");
   }
 
   return (
@@ -87,10 +80,10 @@ export function LoadoutsPanel({ tierList }: LoadoutsPanelProps) {
       <h2 className="text-2xl font-black">
         Meus Loadouts
         <span className="mt-1 block text-sm font-normal text-muted-foreground">
-          Agora em API Next.js com PostgreSQL. Sem DATABASE_URL, o app usa fallback local para facilitar teste.
+          Seus loadouts ficam salvos neste navegador. Salvamento em nuvem poderá ser adicionado futuramente.
         </span>
       </h2>
-      <div className="mt-3 grid gap-3 lg:grid-cols-[380px_1fr]">
+      <div className="mt-3 grid gap-3 lg:grid-cols-[minmax(0,420px)_1fr]">
         <Card className="p-4">
           <form className="grid gap-3" onSubmit={submitLoadout}>
             <Field id="loadout-name" label="Nome do loadout">
@@ -108,51 +101,52 @@ export function LoadoutsPanel({ tierList }: LoadoutsPanelProps) {
               </Select>
             </Field>
             <Field id="loadout-warframe" label="Warframe">
-              <Select id="loadout-warframe" value={form.warframe} onChange={event => setForm({ ...form, warframe: event.target.value })} required>
-                <option value="">Escolha um Warframe</option>
-                {choices.warframes.map(name => (
-                  <option key={name} value={name}>
-                    {name}
-                  </option>
-                ))}
-              </Select>
+              <SearchableSelect
+                id="loadout-warframe"
+                label="Warframe"
+                value={form.warframe}
+                options={choices.warframes}
+                onChange={warframe => setForm({ ...form, warframe })}
+                placeholder="Buscar Warframe..."
+                required
+              />
             </Field>
             <Field id="loadout-primary" label="Primária">
-              <Select id="loadout-primary" value={form.primary} onChange={event => setForm({ ...form, primary: event.target.value })}>
-                <option value="">Sem primária</option>
-                {choices.primary.map(name => (
-                  <option key={name} value={name}>
-                    {name}
-                  </option>
-                ))}
-              </Select>
+              <SearchableSelect
+                id="loadout-primary"
+                label="Primária"
+                value={form.primary || ""}
+                options={choices.primary}
+                onChange={primary => setForm({ ...form, primary })}
+                placeholder="Buscar arma primária..."
+              />
             </Field>
             <Field id="loadout-secondary" label="Secundária">
-              <Select id="loadout-secondary" value={form.secondary} onChange={event => setForm({ ...form, secondary: event.target.value })}>
-                <option value="">Sem secundária</option>
-                {choices.secondary.map(name => (
-                  <option key={name} value={name}>
-                    {name}
-                  </option>
-                ))}
-              </Select>
+              <SearchableSelect
+                id="loadout-secondary"
+                label="Secundária"
+                value={form.secondary || ""}
+                options={choices.secondary}
+                onChange={secondary => setForm({ ...form, secondary })}
+                placeholder="Buscar arma secundária..."
+              />
             </Field>
             <Field id="loadout-melee" label="Melee">
-              <Select id="loadout-melee" value={form.melee} onChange={event => setForm({ ...form, melee: event.target.value })}>
-                <option value="">Sem melee</option>
-                {choices.melee.map(name => (
-                  <option key={name} value={name}>
-                    {name}
-                  </option>
-                ))}
-              </Select>
+              <SearchableSelect
+                id="loadout-melee"
+                label="Melee"
+                value={form.melee || ""}
+                options={choices.melee}
+                onChange={melee => setForm({ ...form, melee })}
+                placeholder="Buscar melee..."
+              />
             </Field>
             <Field id="loadout-notes" label="Notas">
               <Textarea id="loadout-notes" value={form.notes} onChange={event => setForm({ ...form, notes: event.target.value })} placeholder="Ex: Usar para Steel Path, Arconte ou farm longo" />
             </Field>
             <div className="flex flex-wrap items-center gap-3">
               <Button type="submit">Salvar loadout</Button>
-              <span className="text-sm text-muted-foreground">{status}</span>
+              <span className="text-sm text-muted-foreground" aria-live="polite">{status}</span>
             </div>
           </form>
         </Card>
@@ -164,7 +158,7 @@ export function LoadoutsPanel({ tierList }: LoadoutsPanelProps) {
                 <article key={loadout.id} className="rounded-md border border-border bg-background/50 p-3">
                   <header className="flex items-start justify-between gap-3">
                     <h3 className="font-bold text-foreground">{loadout.name}</h3>
-                    <Button type="button" size="sm" variant="destructive" onClick={() => void deleteLoadout(loadout.id)}>
+                    <Button type="button" size="sm" variant="destructive" aria-label={`Remover loadout ${loadout.name}`} onClick={() => deleteLoadout(loadout.id)}>
                       Remover
                     </Button>
                   </header>
@@ -198,4 +192,30 @@ function Field({ id, label, children }: { id: string; label: string; children: R
 function namesForWeaponCategory(tierList: TierListData, categoryId: string) {
   const category = tierList.weapons.find(item => item.id === categoryId);
   return category?.rows.flatMap(row => row.items.map(item => item.name)) || [];
+}
+
+function readStoredLoadouts() {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = window.localStorage.getItem(storageKey);
+    return raw ? (JSON.parse(raw) as Loadout[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeStoredLoadouts(loadouts: Loadout[]) {
+  try {
+    window.localStorage.setItem(storageKey, JSON.stringify(loadouts));
+  } catch {
+    return;
+  }
+}
+
+function createId() {
+  if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
+    return crypto.randomUUID();
+  }
+
+  return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 }

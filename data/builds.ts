@@ -14,6 +14,7 @@ export interface BuildGuide {
   substituteMods: string[];
   approximateForma: string;
   recommendedArcanes: string[];
+  recommendedElement: string;
   bestUse: string;
   investmentPriority: "Muito alta" | "Alta" | "Média" | "Baixa";
   difficulty: "Baixa" | "Média" | "Alta";
@@ -35,7 +36,7 @@ export interface BuildGuide {
   }>;
 }
 
-const defaultWarning = "Hotfixes, Riven, Arcanes, evoluções Incarnon e balanceamentos podem mudar o valor real desta build. Use como estrutura editável e valide no seu próprio loadout.";
+const defaultWarning = "Hotfixes, Riven, Arcanes, evoluções Incarnon e balanceamentos podem mudar o valor real desta build. Use como referência e valide no seu próprio loadout.";
 
 export const buildGuides: BuildGuide[] = [
   {
@@ -52,12 +53,13 @@ export const buildGuides: BuildGuide[] = [
     substituteMods: ["Versões não Primed/mais baratas dos mods principais", "Elemento alternativo por facção", "Mod de conforto no lugar de dano máximo", "Opção de economia de munição se necessário"],
     approximateForma: "3 a 5 Formas, dependendo de mods Primed, polaridades e versão final testada.",
     recommendedArcanes: ["Primary Merciless", "Primary Deadhead", "Arcane de arma equivalente que favoreça dano consistente"],
+    recommendedElement: "Ajuste conforme facção ou boss. Use o elemento que resolve melhor o alvo da missão em vez de manter uma configuração única para tudo.",
     bestUse: "Bosses, Arquimídia Profunda, Steel Path e inimigos que não caem rápido para armas de clear.",
     investmentPriority: "Muito alta",
     difficulty: "Alta",
     buildCost: "Alto",
     metaWarning: defaultWarning,
-    disclaimer: "Esta página usa texto estruturado e editável. Ela não tenta fingir uma importação universal perfeita de mods.",
+    disclaimer: "Esta página organiza a build por objetivo, custo e substituições. Ela não tenta fingir uma importação universal perfeita de mods.",
     bestFor: ["Bosses", "Steel Path", "Arquimídia Profunda", "Alvos pesados"],
     statPriority: ["Multishot", "Dano base", "Elemental adequado ao alvo", "Cadência ou recarga conforme conforto", "Evoluções Incarnon corretas"],
     progression: [
@@ -91,12 +93,13 @@ export const buildGuides: BuildGuide[] = [
     substituteMods: ["Versões comuns antes das Primed", "Elemento alternativo por facção", "Mod de qualidade de vida se o manuseio ficar ruim", "Opção de status quando a build pedir aplicação"],
     approximateForma: "3 a 5 Formas, variando conforme mods Primed, arcanes e polaridades escolhidas.",
     recommendedArcanes: ["Secondary Merciless", "Secondary Deadhead", "Arcane de secundária alinhado ao seu padrão de kill"],
+    recommendedElement: "Ajuste conforme facção e função da secundária. Se ela for arma de alvo pesado, priorize o elemento que funciona contra esse alvo.",
     bestUse: "Steel Path, bosses, Eximus e loadouts que precisam de uma secundária para resolver alvo pesado.",
     investmentPriority: "Muito alta",
     difficulty: "Alta",
     buildCost: "Alto",
     metaWarning: defaultWarning,
-    disclaimer: "Os campos abaixo são estrutura editável. Complete depois com a sua configuração validada em missão real.",
+    disclaimer: "Os campos abaixo separam função, custo e ajustes para facilitar validação em missão real.",
     bestFor: ["Steel Path", "Bosses", "Alvos resistentes", "Loadouts sem secundária definida"],
     statPriority: ["Multishot", "Dano consistente", "Elemental conforme facção", "Controle de recarga", "Evoluções Incarnon alinhadas ao estilo"],
     progression: [
@@ -113,7 +116,7 @@ export const buildGuides: BuildGuide[] = [
     internalLinks: [
       { href: "/melhores-armas-secundarias", label: "Melhores secundárias", description: "Compare Laetum, Dual Toxocyst, Lex e Kuva Nukor." },
       { href: "/incarnon", label: "Guia Incarnon", description: "Veja outras armas Incarnon fortes." },
-      { href: "/loadouts", label: "Loadouts", description: "Salve combinações futuras quando o banco estiver configurado." }
+      { href: "/loadouts", label: "Loadouts", description: "Salve combinações por objetivo no navegador." }
     ]
   },
   {
@@ -130,6 +133,7 @@ export const buildGuides: BuildGuide[] = [
     substituteMods: ["Slots de conforto no lugar de dano", "Elemento alternativo conforme facção", "Opções mais baratas antes de mods Primed", "Configuração utilitária sem foco em DPS máximo"],
     approximateForma: "2 a 4 Formas, dependendo se o foco é mobilidade pura ou dano melee.",
     recommendedArcanes: ["Melee Duplicate quando fizer sentido para a build", "Melee Exposure", "Arcane de melee compatível com seu foco real"],
+    recommendedElement: "Se a Praedos for utilitária, elemento é secundário. Se for fonte de dano, ajuste conforme facção e status disponíveis no loadout.",
     bestUse: "Farm, missões rápidas, deslocamento e loadouts que valorizam qualidade de vida.",
     investmentPriority: "Alta",
     difficulty: "Média",

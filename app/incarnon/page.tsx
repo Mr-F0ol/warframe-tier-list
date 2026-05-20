@@ -67,7 +67,7 @@ export default function IncarnonPage() {
           </article>
           <article className="bg-card/70 p-4">
             <h2 className="font-black text-yellow-100">Registre sua escolha</h2>
-            <p className="mt-2 text-sm leading-6 text-muted-foreground">Use data/builds.ts para anotar evoluções, motivo da escolha e variações por facção.</p>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">Anote evoluções, motivo da escolha e variações por facção antes de investir pesado.</p>
           </article>
         </div>
       </SectionBlock>

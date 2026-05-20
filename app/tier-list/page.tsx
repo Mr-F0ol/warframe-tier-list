@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import { ComparisonPanel } from "@/components/comparison-panel";
 import { TierListApp } from "@/components/tier-list-app";
 import { SeoPage, SectionBlock } from "@/components/seo/seo-page";
 import { getTierListData, getTierMetaData } from "@/lib/tier-data";
 
 export const metadata: Metadata = {
-  title: "Tier List Warframe 2026 — Meta Atual",
-  description: "Tier list completa de Warframes e armas com filtros, tags, detalhes e recomendações por objetivo.",
+  title: "Tier List Warframe 2026 — Melhores Warframes e Armas para Steel Path",
+  description: "Tier list Warframe 2026 com melhores Warframes, primárias, secundárias e melee para Steel Path, farm, bosses e endgame.",
   alternates: { canonical: "/tier-list" },
   openGraph: {
-    title: "Tier List Warframe completa | WarframeFool",
-    description: "Ranking completo com Warframes, armas, tiers, filtros e tags.",
+    title: "Tier List Warframe 2026 | WarframeFool",
+    description: "Ranking completo com Warframes, armas, tiers, filtros e recomendações por objetivo.",
     url: "/tier-list"
   }
 };

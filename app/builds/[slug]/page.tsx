@@ -53,11 +53,11 @@ export default async function BuildDetailPage({ params }: BuildPageProps) {
             <Badge variant={build.tier === "S" ? "tierS" : "tierA"}>Tier {build.tier}</Badge>
             <Badge variant={categoryVariant(build.category)}>{build.category}</Badge>
           </div>
-          <h2 className="mt-5 text-2xl font-black text-yellow-100">Resumo da arma</h2>
+          <h2 className="mt-5 text-2xl font-black text-yellow-100">Objetivo da build</h2>
           <p className="mt-3 text-sm leading-7 text-muted-foreground">{build.summary}</p>
           <div className="mt-5 grid gap-3 md:grid-cols-3">
-            <Metric label="Função principal" value={build.mainRole} />
-            <Metric label="Melhor uso" value={build.bestUse} />
+            <Metric label="Objetivo" value={build.mainRole} />
+            <Metric label="Quando usar" value={build.bestUse} />
             <Metric label="Prioridade" value={build.investmentPriority} />
           </div>
           <div className="mt-5 flex flex-wrap gap-2">
@@ -67,17 +67,28 @@ export default async function BuildDetailPage({ params }: BuildPageProps) {
         </article>
 
         <aside className="surface-panel rounded-lg p-5">
-          <h2 className="text-xl font-black text-yellow-100">Investimento</h2>
+          <h2 className="text-xl font-black text-yellow-100">Forma e custo</h2>
           <dl className="mt-4 grid gap-3 text-sm leading-6 text-muted-foreground">
             <Detail label="Dificuldade" value={build.difficulty} />
             <Detail label="Custo de build" value={build.buildCost} />
-            <Detail label="Formas aproximadas" value={build.approximateForma} />
+            <Detail label="Quantidade aproximada de Forma" value={build.approximateForma} />
           </dl>
+          <h2 className="mt-5 text-lg font-black text-yellow-100">Observação sobre meta/hotfix</h2>
           <div className="mt-4 border-l-2 border-yellow-300/60 bg-yellow-300/10 p-3 text-sm leading-6 text-yellow-50">
             {build.metaWarning}
           </div>
+          <p className="mt-3 text-sm leading-6 text-muted-foreground">{build.disclaimer}</p>
         </aside>
       </section>
+
+      <SectionBlock title="Estrutura da build" description="Formato padrão para comparar builds sem depender de uma importação única e rígida.">
+        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+          <BuildInfoCard title="Build base recomendada" value={build.mainRole} />
+          <BuildInfoCard title="Melhor para Steel Path" value={build.bestFor.includes("Steel Path") ? build.bestUse : "Use quando esta arma cobrir uma função clara no seu loadout."} />
+          <BuildInfoCard title="Melhor para Bosses" value={build.bestFor.includes("Bosses") ? build.bestUse : "Use outra variação quando o foco for dano direto em alvo pesado."} />
+          <BuildInfoCard title="Elemento recomendado" value={build.recommendedElement} />
+        </div>
+      </SectionBlock>
 
       <SectionBlock title="Pontos fortes e fracos" description="Resumo objetivo para decidir se esta build resolve o problema da sua conta.">
         <div className="grid gap-3 md:grid-cols-2">
@@ -86,10 +97,10 @@ export default async function BuildDetailPage({ params }: BuildPageProps) {
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Mods e Arcanes" description="Texto editável e estruturado. Substitua por nomes exatos quando validar sua configuração final.">
+      <SectionBlock title="Mods principais e substitutos" description="Use como base e ajuste os nomes exatos quando validar sua configuração final.">
         <div className="grid gap-3 lg:grid-cols-3">
-          <ListCard title="Mods recomendados" items={build.recommendedMods} tone="good" />
-          <ListCard title="Mods substitutos" items={build.substituteMods} tone="neutral" />
+          <ListCard title="Mods principais" items={build.recommendedMods} tone="good" />
+          <ListCard title="Substituições baratas" items={build.substituteMods} tone="neutral" />
           <ListCard title="Arcanes recomendados" items={build.recommendedArcanes} tone="neutral" />
         </div>
       </SectionBlock>
@@ -105,7 +116,7 @@ export default async function BuildDetailPage({ params }: BuildPageProps) {
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Slots editáveis" description="Campos para você preencher depois com uma build real testada.">
+      <SectionBlock title="Campos preparados para build completa" description="Use estes blocos quando ainda não houver dados suficientes para uma configuração fechada.">
         <div className="grid gap-3 md:grid-cols-3">
           {build.editableSlots.map(slot => (
             <article key={slot.label} className="border border-dashed border-cyan-300/35 bg-background/40 p-4">
@@ -146,6 +157,15 @@ function Detail({ label, value }: { label: string; value: string }) {
       <dt className="font-bold uppercase text-cyan-100/80">{label}</dt>
       <dd>{value}</dd>
     </div>
+  );
+}
+
+function BuildInfoCard({ title, value }: { title: string; value: string }) {
+  return (
+    <article className="border border-border/70 bg-card/70 p-4">
+      <h2 className="font-black text-yellow-100">{title}</h2>
+      <p className="mt-2 text-sm leading-6 text-muted-foreground">{value}</p>
+    </article>
   );
 }
 

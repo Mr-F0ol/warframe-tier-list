@@ -2,6 +2,10 @@ import { Pool } from "pg";
 
 let pool: Pool | null = null;
 
+export function hasCloudPersistence() {
+  return Boolean(process.env.DATABASE_URL);
+}
+
 export function getPool() {
   const connectionString = process.env.DATABASE_URL;
   if (!connectionString) return null;

@@ -19,7 +19,7 @@ export function CopyLinkButton({
   url,
   text,
   label = "Copiar link",
-  copiedLabel = "Copiado",
+  copiedLabel = "Link copiado",
   shareTitle = "WarframeFool",
   shareText = "Guia Warframe em português no WarframeFool.",
   mode = "copy",
@@ -46,9 +46,9 @@ export function CopyLinkButton({
   }
 
   return (
-    <Button type="button" variant="outline" size="sm" onClick={() => void handleClick()} className={className}>
+    <Button type="button" variant="outline" size="sm" aria-label={copied ? copiedLabel : label} onClick={() => void handleClick()} className={className}>
       {copied ? <Check className="h-4 w-4" aria-hidden="true" /> : mode === "share" ? <Share2 className="h-4 w-4" aria-hidden="true" /> : <Copy className="h-4 w-4" aria-hidden="true" />}
-      {copied ? copiedLabel : label}
+      <span aria-live="polite">{copied ? copiedLabel : label}</span>
     </Button>
   );
 }

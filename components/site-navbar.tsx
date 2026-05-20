@@ -14,7 +14,7 @@ const navLinks = [
   { href: "/tier-list", label: "Tier List" },
   { href: "/builds", label: "Builds" },
   { href: "/incarnon", label: "Incarnon" },
-  { href: "/farm-creditos", label: "Farm" },
+  { href: "/farm", label: "Farm" },
   { href: "/loadouts", label: "Loadouts" },
   { href: "/sobre", label: "Sobre" }
 ];

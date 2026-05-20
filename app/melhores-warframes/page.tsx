@@ -20,7 +20,7 @@ export default function MelhoresWarframesPage() {
       title="Melhores Warframes para investir"
       description="Uma visão separada da tier list para escolher Warframes por função: sobrevivência, suporte, farm, dano e conforto no endgame."
     >
-      <SectionBlock title="Prioridades atuais" description="Dados editáveis em data/warframes.ts, derivados da tier list atual do site.">
+      <SectionBlock title="Prioridades atuais" description="Ranking separado para consultar Warframes por função sem abrir a lista completa.">
         <RankCardGrid
           items={warframes.map(warframe => ({
             id: warframe.id,
@@ -55,7 +55,7 @@ export default function MelhoresWarframesPage() {
         links={[
           { title: "Tier List completa", description: "Veja todos os tiers, filtros e detalhes por item.", href: "/tier-list" },
           { title: "Steel Path", description: "Monte uma base segura para conteúdo difícil.", href: "/steel-path" },
-          { title: "Builds", description: "Veja estruturas editáveis para armas meta.", href: "/builds" }
+          { title: "Builds", description: "Veja estruturas de build para armas meta.", href: "/builds" }
         ]}
       />
     </SeoPage>

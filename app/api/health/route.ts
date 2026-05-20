@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { hasCloudPersistence } from "@/lib/db";
 import { getTierListData } from "@/lib/tier-data";
 
 export const runtime = "nodejs";
@@ -8,11 +9,11 @@ export async function GET() {
   return NextResponse.json({
     ok: true,
     service: "warframe-tier-list",
-    stack: "next-react-typescript-tailwind-shadcn-postgresql",
+    stack: "next-react-typescript-tailwind",
     updatedAt: tierList.updatedAt,
-    database: {
-      configured: Boolean(process.env.DATABASE_URL),
-      provider: process.env.DATABASE_URL ? "postgresql" : "not-configured"
+    storage: {
+      cloudReady: hasCloudPersistence(),
+      mode: hasCloudPersistence() ? "cloud-ready" : "local-ready"
     }
   });
 }

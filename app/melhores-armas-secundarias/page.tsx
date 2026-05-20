@@ -22,7 +22,7 @@ export default function MelhoresArmasSecundariasPage() {
       title="Melhores armas secundárias no Warframe"
       description="Secundárias para dano reserva, primer de status, alvo pesado e consistência em Steel Path."
     >
-      <SectionBlock title="Secundárias recomendadas" description="Lista editável para manter o site simples de atualizar quando o meta mudar.">
+      <SectionBlock title="Secundárias recomendadas" description="Lista focada em dano reserva, primer, alvo pesado e consistência no endgame.">
         <RankCardGrid
           items={secondaryWeapons.map(weapon => ({
             id: weapon.id,
@@ -56,9 +56,9 @@ export default function MelhoresArmasSecundariasPage() {
 
       <InternalLinks
         links={[
-          { title: "Build Laetum", description: "Estrutura editável para dano consistente.", href: "/builds/laetum" },
+          { title: "Build Laetum", description: "Estrutura para dano consistente.", href: "/builds/laetum" },
           { title: "Melhores primárias", description: "Combine sua secundária com uma primária de clear ou alvo pesado.", href: "/melhores-armas-primarias" },
-          { title: "Loadouts", description: "Salve combinações quando o banco estiver configurado.", href: "/loadouts" }
+          { title: "Loadouts", description: "Salve combinações por objetivo no navegador.", href: "/loadouts" }
         ]}
       />
     </SeoPage>

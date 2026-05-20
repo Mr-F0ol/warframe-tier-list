@@ -5,7 +5,7 @@ import { guidePages } from "@/data/guide-pages";
 const page = guidePages["farm-creditos"];
 
 export const metadata: Metadata = {
-  title: "Farm de Créditos Warframe — Melhores Métodos",
+  title: "Farm de Créditos Warframe — Métodos para Iniciantes, Intermediário e Endgame",
   description: page.description,
   alternates: { canonical: "/farm-creditos" },
   openGraph: {

@@ -56,7 +56,7 @@ export default function MelhoresMeleePage() {
 
       <InternalLinks
         links={[
-          { title: "Build Praedos", description: "Estrutura editável para mobilidade e utilidade.", href: "/builds/praedos" },
+          { title: "Build Praedos", description: "Estrutura para mobilidade e utilidade.", href: "/builds/praedos" },
           { title: "Farm", description: "Veja como mobilidade ajuda em farms repetidos.", href: "/farm-creditos" },
           { title: "Incarnon", description: "Veja melee e armas Incarnon em uma lista só.", href: "/incarnon" }
         ]}

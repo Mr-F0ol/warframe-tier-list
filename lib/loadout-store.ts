@@ -65,7 +65,7 @@ export async function createLoadout(input: LoadoutInput): Promise<Loadout> {
   }
 
   if (hostedReadOnlyRuntime) {
-    throw new Error("Configure DATABASE_URL na Vercel para salvar loadouts online.");
+    throw new Error("Salvamento em nuvem será adicionado futuramente.");
   }
 
   const loadout: Loadout = {

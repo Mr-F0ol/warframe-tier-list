@@ -1,4 +1,4 @@
-import { CalendarDays, Database, ShieldCheck } from "lucide-react";
+import { CalendarDays, Save, ShieldCheck } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 export function MetaStatus() {
@@ -6,7 +6,7 @@ export function MetaStatus() {
     <section className="mt-6 grid gap-3 md:grid-cols-3">
       <StatusCard icon={<CalendarDays className="h-5 w-5" />} label="Atualização" value="18 maio 2026" note="Meta revisado para Update 42.0.10." />
       <StatusCard icon={<ShieldCheck className="h-5 w-5" />} label="Critério" value="Steel Path + Endgame" note="Prioriza força real, conforto e investimento." />
-      <StatusCard icon={<Database className="h-5 w-5" />} label="Loadouts online" value="Pronto para PostgreSQL" note="Configure DATABASE_URL para salvar na nuvem." />
+      <StatusCard icon={<Save className="h-5 w-5" />} label="Loadouts" value="Organização rápida" note="Salve e organize seus loadouts para Steel Path, Farm, Bosses e missões rápidas." />
     </section>
   );
 }

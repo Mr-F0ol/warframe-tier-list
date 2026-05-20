@@ -9,10 +9,10 @@ export function ComparisonPanel({ items = comparisons }: { items?: ComparisonGui
         <h2 className="text-2xl font-black">
           Comparação rápida
           <span className="mt-1 block text-sm font-normal text-muted-foreground">
-            Dados mockados e editáveis para comparar função, custo e melhor uso entre duas opções.
+            Comparação rápida de função, custo e melhor uso entre duas opções.
           </span>
         </h2>
-        <Badge variant="meta">Editável</Badge>
+        <Badge variant="meta">Comparativo</Badge>
       </div>
       <div className="mt-3 grid gap-3 lg:grid-cols-3">
         {items.map(comparison => (

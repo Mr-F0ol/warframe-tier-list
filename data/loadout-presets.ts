@@ -42,6 +42,6 @@ export const loadoutPresets: LoadoutPreset[] = [
     melee: "Praedos",
     focus: "Conforto, velocidade e repetição",
     difficulty: "Média",
-    notes: "Modelo editável para farms repetidos em que deslocamento e conforto importam."
+    notes: "Modelo para farms repetidos em que deslocamento e conforto importam."
   }
 ];

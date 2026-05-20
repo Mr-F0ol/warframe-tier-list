@@ -8,9 +8,12 @@ const staticRoutes = [
   { path: "/melhores-warframes", priority: 0.9 },
   { path: "/melhores-armas-primarias", priority: 0.88 },
   { path: "/melhores-armas-secundarias", priority: 0.88 },
+  { path: "/melhores-secundarias", priority: 0.82 },
   { path: "/melhores-melee", priority: 0.88 },
+  { path: "/melee", priority: 0.84 },
   { path: "/incarnon", priority: 0.86 },
   { path: "/builds", priority: 0.84 },
+  { path: "/farm", priority: 0.82 },
   { path: "/farm-creditos", priority: 0.78 },
   { path: "/steel-path", priority: 0.82 },
   { path: "/loadouts", priority: 0.72 },
@@ -18,7 +21,7 @@ const staticRoutes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-05-19");
+  const lastModified = new Date("2026-05-20");
 
   return [
     ...staticRoutes.map(route => ({

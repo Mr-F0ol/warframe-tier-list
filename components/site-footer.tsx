@@ -9,7 +9,7 @@ const footerLinks = [
   { href: "/melhores-melee", label: "Melee" },
   { href: "/incarnon", label: "Incarnon" },
   { href: "/builds", label: "Builds" },
-  { href: "/farm-creditos", label: "Farm" },
+  { href: "/farm", label: "Farm" },
   { href: "/steel-path", label: "Steel Path" },
   { href: "/sobre", label: "Sobre" }
 ];

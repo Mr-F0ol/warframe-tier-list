@@ -91,7 +91,7 @@ export function InfoCard({ card }: { card: LinkCard }) {
 
   if (!card.href) return content;
   return (
-    <Link href={card.href} className="block h-full">
+    <Link href={card.href} className="block h-full rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
       {content}
     </Link>
   );
@@ -130,7 +130,7 @@ export function RankCard({ item }: { item: RankCardItem }) {
 
   if (!item.href) return content;
   return (
-    <Link href={item.href} className="block h-full">
+    <Link href={item.href} className="block h-full rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
       {content}
     </Link>
   );
