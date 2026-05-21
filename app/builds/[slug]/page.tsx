@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CopyLinkButton } from "@/components/copy-link-button";
-import { FaqSection } from "@/components/guide-ui";
+import { FaqSection, GuideCardGrid, GuideCtaRow, NextGuideLinks } from "@/components/guide-ui";
 import { Badge } from "@/components/ui/badge";
-import { InternalLinks, SectionBlock, SeoPage } from "@/components/seo/seo-page";
+import { SectionBlock, SeoPage } from "@/components/seo/seo-page";
 import { buildGuides, getBuildGuide } from "@/data/builds";
 import { articleJsonLd } from "@/lib/seo";
 
@@ -59,6 +59,19 @@ export default async function BuildDetailPage({ params }: BuildPageProps) {
 
   return (
     <SeoPage eyebrow="Build" title={title} description={build.description} breadcrumbs={breadcrumbs} structuredData={articleSchema}>
+      <SectionBlock title="Resposta rápida" description="Resumo direto para decidir se esta build merece investimento agora.">
+        <GuideCardGrid items={quickAnswerItems(build)} />
+        <GuideCtaRow
+          items={[
+            { href: "/tier-list", label: "Ver Tier List completa" },
+            { href: "/builds", label: "Ver Builds", variant: "outline" },
+            { href: "/incarnon", label: "Ver guia de Incarnon", variant: "outline" },
+            { href: "/loadouts", label: "Montar Loadout", variant: "secondary" },
+            { href: "/farm", label: "Ver guia de Farm", variant: "outline" }
+          ]}
+        />
+      </SectionBlock>
+
       <section className="mt-8 grid gap-3 lg:grid-cols-[1.25fr_.75fr]">
         <article className="surface-panel rounded-lg p-5">
           <div className="flex flex-wrap items-center gap-2">
@@ -123,6 +136,8 @@ export default async function BuildDetailPage({ params }: BuildPageProps) {
         <ListCard title="Prioridade nas evoluções" items={build.incarnonEvolutions} tone="good" />
       </SectionBlock>
 
+      {build.slug === "praedos" ? <PraedosSpecialSection /> : null}
+
       <SectionBlock title="Roteiro de progressão" description="O que validar antes de gastar recursos pesados.">
         <div className="grid gap-3 md:grid-cols-3">
           {build.progression.map((item, index) => (
@@ -155,8 +170,16 @@ export default async function BuildDetailPage({ params }: BuildPageProps) {
         </div>
       </SectionBlock>
 
-      <InternalLinks links={build.internalLinks.map(link => ({ title: link.label, description: link.description, href: link.href }))} />
+      <SectionBlock title="Erros comuns" description="Ajustes que parecem pequenos, mas costumam reduzir muito o valor da build.">
+        <GuideCardGrid items={commonMistakeItems(build.slug)} />
+      </SectionBlock>
+
+      <SectionBlock title="Quando não usar" description="Nem toda arma S resolve toda missão. Use outra opção quando o objetivo pedir função diferente.">
+        <GuideCardGrid items={whenNotUseItems(build.slug)} />
+      </SectionBlock>
+
       <FaqSection items={build.faq} />
+      <NextGuideLinks links={nextGuideItems()} />
     </SeoPage>
   );
 }
@@ -203,8 +226,127 @@ function ListCard({ title, items, tone }: { title: string; items: string[]; tone
   );
 }
 
-function categoryVariant(category: string) {
+function categoryVariant(category: string): "primary" | "secondaryWeapon" | "melee" {
   if (category === "Primária") return "primary";
   if (category === "Secundária") return "secondaryWeapon";
   return "melee";
+}
+
+function quickAnswerItems(build: NonNullable<ReturnType<typeof getBuildGuide>>) {
+  return [
+    {
+      title: "Melhor uso",
+      description: build.bestUse,
+      badge: build.category,
+      badgeVariant: categoryVariant(build.category)
+    },
+    {
+      title: "Melhor elemento",
+      description: build.recommendedElement,
+      badge: "Elemento",
+      badgeVariant: "cyan" as const
+    },
+    {
+      title: "Arcane recomendado",
+      description: build.recommendedArcanes[0] || "Use um Arcane alinhado ao padrão de abate da arma.",
+      badge: "Arcane",
+      badgeVariant: "meta" as const
+    },
+    {
+      title: "Forma aproximada",
+      description: build.approximateForma,
+      badge: "Investimento",
+      badgeVariant: "outline" as const
+    },
+    {
+      title: "Vale a pena investir?",
+      description: `${build.investmentPriority}. Invista quando a função da arma resolver um problema real do seu loadout.`,
+      badge: `Tier ${build.tier}`,
+      badgeVariant: build.tier === "S" ? ("tierS" as const) : ("tierA" as const)
+    }
+  ];
+}
+
+function commonMistakeItems(slug: string) {
+  if (slug === "felarx") {
+    return [
+      { title: "Usar como única arma de clear", description: "A Felarx resolve alvo pesado. Para mapa inteiro, combine com Warframe ou arma de área.", badge: "Função", badgeVariant: "outline" as const },
+      { title: "Ignorar evoluções Incarnon", description: "A build muda muito conforme a evolução escolhida. Revise antes de gastar Forma.", badge: "Incarnon", badgeVariant: "steel" as const },
+      { title: "Elemento fixo para tudo", description: "Bosses e facções diferentes pedem ajustes. Uma configuração única pode desperdiçar dano.", badge: "Elemento", badgeVariant: "cyan" as const }
+    ];
+  }
+
+  if (slug === "laetum") {
+    return [
+      { title: "Forçar a forma Incarnon sempre", description: "A forma Incarnon é forte, mas a missão pode pedir economia, conforto ou troca rápida de alvo.", badge: "Uso", badgeVariant: "outline" as const },
+      { title: "Montar sem conforto", description: "Recarga, munição e manuseio importam quando a Laetum é seu plano seguro no Steel Path.", badge: "Conforto", badgeVariant: "cyan" as const },
+      { title: "Copiar elemento sem testar", description: "A secundária deve cobrir o alvo que sua primária não resolve. Teste contra o inimigo real.", badge: "Elemento", badgeVariant: "meta" as const }
+    ];
+  }
+
+  return [
+    { title: "Misturar mobilidade e dano sem foco", description: "Separe uma variação utilitária de uma variação melee para não enfraquecer as duas.", badge: "Objetivo", badgeVariant: "outline" as const },
+    { title: "Ignorar evoluções de mobilidade", description: "A Praedos vale muito pelo conforto. Se você remove isso, ela compete com melees mais agressivas.", badge: "Mobilidade", badgeVariant: "cyan" as const },
+    { title: "Investir sem usar parkour ativo", description: "Se você não aproveita deslocamento, talvez outra melee entregue mais valor imediato.", badge: "Uso real", badgeVariant: "steel" as const }
+  ];
+}
+
+function whenNotUseItems(slug: string) {
+  if (slug === "felarx") {
+    return [
+      { title: "Missões de clear rápido", description: "Quando o objetivo é limpar salas inteiras, uma arma de área ou Warframe de clear costuma ser mais confortável.", badge: "Farm", badgeVariant: "farm" as const },
+      { title: "Conta sem suporte defensivo", description: "Se você morre antes de mirar nos alvos pesados, ajuste sobrevivência antes de investir mais dano.", badge: "Steel Path", badgeVariant: "steel" as const }
+    ];
+  }
+
+  if (slug === "laetum") {
+    return [
+      { title: "Quando a primária já resolve tudo", description: "Se sua primária cobre clear e alvo pesado, talvez a secundária possa ser utilidade em vez de dano máximo.", badge: "Loadout", badgeVariant: "cyan" as const },
+      { title: "Quando você não gosta da rotação", description: "A Laetum é forte, mas precisa encaixar no seu ritmo. Teste antes de fechar uma build cara.", badge: "Conforto", badgeVariant: "outline" as const }
+    ];
+  }
+
+  return [
+    { title: "Conteúdo que exige dano melee máximo", description: "Se a missão pede uma melee puramente ofensiva, compare Praedos com outras opções de dano antes de investir.", badge: "Melee", badgeVariant: "melee" as const },
+    { title: "Loadouts sem necessidade de deslocamento", description: "Quando mobilidade não economiza tempo, o maior diferencial da Praedos perde valor.", badge: "Farm", badgeVariant: "farm" as const }
+  ];
+}
+
+function nextGuideItems() {
+  return [
+    { title: "Tier List", description: "Compare a arma com outras opções fortes antes de gastar mais Forma.", href: "/tier-list", badge: "Meta", badgeVariant: "tierS" as const },
+    { title: "Incarnon", description: "Veja como priorizar armas e evoluções Incarnon no seu progresso.", href: "/incarnon", badge: "Incarnon", badgeVariant: "steel" as const },
+    { title: "Loadouts", description: "Salve a build junto de Warframe, armas e notas para consultar depois.", href: "/loadouts", badge: "Ferramenta", badgeVariant: "cyan" as const },
+    { title: "Builds", description: "Volte para a lista de builds e compare outras armas por função.", href: "/builds", badge: "Guias", badgeVariant: "meta" as const },
+    { title: "Farm de Créditos", description: "Use armas consistentes em rotas repetidas sem perder tempo ajustando setup.", href: "/farm-creditos", badge: "Farm", badgeVariant: "farm" as const }
+  ];
+}
+
+function PraedosSpecialSection() {
+  return (
+    <SectionBlock title="Build de mobilidade e build melee" description="Praedos deve ter variações separadas: uma para ganhar tempo em missões rápidas e outra para quando ela realmente precisa matar.">
+      <GuideCardGrid
+        items={[
+          {
+            title: "Build de mobilidade",
+            description: "Priorize evoluções e slots que deixam parkour, deslocamento e ritmo de farm mais confortáveis. Dano máximo é secundário aqui.",
+            badge: "Mobilidade",
+            badgeVariant: "cyan"
+          },
+          {
+            title: "Build melee",
+            description: "Use quando a Praedos será fonte real de dano. Aí entram velocidade de ataque, combo, elemento e sustain conforme seu estilo.",
+            badge: "Melee",
+            badgeVariant: "melee"
+          },
+          {
+            title: "Evoluções de qualidade de vida",
+            description: "Para farms e missões rápidas, escolha evoluções que economizam tempo e deixam o loadout mais fluido.",
+            badge: "Conforto",
+            badgeVariant: "meta"
+          }
+        ]}
+      />
+    </SectionBlock>
+  );
 }

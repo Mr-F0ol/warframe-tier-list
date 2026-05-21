@@ -89,6 +89,7 @@ export const buildGuides: BuildGuide[] = [
       { question: "Felarx é boa para Steel Path?", answer: "Sim. Ela é uma das melhores opções para alvo pesado, Eximus e bosses quando o resto do loadout já resolve sobrevivência e clear." },
       { question: "Qual elemento usar na Felarx?", answer: "Use o elemento que resolve o alvo da missão. Para bosses e facções específicas, vale ter variações em vez de manter um único elemento para tudo." },
       { question: "Felarx serve para limpar mapa?", answer: "Ela pode matar inimigos comuns, mas não é a opção mais confortável para clear amplo. Use uma arma ou Warframe de área junto dela." },
+      { question: "Quando não usar Felarx?", answer: "Evite usar a Felarx como única solução em missões de clear rápido. Ela brilha mais quando o problema é alvo pesado, boss ou inimigo resistente." },
       { question: "Preciso de muitas Formas na Felarx?", answer: "A build final costuma pedir investimento, mas teste o estilo da arma e as evoluções antes de gastar Forma demais." }
     ],
     internalLinks: [
@@ -143,6 +144,7 @@ export const buildGuides: BuildGuide[] = [
       { question: "Laetum ainda vale para Steel Path?", answer: "Sim. A Laetum continua excelente como secundária de dano consistente, principalmente quando a primária está ocupada com clear ou utilidade." },
       { question: "Laetum é melhor para boss ou uso geral?", answer: "Ela funciona nos dois, mas brilha como arma reserva para alvo resistente, Eximus e situações em que você precisa de dano confiável." },
       { question: "Qual elemento usar na Laetum?", answer: "Escolha conforme facção e função. Se ela for sua arma de alvo pesado, ajuste o elemento para o alvo que você quer resolver." },
+      { question: "Quando não usar Laetum?", answer: "Se sua primária já resolve clear e alvo pesado com conforto, a Laetum pode ser menos urgente. Use a secundária para cobrir uma função que seu loadout ainda não tem." },
       { question: "Preciso usar a forma Incarnon sempre?", answer: "Não. A forma Incarnon é forte, mas o uso ideal depende da missão, munição, alvo e conforto da sua rotação." }
     ],
     internalLinks: [
@@ -197,6 +199,7 @@ export const buildGuides: BuildGuide[] = [
       { question: "Praedos é boa mesmo sem ser arma principal?", answer: "Sim. O valor da Praedos vem muito da mobilidade e do conforto, não apenas do dano melee." },
       { question: "Devo buildar Praedos para dano?", answer: "Só se você realmente pretende usar melee para matar. Para farm e missões rápidas, a versão utilitária costuma entregar mais valor." },
       { question: "Qual elemento usar na Praedos?", answer: "Se ela for utilitária, o elemento importa menos. Se for arma de dano, ajuste conforme facção e status do loadout." },
+      { question: "Quando não usar Praedos?", answer: "Se você não aproveita mobilidade, parkour ou melee ativa, outra arma pode entregar mais valor imediato para dano puro." },
       { question: "Praedos é melhor para mobilidade ou melee?", answer: "Para a maioria dos loadouts, a Praedos entrega mais valor como ferramenta de mobilidade. A versão melee vale quando você quer usar a arma como fonte real de dano." }
     ],
     internalLinks: [

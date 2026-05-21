@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type React from "react";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 type BadgeVariant = React.ComponentProps<typeof Badge>["variant"];
@@ -21,6 +22,12 @@ export interface GuideTableRow {
 export interface FaqItem {
   question: string;
   answer: string;
+}
+
+export interface GuideCtaItem {
+  href: string;
+  label: string;
+  variant?: React.ComponentProps<typeof Button>["variant"];
 }
 
 export function GuideCardGrid({ items, columns = "three" }: { items: GuideCardItem[]; columns?: "two" | "three" | "four" }) {
@@ -56,30 +63,58 @@ export function GuideCard({ item }: { item: GuideCardItem }) {
 }
 
 export function GuideTable({ columns, rows }: { columns: string[]; rows: GuideTableRow[] }) {
+  const gridTemplateColumns = `190px repeat(${columns.length}, minmax(190px, 1fr))`;
+  const minWidth = 190 + columns.length * 190;
+
   return (
-    <div className="overflow-hidden rounded-lg border border-border">
-      <div className="hidden bg-cyan-300/10 text-sm font-black uppercase text-cyan-100 md:grid" style={{ gridTemplateColumns: `180px repeat(${columns.length}, minmax(0, 1fr))` }}>
-        <div className="border-r border-border p-3">Opção</div>
-        {columns.map(column => (
-          <div key={column} className="border-r border-border p-3 last:border-r-0">
-            {column}
-          </div>
-        ))}
-      </div>
-      <div className="grid">
-        {rows.map(row => (
-          <article key={row.label} className="border-t border-border bg-card/75 first:border-t-0 md:grid" style={{ gridTemplateColumns: `180px repeat(${columns.length}, minmax(0, 1fr))` }}>
-            <h3 className="border-b border-border p-3 text-base font-black text-yellow-100 md:border-b-0 md:border-r">{row.label}</h3>
-            {row.cells.map((cell, index) => (
-              <div key={`${row.label}-${columns[index]}`} className="border-b border-border p-3 text-sm leading-6 text-muted-foreground last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0">
-                <span className="mb-1 block text-[11px] font-bold uppercase text-cyan-100/75 md:hidden">{columns[index]}</span>
-                {cell}
-              </div>
-            ))}
-          </article>
-        ))}
+    <div className="overflow-x-auto rounded-lg border border-border">
+      <div style={{ minWidth }}>
+        <div className="grid bg-cyan-300/10 text-xs font-black uppercase text-cyan-100 sm:text-sm" style={{ gridTemplateColumns }}>
+          <div className="border-r border-border p-3">Opção</div>
+          {columns.map(column => (
+            <div key={column} className="border-r border-border p-3 last:border-r-0">
+              {column}
+            </div>
+          ))}
+        </div>
+        <div className="grid">
+          {rows.map(row => (
+            <article key={row.label} className="grid border-t border-border bg-card/75 first:border-t-0" style={{ gridTemplateColumns }}>
+              <h3 className="border-r border-border p-3 text-base font-black text-yellow-100">{row.label}</h3>
+              {row.cells.map((cell, index) => (
+                <div key={`${row.label}-${columns[index]}`} className="border-r border-border p-3 text-sm leading-6 text-muted-foreground last:border-r-0">
+                  {cell}
+                </div>
+              ))}
+            </article>
+          ))}
+        </div>
       </div>
     </div>
+  );
+}
+
+export function GuideCtaRow({ items }: { items: GuideCtaItem[] }) {
+  return (
+    <div className="mt-5 flex flex-wrap gap-2">
+      {items.map(item => (
+        <Button key={item.href} asChild variant={item.variant || "secondary"} size="sm" className="min-h-9">
+          <Link href={item.href}>{item.label}</Link>
+        </Button>
+      ))}
+    </div>
+  );
+}
+
+export function NextGuideLinks({ links }: { links: GuideCardItem[] }) {
+  return (
+    <section className="mt-8">
+      <div className="mb-3">
+        <h2 className="text-2xl font-black text-foreground">Próximo guia recomendado</h2>
+        <p className="mt-1 text-sm leading-6 text-muted-foreground">Continue por guias relacionados para montar uma conta mais consistente.</p>
+      </div>
+      <GuideCardGrid items={links} />
+    </section>
   );
 }
 

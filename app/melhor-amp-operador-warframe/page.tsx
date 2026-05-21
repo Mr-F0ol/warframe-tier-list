@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { FaqSection, GuideCardGrid, GuideTable } from "@/components/guide-ui";
-import { InternalLinks, SectionBlock, SeoPage } from "@/components/seo/seo-page";
+import { FaqSection, GuideCardGrid, GuideCtaRow, GuideTable, NextGuideLinks } from "@/components/guide-ui";
+import { SectionBlock, SeoPage } from "@/components/seo/seo-page";
 import { articleJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -40,6 +40,39 @@ const ampBuilds = [
   }
 ];
 
+const quickAnswers = [
+  {
+    title: "Melhor Amp geral",
+    description: "5-4-7 é a escolha mais equilibrada para quem já tem acesso a peças avançadas e quer conforto em missões variadas.",
+    badge: "5-4-7",
+    badgeVariant: "meta" as const
+  },
+  {
+    title: "Melhor Amp para iniciante",
+    description: "1-2-3 é a rota mais clara para sair do Amp inicial sem exigir todo o progresso avançado de Fortuna.",
+    badge: "1-2-3",
+    badgeVariant: "cyan" as const
+  },
+  {
+    title: "Melhor Amp para Eidolon",
+    description: "7-4-7 costuma ser a opção de teto alto para jogador que domina posicionamento, buff e janela de dano.",
+    badge: "7-4-7",
+    badgeVariant: "tierS" as const
+  },
+  {
+    title: "Melhor Amp para uso geral",
+    description: "5-4-7 funciona bem em Zariman, Void Angels, missões comuns e situações em que conforto importa mais que burst máximo.",
+    badge: "Geral",
+    badgeVariant: "steel" as const
+  },
+  {
+    title: "Melhor custo-benefício",
+    description: "Monte uma opção inicial barata primeiro e avance para 1-2-3 antes de gastar reputação pesada em 5-4-7 ou 7-4-7.",
+    badge: "Progressão",
+    badgeVariant: "outline" as const
+  }
+];
+
 const useCases = [
   {
     title: "Melhor Amp para Eidolon",
@@ -58,22 +91,72 @@ const useCases = [
     description: "1-2-3 é uma rota clara para progredir sem exigir toda a reputação avançada de Vox Solaris logo no começo.",
     badge: "Primeiro Amp",
     badgeVariant: "cyan" as const
+  },
+  {
+    title: "Melhor Amp para Zariman/Anjos",
+    description: "5-4-7 costuma ser a escolha mais confortável para Void Angels porque combina alcance, consistência e disparo alternativo útil.",
+    badge: "Zariman",
+    badgeVariant: "steel" as const
   }
 ];
 
 const tableRows = [
   {
+    label: "Opção inicial barata",
+    cells: ["Sair do Amp inicial e começar a aprender peças modulares.", "Baixa", "The Quills", "Custo menor, progressão simples e melhora imediata sobre o Amp inicial.", "Não tem o mesmo teto de dano das combinações avançadas."]
+  },
+  {
     label: "1-2-3",
-    cells: ["Raplak Prism, Shraksun Scaffold e Lohrin Brace.", "Primeiro Amp real, início em Eidolon e progresso pós-Operador.", "Priorize se você ainda está construindo reputação inicial."]
+    cells: ["Primeiro Amp real, início em Eidolon e progresso pós-Operador.", "Baixa a média", "The Quills", "Boa evolução sobre o Amp inicial e fácil de entender.", "Perde espaço quando você libera peças avançadas da Vox Solaris."]
   },
   {
     label: "5-4-7",
-    cells: ["Cantic Prism, Phahd Scaffold e Certus Brace.", "Uso geral, Void Angels, missões variadas e jogador que quer conforto.", "Boa ponte entre controle, alcance e dano."]
+    cells: ["Uso geral, Void Angels, missões variadas e jogador que quer conforto.", "Média a alta", "The Quills + Vox Solaris", "Boa ponte entre controle, alcance e dano crítico.", "Exige progresso em Fortuna e mais planejamento de reputação."]
   },
   {
     label: "7-4-7",
-    cells: ["Klamora Prism, Phahd Scaffold e Certus Brace.", "Endgame, alvo importante e jogador confortável com distância curta.", "Forte, mas exige melhor posicionamento."]
+    cells: ["Eidolon, alvo importante e jogador confortável com curta distância.", "Alta", "Vox Solaris", "Teto ofensivo alto em janelas curtas de dano.", "Menos confortável para iniciante e mais dependente de posicionamento."]
   }
+];
+
+const ampMistakes = [
+  {
+    title: "Ficar tempo demais no Amp inicial",
+    description: "O Amp inicial serve para começar, mas trava conforto em Eidolon, Zariman e conteúdo que pede dano do Operador.",
+    badge: "Progresso",
+    badgeVariant: "cyan" as const
+  },
+  {
+    title: "Copiar 7-4-7 cedo demais",
+    description: "A combinação é forte, mas pede reputação, peça certa e noção de alcance. Antes disso, uma rota simples costuma render mais.",
+    badge: "Endgame",
+    badgeVariant: "steel" as const
+  },
+  {
+    title: "Ignorar a escola de foco",
+    description: "Amp e escola trabalham juntos. Madurai aumenta dano, enquanto Unairu e Vazarin ajudam quando a dificuldade é sobreviver.",
+    badge: "Foco",
+    badgeVariant: "meta" as const
+  },
+  {
+    title: "Montar sem pensar no uso",
+    description: "Um Amp bom para Eidolon não é automaticamente o mais confortável para missões comuns, Void Angels ou progresso inicial.",
+    badge: "Objetivo",
+    badgeVariant: "outline" as const
+  }
+];
+
+const ctaLinks = [
+  { href: "/melhor-escola-warframe", label: "Ver Melhor Escola" },
+  { href: "/farm-foco-warframe", label: "Ver Farm de Foco" },
+  { href: "/incarnon", label: "Ver guia de Incarnon", variant: "outline" as const },
+  { href: "/builds", label: "Ver Builds", variant: "outline" as const }
+];
+
+const nextGuides = [
+  { title: "Melhor Escola Warframe", description: "Escolha a escola que combina melhor com seu Amp, Operador e objetivo de missão.", href: "/melhor-escola-warframe", badge: "Operador", badgeVariant: "meta" as const },
+  { title: "Farm de Foco", description: "Evolua Zenurik, Madurai, Unairu, Vazarin ou Naramon com um plano mais eficiente.", href: "/farm-foco-warframe", badge: "Foco", badgeVariant: "cyan" as const },
+  { title: "Builds", description: "Combine seu Operador com armas fortes para Steel Path, bosses e missões rápidas.", href: "/builds", badge: "Builds", badgeVariant: "steel" as const }
 ];
 
 const faq = [
@@ -92,6 +175,14 @@ const faq = [
   {
     question: "Preciso de Madurai para usar Amp?",
     answer: "Não. Você pode usar Amp com qualquer escola, mas Madurai aumenta muito o teto ofensivo do Operador quando o foco é dano."
+  },
+  {
+    question: "Qual Amp tem melhor custo-benefício?",
+    answer: "Para a maioria das contas em evolução, um Amp inicial barato seguido de 1-2-3 entrega o melhor custo-benefício. Depois disso, avance para 5-4-7 ou 7-4-7 quando a reputação permitir."
+  },
+  {
+    question: "Qual Amp usar contra Void Angels?",
+    answer: "5-4-7 é uma recomendação confortável para Void Angels e Zariman porque não depende tanto de ficar colado no alvo. Se você já domina o combate, teste variações mais agressivas."
   }
 ];
 
@@ -114,6 +205,11 @@ export default function MelhorAmpOperadorWarframePage() {
       ]}
       structuredData={articleSchema}
     >
+      <SectionBlock title="Resposta rápida" description="Escolha direta para montar um Amp sem perder tempo com combinações que não resolvem seu objetivo atual.">
+        <GuideCardGrid items={quickAnswers} />
+        <GuideCtaRow items={ctaLinks} />
+      </SectionBlock>
+
       <SectionBlock title="O que é Amp?" description="Amp é a arma modular do Operador/Drifter. Ele muda o disparo principal, o disparo alternativo e bônus de atributos por meio de três peças.">
         <GuideCardGrid
           items={[
@@ -125,7 +221,7 @@ export default function MelhorAmpOperadorWarframePage() {
       </SectionBlock>
 
       <SectionBlock title="Como ler 1-2-3, 5-4-7 e 7-4-7" description="Os números seguem a ordem Prism, Scaffold e Brace. Eles ajudam a falar da build sem escrever o nome completo de cada peça.">
-        <GuideTable columns={["Peças", "Melhor para", "Comentário"]} rows={tableRows} />
+        <GuideTable columns={["Uso recomendado", "Dificuldade para obter", "Reputação necessária", "Pontos fortes", "Pontos fracos"]} rows={tableRows} />
       </SectionBlock>
 
       <SectionBlock title="Melhores builds de Amp" description="Escolhas práticas para sair do Amp inicial e preparar o Operador para conteúdo mais difícil.">
@@ -156,18 +252,12 @@ export default function MelhorAmpOperadorWarframePage() {
         />
       </SectionBlock>
 
-      <InternalLinks
-        links={[
-          { title: "Melhor Escola Warframe", description: "Escolha Zenurik, Madurai, Unairu, Vazarin ou Naramon para combinar com seu Amp.", href: "/melhor-escola-warframe" },
-          { title: "Farm de Foco", description: "Ganhe pontos para evoluir a escola que sustenta seu Operador.", href: "/farm-foco-warframe" },
-          { title: "Builds", description: "Use armas e Warframes consistentes junto do Operador em conteúdo difícil.", href: "/builds" },
-          { title: "Arcanes de Amp", description: "Melhore dano, crítico e consistência do Operador.", href: "/arcanes-amp-warframe" },
-          { title: "Guia Eidolon", description: "Use Amp e foco em caçadas de Teralyst, Gantulyst e Hydrolyst.", href: "/guia-eidolon-warframe" },
-          { title: "Void Angels", description: "Prepare o Operador para lutas do Zariman.", href: "/void-angels-warframe" }
-        ]}
-      />
+      <SectionBlock title="Erros comuns ao montar Amp" description="Evite gastar reputação em uma combinação que não combina com seu estágio da conta.">
+        <GuideCardGrid items={ampMistakes} columns="four" />
+      </SectionBlock>
 
       <FaqSection items={faq} />
+      <NextGuideLinks links={nextGuides} />
     </SeoPage>
   );
 }
