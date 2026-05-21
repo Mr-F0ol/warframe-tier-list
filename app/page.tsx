@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { GuideSections } from "@/components/guide-sections";
 import { MetaStatus } from "@/components/meta-status";
 import { QuickPicks } from "@/components/quick-picks";
 import { Sources } from "@/components/sources";
 import { StructuredData } from "@/components/structured-data";
-import { TierListApp } from "@/components/tier-list-app";
+import { TierListPreview } from "@/components/tier-list-preview";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { getTierListData, getTierMetaData } from "@/lib/tier-data";
+import { getTierListData } from "@/lib/tier-data";
 import { buildItemIndex } from "@/lib/tier-utils";
 
 export const metadata: Metadata = {
@@ -20,11 +19,16 @@ export const metadata: Metadata = {
     title: "WarframeFool — Tier List Warframe 2026, Builds e Guias em Português",
     description: "Tier list, builds, Incarnon, farm e loadouts em português para Warframe.",
     url: "/"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "WarframeFool — Tier List Warframe 2026, Builds e Guias em Português",
+    description: "Guia brasileiro de Warframe com tier list 2026, builds, Incarnon, farm, Steel Path e loadouts para organizar seus investimentos."
   }
 };
 
 export default async function HomePage() {
-  const [tierList, tierMeta] = await Promise.all([getTierListData(), getTierMetaData()]);
+  const tierList = await getTierListData();
   const itemIndex = buildItemIndex(tierList);
 
   return (
@@ -73,41 +77,49 @@ export default async function HomePage() {
       <main id="conteudo" className="mx-auto w-[min(1180px,calc(100%-32px))] scroll-mt-24 pb-10 pt-6">
         <MetaStatus />
         <QuickPicks itemIndex={itemIndex} />
-        <section id="tier-list" className="mt-8 scroll-mt-24">
-          <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
-            <h2 className="text-2xl font-black">
-              Tier List Warframe 2026
-              <span className="mt-1 block text-sm font-normal text-muted-foreground">
-                Ranking interativo com filtros por tier, função, variante, categoria de arma e busca.
-              </span>
-            </h2>
-            <Badge variant="meta">Meta atual</Badge>
-          </div>
-          <TierListApp tierList={tierList} tierMeta={tierMeta} />
-        </section>
-        <GuideSections />
-        <section className="mt-8">
+
+        <section id="guias-recomendados" className="mt-8 scroll-mt-24">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <h2 className="text-2xl font-black">
-              Guias principais
+              Navegação principal
               <span className="mt-1 block text-sm font-normal text-muted-foreground">
-                Atalhos para as páginas que concentram as decisões mais importantes da conta.
+                Caminhos rápidos para as áreas mais usadas do WarframeFool.
               </span>
             </h2>
-            <Badge variant="outline">Meta muda após hotfixes</Badge>
+            <Badge variant="outline">Guia em português</Badge>
           </div>
           <div className="mt-3 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             <GuideLink href="/tier-list" title="Tier List completa" description="Ranking com filtros por tier, função, variante, arma e busca por nome." />
             <GuideLink href="/builds" title="Builds recomendadas" description="Estruturas para Felarx, Laetum, Praedos e futuras builds testadas." />
             <GuideLink href="/incarnon" title="Armas Incarnon" description="Priorize adaptadores que realmente mudam Steel Path, bosses e farm." />
             <GuideLink href="/farm" title="Farm Warframe" description="Rotas e prioridades para créditos, recursos e repetição eficiente." />
-            <GuideLink href="/farm-foco-warframe" title="Farm de Foco" description="Lentes, convergência e métodos para evoluir escolas do Operador." />
-            <GuideLink href="/melhor-escola-warframe" title="Melhor Escola" description="Compare Zenurik, Madurai, Unairu, Vazarin e Naramon por objetivo." />
-            <GuideLink href="/melhor-amp-operador-warframe" title="Melhor Amp" description="Entenda combinações 1-2-3, 5-4-7 e 7-4-7 para Operador." />
-            <GuideLink href="/steel-path" title="Steel Path" description="Base segura para sobrevivência, dano e investimento de endgame." />
             <GuideLink href="/loadouts" title="Loadouts" description="Salve suas combinações favoritas e consulte depois." />
+            <GuideLink href="/steel-path" title="Steel Path" description="Base segura para sobrevivência, dano e investimento de endgame." />
           </div>
         </section>
+
+        <TierListPreview tierList={tierList} />
+
+        <section className="mt-8">
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <h2 className="text-2xl font-black">
+              Guias recomendados
+              <span className="mt-1 block text-sm font-normal text-muted-foreground">
+                Conteúdos curtos para aprofundar Operador, foco, builds e farm sem sair do fluxo.
+              </span>
+            </h2>
+            <Badge variant="meta">Meta revisado</Badge>
+          </div>
+          <div className="mt-3 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            <GuideLink href="/melhor-escola-warframe" title="Melhor escola Warframe" description="Compare Zenurik, Madurai, Unairu, Vazarin e Naramon por objetivo." />
+            <GuideLink href="/melhor-amp-operador-warframe" title="Melhor Amp do Operador" description="Entenda combinações 1-2-3, 5-4-7 e 7-4-7 para Operador." />
+            <GuideLink href="/farm-foco-warframe" title="Farm de Foco" description="Lentes, convergência e métodos para evoluir escolas do Operador." />
+            <GuideLink href="/builds/felarx" title="Build Felarx" description="Configuração focada em Steel Path, bosses e alvo pesado." />
+            <GuideLink href="/builds/laetum" title="Build Laetum" description="Secundária Incarnon forte para Steel Path e dano consistente." />
+            <GuideLink href="/farm-creditos" title="Farm de Créditos" description="Métodos por estágio da conta e erros comuns para evitar perda de tempo." />
+          </div>
+        </section>
+
         <section className="mt-8 rounded-lg border border-yellow-300/20 bg-yellow-300/10 p-4">
           <h2 className="text-lg font-black text-yellow-100">Aviso de meta</h2>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">

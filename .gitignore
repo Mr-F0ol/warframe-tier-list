@@ -12,6 +12,8 @@ server.err.log
 server.out.log
 
 .vercel
+.deploy-vercel-*
+.vercel-localappdata
 *.tsbuildinfo
 tsconfig.tsbuildinfo
 

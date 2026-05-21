@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FaqSection, GuideCardGrid, GuideTable } from "@/components/guide-ui";
 import { InternalLinks, SectionBlock, SeoPage } from "@/components/seo/seo-page";
+import { articleJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Melhores Warframes para Farm de Foco 2026 — ESO, SO e Lentes",
@@ -10,6 +11,11 @@ export const metadata: Metadata = {
     title: "Melhores Warframes para Farm de Foco 2026 | WarframeFool",
     description: "Escolha Warframes de clear para farmar foco com lentes, Sanctuary Onslaught e Elite Sanctuary Onslaught.",
     url: "/melhores-warframes-farm-foco"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Melhores Warframes para Farm de Foco 2026 — ESO, SO e Lentes",
+    description: "Guia em português com os melhores Warframes para farm de foco no Warframe, incluindo Saryn, Volt, Mirage, lentes, ESO e SO."
   }
 };
 
@@ -52,11 +58,23 @@ const faq = [
 ];
 
 export default function MelhoresWarframesFarmFocoPage() {
+  const articleSchema = articleJsonLd({
+    title: "Melhores Warframes para Farm de Foco 2026 — ESO, SO e Lentes",
+    description: metadata.description || "",
+    path: "/melhores-warframes-farm-foco"
+  });
+
   return (
     <SeoPage
       eyebrow="Farm de Foco"
       title="Melhores Warframes para Farm de Foco 2026"
       description="Escolha Warframes de clear para ganhar foco com lentes, Sanctuary Onslaught, Elite Sanctuary Onslaught e missões densas."
+      breadcrumbs={[
+        { label: "Início", href: "/" },
+        { label: "Guias", href: "/#guias-recomendados" },
+        { label: "Warframes para Foco", href: "/melhores-warframes-farm-foco" }
+      ]}
+      structuredData={articleSchema}
     >
       <SectionBlock title="O que faz um Warframe ser bom para foco?" description="Farm de foco depende de afinidade. Warframes que limpam grupos rápido tendem a transformar lentes em pontos de escola com mais consistência.">
         <GuideCardGrid

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { InternalLinks, RankCardGrid, SectionBlock, SeoPage } from "@/components/seo/seo-page";
 import { buildGuides } from "@/data/builds";
+import { itemListJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Builds Warframe — Guias para Steel Path, Bosses e Farm",
@@ -10,15 +11,36 @@ export const metadata: Metadata = {
     title: "Builds Warframe | WarframeFool",
     description: "Guias em português para escolher builds de Steel Path, bosses, farm e missões rápidas.",
     url: "/builds"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Builds Warframe — Guias para Steel Path, Bosses e Farm",
+    description: "Guias de builds Warframe com objetivo, prioridade de stats, mods principais, substituições e observações de meta."
   }
 };
 
 export default function BuildsPage() {
+  const itemListSchema = itemListJsonLd({
+    name: "Builds Warframe",
+    description: "Guias de builds do WarframeFool para Steel Path, bosses, farm e mobilidade.",
+    path: "/builds",
+    items: buildGuides.map(build => ({
+      name: `Build ${build.name} Warframe`,
+      url: `/builds/${build.slug}`,
+      description: build.description
+    }))
+  });
+
   return (
     <SeoPage
       eyebrow="Builds"
       title="Builds Warframe"
       description="Cada build mostra objetivo, prioridade de stats e recomendações práticas para você adaptar à sua conta."
+      breadcrumbs={[
+        { label: "Início", href: "/" },
+        { label: "Builds", href: "/builds" }
+      ]}
+      structuredData={itemListSchema}
     >
       <SectionBlock title="Guias disponíveis" description="Use as builds como base e ajuste conforme seus mods, Arcanes, Rivens e estilo de jogo.">
         <RankCardGrid

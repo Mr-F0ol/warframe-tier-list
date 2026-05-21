@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     title: "Loadouts Warframe | WarframeFool",
     description: "Salve combinações de Warframe, primária, secundária, melee e notas por objetivo.",
     url: "/loadouts"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Loadouts Warframe — Organize combinações para Steel Path, Farm e Bosses",
+    description: "Organize combinações de Warframe, armas e notas por objetivo e consulte seus loadouts depois."
   }
 };
 
@@ -22,6 +27,10 @@ export default async function LoadoutsPage() {
       eyebrow="Loadouts"
       title="Meus Loadouts"
       description="Organize combinações de Warframe, armas e notas por objetivo."
+      breadcrumbs={[
+        { label: "Início", href: "/" },
+        { label: "Loadouts", href: "/loadouts" }
+      ]}
     >
       <SectionBlock title="Criar e salvar" description="Os loadouts ficam salvos neste navegador.">
         <LoadoutsPanel tierList={tierList} />

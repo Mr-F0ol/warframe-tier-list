@@ -23,6 +23,10 @@ export default function SobrePage() {
       eyebrow="Sobre"
       title="Sobre o WarframeFool"
       description="Um projeto independente de fãs para transformar tier list, builds e guias de Warframe em uma ferramenta clara para jogadores brasileiros."
+      breadcrumbs={[
+        { label: "Início", href: "/" },
+        { label: "Sobre", href: "/sobre" }
+      ]}
     >
       <SectionBlock title="Objetivo do projeto" description="A proposta é ajudar na decisão de investimento sem fingir que existe uma build universal perfeita.">
         <InfoCardGrid

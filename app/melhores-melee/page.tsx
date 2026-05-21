@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { InternalLinks, RankCardGrid, SectionBlock, SeoPage } from "@/components/seo/seo-page";
 import { weaponsByCategory } from "@/data/weapons";
+import { itemListJsonLd } from "@/lib/seo";
 
 const meleeWeapons = weaponsByCategory("melee");
 
@@ -12,15 +13,37 @@ export const metadata: Metadata = {
     title: "Melhores melee Warframe | WarframeFool",
     description: "Ranking prático de melee como Glaive Prime, Ceramic Dagger Incarnon, Praedos e Dual Ichor.",
     url: "/melhores-melee"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Melhores Melee Warframe — Guia Meta",
+    description: "Melhores armas melee para Steel Path, utilidade, stat-stick, Incarnon e farm no Warframe."
   }
 };
 
 export default function MelhoresMeleePage() {
+  const itemListSchema = itemListJsonLd({
+    name: "Melhores Melee Warframe",
+    description: "Ranking prático de melee para dano, utilidade, stat-stick, Incarnon e farm.",
+    path: "/melhores-melee",
+    items: meleeWeapons.map(weapon => ({
+      name: weapon.name,
+      url: weapon.buildHref,
+      description: weapon.description
+    }))
+  });
+
   return (
     <SeoPage
       eyebrow="Melee"
       title="Melhores armas melee no Warframe"
       description="Melee para dano, utilidade, mobilidade, stat-stick e farms repetidos, sem perder o foco em investimento real."
+      breadcrumbs={[
+        { label: "Início", href: "/" },
+        { label: "Tier List", href: "/tier-list" },
+        { label: "Melee", href: "/melhores-melee" }
+      ]}
+      structuredData={itemListSchema}
     >
       <SectionBlock title="Melee recomendadas" description="Use esta página para separar melee de dano, utilidade e setups específicos.">
         <RankCardGrid

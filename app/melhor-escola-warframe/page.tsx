@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
 import { FaqSection, GuideCardGrid, GuideTable } from "@/components/guide-ui";
 import { InternalLinks, SectionBlock, SeoPage } from "@/components/seo/seo-page";
+import { articleJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Melhor Escola Warframe 2026 — Qual escolher para Operador e Steel Path",
-  description: "Guia em português para escolher a melhor escola de foco no Warframe: Zenurik, Madurai, Unairu, Vazarin ou Naramon para iniciante, dano, sobrevivência e Steel Path.",
+  title: "Melhor Escola Warframe 2026 — Operador, Foco e Steel Path",
+  description: "Veja qual é a melhor escola de foco em Warframe para iniciantes, Steel Path, dano, sobrevivência e uso geral do Operador.",
   alternates: { canonical: "/melhor-escola-warframe" },
   openGraph: {
-    title: "Melhor Escola Warframe 2026 | WarframeFool",
-    description: "Compare as escolas de foco e escolha a melhor opção para Operador, energia, dano e Steel Path.",
+    title: "Melhor Escola Warframe 2026 — Operador, Foco e Steel Path",
+    description: "Veja qual é a melhor escola de foco em Warframe para iniciantes, Steel Path, dano, sobrevivência e uso geral do Operador.",
     url: "/melhor-escola-warframe"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Melhor Escola Warframe 2026 — Operador, Foco e Steel Path",
+    description: "Veja qual é a melhor escola de foco em Warframe para iniciantes, Steel Path, dano, sobrevivência e uso geral do Operador."
   }
 };
 
@@ -54,31 +60,31 @@ const choices = [
     badgeVariant: "meta" as const
   },
   {
-    title: "Melhor para iniciante",
+    title: "Melhor escola para iniciante",
     description: "Zenurik também é a melhor primeira escolha para a maioria dos jogadores, porque reduz a sensação de ficar sem energia o tempo todo.",
     badge: "Iniciante",
     badgeVariant: "cyan" as const
   },
   {
-    title: "Melhor para sobrevivência",
+    title: "Melhor escola para sobrevivência",
     description: "Unairu é excelente para jogador solo em conteúdo difícil; Vazarin entra melhor quando o foco é proteção e recuperação da equipe.",
     badge: "Unairu",
     badgeVariant: "steel" as const
   },
   {
-    title: "Melhor para dano",
+    title: "Melhor escola para dano",
     description: "Madurai é a escola para burst, Operador agressivo, Amp forte e alvos que precisam cair em uma janela curta.",
     badge: "Madurai",
     badgeVariant: "tierS" as const
   },
   {
-    title: "Melhor para Operador",
+    title: "Melhor escola para Operador",
     description: "Madurai melhora o teto ofensivo do Operador. Unairu e Vazarin complementam quando o problema é sobreviver fora do Warframe.",
     badge: "Operador",
     badgeVariant: "warframe" as const
   },
   {
-    title: "Melhor para Steel Path",
+    title: "Melhor escola para Steel Path",
     description: "Unairu costuma entregar mais segurança prática em Steel Path solo, enquanto Zenurik segue ótima se seu Warframe depende muito de habilidade.",
     badge: "Endgame",
     badgeVariant: "steel" as const
@@ -128,11 +134,23 @@ const faq = [
 ];
 
 export default function MelhorEscolaWarframePage() {
+  const articleSchema = articleJsonLd({
+    title: "Melhor Escola Warframe 2026 — Operador, Foco e Steel Path",
+    description: metadata.description || "",
+    path: "/melhor-escola-warframe"
+  });
+
   return (
     <SeoPage
       eyebrow="Operador"
       title="Melhor Escola Warframe 2026"
       description="Escolha entre Zenurik, Madurai, Unairu, Vazarin e Naramon com foco em Operador, energia, dano e Steel Path."
+      breadcrumbs={[
+        { label: "Início", href: "/" },
+        { label: "Guias", href: "/#guias-recomendados" },
+        { label: "Melhor Escola Warframe", href: "/melhor-escola-warframe" }
+      ]}
+      structuredData={articleSchema}
     >
       <SectionBlock title="O que são escolas de foco?" description="Escolas de foco são árvores de habilidades do Operador/Drifter. Elas mudam energia, dano, sobrevivência, suporte e utilidade dentro das missões.">
         <GuideCardGrid
@@ -144,7 +162,7 @@ export default function MelhorEscolaWarframePage() {
         />
       </SectionBlock>
 
-      <SectionBlock title="Ranking das melhores escolas" description="Ranking prático para jogador brasileiro decidir onde investir foco primeiro.">
+      <SectionBlock title="Ranking geral das escolas" description="Ranking prático para jogador brasileiro decidir onde investir foco primeiro.">
         <GuideCardGrid items={ranking} />
       </SectionBlock>
 
@@ -160,6 +178,7 @@ export default function MelhorEscolaWarframePage() {
         links={[
           { title: "Farm de Foco", description: "Veja como ganhar pontos para evoluir Zenurik, Madurai, Unairu, Vazarin e Naramon.", href: "/farm-foco-warframe" },
           { title: "Melhor Amp do Operador", description: "Escolha o Amp certo para complementar sua escola de foco.", href: "/melhor-amp-operador-warframe" },
+          { title: "Tier List", description: "Compare Warframes e armas antes de investir pesado na conta.", href: "/tier-list" },
           { title: "Guia Eidolon", description: "Veja onde Madurai, Amp e Arcanes fazem diferença.", href: "/guia-eidolon-warframe" },
           { title: "Steel Path", description: "Monte uma base segura antes de investir pesado em foco e Amp.", href: "/steel-path" }
         ]}

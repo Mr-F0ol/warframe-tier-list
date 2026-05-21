@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { InternalLinks, RankCardGrid, SectionBlock, SeoPage } from "@/components/seo/seo-page";
 import { weaponsByCategory } from "@/data/weapons";
+import { itemListJsonLd } from "@/lib/seo";
 
 const primaryWeapons = weaponsByCategory("primary");
 
@@ -12,15 +13,37 @@ export const metadata: Metadata = {
     title: "Melhores armas primárias Warframe | WarframeFool",
     description: "Ranking prático de primárias como Torid Incarnon, Felarx, Latron e Burston.",
     url: "/melhores-armas-primarias"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Melhores Armas Primárias Warframe — Guia Meta",
+    description: "Melhores armas primárias para Steel Path, Incarnon, bosses e clear no Warframe."
   }
 };
 
 export default function MelhoresArmasPrimariasPage() {
+  const itemListSchema = itemListJsonLd({
+    name: "Melhores Armas Primárias Warframe",
+    description: "Ranking prático de armas primárias para Steel Path, Incarnon, bosses e clear.",
+    path: "/melhores-armas-primarias",
+    items: primaryWeapons.map(weapon => ({
+      name: weapon.name,
+      url: weapon.buildHref,
+      description: weapon.description
+    }))
+  });
+
   return (
     <SeoPage
       eyebrow="Armas primárias"
       title="Melhores armas primárias no Warframe"
       description="Primárias para carregar Steel Path, bosses e missões longas, com foco em conforto, dano e investimento responsável."
+      breadcrumbs={[
+        { label: "Início", href: "/" },
+        { label: "Tier List", href: "/tier-list" },
+        { label: "Primárias", href: "/melhores-armas-primarias" }
+      ]}
+      structuredData={itemListSchema}
     >
       <SectionBlock title="Primárias recomendadas" description="Lista focada em armas que resolvem clear, alvo pesado e consistência no endgame.">
         <RankCardGrid

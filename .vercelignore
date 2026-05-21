@@ -1,6 +1,11 @@
 node_modules
 .next
 .vercel/output
+.deploy-vercel-*
+.vercel-localappdata
+.git
+.vscode
+out
 *.log
 server.out.log
 server.err.log

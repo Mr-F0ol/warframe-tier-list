@@ -9,6 +9,11 @@ export const metadata: Metadata = {
     title: "Farm Warframe | WarframeFool",
     description: "Guias de farm para créditos, recursos e evolução consistente no Warframe.",
     url: "/farm"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Farm Warframe — Créditos, Recursos e Rotas para Evoluir Mais Rápido",
+    description: "Guia de farm Warframe em português com prioridades para créditos, recursos, equipamentos confortáveis e rotas de repetição."
   }
 };
 
@@ -18,6 +23,10 @@ export default function FarmPage() {
       eyebrow="Farm"
       title="Farm Warframe"
       description="Organize créditos, recursos e equipamentos para repetir missões com menos travas e mais consistência."
+      breadcrumbs={[
+        { label: "Início", href: "/" },
+        { label: "Farm", href: "/farm" }
+      ]}
     >
       <SectionBlock title="Guias de farm" description="Comece pelo gargalo da sua conta: créditos, recursos, mobilidade ou sobrevivência.">
         <InfoCardGrid

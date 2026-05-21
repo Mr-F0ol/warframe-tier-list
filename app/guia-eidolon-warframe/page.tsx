@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FaqSection, GuideCardGrid, GuideTable } from "@/components/guide-ui";
 import { InternalLinks, SectionBlock, SeoPage } from "@/components/seo/seo-page";
+import { articleJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Guia Eidolon Warframe 2026 — Como Capturar Teralyst, Gantulyst e Hydrolyst",
@@ -10,6 +11,11 @@ export const metadata: Metadata = {
     title: "Guia Eidolon Warframe 2026 | WarframeFool",
     description: "Aprenda a preparar Amp, foco, lures e loadout para capturar Eidolons com mais consistência.",
     url: "/guia-eidolon-warframe"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Guia Eidolon Warframe 2026 — Como Capturar Teralyst, Gantulyst e Hydrolyst",
+    description: "Guia em português para caçar Eidolon no Warframe com Amp, escolas de foco, lures, funções do squad, erros comuns e preparação."
   }
 };
 
@@ -48,11 +54,23 @@ const faq = [
 ];
 
 export default function GuiaEidolonWarframePage() {
+  const articleSchema = articleJsonLd({
+    title: "Guia Eidolon Warframe 2026 — Como Capturar Teralyst, Gantulyst e Hydrolyst",
+    description: metadata.description || "",
+    path: "/guia-eidolon-warframe"
+  });
+
   return (
     <SeoPage
       eyebrow="Eidolon"
       title="Guia Eidolon Warframe 2026"
       description="Prepare Amp, escola de foco, lures e loadout para capturar Teralyst, Gantulyst e Hydrolyst com mais consistência."
+      breadcrumbs={[
+        { label: "Início", href: "/" },
+        { label: "Guias", href: "/#guias-recomendados" },
+        { label: "Guia Eidolon", href: "/guia-eidolon-warframe" }
+      ]}
+      structuredData={articleSchema}
     >
       <SectionBlock title="O que são Eidolons?" description="Eidolons são bosses noturnos das Planícies de Eidolon. A luta alterna dano do Operador nos escudos e dano do Warframe nas articulações.">
         <GuideCardGrid

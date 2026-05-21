@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FaqSection, GuideCardGrid, GuideTable } from "@/components/guide-ui";
 import { InternalLinks, SectionBlock, SeoPage } from "@/components/seo/seo-page";
+import { articleJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Arcanes de Amp Warframe 2026 — Melhores Arcanes para Operador",
@@ -10,6 +11,11 @@ export const metadata: Metadata = {
     title: "Arcanes de Amp Warframe 2026 | WarframeFool",
     description: "Escolha Arcanes de Amp para dano, crítico, consistência e conteúdo de Operador.",
     url: "/arcanes-amp-warframe"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Arcanes de Amp Warframe 2026 — Melhores Arcanes para Operador",
+    description: "Guia em português dos melhores Arcanes de Amp no Warframe para Operador, Eidolon, Void Angels e uso geral."
   }
 };
 
@@ -52,11 +58,23 @@ const faq = [
 ];
 
 export default function ArcanesAmpWarframePage() {
+  const articleSchema = articleJsonLd({
+    title: "Arcanes de Amp Warframe 2026 — Melhores Arcanes para Operador",
+    description: metadata.description || "",
+    path: "/arcanes-amp-warframe"
+  });
+
   return (
     <SeoPage
       eyebrow="Operador"
       title="Arcanes de Amp Warframe 2026"
       description="Escolha Arcanes para melhorar dano, crítico e consistência do Operador em Eidolon, Void Angels e uso geral."
+      breadcrumbs={[
+        { label: "Início", href: "/" },
+        { label: "Guias", href: "/#guias-recomendados" },
+        { label: "Arcanes de Amp", href: "/arcanes-amp-warframe" }
+      ]}
+      structuredData={articleSchema}
     >
       <SectionBlock title="O que são Arcanes de Amp?" description="Arcanes de Amp são melhorias equipadas no Amp para aumentar dano, crítico ou consistência do Operador/Drifter.">
         <GuideCardGrid

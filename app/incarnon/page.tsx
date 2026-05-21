@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { InternalLinks, RankCardGrid, SectionBlock, SeoPage } from "@/components/seo/seo-page";
 import { incarnonWeapons } from "@/data/weapons";
+import { itemListJsonLd } from "@/lib/seo";
 
 const items = incarnonWeapons();
 
@@ -12,15 +13,36 @@ export const metadata: Metadata = {
     title: "Armas Incarnon Warframe | WarframeFool",
     description: "Prioridades Incarnon para Steel Path, bosses, farm e endgame.",
     url: "/incarnon"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Melhores Armas Incarnon Warframe — Guia Meta",
+    description: "Guia de armas Incarnon para priorizar investimento no Warframe: primárias, secundárias e melee."
   }
 };
 
 export default function IncarnonPage() {
+  const itemListSchema = itemListJsonLd({
+    name: "Armas Incarnon Warframe",
+    description: "Prioridades Incarnon para Steel Path, bosses, farm e endgame.",
+    path: "/incarnon",
+    items: items.map(item => ({
+      name: item.name,
+      url: item.buildHref,
+      description: item.description
+    }))
+  });
+
   return (
     <SeoPage
       eyebrow="Incarnon"
       title="Guia de armas Incarnon"
       description="Uma página dedicada para decidir quais armas Incarnon merecem adaptador, Forma e Catalisador primeiro."
+      breadcrumbs={[
+        { label: "Início", href: "/" },
+        { label: "Incarnon", href: "/incarnon" }
+      ]}
+      structuredData={itemListSchema}
     >
       <SectionBlock title="Prioridades Incarnon" description="A lista junta primárias, secundárias e melee para comparar investimento entre categorias.">
         <RankCardGrid

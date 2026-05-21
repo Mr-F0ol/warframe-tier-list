@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FaqSection, GuideCardGrid, GuideTable } from "@/components/guide-ui";
 import { InternalLinks, SectionBlock, SeoPage } from "@/components/seo/seo-page";
+import { articleJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Void Angels Warframe 2026 — Como Derrotar e Farmar Voidplume Pinion",
@@ -10,6 +11,11 @@ export const metadata: Metadata = {
     title: "Void Angels Warframe 2026 | WarframeFool",
     description: "Aprenda a vencer Void Angels no Zariman com Operador, Amp, armas fortes e uma rotação segura.",
     url: "/void-angels-warframe"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Void Angels Warframe 2026 — Como Derrotar e Farmar Voidplume Pinion",
+    description: "Guia em português para derrotar Void Angels no Zariman, escolher Amp, escola de foco, armas e Warframes seguros."
   }
 };
 
@@ -48,11 +54,23 @@ const faq = [
 ];
 
 export default function VoidAngelsWarframePage() {
+  const articleSchema = articleJsonLd({
+    title: "Void Angels Warframe 2026 — Como Derrotar e Farmar Voidplume Pinion",
+    description: metadata.description || "",
+    path: "/void-angels-warframe"
+  });
+
   return (
     <SeoPage
       eyebrow="Zariman"
       title="Void Angels Warframe 2026"
       description="Guia para derrotar Void Angels no Zariman, farmar Voidplume Pinion e escolher Amp, escola e armas com segurança."
+      breadcrumbs={[
+        { label: "Início", href: "/" },
+        { label: "Guias", href: "/#guias-recomendados" },
+        { label: "Void Angels", href: "/void-angels-warframe" }
+      ]}
+      structuredData={articleSchema}
     >
       <SectionBlock title="O que são Void Angels?" description="Void Angels são inimigos especiais do Zariman que alternam combate normal com uma fase focada em Operador/Drifter.">
         <GuideCardGrid

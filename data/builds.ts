@@ -48,7 +48,7 @@ export const buildGuides: BuildGuide[] = [
   {
     slug: "felarx",
     name: "Felarx",
-    seoTitle: "Build Felarx Warframe 2026 — Melhor Configuração para Steel Path e Bosses",
+    seoTitle: "Build Felarx Warframe 2026 — Steel Path, Bosses e Incarnon",
     category: "Primária",
     tier: "S",
     description: "Build Felarx Warframe para dano alto em Steel Path, bosses e alvos resistentes.",
@@ -95,6 +95,7 @@ export const buildGuides: BuildGuide[] = [
       { href: "/builds", label: "Builds", description: "Veja outros guias de build para armas e loadouts." },
       { href: "/tier-list", label: "Tier List", description: "Compare a Felarx com outras armas do meta." },
       { href: "/incarnon", label: "Guia Incarnon", description: "Entenda quando priorizar adaptadores Incarnon." },
+      { href: "/farm-creditos", label: "Farm de Créditos", description: "Veja como montar rotas repetíveis com dano em alvo pesado." },
       { href: "/melhores-armas-primarias", label: "Melhores primárias", description: "Compare a Felarx com Torid, Latron, Burston e Phenmor." }
     ]
   },
@@ -148,12 +149,14 @@ export const buildGuides: BuildGuide[] = [
       { href: "/builds", label: "Builds", description: "Veja outros guias de build para armas e loadouts." },
       { href: "/tier-list", label: "Tier List", description: "Compare a Laetum com outras armas do meta." },
       { href: "/incarnon", label: "Guia Incarnon", description: "Veja outras armas Incarnon fortes." },
+      { href: "/farm-creditos", label: "Farm de Créditos", description: "Use uma secundária confiável em rotas de farm repetidas." },
       { href: "/melhores-armas-secundarias", label: "Melhores secundárias", description: "Compare Laetum, Dual Toxocyst, Lex e Kuva Nukor." }
     ]
   },
   {
     slug: "praedos",
     name: "Praedos",
+    seoTitle: "Build Praedos Warframe 2026 — Melhor Evolução Incarnon e Build de Mobilidade",
     category: "Melee",
     tier: "S",
     description: "Build Praedos Warframe para mobilidade, utilidade e conforto em farms e missões rápidas.",
@@ -167,9 +170,9 @@ export const buildGuides: BuildGuide[] = [
     recommendedArcanes: ["Melee Duplicate quando fizer sentido para a build", "Melee Exposure", "Arcane de melee compatível com seu foco real"],
     recommendedElement: "Se a Praedos for utilitária, elemento é secundário. Se for fonte de dano, ajuste conforme facção e status disponíveis no loadout.",
     incarnonEvolutions: [
-      "Priorize evoluções utilitárias quando a Praedos for usada para mobilidade e conforto.",
-      "Escolha evoluções ofensivas apenas se ela realmente for sua fonte de dano melee.",
-      "Separe a configuração de farm da configuração de dano para não misturar objetivos."
+      "Build focada em mobilidade: priorize evoluções que deixam deslocamento, parkour e ritmo de missão mais confortáveis.",
+      "Build focada em melee: escolha evoluções ofensivas apenas se a Praedos realmente for sua fonte de dano.",
+      "Configuração de farm: separe a versão utilitária da versão de dano para não misturar objetivos na mesma build."
     ],
     bestUse: "Farm, missões rápidas, deslocamento e loadouts que valorizam qualidade de vida.",
     investmentPriority: "Alta",
@@ -185,17 +188,21 @@ export const buildGuides: BuildGuide[] = [
       "Use em farms repetidos quando tempo de deslocamento importa."
     ],
     editableSlots: [
-      { label: "Versão utilitária", guidance: "Preencha sua configuração focada em mobilidade e conforto." },
-      { label: "Versão melee", guidance: "Preencha uma configuração focada em dano caso use Praedos para matar." },
-      { label: "Missões preferidas", guidance: "Anote onde a mobilidade da Praedos realmente economiza tempo." }
+      { label: "Build focada em mobilidade", guidance: "Use esta variação quando a Praedos entra para acelerar deslocamento, parkour e farms repetidos." },
+      { label: "Build focada em melee", guidance: "Use esta variação quando a Praedos precisa matar e não apenas melhorar a fluidez do loadout." },
+      { label: "Missões recomendadas", guidance: "Anote onde a mobilidade da Praedos realmente economiza tempo." }
     ],
     avoid: ["Tratar toda melee como stat-stick", "Ignorar evoluções de mobilidade", "Gastar recursos se você nunca usa melee ou parkour ativo"],
     faq: [
       { question: "Praedos é boa mesmo sem ser arma principal?", answer: "Sim. O valor da Praedos vem muito da mobilidade e do conforto, não apenas do dano melee." },
       { question: "Devo buildar Praedos para dano?", answer: "Só se você realmente pretende usar melee para matar. Para farm e missões rápidas, a versão utilitária costuma entregar mais valor." },
-      { question: "Qual elemento usar na Praedos?", answer: "Se ela for utilitária, o elemento importa menos. Se for arma de dano, ajuste conforme facção e status do loadout." }
+      { question: "Qual elemento usar na Praedos?", answer: "Se ela for utilitária, o elemento importa menos. Se for arma de dano, ajuste conforme facção e status do loadout." },
+      { question: "Praedos é melhor para mobilidade ou melee?", answer: "Para a maioria dos loadouts, a Praedos entrega mais valor como ferramenta de mobilidade. A versão melee vale quando você quer usar a arma como fonte real de dano." }
     ],
     internalLinks: [
+      { href: "/builds", label: "Builds", description: "Veja outros guias de build para armas, Incarnon e loadouts." },
+      { href: "/tier-list", label: "Tier List", description: "Compare a Praedos com outras armas do meta." },
+      { href: "/incarnon", label: "Guia Incarnon", description: "Entenda quando priorizar armas Incarnon no seu progresso." },
       { href: "/melhores-melee", label: "Melhores melee", description: "Compare Praedos com Glaive Prime, Ceramic Dagger e Dual Ichor." },
       { href: "/farm-creditos", label: "Farm", description: "Veja como mobilidade ajuda em farms repetidos." },
       { href: "/steel-path", label: "Steel Path", description: "Monte uma base segura para conteúdo difícil." }

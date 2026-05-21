@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { Breadcrumbs, type BreadcrumbItem } from "@/components/breadcrumbs";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import type { TierKey } from "@/lib/types";
@@ -22,7 +23,23 @@ export interface RankCardItem {
   meta?: string;
 }
 
-export function SeoPage({ eyebrow, title, description, children }: { eyebrow: string; title: string; description: string; children: ReactNode }) {
+type JsonLdData = Record<string, unknown> | Array<Record<string, unknown>>;
+
+export function SeoPage({
+  eyebrow,
+  title,
+  description,
+  breadcrumbs,
+  structuredData,
+  children
+}: {
+  eyebrow: string;
+  title: string;
+  description: string;
+  breadcrumbs?: BreadcrumbItem[];
+  structuredData?: JsonLdData;
+  children: ReactNode;
+}) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -38,6 +55,10 @@ export function SeoPage({ eyebrow, title, description, children }: { eyebrow: st
   return (
     <main id="conteudo" className="mx-auto w-[min(1180px,calc(100%-32px))] scroll-mt-24 pb-10 pt-6">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {toJsonLdArray(structuredData).map((data, index) => (
+        <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
+      ))}
+      {breadcrumbs ? <Breadcrumbs items={breadcrumbs} /> : null}
       <section className="relative overflow-hidden border-b border-border/70 py-8 md:py-12">
         <span className="inline-flex border border-cyan-300/35 bg-cyan-300/10 px-3 py-2 text-xs font-bold uppercase text-cyan-100">
           {eyebrow}
@@ -48,6 +69,11 @@ export function SeoPage({ eyebrow, title, description, children }: { eyebrow: st
       {children}
     </main>
   );
+}
+
+function toJsonLdArray(data?: JsonLdData) {
+  if (!data) return [];
+  return Array.isArray(data) ? data : [data];
 }
 
 export function SectionBlock({ title, description, children }: { title: string; description?: string; children: ReactNode }) {
@@ -138,7 +164,7 @@ export function RankCard({ item }: { item: RankCardItem }) {
 
 export function InternalLinks({ links }: { links: LinkCard[] }) {
   return (
-    <SectionBlock title="Continue navegando" description="Links internos para aprofundar sem sair do fluxo do site.">
+    <SectionBlock title="Guias relacionados" description="Links internos para aprofundar sem sair do fluxo do site.">
       <InfoCardGrid cards={links} />
     </SectionBlock>
   );

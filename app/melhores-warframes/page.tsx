@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { InternalLinks, RankCardGrid, SectionBlock, SeoPage } from "@/components/seo/seo-page";
 import { warframes } from "@/data/warframes";
+import { itemListJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Melhores Warframes 2026 — Tier List Meta Atual",
@@ -10,15 +11,36 @@ export const metadata: Metadata = {
     title: "Melhores Warframes 2026 | WarframeFool",
     description: "Ranking prático de Warframes normais e Prime para investir com segurança.",
     url: "/melhores-warframes"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Melhores Warframes 2026 — Tier List Meta Atual",
+    description: "Melhores Warframes para Steel Path, farm, suporte, bosses e conteúdo geral, com foco em investimento seguro no Warframe."
   }
 };
 
 export default function MelhoresWarframesPage() {
+  const itemListSchema = itemListJsonLd({
+    name: "Melhores Warframes 2026",
+    description: "Ranking prático de Warframes por função e investimento.",
+    path: "/melhores-warframes",
+    items: warframes.map(warframe => ({
+      name: warframe.name,
+      description: warframe.description
+    }))
+  });
+
   return (
     <SeoPage
       eyebrow="Warframes"
       title="Melhores Warframes para investir"
       description="Uma visão separada da tier list para escolher Warframes por função: sobrevivência, suporte, farm, dano e conforto no endgame."
+      breadcrumbs={[
+        { label: "Início", href: "/" },
+        { label: "Tier List", href: "/tier-list" },
+        { label: "Melhores Warframes", href: "/melhores-warframes" }
+      ]}
+      structuredData={itemListSchema}
     >
       <SectionBlock title="Prioridades atuais" description="Ranking separado para consultar Warframes por função sem abrir a lista completa.">
         <RankCardGrid

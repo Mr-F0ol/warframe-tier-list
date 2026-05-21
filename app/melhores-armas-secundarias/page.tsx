@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { InternalLinks, RankCardGrid, SectionBlock, SeoPage } from "@/components/seo/seo-page";
 import { weaponsByCategory } from "@/data/weapons";
+import { itemListJsonLd } from "@/lib/seo";
 
 const secondaryWeapons = weaponsByCategory("secondary");
 
@@ -12,15 +13,37 @@ export const metadata: Metadata = {
     title: "Melhores armas secundárias Warframe | WarframeFool",
     description: "Ranking prático de secundárias como Laetum, Dual Toxocyst, Lex Incarnon e Kuva Nukor.",
     url: "/melhores-armas-secundarias"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Melhores Armas Secundárias Warframe — Guia Meta",
+    description: "Melhores secundárias para Steel Path, primer, bosses e dano consistente no Warframe."
   }
 };
 
 export default function MelhoresArmasSecundariasPage() {
+  const itemListSchema = itemListJsonLd({
+    name: "Melhores Armas Secundárias Warframe",
+    description: "Ranking prático de secundárias para Steel Path, primer, bosses e dano consistente.",
+    path: "/melhores-armas-secundarias",
+    items: secondaryWeapons.map(weapon => ({
+      name: weapon.name,
+      url: weapon.buildHref,
+      description: weapon.description
+    }))
+  });
+
   return (
     <SeoPage
       eyebrow="Armas secundárias"
       title="Melhores armas secundárias no Warframe"
       description="Secundárias para dano reserva, primer de status, alvo pesado e consistência em Steel Path."
+      breadcrumbs={[
+        { label: "Início", href: "/" },
+        { label: "Tier List", href: "/tier-list" },
+        { label: "Secundárias", href: "/melhores-armas-secundarias" }
+      ]}
+      structuredData={itemListSchema}
     >
       <SectionBlock title="Secundárias recomendadas" description="Lista focada em dano reserva, primer, alvo pesado e consistência no endgame.">
         <RankCardGrid

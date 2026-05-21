@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
 import { FaqSection, GuideCardGrid, GuideTable } from "@/components/guide-ui";
 import { InternalLinks, SectionBlock, SeoPage } from "@/components/seo/seo-page";
+import { articleJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Farm de Foco Warframe 2026 — Melhores Lugares para Farmar Pontos de Escola",
-  description: "Guia de farm de foco no Warframe com lentes, Sanctuary Onslaught, métodos para iniciante, intermediário e avançado, dicas e erros comuns.",
+  title: "Farm de Foco Warframe 2026 — Melhores Métodos para Pontos de Escola",
+  description: "Guia de farm de foco em Warframe com métodos para iniciantes, intermediários e jogadores avançados.",
   alternates: { canonical: "/farm-foco-warframe" },
   openGraph: {
-    title: "Farm de Foco Warframe 2026 | WarframeFool",
-    description: "Aprenda a farmar pontos de escola com lentes, convergência e rotas por estágio da conta.",
+    title: "Farm de Foco Warframe 2026 — Melhores Métodos para Pontos de Escola",
+    description: "Guia de farm de foco em Warframe com métodos para iniciantes, intermediários e jogadores avançados.",
     url: "/farm-foco-warframe"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Farm de Foco Warframe 2026 — Melhores Métodos para Pontos de Escola",
+    description: "Guia de farm de foco em Warframe com métodos para iniciantes, intermediários e jogadores avançados."
   }
 };
 
@@ -25,6 +31,25 @@ const methodRows = [
   {
     label: "Avançado",
     cells: ["Elite Sanctuary Onslaught com Warframe de clear e equipe estável.", "Farm direto de foco por afinidade com ritmo alto.", "Entre com build pronta; testar setup novo durante o farm reduz muito a consistência."]
+  }
+];
+
+const lensRows = [
+  {
+    label: "Lente normal",
+    cells: ["Primeira opção para começar a ganhar foco de uma escola.", "Boa quando você ainda está testando Zenurik, Madurai, Unairu, Vazarin ou Naramon.", "Use em item que você realmente leva para missões."]
+  },
+  {
+    label: "Lente maior",
+    cells: ["Versão melhorada da lente comum, com retorno mais eficiente.", "Vale quando você já escolheu uma escola prioritária.", "Evite colocar em equipamento que será abandonado rápido."]
+  },
+  {
+    label: "Lente Eidolon",
+    cells: ["Opção mais forte que a lente maior e ligada a progresso em conteúdo de Eidolon.", "Boa para acelerar uma escola importante depois que sua conta já tem plano claro.", "Não gaste cedo se ainda está mudando de escola toda hora."]
+  },
+  {
+    label: "Lente Lua",
+    cells: ["Uma das melhores lentes para conversão de afinidade em foco.", "Use em Warframes ou armas que você mantém no loadout principal de farm.", "Guarde para setups estáveis de farm, especialmente clear em SO ou ESO."]
   }
 ];
 
@@ -102,11 +127,23 @@ const faq = [
 ];
 
 export default function FarmFocoWarframePage() {
+  const articleSchema = articleJsonLd({
+    title: "Farm de Foco Warframe 2026 — Melhores Métodos para Pontos de Escola",
+    description: metadata.description || "",
+    path: "/farm-foco-warframe"
+  });
+
   return (
     <SeoPage
       eyebrow="Farm"
       title="Farm de Foco Warframe 2026"
       description="Aprenda a ganhar pontos de escola com lentes, convergência e métodos por estágio da conta."
+      breadcrumbs={[
+        { label: "Início", href: "/" },
+        { label: "Guias", href: "/#guias-recomendados" },
+        { label: "Farm de Foco", href: "/farm-foco-warframe" }
+      ]}
+      structuredData={articleSchema}
     >
       <SectionBlock title="O que é foco?" description="Foco é o recurso usado para desbloquear e evoluir habilidades das escolas do Operador: Zenurik, Madurai, Unairu, Vazarin e Naramon.">
         <GuideCardGrid
@@ -116,6 +153,10 @@ export default function FarmFocoWarframePage() {
             { title: "Convergência", description: "Orbes amarelos aparecem em missão quando há lente equipada e aumentam o ganho por um curto período.", badge: "Ritmo", badgeVariant: "farm" }
           ]}
         />
+      </SectionBlock>
+
+      <SectionBlock title="Diferença entre lentes de foco" description="Todas convertem afinidade em pontos de escola, mas lentes melhores aproveitam melhor o tempo investido.">
+        <GuideTable columns={["Como funciona", "Quando usar", "Atenção"]} rows={lensRows} />
       </SectionBlock>
 
       <SectionBlock title="Melhor lugar para farmar foco" description="Elite Sanctuary Onslaught é a rota mais forte quando você já tem build de clear, mas não é a melhor primeira opção para toda conta.">

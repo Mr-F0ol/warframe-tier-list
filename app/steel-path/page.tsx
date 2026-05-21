@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { InfoCardGrid, InternalLinks, SectionBlock, SeoPage } from "@/components/seo/seo-page";
 import { guidePages } from "@/data/guide-pages";
+import { articleJsonLd } from "@/lib/seo";
 
 const page = guidePages["steel-path"];
 
@@ -12,12 +13,33 @@ export const metadata: Metadata = {
     title: "Steel Path Warframe | WarframeFool",
     description: page.description,
     url: "/steel-path"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Steel Path Warframe — Guia Meta Atual",
+    description: page.description
   }
 };
 
 export default function SteelPathPage() {
+  const articleSchema = articleJsonLd({
+    title: "Steel Path Warframe — Guia Meta Atual",
+    description: page.description,
+    path: "/steel-path"
+  });
+
   return (
-    <SeoPage eyebrow={page.eyebrow} title={page.title} description={page.description}>
+    <SeoPage
+      eyebrow={page.eyebrow}
+      title={page.title}
+      description={page.description}
+      breadcrumbs={[
+        { label: "Início", href: "/" },
+        { label: "Guias", href: "/#guias-recomendados" },
+        { label: "Steel Path", href: "/steel-path" }
+      ]}
+      structuredData={articleSchema}
+    >
       {page.sections.map(section => (
         <SectionBlock key={section.title} title={section.title} description={section.description}>
           <InfoCardGrid cards={section.cards} />

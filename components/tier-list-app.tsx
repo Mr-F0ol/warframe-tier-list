@@ -365,7 +365,7 @@ export function ItemImage({ item }: { item: Pick<ItemRecord, "name" | "baseName"
     <span className="relative h-[46px] w-[46px] overflow-hidden rounded-md border border-yellow-300/30 bg-yellow-300/10 shadow-[0_0_18px_rgba(247,198,91,.12)]">
       {item.image ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={item.image} alt="" loading="lazy" className="h-full w-full object-cover" />
+        <img src={item.image} alt={`Imagem de ${item.name}`} loading="lazy" className="h-full w-full object-cover" />
       ) : (
         <span className="grid h-full w-full place-items-center text-xs font-black text-yellow-200">{initialsFor(item.baseName || item.name)}</span>
       )}

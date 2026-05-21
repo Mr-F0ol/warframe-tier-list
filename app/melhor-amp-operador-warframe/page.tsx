@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
 import { FaqSection, GuideCardGrid, GuideTable } from "@/components/guide-ui";
 import { InternalLinks, SectionBlock, SeoPage } from "@/components/seo/seo-page";
+import { articleJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Melhor Amp do Operador Warframe 2026 — Builds 1-2-3, 5-4-7 e 7-4-7",
-  description: "Guia em português para escolher Amp do Operador no Warframe: entenda 1-2-3, 5-4-7, 7-4-7, Eidolon, uso geral e peças dos Quills e Vox Solaris.",
+  title: "Melhor Amp do Operador Warframe 2026 — 1-2-3, 5-4-7 e 7-4-7",
+  description: "Entenda quais são os melhores Amps do Operador em Warframe, como montar 5-4-7, 7-4-7 e opções para iniciantes.",
   alternates: { canonical: "/melhor-amp-operador-warframe" },
   openGraph: {
-    title: "Melhor Amp do Operador Warframe 2026 | WarframeFool",
-    description: "Compare builds 1-2-3, 5-4-7 e 7-4-7 para Operador, Eidolon e uso geral.",
+    title: "Melhor Amp do Operador Warframe 2026 — 1-2-3, 5-4-7 e 7-4-7",
+    description: "Entenda quais são os melhores Amps do Operador em Warframe, como montar 5-4-7, 7-4-7 e opções para iniciantes.",
     url: "/melhor-amp-operador-warframe"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Melhor Amp do Operador Warframe 2026 — 1-2-3, 5-4-7 e 7-4-7",
+    description: "Entenda quais são os melhores Amps do Operador em Warframe, como montar 5-4-7, 7-4-7 e opções para iniciantes."
   }
 };
 
@@ -90,11 +96,23 @@ const faq = [
 ];
 
 export default function MelhorAmpOperadorWarframePage() {
+  const articleSchema = articleJsonLd({
+    title: "Melhor Amp do Operador Warframe 2026 — 1-2-3, 5-4-7 e 7-4-7",
+    description: metadata.description || "",
+    path: "/melhor-amp-operador-warframe"
+  });
+
   return (
     <SeoPage
       eyebrow="Operador"
       title="Melhor Amp do Operador Warframe 2026"
       description="Entenda Amp, combinações 1-2-3, 5-4-7 e 7-4-7, e escolha uma build para Eidolon, uso geral ou progresso inicial."
+      breadcrumbs={[
+        { label: "Início", href: "/" },
+        { label: "Guias", href: "/#guias-recomendados" },
+        { label: "Melhor Amp do Operador", href: "/melhor-amp-operador-warframe" }
+      ]}
+      structuredData={articleSchema}
     >
       <SectionBlock title="O que é Amp?" description="Amp é a arma modular do Operador/Drifter. Ele muda o disparo principal, o disparo alternativo e bônus de atributos por meio de três peças.">
         <GuideCardGrid
@@ -128,10 +146,21 @@ export default function MelhorAmpOperadorWarframePage() {
         />
       </SectionBlock>
 
+      <SectionBlock title="Quais reputações são necessárias" description="A progressão de Amp depende dos sindicatos do Operador. Planeje reputação antes de gastar recursos em uma combinação final.">
+        <GuideCardGrid
+          items={[
+            { title: "The Quills", description: "Use a reputação dos Quills em Cetus para comprar as primeiras peças e montar combinações como 1-2-3.", badge: "Início", badgeVariant: "cyan" },
+            { title: "Vox Solaris", description: "Use a reputação da Vox Solaris em Fortuna para liberar peças avançadas usadas em 5-4-7 e 7-4-7.", badge: "Avançado", badgeVariant: "steel" },
+            { title: "Ordem prática", description: "Monte um Amp inicial primeiro, evolua reputação com calma e só depois feche uma build endgame com peças de Fortuna.", badge: "Plano", badgeVariant: "meta" }
+          ]}
+        />
+      </SectionBlock>
+
       <InternalLinks
         links={[
           { title: "Melhor Escola Warframe", description: "Escolha Zenurik, Madurai, Unairu, Vazarin ou Naramon para combinar com seu Amp.", href: "/melhor-escola-warframe" },
           { title: "Farm de Foco", description: "Ganhe pontos para evoluir a escola que sustenta seu Operador.", href: "/farm-foco-warframe" },
+          { title: "Builds", description: "Use armas e Warframes consistentes junto do Operador em conteúdo difícil.", href: "/builds" },
           { title: "Arcanes de Amp", description: "Melhore dano, crítico e consistência do Operador.", href: "/arcanes-amp-warframe" },
           { title: "Guia Eidolon", description: "Use Amp e foco em caçadas de Teralyst, Gantulyst e Hydrolyst.", href: "/guia-eidolon-warframe" },
           { title: "Void Angels", description: "Prepare o Operador para lutas do Zariman.", href: "/void-angels-warframe" }

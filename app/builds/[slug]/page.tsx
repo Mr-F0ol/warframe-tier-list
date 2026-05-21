@@ -5,6 +5,7 @@ import { FaqSection } from "@/components/guide-ui";
 import { Badge } from "@/components/ui/badge";
 import { InternalLinks, SectionBlock, SeoPage } from "@/components/seo/seo-page";
 import { buildGuides, getBuildGuide } from "@/data/builds";
+import { articleJsonLd } from "@/lib/seo";
 
 interface BuildPageProps {
   params: Promise<{ slug: string }>;
@@ -44,9 +45,20 @@ export default async function BuildDetailPage({ params }: BuildPageProps) {
   if (!build) notFound();
 
   const buildUrl = `https://warframefool.vercel.app/builds/${build.slug}`;
+  const title = `Build ${build.name} Warframe`;
+  const breadcrumbs = [
+    { label: "Início", href: "/" },
+    { label: "Builds", href: "/builds" },
+    { label: build.name, href: `/builds/${build.slug}` }
+  ];
+  const articleSchema = articleJsonLd({
+    title: build.seoTitle || title,
+    description: build.description,
+    path: `/builds/${build.slug}`
+  });
 
   return (
-    <SeoPage eyebrow="Build" title={`Build ${build.name} Warframe`} description={build.description}>
+    <SeoPage eyebrow="Build" title={title} description={build.description} breadcrumbs={breadcrumbs} structuredData={articleSchema}>
       <section className="mt-8 grid gap-3 lg:grid-cols-[1.25fr_.75fr]">
         <article className="surface-panel rounded-lg p-5">
           <div className="flex flex-wrap items-center gap-2">
