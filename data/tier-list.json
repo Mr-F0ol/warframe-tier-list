@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-14",
+  "updatedAt": "2026-05-18",
   "currentPatch": "Update 42.0.10 - Voruna Prime",
   "warframes": [
     {
@@ -115,16 +115,6 @@
             "prime"
           ],
           "image": "https://cdn.warframestat.us/img/XakuPrime.png"
-        },
-        {
-          "name": "Temple",
-          "note": "Heat DPS e suporte musical; forte demais em squads e SP geral.",
-          "baseName": "Temple",
-          "variant": "Normal",
-          "variantTags": [
-            "normal"
-          ],
-          "image": "https://cdn.warframestat.us/img/Temple.png"
         }
       ]
     },
@@ -431,46 +421,6 @@
             "prime"
           ],
           "image": "https://cdn.warframestat.us/img/CalibanPrime.png"
-        },
-        {
-          "name": "Nokko",
-          "note": "Viral, sleep, energia/força e nuke com Sporespring; ótimo SP com setup.",
-          "baseName": "Nokko",
-          "variant": "Normal",
-          "variantTags": [
-            "normal"
-          ],
-          "image": "https://cdn.warframestat.us/img/Nokko.png"
-        },
-        {
-          "name": "Oraxia",
-          "note": "Stealth, vulnerabilidade de dano, Toxin em armas e mobilidade forte.",
-          "baseName": "Oraxia",
-          "variant": "Normal",
-          "variantTags": [
-            "normal"
-          ],
-          "image": "https://cdn.warframestat.us/img/Oraxia.png"
-        },
-        {
-          "name": "Follie",
-          "note": "Dano e controle por Inkblot/Shadowgraph; forte, mas exige leitura da missão.",
-          "baseName": "Follie",
-          "variant": "Normal",
-          "variantTags": [
-            "normal"
-          ],
-          "image": "https://cdn.warframestat.us/img/Inkblot.png"
-        },
-        {
-          "name": "Uriel",
-          "note": "Kit recente de dano/controle, promissor e já viável em SP.",
-          "baseName": "Uriel",
-          "variant": "Normal",
-          "variantTags": [
-            "normal"
-          ],
-          "image": "https://cdn.warframestat.us/img/Demonframe.png"
         },
         {
           "name": "Cyte-09",
@@ -1599,7 +1549,7 @@
             },
             {
               "name": "Enkaus",
-              "note": "Assinatura da Follie; forte com Inkblot, mais nichada fora dela.",
+              "note": "Arma de nicho com bom potencial em builds específicas, mas menos universal que as opções principais.",
               "baseName": "Enkaus",
               "variant": "Normal",
               "variantTags": [

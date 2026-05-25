@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { buildGuides } from "@/data/builds";
+import { siteMeta } from "@/data/siteMeta";
 
-const siteUrl = "https://warframefool.vercel.app";
 const staticRoutes = [
   { path: "", priority: 1 },
   { path: "/tier-list", priority: 0.95 },
@@ -34,17 +34,17 @@ const staticRoutes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-05-21");
+  const lastModified = new Date(siteMeta.lastUpdatedISO);
 
   return [
     ...staticRoutes.map(route => ({
-      url: `${siteUrl}${route.path}`,
+      url: `${siteMeta.siteUrl}${route.path}`,
       lastModified,
       changeFrequency: "weekly" as const,
       priority: route.priority
     })),
     ...buildGuides.map(build => ({
-      url: `${siteUrl}/builds/${build.slug}`,
+      url: `${siteMeta.siteUrl}/builds/${build.slug}`,
       lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.8

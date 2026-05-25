@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { buildGuides } from "@/data/builds";
+import { siteMeta } from "@/data/siteMeta";
 import {
   buildItemIndex,
   defaultVariantLabels,
@@ -174,7 +175,7 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
 
         <div className="mt-3 flex flex-wrap items-center justify-between gap-3 border-t border-border/60 pt-3">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Meta atual · Atualizado em {tierList.updatedAt} · {tierList.currentPatch}
+            Meta atual · Atualizado em {siteMeta.lastUpdated} · {siteMeta.updatePatchLabel}
           </p>
           <CopyLinkButton label="Copiar link da tier list" url="https://warframefool.vercel.app/tier-list" />
         </div>
@@ -379,7 +380,7 @@ export function ItemImage({ item }: { item: Pick<ItemRecord, "name" | "baseName"
     <span className="relative h-[46px] w-[46px] overflow-hidden rounded-md border border-yellow-300/30 bg-yellow-300/10 shadow-[0_0_18px_rgba(247,198,91,.12)]">
       {item.image ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={item.image} alt={`Imagem de ${item.name}`} loading="lazy" className="h-full w-full object-cover" />
+        <img src={item.image} alt={`${item.name} no Warframe`} loading="lazy" className="h-full w-full object-cover" />
       ) : (
         <span className="grid h-full w-full place-items-center text-xs font-black text-yellow-200">{initialsFor(item.baseName || item.name)}</span>
       )}

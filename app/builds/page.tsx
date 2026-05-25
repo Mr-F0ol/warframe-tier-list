@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { InternalLinks, RankCardGrid, SectionBlock, SeoPage } from "@/components/seo/seo-page";
 import { buildGuides } from "@/data/builds";
+import { siteMeta } from "@/data/siteMeta";
 import { itemListJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -57,7 +58,22 @@ export default function BuildsPage() {
         />
       </SectionBlock>
 
-      <SectionBlock title="Como usar os guias de build" description="Atualizações do jogo podem mudar o meta, então revise antes de investir Forma.">
+      <SectionBlock title="Próximos guias planejados" description="Cards sem link quebrado: quando o guia detalhado existir, ele entra na lista principal.">
+        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+          {plannedBuilds.map(build => (
+            <article key={build.name} className="border border-border/70 bg-card/70 p-4">
+              <span className="text-[11px] font-bold uppercase text-cyan-200/75">{build.category}</span>
+              <h2 className="mt-1 text-xl font-black text-foreground">{build.name}</h2>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">{build.description}</p>
+              <div className="mt-4 inline-flex rounded-md border border-border/70 bg-background/45 px-2 py-1 text-xs font-bold uppercase text-muted-foreground">
+                Guia em preparação
+              </div>
+            </article>
+          ))}
+        </div>
+      </SectionBlock>
+
+      <SectionBlock title="Como usar os guias de build" description={`Base revisada em ${siteMeta.lastUpdated} para ${siteMeta.updateBase}. Atualizações do jogo podem mudar o meta, então revise antes de investir Forma.`}>
         <div className="grid gap-3 md:grid-cols-3">
           <article className="bg-card/70 p-4">
             <h2 className="font-black text-yellow-100">Escolha pelo objetivo</h2>
@@ -84,3 +100,46 @@ export default function BuildsPage() {
     </SeoPage>
   );
 }
+
+const plannedBuilds = [
+  {
+    name: "Dual Toxocyst Incarnon",
+    category: "Secundária Incarnon",
+    description: "Guia futuro para secundária de clear, status e missões com alta densidade de inimigos."
+  },
+  {
+    name: "Ceramic Dagger Incarnon",
+    category: "Melee Incarnon",
+    description: "Guia futuro para uso como stat-stick, utilidade e builds específicas de endgame."
+  },
+  {
+    name: "Glaive Prime",
+    category: "Melee",
+    description: "Guia futuro para melee arremessável, dano e variações por conforto de gameplay."
+  },
+  {
+    name: "Dante",
+    category: "Warframe",
+    description: "Guia futuro para segurança, dano em área e uso geral em Steel Path."
+  },
+  {
+    name: "Revenant Prime",
+    category: "Warframe Prime",
+    description: "Guia futuro para sobrevivência simples, conteúdo solo e entrada segura no Steel Path."
+  },
+  {
+    name: "Wisp Prime",
+    category: "Warframe Prime",
+    description: "Guia futuro para suporte, buffs de squad, bosses e missões longas."
+  },
+  {
+    name: "Saryn Prime",
+    category: "Warframe Prime",
+    description: "Guia futuro para clear, farm de foco e missões com grande densidade de inimigos."
+  },
+  {
+    name: "Nautilus Prime",
+    category: "Companheiro",
+    description: "Guia futuro para suporte, agrupamento de inimigos e conforto em loadouts de farm."
+  }
+];

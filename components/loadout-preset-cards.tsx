@@ -1,5 +1,7 @@
+import Link from "next/link";
 import { CopyLinkButton } from "@/components/copy-link-button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { loadoutPresets } from "@/data/loadouts";
 
@@ -35,10 +37,13 @@ export function LoadoutPresetCards() {
                 <Row label="Melee" value={loadout.melee} />
                 <Row label="Companheiro" value={loadout.companion} />
                 <Row label="Foco" value={loadout.focus} />
+                <Row label="Escola" value={loadout.operatorSchool} />
+                <Row label="Arcane" value={loadout.mainArcane} />
+                <Row label="Elementos" value={loadout.elementNotes} />
               </dl>
               <p className="mt-3 text-sm leading-6 text-muted-foreground">{loadout.notes}</p>
               <div className="mt-4 flex flex-wrap gap-2">
-                <CopyLinkButton text={text} label="Copiar" copiedLabel="Link copiado" />
+                <CopyLinkButton text={text} label="Copiar loadout completo" copiedLabel="Loadout copiado" />
                 <CopyLinkButton
                   mode="share"
                   text={text}
@@ -46,7 +51,21 @@ export function LoadoutPresetCards() {
                   shareTitle={`${loadout.name} - WarframeFool`}
                   shareText={text}
                 />
+                {loadout.relatedBuilds.length ? (
+                  <Button asChild size="sm" variant="secondary">
+                    <Link href={loadout.relatedBuilds[0].href}>Abrir builds relacionadas</Link>
+                  </Button>
+                ) : null}
               </div>
+              {loadout.relatedBuilds.length > 1 ? (
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {loadout.relatedBuilds.slice(1).map(build => (
+                    <Button key={build.href} asChild size="sm" variant="outline">
+                      <Link href={build.href}>{build.label}</Link>
+                    </Button>
+                  ))}
+                </div>
+              ) : null}
             </Card>
           );
         })}
@@ -73,8 +92,11 @@ function formatLoadout(loadout: typeof loadoutPresets[number]) {
     `Melee: ${loadout.melee}`,
     `Companheiro: ${loadout.companion}`,
     `Foco: ${loadout.focus}`,
+    `Escola do Operador: ${loadout.operatorSchool}`,
+    `Arcane principal: ${loadout.mainArcane}`,
     `Dificuldade: ${loadout.difficulty}`,
     `Investimento: ${loadout.investment}`,
+    `Observação de elemento por facção: ${loadout.elementNotes}`,
     `Notas: ${loadout.notes}`
   ].join("\n");
 }

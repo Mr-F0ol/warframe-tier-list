@@ -8,6 +8,7 @@ import { TierListPreview } from "@/components/tier-list-preview";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { siteMeta } from "@/data/siteMeta";
 import { getTierListData } from "@/lib/tier-data";
 import { buildItemIndex } from "@/lib/tier-utils";
 
@@ -40,7 +41,7 @@ export default async function HomePage() {
 
           <div className="pb-10 pt-12 sm:pt-16">
             <span className="inline-flex border border-cyan-300/40 bg-background/75 px-3 py-2 text-xs font-bold uppercase tracking-normal text-cyan-100 shadow-[0_10px_40px_rgba(0,0,0,.28)] backdrop-blur">
-              Atualizado em 18 maio 2026 - Meta Update 42.0.10
+              Atualizado em {siteMeta.lastUpdated} - {siteMeta.updateLabel}
             </span>
             <h1 className="mt-5 max-w-4xl text-5xl font-black tracking-normal text-foreground drop-shadow-2xl sm:text-6xl md:text-7xl">
               WarframeFool

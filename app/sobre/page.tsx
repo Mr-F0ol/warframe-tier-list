@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { InfoCardGrid, InternalLinks, SectionBlock, SeoPage } from "@/components/seo/seo-page";
+import { siteMeta } from "@/data/siteMeta";
 
 export const metadata: Metadata = {
   title: "Sobre o WarframeFool",
@@ -38,7 +39,7 @@ export default function SobrePage() {
         />
       </SectionBlock>
 
-      <SectionBlock title="Avisos importantes" description="Warframe muda com frequência, então o site precisa ser mantido como uma base revisável.">
+      <SectionBlock title="Avisos importantes" description={`Warframe muda com frequência. A base atual do site foi revisada em ${siteMeta.lastUpdated} para ${siteMeta.updateBase}.`}>
         <div className="grid gap-3 md:grid-cols-3">
           <article className="bg-card/70 p-4">
             <h2 className="font-black text-yellow-100">Meta muda</h2>
@@ -86,7 +87,7 @@ export default function SobrePage() {
         <InfoCardGrid
           cards={[
             { title: "Next.js e Vercel", description: "A estrutura usa Next.js App Router, React, TypeScript e deploy na Vercel.", tags: ["Next.js", "Vercel"] },
-            { title: "Dados editáveis", description: "Builds, armas, Warframes, farms, Incarnon e loadouts ficam em arquivos separados para facilitar revisão.", tags: ["Dados"] },
+            { title: "Conteúdo revisado por área", description: "Builds, armas, Warframes, farms, Incarnon e loadouts são organizados por tema para facilitar atualização e revisão.", tags: ["Organização"] },
             { title: "Futuro", description: "Login e salvamento em nuvem podem ser adicionados depois com Neon ou Supabase, sem mudar o objetivo principal do guia.", tags: ["Roadmap"] }
           ]}
         />

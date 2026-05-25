@@ -5,6 +5,7 @@ import { FaqSection, GuideCardGrid, GuideCtaRow, NextGuideLinks } from "@/compon
 import { Badge } from "@/components/ui/badge";
 import { SectionBlock, SeoPage } from "@/components/seo/seo-page";
 import { getBuildGuide } from "@/data/builds";
+import { siteMeta } from "@/data/siteMeta";
 import { articleJsonLd } from "@/lib/seo";
 
 interface BuildPageProps {
@@ -96,8 +97,8 @@ export default async function BuildDetailPage({ params }: BuildPageProps) {
             <Detail label="Dificuldade" value={build.difficulty} />
             <Detail label="Custo de build" value={build.buildCost} />
             <Detail label="Quantidade aproximada de Forma" value={build.approximateForma} />
-            <Detail label="Última revisão" value={build.lastReviewed || "Maio de 2026"} />
-            <Detail label="Update base" value={build.baseUpdate || "Meta 2026"} />
+            <Detail label="Última revisão" value={build.lastReviewed || siteMeta.lastUpdated} />
+            <Detail label="Update base" value={build.baseUpdate || siteMeta.updateBase} />
           </dl>
           <h2 className="mt-5 text-lg font-black text-yellow-100">Observação sobre meta/hotfix</h2>
           <div className="mt-4 border-l-2 border-yellow-300/60 bg-yellow-300/10 p-3 text-sm leading-6 text-yellow-50">
@@ -114,6 +115,27 @@ export default async function BuildDetailPage({ params }: BuildPageProps) {
           <BuildInfoCard title="Prioridade de stats" value={build.statPriority.join(" · ")} />
           <BuildInfoCard title="Melhor para Bosses" value={build.bestFor.includes("Bosses") ? build.bestUse : "Use outra variação quando o foco for dano direto em alvo pesado."} />
           <BuildInfoCard title="Elemento recomendado" value={build.recommendedElement} />
+        </div>
+      </SectionBlock>
+
+      <SectionBlock title="Para quem serve e onde conseguir" description="Contexto rápido antes de gastar Forma, Catalisador ou Arcane nesta build.">
+        <div className="grid gap-3 md:grid-cols-2">
+          <BuildInfoCard title="Para que tipo de jogador serve" value={build.playerProfile} />
+          <BuildInfoCard title="Onde conseguir a arma" value={build.acquisition} />
+        </div>
+      </SectionBlock>
+
+      <SectionBlock title="Build inicial e build endgame" description="Use uma versão simples para testar o estilo da arma antes de fechar a versão cara.">
+        <div className="grid gap-3 md:grid-cols-2">
+          <BuildInfoCard title="Build inicial/barata" value={build.starterBuild} />
+          <BuildInfoCard title="Build endgame" value={build.endgameBuild} />
+        </div>
+      </SectionBlock>
+
+      <SectionBlock title="Steel Path, facções e elementos" description="Ajuste a build pela missão real em vez de tratar um setup como solução universal.">
+        <div className="grid gap-3 md:grid-cols-2">
+          <BuildInfoCard title="Observação sobre Steel Path" value={build.steelPathNotes} />
+          <BuildInfoCard title="Facções e elementos" value={build.factionNotes} />
         </div>
       </SectionBlock>
 

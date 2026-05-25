@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { siteMeta } from "@/data/siteMeta";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"]
     },
-    sitemap: "https://warframefool.vercel.app/sitemap.xml",
-    host: "https://warframefool.vercel.app"
+    sitemap: `${siteMeta.siteUrl}/sitemap.xml`,
+    host: siteMeta.siteUrl
   };
 }

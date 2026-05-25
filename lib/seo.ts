@@ -1,5 +1,7 @@
-export const siteUrl = "https://warframefool.vercel.app";
-export const dateModified = "2026-05-21";
+import { siteMeta } from "@/data/siteMeta";
+
+export const siteUrl = siteMeta.siteUrl;
+export const dateModified = siteMeta.lastUpdatedISO;
 
 export function absoluteUrl(path: string) {
   if (!path || path === "/") return siteUrl;
@@ -27,12 +29,12 @@ export function articleJsonLd({
     dateModified,
     author: {
       "@type": "Organization",
-      name: "WarframeFool",
+      name: siteMeta.siteBrand,
       url: siteUrl
     },
     publisher: {
       "@type": "Organization",
-      name: "WarframeFool",
+      name: siteMeta.siteBrand,
       url: siteUrl
     }
   };

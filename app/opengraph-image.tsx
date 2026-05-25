@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { siteMeta } from "@/data/siteMeta";
 
 export const runtime = "edge";
 export const alt = "WarframeFool - Tier List Warframe";
@@ -56,7 +57,7 @@ export default function Image() {
               META 2026
             </span>
             <span style={{ border: "1px solid rgba(247,198,91,.42)", background: "rgba(247,198,91,.12)", padding: "10px 16px", color: "#fde68a", fontSize: 22, fontWeight: 800 }}>
-              UPDATE 42.0.10
+              {siteMeta.updateBase.toUpperCase()}
             </span>
           </div>
           <div style={{ fontSize: 86, fontWeight: 950, letterSpacing: -2, lineHeight: .95 }}>WarframeFool</div>

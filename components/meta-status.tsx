@@ -1,10 +1,11 @@
 import { CalendarDays, Save, ShieldCheck } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { siteMeta } from "@/data/siteMeta";
 
 export function MetaStatus() {
   return (
     <section className="mt-6 grid gap-3 md:grid-cols-3">
-      <StatusCard icon={<CalendarDays className="h-5 w-5" />} label="Atualização" value="18 maio 2026" note="Meta revisado para Update 42.0.10." />
+      <StatusCard icon={<CalendarDays className="h-5 w-5" />} label="Atualização" value={siteMeta.lastUpdated} note={`Meta revisado para ${siteMeta.updateBase}.`} />
       <StatusCard icon={<ShieldCheck className="h-5 w-5" />} label="Critério" value="Steel Path + Endgame" note="Prioriza força real, conforto e investimento." />
       <StatusCard icon={<Save className="h-5 w-5" />} label="Loadouts" value="Organização rápida" note="Monte e organize loadouts para Steel Path, Farm, Bosses e missões rápidas." />
     </section>

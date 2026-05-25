@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ComparisonPanel } from "@/components/comparison-panel";
 import { InfoCardGrid, RankCardGrid, SectionBlock, SeoPage } from "@/components/seo/seo-page";
 import { topIncarnonSetups } from "@/data/incarnon";
+import { siteMeta } from "@/data/siteMeta";
 import { warframes } from "@/data/warframes";
 import { weapons } from "@/data/weapons";
 import { itemListJsonLd } from "@/lib/seo";
@@ -56,6 +57,16 @@ export default function MetaAtualPage() {
       ]}
       structuredData={itemListSchema}
     >
+      <SectionBlock title="Base do meta" description={`Revisado em ${siteMeta.lastUpdated} com base em ${siteMeta.updateBase}. Use como prioridade geral, não como regra absoluta para toda conta.`}>
+        <InfoCardGrid
+          cards={[
+            { title: "Iniciante", description: "Priorize sobrevivência, armas simples e builds que funcionam sem muitas Formas.", tags: ["Segurança"] },
+            { title: "Intermediário", description: "Comece a separar clear, alvo pesado, suporte e farm em loadouts diferentes.", tags: ["Consistência"] },
+            { title: "Endgame", description: "Otimize Arcanes, Rivens, Incarnon, Helminth e elementos por missão.", tags: ["Otimização"] }
+          ]}
+        />
+      </SectionBlock>
+
       <SectionBlock title="Top Warframes" description="Iniciante deve priorizar segurança e facilidade. Intermediário pode buscar dano e controle. Endgame otimiza Arcanes, Helminth e variações conforme missão.">
         <RankCardGrid items={topWarframes.map(item => ({ id: item.id, name: item.name, tier: item.tier, description: item.description, focus: item.focus, recommendedFor: item.recommendedFor, meta: item.role }))} />
       </SectionBlock>

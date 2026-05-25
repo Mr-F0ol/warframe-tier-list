@@ -1,15 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteNavbar } from "@/components/site-navbar";
+import { siteMeta } from "@/data/siteMeta";
 import "./globals.css";
 
-const siteUrl = "https://warframefool.vercel.app";
 const title = "Warframe Fool — Tier List, Builds e Meta Warframe";
 const description =
   "Guia brasileiro de Warframe com tier list, builds, armas Incarnon, farms, Steel Path, meta atual e loadouts.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(siteMeta.siteUrl),
   title: {
     default: title,
     template: "%s | WarframeFool"
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: siteUrl,
-    siteName: "Warframe Fool",
+    url: siteMeta.siteUrl,
+    siteName: siteMeta.siteName,
     title,
     description,
     images: [

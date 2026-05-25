@@ -1,4 +1,5 @@
 import type { TierKey } from "@/lib/types";
+import { siteMeta } from "@/data/siteMeta";
 
 export interface BuildGuide {
   slug: string;
@@ -9,6 +10,12 @@ export interface BuildGuide {
   description: string;
   summary: string;
   mainRole: string;
+  playerProfile: string;
+  acquisition: string;
+  starterBuild: string;
+  endgameBuild: string;
+  steelPathNotes: string;
+  factionNotes: string;
   strengths: string[];
   weaknesses: string[];
   recommendedMods: string[];
@@ -56,6 +63,12 @@ export const buildGuides: BuildGuide[] = [
     description: "Build Felarx Warframe para dano em alvo pesado, Steel Path, bosses e inimigos resistentes.",
     summary: "Shotgun Incarnon voltada para resolver inimigos resistentes. Para iniciante, serve como meta de longo prazo; para intermediário, entra quando a conta já tem sobrevivência; no endgame, cobre bosses e alvos que armas de clear demoram para finalizar.",
     mainRole: "Finalizar alvos pesados e bosses, cobrindo o ponto fraco de loadouts focados apenas em limpar grupos.",
+    playerProfile: "Serve melhor para jogadores intermediários e endgame que já têm uma arma de clear ou Warframe de área e precisam de uma resposta confiável contra Eximus, bosses e inimigos resistentes.",
+    acquisition: "A Felarx é uma arma Incarnon ligada ao conteúdo da Zariman. Use esta página como referência de build e confirme os requisitos dentro do jogo antes de planejar o investimento.",
+    starterBuild: "Use uma versão inicial com multishot, dano base, elemento adequado ao alvo e um slot de conforto para recarga ou manuseio. Não force mods Galvanized, Arcanes e polarizações se a arma ainda não encaixou no seu loadout.",
+    endgameBuild: "A versão endgame deve combinar evoluções Incarnon escolhidas com objetivo claro, mods Galvanized quando disponíveis, Arcane de primária e ajuste de elemento por boss ou facção.",
+    steelPathNotes: "No Steel Path, a Felarx funciona melhor como arma de alvo pesado. Combine com Warframe seguro, controle ou uma primária/Warframe de clear para não depender dela em grupos grandes.",
+    factionNotes: "Use elementos conforme a facção enfrentada. Viral/Calor pode ser uma base geral quando fizer sentido, mas bosses e inimigos específicos podem pedir outra combinação.",
     strengths: ["Dano forte em alvo único", "Boa para Eximus, bosses e inimigos resistentes", "Escala bem quando a conta já tem mods, Arcanes e evoluções Incarnon"],
     weaknesses: ["Não é a opção mais confortável para limpar mapa inteiro", "Exige atenção às evoluções Incarnon e ao elemento", "Pode parecer cara cedo se sua conta ainda falta mods base e sobrevivência"],
     recommendedMods: ["Multishot de shotgun", "Dano base ou equivalente disponível", "Elemento conforme facção", "Mods Galvanized quando liberados", "Slot flexível para cadência, recarga ou conforto"],
@@ -72,8 +85,8 @@ export const buildGuides: BuildGuide[] = [
     investmentPriority: "Muito alta",
     difficulty: "Alta",
     buildCost: "Alto",
-    lastReviewed: "Maio de 2026",
-    baseUpdate: "Meta 2026",
+    lastReviewed: siteMeta.lastUpdated,
+    baseUpdate: siteMeta.updateBase,
     metaWarning: defaultWarning,
     disclaimer: "Esta página organiza a build por objetivo, custo e substituições para facilitar testes na sua conta.",
     bestFor: ["Bosses", "Steel Path", "Arquimídia Profunda", "Alvos pesados"],
@@ -84,8 +97,8 @@ export const buildGuides: BuildGuide[] = [
       "Endgame: ajuste elemento, Arcane e evoluções conforme boss, facção e mudanças de hotfix antes de fechar a versão final."
     ],
     editableSlots: [
-      { label: "Versão base", guidance: "Preencha aqui uma versão simples para quem ainda não tem todos os mods Galvanized." },
-      { label: "Versão endgame", guidance: "Preencha depois com sua configuração validada em Steel Path e bosses." },
+      { label: "Build inicial/barata", guidance: "Use esta versão quando ainda não tiver todos os mods Galvanized, Arcanes ou polarizações necessárias para a build final." },
+      { label: "Build endgame", guidance: "Feche esta versão quando a arma já estiver testada contra Steel Path, bosses e alvos resistentes que você realmente enfrenta." },
       { label: "Variação de elemento", guidance: "Anote quando trocar elemento por facção, boss ou missão específica." }
     ],
     avoid: ["Copiar build sem conferir evoluções Incarnon", "Usar como solução única para clear de mapa", "Gastar Forma antes de saber se o estilo shotgun combina com você"],
@@ -113,6 +126,12 @@ export const buildGuides: BuildGuide[] = [
     description: "Build Torid Incarnon Warframe para clear consistente, Steel Path e missões com alta densidade de inimigos.",
     summary: "Primária Incarnon voltada para limpar grupos. Para iniciante, é um objetivo de progressão; para intermediário, resolve clear com boa consistência; no endgame, vira uma das bases de missões densas quando bem montada.",
     mainRole: "Limpar grupos e manter ritmo em Steel Path, farms longos e conteúdo geral com muitos inimigos.",
+    playerProfile: "Serve para jogadores que já querem uma primária de clear e têm paciência para ajustar forma Incarnon, elemento e conforto. Para contas novas, é melhor tratar como objetivo futuro.",
+    acquisition: "A Torid recebe valor alto com o adaptador Incarnon. Confirme a rotação e disponibilidade do adaptador no jogo antes de gastar recursos planejando a build final.",
+    starterBuild: "Comece com multishot, dano base, elemento de uso geral e conforto suficiente para manter a arma fluida. A versão inicial deve funcionar antes de receber muitas Formas.",
+    endgameBuild: "A versão endgame deve priorizar evoluções Incarnon de clear, mods Galvanized, Arcane de primária e ajustes de elemento por facção ou missão de alta densidade.",
+    steelPathNotes: "No Steel Path, use a Torid Incarnon para limpar grupos. Leve outro slot do loadout para alvo pesado, boss ou inimigos que não caem rápido no clear.",
+    factionNotes: "Ajuste elemento conforme facção. Para uso geral, escolha combinações que mantenham clear estável; para conteúdo específico, teste variações antes de fixar a build.",
     strengths: ["Clear confortável em grupos densos", "Boa para Steel Path e missões longas", "Combina bem com Warframes de suporte, energia ou buff"],
     weaknesses: ["Menos focada em alvo único que Felarx", "Pede investimento para mostrar consistência", "Pode perder valor em missões com poucos inimigos ou foco em boss isolado"],
     recommendedMods: ["Multishot de primária", "Dano base ou equivalente disponível", "Crítico/status conforme sua versão", "Elemento conforme facção", "Mods Galvanized quando liberados"],
@@ -129,8 +148,8 @@ export const buildGuides: BuildGuide[] = [
     investmentPriority: "Muito alta",
     difficulty: "Alta",
     buildCost: "Alto",
-    lastReviewed: "Maio de 2026",
-    baseUpdate: "Meta 2026",
+    lastReviewed: siteMeta.lastUpdated,
+    baseUpdate: siteMeta.updateBase,
     metaWarning: defaultWarning,
     disclaimer: "Use esta build como base de clear e ajuste elemento, Arcane e conforto conforme sua conta.",
     bestFor: ["Steel Path", "Clear", "Farm", "Missões longas"],
@@ -169,6 +188,12 @@ export const buildGuides: BuildGuide[] = [
     description: "Build Laetum Warframe para secundária Incarnon de dano consistente em Steel Path, bosses e alvos resistentes.",
     summary: "Secundária Incarnon usada como plano de dano confiável. Para iniciante, é uma meta de progressão; para intermediário, cobre alvos que a primária não resolve; no endgame, funciona como arma reserva forte e flexível.",
     mainRole: "Oferecer dano consistente contra alvos resistentes sem depender da primária.",
+    playerProfile: "Serve para jogadores que querem uma secundária confiável para cobrir falhas da primária. É mais valiosa quando você já sabe se precisa de alvo pesado, plano B ou dano seguro em conteúdo alto.",
+    acquisition: "A Laetum é uma secundária Incarnon associada ao progresso da Zariman. Confirme os requisitos de aquisição no jogo antes de investir Forma, Catalisador e Arcanes.",
+    starterBuild: "A versão inicial deve usar multishot, dano base, elemento adequado e conforto de recarga/manuseio. Priorize consistência antes de tentar otimizar todo o teto de dano.",
+    endgameBuild: "A versão endgame combina evoluções Incarnon bem escolhidas, mods Galvanized, Arcane de secundária e elemento ajustado para o alvo que a primária não resolve.",
+    steelPathNotes: "No Steel Path, a Laetum funciona muito bem como secundária de segurança para Eximus, inimigos resistentes e situações em que a primária está focada em clear.",
+    factionNotes: "Escolha elementos conforme o alvo. Se a Laetum for sua resposta contra inimigo resistente, adapte a combinação para esse inimigo em vez de usar uma configuração única para tudo.",
     strengths: ["Consistente em conteúdo avançado", "Boa como arma reserva de dano", "Funciona bem em loadouts gerais quando a primária é de clear"],
     weaknesses: ["Precisa de evolução Incarnon bem escolhida", "Pode exigir investimento alto", "Conforto depende de recarga, munição e preferência de gameplay"],
     recommendedMods: ["Multishot de secundária", "Dano base ou equivalente", "Elemento conforme facção", "Mods Galvanized quando disponíveis", "Slot flexível para recarga, cadência ou conforto"],
@@ -185,8 +210,8 @@ export const buildGuides: BuildGuide[] = [
     investmentPriority: "Muito alta",
     difficulty: "Alta",
     buildCost: "Alto",
-    lastReviewed: "Maio de 2026",
-    baseUpdate: "Meta 2026",
+    lastReviewed: siteMeta.lastUpdated,
+    baseUpdate: siteMeta.updateBase,
     metaWarning: defaultWarning,
     disclaimer: "A build separa função, custo e ajustes para facilitar validação em missão real.",
     bestFor: ["Steel Path", "Bosses", "Alvos resistentes", "Loadouts sem secundária definida"],
@@ -226,6 +251,12 @@ export const buildGuides: BuildGuide[] = [
     description: "Build Praedos Warframe para mobilidade, utilidade e conforto em farms, missões rápidas e loadouts gerais.",
     summary: "Melee Incarnon valorizada pelo conforto. Para iniciante, não é prioridade antes da base da conta; para intermediário, melhora deslocamento; no endgame, separa uma versão utilitária de uma versão realmente melee.",
     mainRole: "Aumentar fluidez do loadout, melhorar deslocamento e servir como melee utilitária quando dano puro não é o objetivo principal.",
+    playerProfile: "Serve para jogadores que repetem farms, missões rápidas ou Steel Path e querem economizar tempo com mobilidade. Para quem busca apenas dano melee, compare com outras opções antes de investir.",
+    acquisition: "A Praedos é uma melee Incarnon ligada ao conteúdo da Zariman. Confirme os requisitos dentro do jogo e escolha evoluções de acordo com mobilidade ou dano.",
+    starterBuild: "A versão inicial pode focar em mobilidade, velocidade de ataque e conforto, sem tentar competir com uma build melee completa logo de início.",
+    endgameBuild: "A versão endgame deve separar dois objetivos: uma variação de mobilidade para farms e uma variação melee quando a Praedos realmente precisa causar dano.",
+    steelPathNotes: "No Steel Path, a Praedos ajuda pelo conforto e deslocamento. Se ela for sua fonte de dano, a build precisa de elemento, combo e suporte adequados.",
+    factionNotes: "Se a Praedos for utilitária, elemento é secundário. Se for melee de dano, ajuste conforme facção e suporte de status do restante do loadout.",
     strengths: ["Excelente conforto em missões repetidas", "Valor mesmo quando não é fonte principal de dano", "Boa flexibilidade entre utilidade e melee"],
     weaknesses: ["Menor prioridade se você não usa mobilidade ativa", "Build de dano compete com outras melee fortes", "Pode parecer fraca se usada sem entender o papel utilitário"],
     recommendedMods: ["Velocidade de ataque se for usar para melee", "Combo ou sustain conforme estilo", "Elemento se a arma for matar", "Mods de qualidade de vida para mobilidade", "Evoluções Incarnon utilitárias"],
@@ -242,8 +273,8 @@ export const buildGuides: BuildGuide[] = [
     investmentPriority: "Alta",
     difficulty: "Média",
     buildCost: "Médio",
-    lastReviewed: "Maio de 2026",
-    baseUpdate: "Meta 2026",
+    lastReviewed: siteMeta.lastUpdated,
+    baseUpdate: siteMeta.updateBase,
     metaWarning: defaultWarning,
     disclaimer: "A página separa uso utilitário e uso de dano para evitar uma build única que não serve para todos.",
     bestFor: ["Farm", "Missões rápidas", "Mobilidade", "Loadouts gerais"],

@@ -84,11 +84,6 @@
       "beginner",
       "tank"
     ],
-    "Temple": [
-      "steel",
-      "support",
-      "clear"
-    ],
     "Khora": [
       "farm",
       "control",
@@ -198,29 +193,6 @@
       "steel",
       "support",
       "control"
-    ],
-    "Nokko": [
-      "steel",
-      "endurance",
-      "support",
-      "control",
-      "clear"
-    ],
-    "Oraxia": [
-      "steel",
-      "boss",
-      "fast",
-      "clear"
-    ],
-    "Follie": [
-      "steel",
-      "control",
-      "clear"
-    ],
-    "Uriel": [
-      "steel",
-      "control",
-      "clear"
     ],
     "Cyte-09": [
       "boss",
@@ -890,38 +862,6 @@
         "Granadas e dispensary"
       ],
       "warning": "Fica absurda quando voce aprende a rotacao."
-    },
-    "Nokko": {
-      "role": "Controle, sustain e nuke com setup",
-      "investment": "Alto",
-      "bestUses": [
-        "Steel Path",
-        "Defesa",
-        "Endurance"
-      ],
-      "build": [
-        "Forca",
-        "Alcance",
-        "Energia constante",
-        "Sporespring para nuke"
-      ],
-      "warning": "Muito forte, mas menos plug-and-play que Dante/Revenant."
-    },
-    "Oraxia": {
-      "role": "Stealth, vulnerabilidade e dano com armas",
-      "investment": "Medio",
-      "bestUses": [
-        "Boss",
-        "Steel Path",
-        "Missoes rapidas"
-      ],
-      "build": [
-        "Duracao",
-        "Forca",
-        "Armas fortes de critico/status",
-        "Toxin para armas"
-      ],
-      "warning": "Melhor quando voce joga agressivo e aproveita janelas de vulnerabilidade."
     },
     "Torid Incarnon": {
       "role": "Clear principal de Steel Path",

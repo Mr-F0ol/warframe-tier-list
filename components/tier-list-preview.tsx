@@ -56,7 +56,7 @@ export function TierListPreview({ tierList }: { tierList: TierListData }) {
               </div>
               <Badge variant="tierS">S</Badge>
             </div>
-            <ol className="mt-4 grid gap-2">
+            <ol className="mt-4 grid list-none gap-2 p-0">
               {group.items.map((item, index) => (
                 <li key={item.name} className="flex items-center gap-3 rounded-md border border-border/65 bg-background/42 p-3">
                   <span className="grid h-7 w-7 shrink-0 place-items-center rounded-md border border-yellow-300/35 bg-yellow-300/10 text-xs font-black text-yellow-100">
