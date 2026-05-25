@@ -82,10 +82,21 @@ export default function SobrePage() {
         />
       </SectionBlock>
 
+      <SectionBlock title="Tecnologia e manutenção" description="O site foi feito para ser simples de hospedar e fácil de atualizar com dados editáveis.">
+        <InfoCardGrid
+          cards={[
+            { title: "Next.js e Vercel", description: "A estrutura usa Next.js App Router, React, TypeScript e deploy na Vercel.", tags: ["Next.js", "Vercel"] },
+            { title: "Dados editáveis", description: "Builds, armas, Warframes, farms, Incarnon e loadouts ficam em arquivos separados para facilitar revisão.", tags: ["Dados"] },
+            { title: "Futuro", description: "Login e salvamento em nuvem podem ser adicionados depois com Neon ou Supabase, sem mudar o objetivo principal do guia.", tags: ["Roadmap"] }
+          ]}
+        />
+      </SectionBlock>
+
       <InternalLinks
         links={[
           { title: "Início", description: "Volte para a página principal.", href: "/" },
           { title: "Tier List", description: "Abra o ranking completo.", href: "/tier-list" },
+          { title: "Meta Atual", description: "Veja um resumo rápido das melhores escolhas atuais.", href: "/meta-atual" },
           { title: "Incarnon", description: "Veja prioridades de adaptadores Incarnon.", href: "/incarnon" }
         ]}
       />

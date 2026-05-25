@@ -7,24 +7,24 @@ const meleeWeapons = weaponsByCategory("melee");
 
 export const metadata: Metadata = {
   title: "Melhores Melee Warframe — Guia Meta",
-  description: "Melhores armas melee para Steel Path, utilidade, stat-stick, Incarnon e farm no Warframe.",
+  description: "Melhores armas melee para iniciar com segurança, ganhar mobilidade, montar utilidade e investir em dano ou Incarnon no endgame.",
   alternates: { canonical: "/melhores-melee" },
   openGraph: {
     title: "Melhores melee Warframe | WarframeFool",
-    description: "Ranking prático de melee como Glaive Prime, Ceramic Dagger Incarnon, Praedos e Dual Ichor.",
+    description: "Ranking prático de melee como Glaive Prime, Ceramic Dagger Incarnon, Praedos e Dual Ichor, separando utilidade, dano e investimento.",
     url: "/melhores-melee"
   },
   twitter: {
     card: "summary_large_image",
     title: "Melhores Melee Warframe — Guia Meta",
-    description: "Melhores armas melee para Steel Path, utilidade, stat-stick, Incarnon e farm no Warframe."
+    description: "Melhores armas melee para iniciar com segurança, ganhar mobilidade, montar utilidade e investir em dano ou Incarnon no endgame."
   }
 };
 
 export default function MelhoresMeleePage() {
   const itemListSchema = itemListJsonLd({
     name: "Melhores Melee Warframe",
-    description: "Ranking prático de melee para dano, utilidade, stat-stick, Incarnon e farm.",
+    description: "Ranking prático de melee para mobilidade, utilidade, dano, stat-stick, Incarnon e farms repetidos.",
     path: "/melhores-melee",
     items: meleeWeapons.map(weapon => ({
       name: weapon.name,
@@ -37,7 +37,7 @@ export default function MelhoresMeleePage() {
     <SeoPage
       eyebrow="Melee"
       title="Melhores armas melee no Warframe"
-      description="Melee para dano, utilidade, mobilidade, stat-stick e farms repetidos, sem perder o foco em investimento real."
+      description="Melee por estágio da conta: conforto e mobilidade para começar, utilidade no intermediário e dano, stat-stick ou Incarnon no endgame."
       breadcrumbs={[
         { label: "Início", href: "/" },
         { label: "Tier List", href: "/tier-list" },
@@ -45,7 +45,7 @@ export default function MelhoresMeleePage() {
       ]}
       structuredData={itemListSchema}
     >
-      <SectionBlock title="Melee recomendadas" description="Use esta página para separar melee de dano, utilidade e setups específicos.">
+      <SectionBlock title="Melee recomendadas" description="Use esta página para separar melee de dano, utilidade, mobilidade e setups específicos. O meta pode mudar com updates, hotfixes, Arcanes, Rivens, Helminth e balanceamentos.">
         <RankCardGrid
           items={meleeWeapons.map(weapon => ({
             id: weapon.id,
@@ -60,19 +60,19 @@ export default function MelhoresMeleePage() {
         />
       </SectionBlock>
 
-      <SectionBlock title="Escolha por função" description="Melee no Warframe pode ser dano principal, mobilidade ou ferramenta de setup.">
+      <SectionBlock title="Escolha por função" description="Melee no Warframe pode ser dano principal, mobilidade, stat-stick ou ferramenta de setup. O melhor valor depende do que sua conta ainda não cobre.">
         <div className="grid gap-3 md:grid-cols-3">
           <article className="bg-card/70 p-4">
-            <h2 className="font-black text-yellow-100">Utilidade</h2>
-            <p className="mt-2 text-sm leading-6 text-muted-foreground">Praedos é valiosa mesmo fora de uma build melee pura por causa de conforto e deslocamento.</p>
+            <h2 className="font-black text-yellow-100">Iniciante</h2>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">Procure uma melee confortável, barata de montar e que ajude a sobreviver enquanto suas armas principais ainda não estão completas.</p>
           </article>
           <article className="bg-card/70 p-4">
-            <h2 className="font-black text-yellow-100">Stat-stick</h2>
-            <p className="mt-2 text-sm leading-6 text-muted-foreground">Ceramic Dagger Incarnon ganha valor em Warframes e setups específicos.</p>
+            <h2 className="font-black text-yellow-100">Intermediário</h2>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">Praedos e outras opções de utilidade ganham valor quando mobilidade, conforto e repetição de missões importam mais que dano bruto.</p>
           </article>
           <article className="bg-card/70 p-4">
-            <h2 className="font-black text-yellow-100">Dano e clear</h2>
-            <p className="mt-2 text-sm leading-6 text-muted-foreground">Glaive Prime e Dual Ichor Incarnon entram quando a melee realmente vai matar inimigos.</p>
+            <h2 className="font-black text-yellow-100">Endgame</h2>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">Glaive Prime, Dual Ichor Incarnon e Ceramic Dagger Incarnon entram quando a melee tem função definida em dano, clear ou stat-stick.</p>
           </article>
         </div>
       </SectionBlock>

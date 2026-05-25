@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LoadoutPresetCards } from "@/components/loadout-preset-cards";
 import { LoadoutsPanel } from "@/components/loadouts-panel";
 import { InternalLinks, SectionBlock, SeoPage } from "@/components/seo/seo-page";
 import { getTierListData } from "@/lib/tier-data";
@@ -35,6 +36,7 @@ export default async function LoadoutsPage() {
       <SectionBlock title="Criar e salvar" description="Os loadouts ficam salvos neste navegador.">
         <LoadoutsPanel tierList={tierList} />
       </SectionBlock>
+      <LoadoutPresetCards />
       <InternalLinks
         links={[
           { title: "Builds", description: "Use os guias de build antes de salvar combinações finais.", href: "/builds" },

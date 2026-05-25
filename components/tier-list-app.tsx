@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
-import { LayoutGrid, ListChecks, Search, Shield, Swords } from "lucide-react";
+import Link from "next/link";
+import { LayoutGrid, ListChecks, Search, Shield, SlidersHorizontal, Swords } from "lucide-react";
 import { useMemo, useState } from "react";
 import { CopyLinkButton } from "@/components/copy-link-button";
 import { ItemDetailDialog } from "@/components/item-detail-dialog";
@@ -9,13 +9,14 @@ import { LoadoutsPanel } from "@/components/loadouts-panel";
 import { MissionRecommender } from "@/components/mission-recommender";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
+import { buildGuides } from "@/data/builds";
 import {
   buildItemIndex,
   defaultVariantLabels,
   displayTags,
+  itemDetail,
   labelForTag
 } from "@/lib/tier-utils";
 import type {
@@ -43,9 +44,12 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
   const [tierFilter, setTierFilter] = useState<TierKey | "all">("all");
   const [objectiveFilter, setObjectiveFilter] = useState("all");
   const [variantFilter, setVariantFilter] = useState("all");
+  const [investmentFilter, setInvestmentFilter] = useState("all");
+  const [difficultyFilter, setDifficultyFilter] = useState("all");
   const [weaponFilter, setWeaponFilter] = useState<WeaponFilter>("primary");
   const [query, setQuery] = useState("");
   const [viewMode, setViewMode] = useState<ViewMode>("compact");
+  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
   const [selectedItem, setSelectedItem] = useState<ItemRecord | null>(null);
 
   const variantLabels = useMemo(
@@ -60,23 +64,15 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
     if (nextPanel === "weapons") setWeaponFilter("primary");
   }
 
-  const filterState = { tierFilter, objectiveFilter, variantFilter, query };
+  const filterState = { tierFilter, objectiveFilter, variantFilter, investmentFilter, difficultyFilter, query };
+  const activeFilterCount = [tierFilter, objectiveFilter, variantFilter, investmentFilter, difficultyFilter].filter(value => value !== "all").length;
 
   return (
     <>
-      <section className="surface-panel md:sticky md:top-20 z-20 rounded-lg p-3 md:p-4">
-        <div className="grid gap-4 lg:grid-cols-[auto_minmax(0,1fr)] lg:items-start min-[1600px]:grid-cols-[auto_minmax(0,1fr)_auto]">
-          <div className="flex min-w-0 flex-wrap items-center gap-3">
-            <a href="#conteudo" aria-label="Voltar ao conteúdo principal" className="shrink-0">
-              <Image
-                src="/assets/site-logo.svg"
-                alt=""
-                width={46}
-                height={46}
-                className="h-11 w-11 drop-shadow-[0_0_14px_rgba(247,198,91,.38)]"
-              />
-            </a>
-            <div className="flex shrink-0 rounded-lg border border-border/80 bg-background/55 p-1">
+      <section className="surface-panel md:sticky md:top-20 z-20 rounded-lg p-3">
+        <div className="grid gap-3 xl:grid-cols-[auto_minmax(260px,1fr)_auto] xl:items-center">
+          <div className="flex min-w-0 flex-wrap items-center gap-2">
+            <div className="flex shrink-0 rounded-lg border border-border/70 bg-background/35 p-1">
               <Button type="button" size="sm" className="min-w-[108px]" variant={panel === "warframes" ? "secondary" : "ghost"} onClick={() => openPanel("warframes")}>
                 <Shield className="h-4 w-4" aria-hidden="true" />
                 Warframes
@@ -88,18 +84,38 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
             </div>
           </div>
 
-          <div className="grid min-w-0 gap-3 sm:grid-cols-2 lg:grid-cols-[minmax(240px,1fr)_150px_170px_160px] min-[1600px]:grid-cols-[minmax(300px,1fr)_170px_188px_180px]">
-            <label className="relative min-w-0 sm:col-span-2 lg:col-span-1">
-              <span className="sr-only">Buscar</span>
-              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
-              <Input
-                className="pl-9"
-                type="search"
-                placeholder="Buscar nome ou tag..."
-                value={query}
-                onChange={event => setQuery(event.target.value)}
-              />
-            </label>
+          <label className="relative min-w-0">
+            <span className="sr-only">Buscar</span>
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
+            <Input
+              className="pl-9"
+              type="search"
+              placeholder="Buscar nome ou tag..."
+              value={query}
+              onChange={event => setQuery(event.target.value)}
+            />
+          </label>
+
+          <div className="flex flex-wrap items-center gap-2 xl:justify-end">
+            <Button type="button" size="sm" variant={showAdvancedFilters ? "secondary" : "outline"} onClick={() => setShowAdvancedFilters(value => !value)}>
+              <SlidersHorizontal className="h-4 w-4" aria-hidden="true" />
+              Filtros{activeFilterCount ? ` (${activeFilterCount})` : ""}
+            </Button>
+            <div className="grid grid-cols-2 rounded-lg border border-border/70 bg-background/35 p-1">
+              <Button type="button" size="sm" className="min-w-0 justify-center px-3" variant={viewMode === "compact" ? "secondary" : "ghost"} onClick={() => setViewMode("compact")}>
+                <LayoutGrid className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <span className="leading-none">Compacto</span>
+              </Button>
+              <Button type="button" size="sm" className="min-w-0 justify-center px-3" variant={viewMode === "detailed" ? "secondary" : "ghost"} onClick={() => setViewMode("detailed")}>
+                <ListChecks className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <span className="leading-none">Detalhado</span>
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {showAdvancedFilters ? (
+          <div className="mt-3 grid min-w-0 gap-2 border-t border-border/60 pt-3 sm:grid-cols-2 lg:grid-cols-5">
             <Select aria-label="Filtrar por tier" value={tierFilter} onChange={event => setTierFilter(event.target.value as TierKey | "all")}>
               {tierOptions.map(tier => (
                 <option key={tier} value={tier}>
@@ -116,7 +132,7 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
               <option value="endurance">Longas</option>
               <option value="beginner">Iniciante</option>
             </Select>
-            <Select aria-label="Filtrar por variante" className="sm:col-span-2 lg:col-span-1" value={variantFilter} onChange={event => setVariantFilter(event.target.value)}>
+            <Select aria-label="Filtrar por variante" value={variantFilter} onChange={event => setVariantFilter(event.target.value)}>
               <option value="all">Todas variantes</option>
               <option value="normal">Normal</option>
               <option value="prime">Prime</option>
@@ -125,22 +141,23 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
               <option value="tenet">Tenet</option>
               <option value="special">Especiais</option>
             </Select>
+            <Select aria-label="Filtrar por investimento" value={investmentFilter} onChange={event => setInvestmentFilter(event.target.value)}>
+              <option value="all">Todo investimento</option>
+              <option value="alto">Alto</option>
+              <option value="medio">Médio</option>
+              <option value="baixo">Baixo</option>
+            </Select>
+            <Select aria-label="Filtrar por dificuldade" value={difficultyFilter} onChange={event => setDifficultyFilter(event.target.value)}>
+              <option value="all">Toda dificuldade</option>
+              <option value="alta">Alta</option>
+              <option value="media">Média</option>
+              <option value="baixa">Baixa</option>
+            </Select>
           </div>
-
-          <div className="grid w-full grid-cols-2 rounded-lg border border-border/80 bg-background/55 p-1 sm:w-fit sm:min-w-[270px] sm:shrink-0 lg:col-start-2 min-[1600px]:col-start-auto min-[1600px]:justify-self-end">
-            <Button type="button" size="sm" className="min-w-0 justify-center px-3 sm:min-w-[128px]" variant={viewMode === "compact" ? "secondary" : "ghost"} onClick={() => setViewMode("compact")}>
-              <LayoutGrid className="h-4 w-4 shrink-0" aria-hidden="true" />
-              <span className="leading-none">Compacto</span>
-            </Button>
-            <Button type="button" size="sm" className="min-w-0 justify-center px-3 sm:min-w-[128px]" variant={viewMode === "detailed" ? "secondary" : "ghost"} onClick={() => setViewMode("detailed")}>
-              <ListChecks className="h-4 w-4 shrink-0" aria-hidden="true" />
-              <span className="leading-none">Detalhado</span>
-            </Button>
-          </div>
-        </div>
+        ) : null}
 
         {panel === "weapons" ? (
-          <div className="mt-4 flex flex-wrap gap-2 border-t border-border/70 pt-4">
+          <div className="mt-3 flex flex-wrap gap-2 border-t border-border/60 pt-3">
             {(["primary", "secondary", "melee", "all"] as WeaponFilter[]).map(filter => (
               <Button
                 key={filter}
@@ -155,26 +172,16 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
           </div>
         ) : null}
 
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-border/70 pt-4">
-          <div className="flex flex-wrap items-center gap-2 text-xs font-bold uppercase">
-            <Badge variant="meta">Meta Atual</Badge>
-            <Badge variant="outline">Atualizado: {tierList.updatedAt}</Badge>
-            <Badge variant="cyan">{tierList.currentPatch}</Badge>
-          </div>
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-3 border-t border-border/60 pt-3">
+          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Meta atual · Atualizado em {tierList.updatedAt} · {tierList.currentPatch}
+          </p>
           <CopyLinkButton label="Copiar link da tier list" url="https://warframefool.vercel.app/tier-list" />
         </div>
       </section>
 
-      <section className="mt-5 grid gap-3 md:grid-cols-3">
-        <InfoCard title="Critério">
-          Meta geral no Update 42.0.10, Steel Path, Deep/Temporal Archimedea, missões longas, conforto de uso e investimento necessário.
-        </InfoCard>
-        <InfoCard title="Como ler">
-          S é prioridade universal. Quando existe Prime, ele costuma ficar acima da versão normal por ser melhor destino de Forma/reactor; B/C/D ainda podem funcionar bem.
-        </InfoCard>
-        <InfoCard title="Importante">
-          Riven, Incarnon, Arcanes, Helminth e hotfixes podem mudar muito a posição real na sua conta.
-        </InfoCard>
+      <section className="mt-4 rounded-lg border border-border/60 bg-card/45 px-4 py-3 text-sm leading-6 text-muted-foreground">
+        <b className="text-foreground">Como ler:</b> S indica prioridade alta. B, C e D ainda podem funcionar conforme conta, Riven, Arcanes, Incarnon, Helminth e hotfixes.
       </section>
 
       <section className="mt-6 grid gap-3">
@@ -223,16 +230,6 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
   );
 }
 
-function InfoCard({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <Card className="group overflow-hidden p-4">
-      <span className="mb-3 block h-1 w-10 bg-gradient-to-r from-cyan-300 to-yellow-300" />
-      <b className="text-cyan-100">{title}</b>
-      <p className="mt-2 text-sm leading-6 text-muted-foreground">{children}</p>
-    </Card>
-  );
-}
-
 function WeaponCategorySection(props: {
   category: WeaponCategory;
   filterState: FilterState;
@@ -259,6 +256,8 @@ interface FilterState {
   tierFilter: TierKey | "all";
   objectiveFilter: string;
   variantFilter: string;
+  investmentFilter: string;
+  difficultyFilter: string;
   query: string;
 }
 
@@ -279,24 +278,23 @@ function TierRows(props: {
         const visibleItems = row.items
           .map(item => props.itemIndex.get(item.name))
           .filter((item): item is ItemRecord => Boolean(item))
-          .filter(item => itemMatches(item, row.tier, props.filterState, props.tierMeta));
+          .filter(item => itemMatches(item, row.tier, props.filterState, props.tierMeta, props.variantLabels));
 
         if (!visibleItems.length) return null;
 
         return (
           <article
             key={`${props.category?.id || props.context}-${row.tier}`}
-            className="tier-row-shell grid min-h-[78px] grid-cols-[62px_1fr] overflow-hidden rounded-lg border border-border/70 bg-card/80 sm:grid-cols-[74px_1fr] md:grid-cols-[92px_1fr]"
+            className="tier-row-shell grid min-h-[64px] grid-cols-[48px_1fr] overflow-hidden rounded-lg border border-border/60 bg-card/65 sm:grid-cols-[56px_1fr] md:grid-cols-[64px_1fr]"
           >
             <div className={cn("grid place-items-center border-r border-white/10 p-2 text-center font-black", `tier-label-${row.tier}`)}>
               <div>
-                <strong className={cn("block leading-none", row.tier === "U" ? "text-lg md:text-xl" : "text-3xl md:text-4xl")}>
+                <strong className={cn("block leading-none", row.tier === "U" ? "text-sm md:text-base" : "text-2xl md:text-3xl")}>
                   {row.tier === "U" ? "Novo" : row.tier}
                 </strong>
-                <span className="mt-1 block text-[9px] uppercase leading-tight text-yellow-100/85">{tierSubtitle(row.tier, props.category?.id || props.context)}</span>
               </div>
             </div>
-            <div className="flex flex-wrap content-start gap-2 p-2.5 md:p-3">
+            <div className="flex flex-wrap content-start gap-2 p-2 md:p-2.5">
               {visibleItems.map(item => (
                 <ItemCard
                   key={item.name}
@@ -322,18 +320,20 @@ function ItemCard(props: {
   viewMode: ViewMode;
   onSelect: () => void;
 }) {
-  const tags = displayTags(props.item, props.tierMeta).slice(0, props.viewMode === "detailed" ? 4 : 2);
-  const isMeta = props.item.tier === "S";
+  const tags = displayTags(props.item, props.tierMeta).slice(0, props.viewMode === "detailed" ? 2 : 1);
+  const detail = itemDetail(props.item, props.tierMeta, props.variantLabels);
+  const categoryLabel = props.item.type === "weapon" ? props.item.categoryTitle || "Arma" : "Warframe";
+  const investment = investmentLevelForItem(props.item, props.tierMeta, props.variantLabels);
+  const bestUse = detail.bestUses.length ? detail.bestUses.slice(0, 3).join(" · ") : "Uso geral";
+  const buildHref = buildHrefForItem(props.item);
+  const copyUrl = `https://warframefool.vercel.app${buildHref || "/tier-list"}`;
 
   return (
-    <button
-      type="button"
-      onClick={props.onSelect}
+    <article
       className={cn(
-        "tier-item-card group grid min-w-[156px] max-w-[226px] max-[520px]:min-w-full max-[520px]:max-w-full gap-2 overflow-hidden rounded-lg border border-border/70 bg-gradient-to-b from-secondary/90 to-card/85 p-3 text-left transition duration-200 hover:-translate-y-0.5 hover:border-yellow-300/60 hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-        isMeta && "border-yellow-300/35 shadow-[0_0_26px_rgba(247,198,91,.10)]",
-        props.viewMode === "detailed" && "min-w-[250px] max-w-[330px] max-[520px]:min-w-full max-[520px]:max-w-full grid-cols-[48px_1fr] gap-x-3",
-        props.viewMode === "compact" && "min-h-[70px] content-between"
+        "tier-item-card group grid min-w-[152px] max-w-[218px] max-[520px]:min-w-full max-[520px]:max-w-full gap-2 overflow-hidden rounded-lg border border-border/60 bg-card/70 p-3 text-left transition duration-200 hover:border-cyan-300/45 hover:bg-secondary/55 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        props.viewMode === "detailed" && "min-w-[238px] max-w-[316px] max-[520px]:min-w-full max-[520px]:max-w-full grid-cols-[42px_1fr] gap-x-3",
+        props.viewMode === "compact" && "min-h-[64px] content-between"
       )}
     >
       {props.viewMode === "detailed" ? <ItemImage item={props.item} /> : null}
@@ -342,11 +342,16 @@ function ItemCard(props: {
           <strong className="min-w-0 text-sm leading-tight text-foreground group-hover:text-yellow-100">{props.item.name}</strong>
           <Badge variant={tierBadgeVariant(props.item.tier)} className="shrink-0">{props.item.tier}</Badge>
         </span>
-        {isMeta ? <Badge variant="meta" className="w-fit">Meta Atual</Badge> : null}
         {props.viewMode === "detailed" ? (
           <>
-            <span className="text-[10px] font-bold uppercase text-yellow-100/90">{props.item.variant || "Normal"}</span>
+            <span className="text-[10px] font-bold uppercase text-muted-foreground">{props.item.variant || "Normal"}</span>
             <span className="line-clamp-2 text-xs leading-5 text-muted-foreground">{props.item.note || "Sem nota definida."}</span>
+            <span className="grid gap-1 text-xs leading-5 text-muted-foreground">
+              <span><b>Categoria:</b> {categoryLabel}</span>
+              <span className="line-clamp-1"><b>Função:</b> {detail.role}</span>
+              <span><b>Investimento:</b> {investment}</span>
+              <span className="line-clamp-1"><b>Melhor uso:</b> {bestUse}</span>
+            </span>
           </>
         ) : null}
       </span>
@@ -357,7 +362,16 @@ function ItemCard(props: {
           </Badge>
         ))}
       </span>
-    </button>
+      <div className={cn("flex flex-wrap gap-2 pt-1", props.viewMode === "detailed" && "col-span-full")}>
+        <Button type="button" size="sm" variant="outline" onClick={props.onSelect}>Detalhes</Button>
+        {buildHref ? (
+          <Button asChild size="sm" variant="secondary">
+            <Link href={buildHref}>Ver build</Link>
+          </Button>
+        ) : null}
+        <CopyLinkButton url={copyUrl} label="Copiar" className="min-h-8" />
+      </div>
+    </article>
   );
 }
 export function ItemImage({ item }: { item: Pick<ItemRecord, "name" | "baseName" | "image" | "variantTags"> }) {
@@ -373,31 +387,24 @@ export function ItemImage({ item }: { item: Pick<ItemRecord, "name" | "baseName"
   );
 }
 
-function itemMatches(item: ItemRecord, tier: TierKey, filters: FilterState, meta: TierMetaData) {
+function itemMatches(item: ItemRecord, tier: TierKey, filters: FilterState, meta: TierMetaData, variantLabels: Record<string, string>) {
   const tags = displayTags(item, meta);
   const variantTags = item.variantTags || ["normal"];
   const haystack = `${item.name} ${item.baseName || ""} ${item.variant || ""} ${tags.join(" ")} ${item.note || ""}`.toLowerCase();
+  const investment = normalizeFilterValue(investmentLevelForItem(item, meta, variantLabels));
+  const difficulty = normalizeFilterValue(difficultyLevelForItem(item));
 
   const tierMatch = filters.tierFilter === "all" || tier === filters.tierFilter;
   const objectiveMatch = filters.objectiveFilter === "all" || tags.includes(filters.objectiveFilter);
+  const investmentMatch = filters.investmentFilter === "all" || investment === filters.investmentFilter;
+  const difficultyMatch = filters.difficultyFilter === "all" || difficulty === filters.difficultyFilter;
   const variantMatch =
     filters.variantFilter === "all" ||
     variantTags.includes(filters.variantFilter) ||
     (filters.variantFilter === "special" && variantTags.some(tag => !["normal", "prime", "incarnon", "kuva", "tenet"].includes(tag)));
   const queryMatch = !filters.query.trim() || haystack.includes(filters.query.trim().toLowerCase());
 
-  return tierMatch && objectiveMatch && variantMatch && queryMatch;
-}
-
-function tierSubtitle(tier: TierKey, context: string) {
-  const subtitles: Record<string, Partial<Record<TierKey, string>>> = {
-    warframe: { S: "Top meta", A: "Muito forte", B: "Bom", C: "Nicho", D: "Baixa prioridade", U: "Sem nota" },
-    primary: { S: "Prioridade", A: "Excelente", B: "Forte", C: "Situacional", D: "Trocar cedo", U: "Sem nota" },
-    secondary: { S: "Prioridade", A: "Excelente", B: "Forte", C: "Situacional", D: "Trocar cedo", U: "Sem nota" },
-    melee: { S: "Top melee", A: "Excelente", B: "Forte", C: "Situacional", D: "Trocar cedo", U: "Sem nota" }
-  };
-
-  return subtitles[context]?.[tier] || subtitles.primary[tier] || "";
+  return tierMatch && objectiveMatch && investmentMatch && difficultyMatch && variantMatch && queryMatch;
 }
 
 function tierBadgeVariant(tier: TierKey) {
@@ -419,6 +426,44 @@ function initialsFor(name = "") {
       .join("")
       .toUpperCase() || "?"
   );
+}
+
+function investmentLevelForItem(item: ItemRecord, meta: TierMetaData, variantLabels: Record<string, string>) {
+  const investment = itemDetail(item, meta, variantLabels).investment;
+  if (/baixa/i.test(investment)) return "Baixo";
+  if (/média|media/i.test(investment)) return "Médio";
+  return "Alto";
+}
+
+function difficultyLevelForItem(item: ItemRecord) {
+  if (item.tier === "S" || item.tier === "A") return "Alta";
+  if (item.tier === "B" || item.tier === "U") return "Média";
+  return "Baixa";
+}
+
+function buildHrefForItem(item: ItemRecord) {
+  const normalized = normalizeSlug(item.baseName || item.name);
+  const direct = buildGuides.find(build => build.slug === normalized);
+  if (direct) return `/builds/${direct.slug}`;
+
+  const byName = buildGuides.find(build => normalizeSlug(build.name) === normalized);
+  return byName ? `/builds/${byName.slug}` : undefined;
+}
+
+function normalizeSlug(value: string) {
+  return value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function normalizeFilterValue(value: string) {
+  return value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
 }
 
 

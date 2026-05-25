@@ -3,6 +3,7 @@ import type { TierKey } from "@/lib/types";
 export interface ComparisonItem {
   name: string;
   tier: TierKey;
+  category?: string;
   role: string;
   difficulty: "Baixa" | "Média" | "Alta";
   buildCost: "Baixo" | "Médio" | "Alto";
@@ -24,6 +25,7 @@ export const comparisons: ComparisonGuide[] = [
     itemA: {
       name: "Felarx",
       tier: "S",
+      category: "Primária",
       role: "Dano em alvo pesado",
       difficulty: "Alta",
       buildCost: "Alto",
@@ -32,6 +34,7 @@ export const comparisons: ComparisonGuide[] = [
     itemB: {
       name: "Torid Incarnon",
       tier: "S",
+      category: "Primária",
       role: "Clear de mapa",
       difficulty: "Alta",
       buildCost: "Alto",
@@ -45,6 +48,7 @@ export const comparisons: ComparisonGuide[] = [
     itemA: {
       name: "Laetum",
       tier: "S",
+      category: "Secundária",
       role: "Dano direto",
       difficulty: "Alta",
       buildCost: "Alto",
@@ -53,6 +57,7 @@ export const comparisons: ComparisonGuide[] = [
     itemB: {
       name: "Kuva Nukor",
       tier: "S",
+      category: "Secundária",
       role: "Primer e status",
       difficulty: "Média",
       buildCost: "Médio",
@@ -66,6 +71,7 @@ export const comparisons: ComparisonGuide[] = [
     itemA: {
       name: "Dante",
       tier: "S",
+      category: "Warframe",
       role: "Overguard, dano e suporte",
       difficulty: "Média",
       buildCost: "Alto",
@@ -74,6 +80,7 @@ export const comparisons: ComparisonGuide[] = [
     itemB: {
       name: "Revenant Prime",
       tier: "S",
+      category: "Warframe",
       role: "Sobrevivência extrema",
       difficulty: "Baixa",
       buildCost: "Médio",

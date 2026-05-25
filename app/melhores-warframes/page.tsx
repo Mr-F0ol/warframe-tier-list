@@ -34,7 +34,7 @@ export default function MelhoresWarframesPage() {
     <SeoPage
       eyebrow="Warframes"
       title="Melhores Warframes para investir"
-      description="Uma visão separada da tier list para escolher Warframes por função: sobrevivência, suporte, farm, dano e conforto no endgame."
+      description="Uma visão separada da tier list para escolher Warframes por estágio da conta: segurança para iniciante, consistência para intermediário e otimização para endgame."
       breadcrumbs={[
         { label: "Início", href: "/" },
         { label: "Tier List", href: "/tier-list" },
@@ -42,7 +42,7 @@ export default function MelhoresWarframesPage() {
       ]}
       structuredData={itemListSchema}
     >
-      <SectionBlock title="Prioridades atuais" description="Ranking separado para consultar Warframes por função sem abrir a lista completa.">
+      <SectionBlock title="Prioridades atuais" description="Ranking separado para consultar Warframes por função, investimento e momento da conta sem abrir a lista completa.">
         <RankCardGrid
           items={warframes.map(warframe => ({
             id: warframe.id,
@@ -56,19 +56,19 @@ export default function MelhoresWarframesPage() {
         />
       </SectionBlock>
 
-      <SectionBlock title="Como usar esta página" description="A melhor escolha depende do que está travando sua conta agora.">
+      <SectionBlock title="Como usar esta página" description="A melhor escolha depende do que está travando sua conta agora e pode mudar com updates, hotfixes, Arcanes, Rivens, Helminth e balanceamentos.">
         <div className="grid gap-3 md:grid-cols-3">
           <article className="border-l-4 border-l-yellow-300 bg-card/70 p-4">
-            <h2 className="font-black text-yellow-100">Se você morre muito</h2>
-            <p className="mt-2 text-sm leading-6 text-muted-foreground">Priorize Dante, Revenant Prime, Wisp Prime ou Citrine antes de perseguir dano máximo.</p>
+            <h2 className="font-black text-yellow-100">Iniciante</h2>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">Se você morre muito, priorize Warframes seguros antes de perseguir dano máximo. Sobreviver acelera mais do que uma build cara que falha.</p>
           </article>
           <article className="border-l-4 border-l-cyan-300 bg-card/70 p-4">
-            <h2 className="font-black text-yellow-100">Se falta clear</h2>
-            <p className="mt-2 text-sm leading-6 text-muted-foreground">Saryn Prime, Protea Prime e Xaku ajudam quando o problema é limpar densidade de inimigos.</p>
+            <h2 className="font-black text-yellow-100">Intermediário</h2>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">Quando a sobrevivência já está estável, escolha Warframes de clear, suporte ou farm conforme o conteúdo que você mais repete.</p>
           </article>
           <article className="border-l-4 border-l-cyan-300 bg-card/70 p-4">
-            <h2 className="font-black text-yellow-100">Se quer farm</h2>
-            <p className="mt-2 text-sm leading-6 text-muted-foreground">Khora Prime entra melhor quando sua conta já tem stat-stick, energia e mods de suporte.</p>
+            <h2 className="font-black text-yellow-100">Endgame</h2>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">No endgame, invista em variações por missão: Steel Path, farm, boss, suporte e builds afetadas por Helminth, Arcanes e hotfixes.</p>
           </article>
         </div>
       </SectionBlock>

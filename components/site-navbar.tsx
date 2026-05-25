@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { href: "/", label: "Início" },
   { href: "/tier-list", label: "Tier List" },
+  { href: "/meta-atual", label: "Meta" },
   { href: "/builds", label: "Builds" },
   { href: "/incarnon", label: "Incarnon" },
   { href: "/farm", label: "Farm" },
@@ -36,7 +37,7 @@ export function SiteNavbar() {
             className="h-10 w-10 shrink-0 drop-shadow-[0_0_14px_rgba(247,198,91,.42)]"
           />
           <span className="min-w-0 leading-tight">
-            <strong className="block truncate text-sm text-foreground">WarframeFool</strong>
+            <strong className="block truncate text-sm text-foreground">Warframe Fool</strong>
             <span className="block truncate text-[11px] font-bold uppercase text-cyan-200/80">Tier list e guias</span>
           </span>
         </Link>

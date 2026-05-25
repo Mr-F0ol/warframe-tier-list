@@ -47,7 +47,7 @@ export function SeoPage({
     description,
     publisher: {
       "@type": "Organization",
-      name: "WarframeFool"
+      name: "Warframe Fool"
     },
     inLanguage: "pt-BR"
   };

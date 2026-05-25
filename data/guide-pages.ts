@@ -93,25 +93,25 @@ export const guidePages: Record<string, GuidePageContent> = {
   "steel-path": {
     slug: "steel-path",
     title: "Steel Path no Warframe",
-    description: "Prioridades para montar uma conta segura, com dano suficiente e bons investimentos antes de conteúdo mais pesado.",
+    description: "Prioridades para entrar no Steel Path com segurança: primeiro sobreviver, depois garantir dano, e só no endgame otimizar builds caras.",
     eyebrow: "Endgame",
     sections: [
       {
         title: "Base segura primeiro",
-        description: "Antes de perseguir dano máximo, resolva sobrevivência e consistência.",
+        description: "Iniciante no Steel Path deve resolver sobrevivência antes de perseguir dano máximo ou builds caras.",
         cards: [
-          { title: "Warframe confiável", description: "Dante, Revenant, Wisp e Protea reduzem erro e deixam você aprender o ritmo.", href: "/melhores-warframes", tags: ["Sobrevivência"] },
-          { title: "Arma principal", description: "Tenha pelo menos uma arma capaz de lidar com armadura alta e Eximus.", href: "/melhores-armas-primarias", tags: ["Dano"] },
-          { title: "Secundária reserva", description: "Laetum, Kuva Nukor e outras secundárias fortes ajudam quando a primária não resolve tudo.", href: "/melhores-armas-secundarias", tags: ["Backup"] }
+          { title: "Iniciante", description: "Use um Warframe confiável, arma simples e foco em não morrer. Dante, Revenant, Wisp e Protea reduzem erro e deixam você aprender o ritmo.", href: "/melhores-warframes", tags: ["Sobrevivência"] },
+          { title: "Intermediário", description: "Tenha pelo menos uma arma para clear e outra resposta para Eximus, armadura alta ou alvo resistente.", href: "/melhores-armas-primarias", tags: ["Dano"] },
+          { title: "Endgame", description: "Refine secundária, melee, Arcanes, Helminth e elementos por missão; Laetum, Kuva Nukor e outras opções entram conforme função.", href: "/melhores-armas-secundarias", tags: ["Backup"] }
         ]
       },
       {
         title: "Quando investir pesado",
-        description: "Forma, Catalisador e Arcanes rendem mais quando a peça resolve várias missões.",
+        description: "Forma, Catalisador, Arcanes e Rivens rendem mais quando a peça resolve várias missões e sobrevive a mudanças de meta.",
         cards: [
-          { title: "Incarnon", description: "Priorize armas Incarnon que mudam sua conta, não só armas que parecem bonitas no papel.", href: "/incarnon", tags: ["Incarnon"] },
-          { title: "Builds por objetivo", description: "Use as páginas de builds como base e registre sua configuração real depois dos testes.", href: "/builds", tags: ["Builds"] },
-          { title: "Loadouts", description: "Salve combinações no navegador e separe setups por objetivo.", href: "/loadouts", tags: ["Organização"] }
+          { title: "Incarnon com função clara", description: "Priorize armas Incarnon que resolvem uma dor real: clear, alvo pesado, mobilidade ou utilidade.", href: "/incarnon", tags: ["Incarnon"] },
+          { title: "Builds por objetivo", description: "Use as páginas de builds como base editável e registre sua configuração real depois dos testes.", href: "/builds", tags: ["Builds"] },
+          { title: "Meta muda", description: "Updates, hotfixes, Arcanes, Rivens, Helminth e balanceamentos podem mudar a melhor escolha. Salve loadouts por objetivo e revise depois.", href: "/loadouts", tags: ["Organização"] }
         ]
       }
     ],

@@ -1,6 +1,6 @@
 # Warframe Fool
 
-Warframe Fool é uma plataforma em português para tier list, builds, guias de farm, armas Incarnon, Steel Path e organização futura de loadouts do Warframe.
+Warframe Fool é um guia em português para tier list, builds, farms, armas Incarnon, Steel Path, meta atual e organização de loadouts do Warframe.
 
 Stack atual:
 
@@ -9,7 +9,6 @@ Stack atual:
 - TypeScript
 - Tailwind CSS
 - componentes no estilo shadcn/ui
-- API routes preparadas para PostgreSQL
 - Vercel como hospedagem principal
 
 > Warframe é marca da Digital Extremes. Este site é um projeto independente de fãs.
@@ -58,10 +57,13 @@ Os conteúdos novos foram organizados em arquivos editáveis:
 
 - `data/weapons.ts`: armas, tiers, categoria, foco, Incarnon, custo e links de builds.
 - `data/warframes.ts`: Warframes recomendados, função, prioridade e uso.
-- `data/builds.ts`: páginas de build como Felarx, Laetum e Praedos.
-- `data/guide-pages.ts`: páginas de farm e Steel Path.
-- `data/comparisons.ts`: comparações mockadas/editáveis entre armas e Warframes.
-- `data/loadout-presets.ts`: cards de loadouts prontos para copiar/compartilhar.
+- `data/builds.ts`: páginas de build como Felarx, Laetum, Praedos e Torid Incarnon.
+- `data/farms.ts`: guias de créditos, Endo, Kuva, Oxio, Criótico e Telúrio.
+- `data/incarnon.ts`: prioridades e cards de armas Incarnon.
+- `data/loadouts.ts`: cards de loadouts prontos para copiar/compartilhar.
+- `data/guide-pages.ts`: páginas de guias complementares.
+- `data/comparisons.ts`: comparações editáveis entre armas e Warframes.
+- `data/loadout-presets.ts`: compatibilidade para os cards antigos de loadout.
 - `data/tier-list.json`: tier list principal usada pelo componente interativo.
 - `data/tier-meta.json`: tags, detalhes e metadados da tier list.
 
@@ -73,16 +75,16 @@ Para criar uma nova página de build:
 
 Evite colocar números ou builds fechadas sem teste. Use texto editável e registre variações quando Riven, Arcanes, hotfixes ou balanceamentos mudarem o resultado.
 
-## PostgreSQL grátis
+## Salvamento em nuvem futuro
 
-O projeto já possui estrutura para loadouts com API Next.js e PostgreSQL.
+O site não implementa login agora. Os loadouts salvos pelo usuário ficam no navegador.
 
-Opções gratuitas recomendadas:
+Para uma versão futura com salvamento em nuvem, opções gratuitas recomendadas:
 
 - Neon
 - Supabase
 
-Crie um banco e configure:
+Quando essa etapa for implementada, a variável de conexão poderá ser configurada no ambiente da Vercel:
 
 ```env
 DATABASE_URL=postgresql://usuario:senha@host/database?sslmode=require
@@ -94,14 +96,13 @@ Depois rode:
 npm run db:schema
 ```
 
-Sem `DATABASE_URL`, a API usa fallback local em `data/loadouts.json`. Em hospedagem serverless, configure PostgreSQL para persistência real.
+Não é necessário configurar banco para rodar a versão atual do guia.
 
 ## Deploy na Vercel
 
 1. Faça login na Vercel.
 2. Conecte o repositório ou rode deploy pelo CLI.
-3. Configure `DATABASE_URL` se quiser salvar loadouts online.
-4. Rode antes do deploy:
+3. Rode antes do deploy:
 
 ```bash
 npm run deploy:check
@@ -170,7 +171,7 @@ npm run db:schema
 
 ## Próximos passos futuros
 
-- Conectar PostgreSQL em produção com Neon ou Supabase.
+- Conectar salvamento em nuvem com Neon ou Supabase.
 - Implementar login opcional para loadouts pessoais.
 - Adicionar editor interno para builds.
 - Criar mais páginas de build por Warframe e arma.

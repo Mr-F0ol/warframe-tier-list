@@ -1,7 +1,7 @@
 import { CopyLinkButton } from "@/components/copy-link-button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { loadoutPresets } from "@/data/loadout-presets";
+import { loadoutPresets } from "@/data/loadouts";
 
 export function LoadoutPresetCards() {
   return (
@@ -13,7 +13,7 @@ export function LoadoutPresetCards() {
             Estruturas para copiar, compartilhar e adaptar aos seus objetivos.
           </span>
         </h2>
-        <Badge variant="meta">Sem login por enquanto</Badge>
+        <Badge variant="meta">Prontos para copiar</Badge>
       </div>
       <div className="mt-3 grid gap-3 lg:grid-cols-3">
         {loadoutPresets.map(loadout => {
@@ -22,13 +22,18 @@ export function LoadoutPresetCards() {
             <Card key={loadout.id} className="p-4">
               <div className="flex items-start justify-between gap-3">
                 <h3 className="text-lg font-black text-yellow-100">{loadout.name}</h3>
-                <Badge variant={loadout.difficulty === "Alta" ? "tierA" : "cyan"}>{loadout.difficulty}</Badge>
+                <div className="flex flex-wrap justify-end gap-2">
+                  <Badge variant={loadout.difficulty === "Alta" ? "tierA" : "cyan"}>{loadout.difficulty}</Badge>
+                  <Badge variant={loadout.investment === "Alto" ? "meta" : "outline"}>{loadout.investment}</Badge>
+                </div>
               </div>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">{loadout.description}</p>
               <dl className="mt-4 grid gap-2 text-sm leading-6 text-muted-foreground">
                 <Row label="Warframe" value={loadout.warframe} />
                 <Row label="Primária" value={loadout.primary} />
                 <Row label="Secundária" value={loadout.secondary} />
                 <Row label="Melee" value={loadout.melee} />
+                <Row label="Companheiro" value={loadout.companion} />
                 <Row label="Foco" value={loadout.focus} />
               </dl>
               <p className="mt-3 text-sm leading-6 text-muted-foreground">{loadout.notes}</p>
@@ -52,7 +57,7 @@ export function LoadoutPresetCards() {
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <div className="grid grid-cols-[92px_1fr] gap-2">
+    <div className="grid grid-cols-[112px_1fr] gap-2">
       <dt className="font-bold text-cyan-100/85">{label}</dt>
       <dd>{value}</dd>
     </div>
@@ -66,8 +71,10 @@ function formatLoadout(loadout: typeof loadoutPresets[number]) {
     `Primária: ${loadout.primary}`,
     `Secundária: ${loadout.secondary}`,
     `Melee: ${loadout.melee}`,
+    `Companheiro: ${loadout.companion}`,
     `Foco: ${loadout.focus}`,
     `Dificuldade: ${loadout.difficulty}`,
+    `Investimento: ${loadout.investment}`,
     `Notas: ${loadout.notes}`
   ].join("\n");
 }

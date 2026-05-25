@@ -32,6 +32,11 @@ export default function FarmPage() {
         <InfoCardGrid
           cards={[
             { title: "Farm de créditos", description: "Métodos por estágio da conta, equipamentos recomendados, booster e erros comuns.", href: "/farm-creditos", tags: ["Créditos"] },
+            { title: "Farm de Endo", description: "Organize recursos para evoluir mods sem gastar Endo em prioridades erradas.", href: "/farm-endo", tags: ["Endo"] },
+            { title: "Farm de Kuva", description: "Planeje Kuva para Riven sem sacrificar mods, Arcanes e builds base.", href: "/farm-kuva", tags: ["Kuva"] },
+            { title: "Farm de Oxio", description: "Rotas Corpus, clear consistente e cuidados para farmar Oxio sem perder ritmo.", href: "/farm-oxio", tags: ["Oxio"] },
+            { title: "Farm de Criótico", description: "Guia para escavação com defesa de objetivo, energia e repetição segura.", href: "/farm-criotico", tags: ["Criótico"] },
+            { title: "Farm de Telúrio", description: "Rota segura para um recurso raro, sem prometer números fixos de drop.", href: "/farm-telurio", tags: ["Telúrio"] },
             { title: "Farm de foco", description: "Lentes, convergência e métodos para evoluir Zenurik, Madurai, Unairu, Vazarin e Naramon.", href: "/farm-foco-warframe", tags: ["Foco"] },
             { title: "Warframes para foco", description: "Saryn, Volt, Mirage e outras opções para Sanctuary Onslaught e ESO.", href: "/melhores-warframes-farm-foco", tags: ["ESO"] },
             { title: "Loadout confortável", description: "Salve combinações para repetir farms longos sem remontar tudo manualmente.", href: "/loadouts", tags: ["Organização"] },

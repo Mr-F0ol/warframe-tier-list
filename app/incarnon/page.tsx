@@ -96,6 +96,8 @@ export default function IncarnonPage() {
       <InternalLinks
         links={[
           { title: "Build Felarx", description: "Estrutura para alvo pesado.", href: "/builds/felarx" },
+          { title: "Melhores Incarnon", description: "Ranking dedicado de prioridades Incarnon.", href: "/melhores-incarnon" },
+          { title: "Build Torid Incarnon", description: "Estrutura para clear em Steel Path.", href: "/builds/torid-incarnon" },
           { title: "Build Laetum", description: "Estrutura para secundária de dano consistente.", href: "/builds/laetum" },
           { title: "Melhores melee", description: "Compare Praedos, Ceramic Dagger e Dual Ichor.", href: "/melhores-melee" }
         ]}

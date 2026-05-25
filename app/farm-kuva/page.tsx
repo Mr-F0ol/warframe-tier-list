@@ -4,30 +4,18 @@ import { SeoPage } from "@/components/seo/seo-page";
 import { getFarmGuide } from "@/data/farms";
 import { articleJsonLd } from "@/lib/seo";
 
-const page = getFarmGuide("farm-creditos")!;
+const page = getFarmGuide("farm-kuva")!;
 
 export const metadata: Metadata = {
   title: page.seoTitle,
   description: page.seoDescription,
-  alternates: { canonical: "/farm-creditos" },
-  openGraph: {
-    title: "Farm de créditos Warframe | WarframeFool",
-    description: page.seoDescription,
-    url: "/farm-creditos"
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: page.seoTitle,
-    description: page.seoDescription
-  }
+  alternates: { canonical: "/farm-kuva" },
+  openGraph: { title: page.seoTitle, description: page.seoDescription, url: "/farm-kuva" },
+  twitter: { card: "summary_large_image", title: page.seoTitle, description: page.seoDescription }
 };
 
-export default function FarmCreditosPage() {
-  const articleSchema = articleJsonLd({
-    title: page.seoTitle,
-    description: page.seoDescription,
-    path: "/farm-creditos"
-  });
+export default function FarmKuvaPage() {
+  const articleSchema = articleJsonLd({ title: page.seoTitle, description: page.seoDescription, path: "/farm-kuva" });
 
   return (
     <SeoPage
@@ -37,7 +25,7 @@ export default function FarmCreditosPage() {
       breadcrumbs={[
         { label: "Início", href: "/" },
         { label: "Farm", href: "/farm" },
-        { label: "Farm de Créditos", href: "/farm-creditos" }
+        { label: "Farm de Kuva", href: "/farm-kuva" }
       ]}
       structuredData={articleSchema}
     >

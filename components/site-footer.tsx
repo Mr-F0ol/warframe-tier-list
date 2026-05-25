@@ -8,8 +8,10 @@ const footerLinks = [
   { href: "/melhores-armas-secundarias", label: "Secundárias" },
   { href: "/melhores-melee", label: "Melee" },
   { href: "/incarnon", label: "Incarnon" },
+  { href: "/melhores-incarnon", label: "Melhores Incarnon" },
   { href: "/builds", label: "Builds" },
   { href: "/farm", label: "Farm" },
+  { href: "/meta-atual", label: "Meta Atual" },
   { href: "/steel-path", label: "Steel Path" },
   { href: "/sobre", label: "Sobre" }
 ];
@@ -30,6 +32,9 @@ export function SiteFooter() {
           </p>
           <a href={githubUrl} className="mt-3 inline-flex text-sm font-bold text-cyan-100 hover:text-yellow-100" target="_blank" rel="noreferrer">
             GitHub do projeto
+          </a>
+          <a href="#conteudo" className="ml-0 mt-3 block text-sm font-bold text-cyan-100 hover:text-yellow-100 sm:ml-4 sm:inline-flex">
+            Voltar ao topo
           </a>
         </div>
         <nav className="flex max-w-xl flex-wrap gap-2 text-sm" aria-label="Links do rodapé">

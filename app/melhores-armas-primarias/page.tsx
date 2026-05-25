@@ -37,7 +37,7 @@ export default function MelhoresArmasPrimariasPage() {
     <SeoPage
       eyebrow="Armas primárias"
       title="Melhores armas primárias no Warframe"
-      description="Primárias para carregar Steel Path, bosses e missões longas, com foco em conforto, dano e investimento responsável."
+      description="Primárias para cada estágio da conta: opções simples para começar, armas consistentes para Steel Path e Incarnon de alto investimento para endgame."
       breadcrumbs={[
         { label: "Início", href: "/" },
         { label: "Tier List", href: "/tier-list" },
@@ -60,19 +60,19 @@ export default function MelhoresArmasPrimariasPage() {
         />
       </SectionBlock>
 
-      <SectionBlock title="Como priorizar" description="Não é obrigatório investir em todas. Escolha pelo problema que sua conta precisa resolver.">
+      <SectionBlock title="Como priorizar" description="Não é obrigatório investir em todas. Escolha pelo problema que sua conta precisa resolver e revise após updates, hotfixes, Arcanes, Rivens e balanceamentos.">
         <div className="grid gap-3 md:grid-cols-3">
           <article className="bg-card/70 p-4">
-            <h2 className="font-black text-yellow-100">Clear de mapa</h2>
-            <p className="mt-2 text-sm leading-6 text-muted-foreground">Torid Incarnon e opções similares brilham quando o objetivo é limpar densidade de inimigos.</p>
+            <h2 className="font-black text-yellow-100">Iniciante</h2>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">Priorize uma arma que funcione com mods simples e não dependa de Riven. Consistência vem antes de teto teórico.</p>
           </article>
           <article className="bg-card/70 p-4">
-            <h2 className="font-black text-yellow-100">Alvo pesado</h2>
-            <p className="mt-2 text-sm leading-6 text-muted-foreground">Felarx, Phenmor e outras Incarnon ajudam quando Eximus, bosses ou alvos resistentes travam a missão.</p>
+            <h2 className="font-black text-yellow-100">Intermediário</h2>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">Escolha uma primária de clear e mantenha outra resposta para Eximus, bosses ou alvos resistentes.</p>
           </article>
           <article className="bg-card/70 p-4">
-            <h2 className="font-black text-yellow-100">Investimento</h2>
-            <p className="mt-2 text-sm leading-6 text-muted-foreground">Só coloque muitas Formas depois de confirmar evoluções Incarnon, mods Galvanized e arcanes disponíveis.</p>
+            <h2 className="font-black text-yellow-100">Endgame</h2>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">Só coloque muitas Formas depois de confirmar evoluções Incarnon, mods Galvanized, Arcanes e função real da arma no loadout.</p>
           </article>
         </div>
       </SectionBlock>

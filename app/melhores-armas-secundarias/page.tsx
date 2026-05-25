@@ -7,24 +7,24 @@ const secondaryWeapons = weaponsByCategory("secondary");
 
 export const metadata: Metadata = {
   title: "Melhores Armas Secundárias Warframe — Guia Meta",
-  description: "Melhores secundárias para Steel Path, primer, bosses e dano consistente no Warframe.",
+  description: "Melhores secundárias para iniciar com suporte, evoluir com dano reserva e chegar ao endgame com primer, Incarnon e consistência.",
   alternates: { canonical: "/melhores-armas-secundarias" },
   openGraph: {
     title: "Melhores armas secundárias Warframe | WarframeFool",
-    description: "Ranking prático de secundárias como Laetum, Dual Toxocyst, Lex Incarnon e Kuva Nukor.",
+    description: "Ranking prático de secundárias como Laetum, Dual Toxocyst, Lex Incarnon e Kuva Nukor, com foco em função real no loadout.",
     url: "/melhores-armas-secundarias"
   },
   twitter: {
     card: "summary_large_image",
     title: "Melhores Armas Secundárias Warframe — Guia Meta",
-    description: "Melhores secundárias para Steel Path, primer, bosses e dano consistente no Warframe."
+    description: "Melhores secundárias para iniciar com suporte, evoluir com dano reserva e chegar ao endgame com primer, Incarnon e consistência."
   }
 };
 
 export default function MelhoresArmasSecundariasPage() {
   const itemListSchema = itemListJsonLd({
     name: "Melhores Armas Secundárias Warframe",
-    description: "Ranking prático de secundárias para Steel Path, primer, bosses e dano consistente.",
+    description: "Ranking prático de secundárias para suporte, primer, alvo pesado, Steel Path e progressão de conta.",
     path: "/melhores-armas-secundarias",
     items: secondaryWeapons.map(weapon => ({
       name: weapon.name,
@@ -37,7 +37,7 @@ export default function MelhoresArmasSecundariasPage() {
     <SeoPage
       eyebrow="Armas secundárias"
       title="Melhores armas secundárias no Warframe"
-      description="Secundárias para dano reserva, primer de status, alvo pesado e consistência em Steel Path."
+      description="Secundárias por estágio da conta: suporte simples para iniciar, dano reserva no intermediário e Incarnon ou primer refinado no endgame."
       breadcrumbs={[
         { label: "Início", href: "/" },
         { label: "Tier List", href: "/tier-list" },
@@ -45,7 +45,7 @@ export default function MelhoresArmasSecundariasPage() {
       ]}
       structuredData={itemListSchema}
     >
-      <SectionBlock title="Secundárias recomendadas" description="Lista focada em dano reserva, primer, alvo pesado e consistência no endgame.">
+      <SectionBlock title="Secundárias recomendadas" description="Lista focada em função prática: aplicar status, finalizar alvo pesado, cobrir fraquezas da primária e manter consistência em missões longas. O meta pode mudar com updates, hotfixes, Arcanes, Rivens e balanceamentos.">
         <RankCardGrid
           items={secondaryWeapons.map(weapon => ({
             id: weapon.id,
@@ -60,19 +60,19 @@ export default function MelhoresArmasSecundariasPage() {
         />
       </SectionBlock>
 
-      <SectionBlock title="Função da secundária" description="Uma boa secundária não precisa competir com a primária; ela pode cobrir o que falta no loadout.">
+      <SectionBlock title="Função da secundária" description="Uma boa secundária não precisa competir com a primária; ela deve resolver o problema que falta no loadout em cada fase da conta.">
         <div className="grid gap-3 md:grid-cols-3">
           <article className="bg-card/70 p-4">
-            <h2 className="font-black text-yellow-100">Dano confiável</h2>
-            <p className="mt-2 text-sm leading-6 text-muted-foreground">Laetum e Lex Incarnon ajudam quando você precisa de dano direto contra alvos fortes.</p>
+            <h2 className="font-black text-yellow-100">Iniciante</h2>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">Use a secundária para suporte: aplicar status, cobrir alcance curto ou finalizar inimigos que sobrevivem ao dano principal.</p>
           </article>
           <article className="bg-card/70 p-4">
-            <h2 className="font-black text-yellow-100">Primer</h2>
-            <p className="mt-2 text-sm leading-6 text-muted-foreground">Kuva Nukor continua útil para aplicar status e habilitar dano de outras peças do loadout.</p>
+            <h2 className="font-black text-yellow-100">Intermediário</h2>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">Priorize uma peça que tenha função clara, como Kuva Nukor para status ou Laetum para dano direto quando a primária não resolve.</p>
           </article>
           <article className="bg-card/70 p-4">
-            <h2 className="font-black text-yellow-100">Clear</h2>
-            <p className="mt-2 text-sm leading-6 text-muted-foreground">Dual Toxocyst Incarnon brilha quando você quer uma secundária que também limpa grupos.</p>
+            <h2 className="font-black text-yellow-100">Endgame</h2>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">Invista em Incarnon, Arcanes e sinergias com Rivens só depois de definir se a secundária será primer, alvo pesado ou clear complementar.</p>
           </article>
         </div>
       </SectionBlock>

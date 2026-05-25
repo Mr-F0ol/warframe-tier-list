@@ -4,16 +4,14 @@ import { CopyLinkButton } from "@/components/copy-link-button";
 import { FaqSection, GuideCardGrid, GuideCtaRow, NextGuideLinks } from "@/components/guide-ui";
 import { Badge } from "@/components/ui/badge";
 import { SectionBlock, SeoPage } from "@/components/seo/seo-page";
-import { buildGuides, getBuildGuide } from "@/data/builds";
+import { getBuildGuide } from "@/data/builds";
 import { articleJsonLd } from "@/lib/seo";
 
 interface BuildPageProps {
   params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams() {
-  return buildGuides.map(build => ({ slug: build.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: BuildPageProps): Promise<Metadata> {
   const { slug } = await params;
@@ -98,6 +96,8 @@ export default async function BuildDetailPage({ params }: BuildPageProps) {
             <Detail label="Dificuldade" value={build.difficulty} />
             <Detail label="Custo de build" value={build.buildCost} />
             <Detail label="Quantidade aproximada de Forma" value={build.approximateForma} />
+            <Detail label="Última revisão" value={build.lastReviewed || "Maio de 2026"} />
+            <Detail label="Update base" value={build.baseUpdate || "Meta 2026"} />
           </dl>
           <h2 className="mt-5 text-lg font-black text-yellow-100">Observação sobre meta/hotfix</h2>
           <div className="mt-4 border-l-2 border-yellow-300/60 bg-yellow-300/10 p-3 text-sm leading-6 text-yellow-50">
@@ -284,6 +284,14 @@ function commonMistakeItems(slug: string) {
     ];
   }
 
+  if (slug === "torid-incarnon") {
+    return [
+      { title: "Usar contra boss como única resposta", description: "Torid Incarnon brilha no clear. Para alvo pesado, deixe uma Felarx, Laetum ou outra opção dedicada no loadout.", badge: "Função", badgeVariant: "outline" as const },
+      { title: "Ignorar forma Incarnon", description: "A arma depende do fluxo da forma Incarnon para mostrar o valor real em missões densas.", badge: "Incarnon", badgeVariant: "steel" as const },
+      { title: "Ficar sem conforto", description: "Se munição, cadência ou manuseio travam a sessão, troque dano teórico por consistência.", badge: "Conforto", badgeVariant: "cyan" as const }
+    ];
+  }
+
   return [
     { title: "Misturar mobilidade e dano sem foco", description: "Separe uma variação utilitária de uma variação melee para não enfraquecer as duas.", badge: "Objetivo", badgeVariant: "outline" as const },
     { title: "Ignorar evoluções de mobilidade", description: "A Praedos vale muito pelo conforto. Se você remove isso, ela compete com melees mais agressivas.", badge: "Mobilidade", badgeVariant: "cyan" as const },
@@ -303,6 +311,13 @@ function whenNotUseItems(slug: string) {
     return [
       { title: "Quando a primária já resolve tudo", description: "Se sua primária cobre clear e alvo pesado, talvez a secundária possa ser utilidade em vez de dano máximo.", badge: "Loadout", badgeVariant: "cyan" as const },
       { title: "Quando você não gosta da rotação", description: "A Laetum é forte, mas precisa encaixar no seu ritmo. Teste antes de fechar uma build cara.", badge: "Conforto", badgeVariant: "outline" as const }
+    ];
+  }
+
+  if (slug === "torid-incarnon") {
+    return [
+      { title: "Boss isolado ou alvo único", description: "Quando a missão exige derreter um alvo resistente, Felarx ou Laetum podem ser escolhas mais diretas.", badge: "Boss", badgeVariant: "tierS" as const },
+      { title: "Missões com baixa densidade", description: "Se quase não há grupos para limpar, o maior diferencial da Torid Incarnon aparece menos.", badge: "Clear", badgeVariant: "outline" as const }
     ];
   }
 
