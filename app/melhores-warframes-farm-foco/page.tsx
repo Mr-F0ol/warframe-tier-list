@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Guia em português com os melhores Warframes para farm de foco no Warframe, incluindo Saryn, Volt, Mirage, Equinox, lentes, ESO, SO e erros comuns.",
   alternates: { canonical: "/melhores-warframes-farm-foco" },
   openGraph: {
-    title: "Melhores Warframes para Farm de Foco 2026 | WarframeFool",
+    title: "Melhores Warframes para Farm de Foco 2026 | Warframe Fool",
     description: "Escolha Warframes de clear para farmar foco com lentes, Sanctuary Onslaught e Elite Sanctuary Onslaught.",
     url: "/melhores-warframes-farm-foco"
   },

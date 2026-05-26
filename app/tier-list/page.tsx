@@ -6,18 +6,18 @@ import { itemListJsonLd } from "@/lib/seo";
 import { flattenWarframes, flattenWeapons } from "@/lib/tier-utils";
 
 export const metadata: Metadata = {
-  title: "Tier List Warframe 2026 — Melhores Warframes e Armas para Steel Path",
-  description: "Tier list Warframe 2026 com melhores Warframes, primárias, secundárias e melee para Steel Path, farm, bosses e endgame.",
+  title: "Tier List Warframe — Meta Atual em Português",
+  description: "Tier list Warframe em português com Warframes, primárias, secundárias e melee para Steel Path, farm, bosses e conteúdo avançado.",
   alternates: { canonical: "/tier-list" },
   openGraph: {
-    title: "Tier List Warframe 2026 | WarframeFool",
+    title: "Tier List Warframe — Meta Atual em Português",
     description: "Ranking completo com Warframes, armas, tiers, filtros e recomendações por objetivo.",
     url: "/tier-list"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tier List Warframe 2026 — Melhores Warframes e Armas para Steel Path",
-    description: "Tier list Warframe 2026 com melhores Warframes, primárias, secundárias e melee para Steel Path, farm, bosses e endgame."
+    title: "Tier List Warframe — Meta Atual em Português",
+    description: "Tier list Warframe em português com Warframes, primárias, secundárias e melee para Steel Path, farm, bosses e conteúdo avançado."
   }
 };
 
@@ -25,7 +25,7 @@ export default async function TierListPage() {
   const [tierList, tierMeta] = await Promise.all([getTierListData(), getTierMetaData()]);
   const itemListSchema = itemListJsonLd({
     name: "Tier List Warframe 2026",
-    description: "Ranking completo de Warframes e armas do WarframeFool.",
+    description: "Ranking completo de Warframes e armas do Warframe Fool.",
     path: "/tier-list",
     items: [...flattenWarframes(tierList), ...flattenWeapons(tierList)].map(item => ({
       name: item.name,

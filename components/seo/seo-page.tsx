@@ -21,6 +21,7 @@ export interface RankCardItem {
   recommendedFor: string[];
   href?: string;
   meta?: string;
+  detailLabel?: string;
 }
 
 type JsonLdData = Record<string, unknown> | Array<Record<string, unknown>>;
@@ -149,7 +150,7 @@ export function RankCard({ item }: { item: RankCardItem }) {
           <Badge key={tag} variant="outline">{tag}</Badge>
         ))}
       </div>
-      <p className="mt-4 text-xs font-semibold uppercase text-cyan-100/80">Melhor para</p>
+      <p className="mt-4 text-xs font-semibold uppercase text-cyan-100/80">{item.detailLabel || "Melhor para"}</p>
       <p className="mt-1 text-sm leading-6 text-muted-foreground">{item.recommendedFor.join(" · ")}</p>
     </Card>
   );

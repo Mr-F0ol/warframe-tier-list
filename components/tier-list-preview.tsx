@@ -56,9 +56,9 @@ export function TierListPreview({ tierList }: { tierList: TierListData }) {
               </div>
               <Badge variant="tierS">S</Badge>
             </div>
-            <ol className="mt-4 grid list-none gap-2 p-0">
+            <div className="mt-4 grid gap-2" role="list">
               {group.items.map((item, index) => (
-                <li key={item.name} className="flex items-center gap-3 rounded-md border border-border/65 bg-background/42 p-3">
+                <div key={item.name} className="flex items-center gap-3 rounded-md border border-border/65 bg-background/42 p-3" role="listitem">
                   <span className="grid h-7 w-7 shrink-0 place-items-center rounded-md border border-yellow-300/35 bg-yellow-300/10 text-xs font-black text-yellow-100">
                     {index + 1}
                   </span>
@@ -66,9 +66,9 @@ export function TierListPreview({ tierList }: { tierList: TierListData }) {
                     <strong className="block truncate text-sm text-foreground">{item.name}</strong>
                     {item.note ? <span className="mt-1 block line-clamp-2 text-xs leading-5 text-muted-foreground">{item.note}</span> : null}
                   </span>
-                </li>
+                </div>
               ))}
-            </ol>
+            </div>
           </Card>
         ))}
       </div>

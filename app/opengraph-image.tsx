@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { siteMeta } from "@/data/siteMeta";
 
 export const runtime = "edge";
-export const alt = "WarframeFool - Tier List Warframe";
+export const alt = "Warframe Fool - Tier List Warframe";
 export const size = {
   width: 1200,
   height: 630
@@ -60,7 +60,7 @@ export default function Image() {
               {siteMeta.updateBase.toUpperCase()}
             </span>
           </div>
-          <div style={{ fontSize: 86, fontWeight: 950, letterSpacing: -2, lineHeight: .95 }}>WarframeFool</div>
+          <div style={{ fontSize: 86, fontWeight: 950, letterSpacing: -2, lineHeight: .95 }}>Warframe Fool</div>
           <div style={{ marginTop: 18, color: "#cffafe", fontSize: 38, fontWeight: 800 }}>Tier List Warframe</div>
           <div style={{ marginTop: 28, maxWidth: 920, color: "rgba(235,254,255,.86)", fontSize: 25, lineHeight: 1.4 }}>
             Warframes Prime, armas Incarnon, Steel Path, farm, bosses, prioridades e recomendações rápidas.

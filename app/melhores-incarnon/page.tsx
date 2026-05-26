@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Ranking de armas Incarnon para priorizar adaptadores, Forma e Catalisador conforme sua conta avança do intermediário ao endgame.",
   alternates: { canonical: "/melhores-incarnon" },
   openGraph: {
-    title: "Melhores Incarnon Warframe 2026 | WarframeFool",
+    title: "Melhores Incarnon Warframe 2026 | Warframe Fool",
     description: "Prioridades de armas Incarnon para investir com clareza em clear, alvo pesado, secundária e mobilidade.",
     url: "/melhores-incarnon"
   },

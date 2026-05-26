@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Guia em português dos melhores Arcanes de Amp no Warframe para Operador, Eidolon, Void Angels e uso geral, com prioridades e erros comuns.",
   alternates: { canonical: "/arcanes-amp-warframe" },
   openGraph: {
-    title: "Arcanes de Amp Warframe 2026 | WarframeFool",
+    title: "Arcanes de Amp Warframe 2026 | Warframe Fool",
     description: "Escolha Arcanes de Amp para dano, crítico, consistência e conteúdo de Operador.",
     url: "/arcanes-amp-warframe"
   },

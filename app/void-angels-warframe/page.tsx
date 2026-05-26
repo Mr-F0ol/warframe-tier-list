@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Guia em português para derrotar Void Angels no Zariman, escolher Amp, escola de foco, armas, Warframes seguros e evitar erros comuns.",
   alternates: { canonical: "/void-angels-warframe" },
   openGraph: {
-    title: "Void Angels Warframe 2026 | WarframeFool",
+    title: "Void Angels Warframe 2026 | Warframe Fool",
     description: "Aprenda a vencer Void Angels no Zariman com Operador, Amp, armas fortes e uma rotação segura.",
     url: "/void-angels-warframe"
   },

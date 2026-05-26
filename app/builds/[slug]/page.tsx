@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: BuildPageProps): Promise<Meta
     description: build.description,
     alternates: { canonical: `/builds/${build.slug}` },
     openGraph: {
-      title: `${title} | WarframeFool`,
+      title: `${title} | Warframe Fool`,
       description: build.description,
       url: `/builds/${build.slug}`
     },
@@ -78,12 +78,12 @@ export default async function BuildDetailPage({ params }: BuildPageProps) {
             <Badge variant={build.tier === "S" ? "tierS" : "tierA"}>Tier {build.tier}</Badge>
             <Badge variant={categoryVariant(build.category)}>{build.category}</Badge>
           </div>
-          <h2 className="mt-5 text-2xl font-black text-yellow-100">Objetivo da build</h2>
+          <h2 className="mt-5 text-2xl font-black text-yellow-100">Introdução</h2>
           <p className="mt-3 text-sm leading-7 text-muted-foreground">{build.summary}</p>
           <div className="mt-5 grid gap-3 md:grid-cols-3">
-            <Metric label="Objetivo" value={build.mainRole} />
-            <Metric label="Quando usar" value={build.bestUse} />
-            <Metric label="Prioridade" value={build.investmentPriority} />
+            <Metric label="Função principal" value={build.mainRole} />
+            <Metric label="Perfil indicado" value={build.playerProfile} />
+            <Metric label="Melhor uso" value={build.bestUse} />
           </div>
           <div className="mt-5 flex flex-wrap gap-2">
             <CopyLinkButton url={buildUrl} label="Copiar link da build" />
@@ -92,10 +92,11 @@ export default async function BuildDetailPage({ params }: BuildPageProps) {
         </article>
 
         <aside className="surface-panel rounded-lg p-5">
-          <h2 className="text-xl font-black text-yellow-100">Forma e custo</h2>
+          <h2 className="text-xl font-black text-yellow-100">Resumo de investimento</h2>
           <dl className="mt-4 grid gap-3 text-sm leading-6 text-muted-foreground">
             <Detail label="Dificuldade" value={build.difficulty} />
             <Detail label="Custo de build" value={build.buildCost} />
+            <Detail label="Prioridade" value={build.investmentPriority} />
             <Detail label="Quantidade aproximada de Forma" value={build.approximateForma} />
             <Detail label="Última revisão" value={build.lastReviewed || siteMeta.lastUpdated} />
             <Detail label="Update base" value={build.baseUpdate || siteMeta.updateBase} />
@@ -108,37 +109,6 @@ export default async function BuildDetailPage({ params }: BuildPageProps) {
         </aside>
       </section>
 
-      <SectionBlock title="Plano da build" description="Resumo para entender o papel da build e adaptar os ajustes à sua conta.">
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
-          <BuildInfoCard title="Build base recomendada" value={build.mainRole} />
-          <BuildInfoCard title="Melhor para" value={build.bestFor.join(", ")} />
-          <BuildInfoCard title="Prioridade de stats" value={build.statPriority.join(" · ")} />
-          <BuildInfoCard title="Melhor para Bosses" value={build.bestFor.includes("Bosses") ? build.bestUse : "Use outra variação quando o foco for dano direto em alvo pesado."} />
-          <BuildInfoCard title="Elemento recomendado" value={build.recommendedElement} />
-        </div>
-      </SectionBlock>
-
-      <SectionBlock title="Para quem serve e onde conseguir" description="Contexto rápido antes de gastar Forma, Catalisador ou Arcane nesta build.">
-        <div className="grid gap-3 md:grid-cols-2">
-          <BuildInfoCard title="Para que tipo de jogador serve" value={build.playerProfile} />
-          <BuildInfoCard title="Onde conseguir a arma" value={build.acquisition} />
-        </div>
-      </SectionBlock>
-
-      <SectionBlock title="Build inicial e build endgame" description="Use uma versão simples para testar o estilo da arma antes de fechar a versão cara.">
-        <div className="grid gap-3 md:grid-cols-2">
-          <BuildInfoCard title="Build inicial/barata" value={build.starterBuild} />
-          <BuildInfoCard title="Build endgame" value={build.endgameBuild} />
-        </div>
-      </SectionBlock>
-
-      <SectionBlock title="Steel Path, facções e elementos" description="Ajuste a build pela missão real em vez de tratar um setup como solução universal.">
-        <div className="grid gap-3 md:grid-cols-2">
-          <BuildInfoCard title="Observação sobre Steel Path" value={build.steelPathNotes} />
-          <BuildInfoCard title="Facções e elementos" value={build.factionNotes} />
-        </div>
-      </SectionBlock>
-
       <SectionBlock title="Pontos fortes e fracos" description="Resumo objetivo para decidir se esta build resolve o problema da sua conta.">
         <div className="grid gap-3 md:grid-cols-2">
           <ListCard title="Pontos fortes" items={build.strengths} tone="good" />
@@ -146,54 +116,54 @@ export default async function BuildDetailPage({ params }: BuildPageProps) {
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Mods principais e substituições" description="Use como base e ajuste os nomes exatos quando validar sua configuração final.">
-        <div className="grid gap-3 lg:grid-cols-3">
-          <ListCard title="Mods principais" items={build.recommendedMods} tone="good" />
-          <ListCard title="Substituições baratas" items={build.substituteMods} tone="neutral" />
-          <ListCard title="Arcanes recomendados" items={build.recommendedArcanes} tone="neutral" />
+      <SectionBlock title="Como conseguir" description={build.acquisition}>
+        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+          <BuildInfoCard title="Pré-requisito" value={build.acquisitionDetails.prerequisite} />
+          <BuildInfoCard title="Vendedor ou missão" value={build.acquisitionDetails.vendorOrMission} />
+          <BuildInfoCard title="Reputação necessária" value={build.acquisitionDetails.reputation} />
+          <BuildInfoCard title="Recursos necessários" value={build.acquisitionDetails.resources} />
+          <BuildInfoCard title="Dificuldade para obter" value={build.acquisitionDetails.difficulty} />
+          <BuildInfoCard title="Dica para farmar mais rápido" value={build.acquisitionDetails.tip} />
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Evoluções Incarnon recomendadas" description="Escolha evoluções pensando no papel real da arma no seu loadout.">
+      <SectionBlock title="Build inicial" description="Use esta versão para validar função e conforto antes de fechar investimento alto.">
+        <BuildInfoCard title="Configuração barata" value={build.starterBuild} />
+      </SectionBlock>
+
+      <SectionBlock title="Build endgame" description="Versão de maior investimento para quando a arma já encaixou no seu loadout.">
+        <BuildInfoCard title="Configuração final" value={build.endgameBuild} />
+      </SectionBlock>
+
+      <SectionBlock title="Substituições" description="Trocas úteis quando faltam mods Primed, Galvanized, Arcanes ou polarizações.">
+        <div className="grid gap-3 md:grid-cols-2">
+          <ListCard title="Mods principais" items={build.recommendedMods} tone="good" />
+          <ListCard title="Substituições baratas" items={build.substituteMods} tone="neutral" />
+        </div>
+      </SectionBlock>
+
+      <SectionBlock title="Variação por facção" description="Ajuste a build pela missão real em vez de tratar um setup como solução universal.">
+        <div className="grid gap-3 md:grid-cols-2">
+          <BuildInfoCard title="Observação sobre Steel Path" value={build.steelPathNotes} />
+          <BuildInfoCard title="Facções e elementos" value={build.factionNotes} />
+        </div>
+      </SectionBlock>
+
+      <SectionBlock title="Arcanes recomendados" description="Escolha conforme padrão de abate, função da arma e estilo do loadout.">
+        <ListCard title="Arcanes" items={build.recommendedArcanes} tone="neutral" />
+      </SectionBlock>
+
+      <SectionBlock title="Evoluções e observações especiais" description="Escolha evoluções pensando no papel real da arma no seu loadout.">
         <ListCard title="Prioridade nas evoluções" items={build.incarnonEvolutions} tone="good" />
       </SectionBlock>
 
       {build.slug === "praedos" ? <PraedosSpecialSection /> : null}
 
-      <SectionBlock title="Roteiro de progressão" description="O que validar antes de gastar recursos pesados.">
-        <div className="grid gap-3 md:grid-cols-3">
-          {build.progression.map((item, index) => (
-            <article key={item} className="bg-card/70 p-4">
-              <span className="text-xs font-black uppercase text-cyan-200">Passo {index + 1}</span>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">{item}</p>
-            </article>
-          ))}
+      <SectionBlock title="Erros comuns" description="Pontos que costumam desperdiçar Forma, Catalisador ou tempo.">
+        <div className="grid gap-3 lg:grid-cols-2">
+          <GuideCardGrid items={commonMistakeItems(build.slug)} />
+          <ListCard title="Evite" items={build.avoid} tone="warn" />
         </div>
-      </SectionBlock>
-
-      <SectionBlock title="Variações para testar" description="Use estes blocos para separar versão barata, versão endgame e ajustes por missão.">
-        <div className="grid gap-3 md:grid-cols-3">
-          {build.editableSlots.map(slot => (
-            <article key={slot.label} className="border border-dashed border-cyan-300/35 bg-background/40 p-4">
-              <h2 className="font-black text-yellow-100">{slot.label}</h2>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">{slot.guidance}</p>
-            </article>
-          ))}
-        </div>
-      </SectionBlock>
-
-      <SectionBlock title="Evite" description="Pontos que costumam desperdiçar Forma, Catalisador ou tempo.">
-        <div className="grid gap-3 md:grid-cols-3">
-          {build.avoid.map(item => (
-            <article key={item} className="bg-card/70 p-4 text-sm leading-6 text-muted-foreground">
-              {item}
-            </article>
-          ))}
-        </div>
-      </SectionBlock>
-
-      <SectionBlock title="Erros comuns" description="Ajustes que parecem pequenos, mas costumam reduzir muito o valor da build.">
-        <GuideCardGrid items={commonMistakeItems(build.slug)} />
       </SectionBlock>
 
       <SectionBlock title="Quando não usar" description="Nem toda arma S resolve toda missão. Use outra opção quando o objetivo pedir função diferente.">
@@ -201,7 +171,7 @@ export default async function BuildDetailPage({ params }: BuildPageProps) {
       </SectionBlock>
 
       <FaqSection items={build.faq} />
-      <NextGuideLinks links={nextGuideItems()} />
+      <NextGuideLinks links={nextGuideItems(build)} />
     </SeoPage>
   );
 }
@@ -302,7 +272,7 @@ function commonMistakeItems(slug: string) {
     return [
       { title: "Forçar a forma Incarnon sempre", description: "A forma Incarnon é forte, mas a missão pode pedir economia, conforto ou troca rápida de alvo.", badge: "Uso", badgeVariant: "outline" as const },
       { title: "Montar sem conforto", description: "Recarga, munição e manuseio importam quando a Laetum é seu plano seguro no Steel Path.", badge: "Conforto", badgeVariant: "cyan" as const },
-      { title: "Copiar elemento sem testar", description: "A secundária deve cobrir o alvo que sua primária não resolve. Teste contra o inimigo real.", badge: "Elemento", badgeVariant: "meta" as const }
+      { title: "Copiar elemento sem validar", description: "A secundária deve cobrir o alvo que sua primária não resolve. Confira contra o inimigo real.", badge: "Elemento", badgeVariant: "meta" as const }
     ];
   }
 
@@ -311,6 +281,22 @@ function commonMistakeItems(slug: string) {
       { title: "Usar contra boss como única resposta", description: "Torid Incarnon brilha no clear. Para alvo pesado, deixe uma Felarx, Laetum ou outra opção dedicada no loadout.", badge: "Função", badgeVariant: "outline" as const },
       { title: "Ignorar forma Incarnon", description: "A arma depende do fluxo da forma Incarnon para mostrar o valor real em missões densas.", badge: "Incarnon", badgeVariant: "steel" as const },
       { title: "Ficar sem conforto", description: "Se munição, cadência ou manuseio travam a sessão, troque dano teórico por consistência.", badge: "Conforto", badgeVariant: "cyan" as const }
+    ];
+  }
+
+  if (slug === "dual-toxocyst-incarnon") {
+    return [
+      { title: "Investir sem gostar do ritmo", description: "A arma rende melhor quando você mantém o fluxo de disparo. Teste antes de fechar uma versão cara.", badge: "Conforto", badgeVariant: "cyan" as const },
+      { title: "Ignorar Arcanes de secundária", description: "Secondary Merciless, Deadhead ou Encumber podem mudar bastante a consistência do setup.", badge: "Arcane", badgeVariant: "meta" as const },
+      { title: "Usar sem função clara", description: "Defina se ela será alvo único, dano sustentado ou plano B antes de gastar Forma.", badge: "Função", badgeVariant: "outline" as const }
+    ];
+  }
+
+  if (slug === "ceramic-dagger-incarnon") {
+    return [
+      { title: "Copiar sinergia sem contexto", description: "A Ceramic Dagger muda muito conforme Warframe, evolução Incarnon e função no loadout.", badge: "Sinergia", badgeVariant: "steel" as const },
+      { title: "Misturar utilidade e dano sem foco", description: "Separe uma variação utilitária de uma variação melee quando o objetivo for diferente.", badge: "Objetivo", badgeVariant: "outline" as const },
+      { title: "Ignorar disponibilidade atual", description: "Confira a fonte da arma e a rotação do adaptador antes de planejar o farm.", badge: "Farm", badgeVariant: "farm" as const }
     ];
   }
 
@@ -343,20 +329,45 @@ function whenNotUseItems(slug: string) {
     ];
   }
 
+  if (slug === "dual-toxocyst-incarnon") {
+    return [
+      { title: "Conta sem mods de secundária", description: "Se faltam Galvanized, Arcane e polarizações, use uma secundária mais simples até preparar a base.", badge: "Progressão", badgeVariant: "outline" as const },
+      { title: "Missões em que você perde ritmo", description: "Quando a missão corta fluxo de disparo com frequência, a arma pode parecer menos confortável.", badge: "Conforto", badgeVariant: "cyan" as const }
+    ];
+  }
+
+  if (slug === "ceramic-dagger-incarnon") {
+    return [
+      { title: "Início de conta", description: "Se sua conta ainda precisa de mods base e sobrevivência, uma melee simples pode render mais agora.", badge: "Iniciante", badgeVariant: "outline" as const },
+      { title: "Loadout sem sinergia melee", description: "Se a arma não complementa Warframe, status ou dano, outra melee pode ser mais direta.", badge: "Sinergia", badgeVariant: "steel" as const }
+    ];
+  }
+
   return [
     { title: "Conteúdo que exige dano melee máximo", description: "Se a missão pede uma melee puramente ofensiva, compare Praedos com outras opções de dano antes de investir.", badge: "Melee", badgeVariant: "melee" as const },
     { title: "Loadouts sem necessidade de deslocamento", description: "Quando mobilidade não economiza tempo, o maior diferencial da Praedos perde valor.", badge: "Farm", badgeVariant: "farm" as const }
   ];
 }
 
-function nextGuideItems() {
-  return [
+function nextGuideItems(build: NonNullable<ReturnType<typeof getBuildGuide>>) {
+  const baseLinks = [
     { title: "Tier List", description: "Compare a arma com outras opções fortes antes de gastar mais Forma.", href: "/tier-list", badge: "Meta", badgeVariant: "tierS" as const },
-    { title: "Incarnon", description: "Veja como priorizar armas e evoluções Incarnon no seu progresso.", href: "/incarnon", badge: "Incarnon", badgeVariant: "steel" as const },
-    { title: "Loadouts", description: "Salve a build junto de Warframe, armas e notas para consultar depois.", href: "/loadouts", badge: "Ferramenta", badgeVariant: "cyan" as const },
     { title: "Builds", description: "Volte para a lista de builds e compare outras armas por função.", href: "/builds", badge: "Guias", badgeVariant: "meta" as const },
-    { title: "Farm de Créditos", description: "Use armas consistentes em rotas repetidas sem perder tempo ajustando setup.", href: "/farm-creditos", badge: "Farm", badgeVariant: "farm" as const }
+    { title: "Loadouts", description: "Salve a build junto de Warframe, armas e notas para consultar depois.", href: "/loadouts", badge: "Ferramenta", badgeVariant: "cyan" as const },
+    { title: "Farm", description: "Use armas consistentes em rotas repetidas sem perder tempo ajustando setup.", href: "/farm", badge: "Farm", badgeVariant: "farm" as const },
+    { title: "Incarnon", description: "Veja como priorizar armas e evoluções Incarnon no seu progresso.", href: "/incarnon", badge: "Incarnon", badgeVariant: "steel" as const },
+    { title: "Comece Aqui", description: "Escolha o próximo passo conforme estágio da conta.", href: "/comece-aqui", badge: "Roteiro", badgeVariant: "outline" as const },
+    { title: "Progressão", description: "Veja quando priorizar mods, farms, Incarnon, Steel Path e builds caras.", href: "/progressao", badge: "Roadmap", badgeVariant: "cyan" as const }
   ];
+
+  if (["torid-incarnon", "dual-toxocyst-incarnon", "ceramic-dagger-incarnon"].includes(build.slug)) {
+    return [
+      ...baseLinks,
+      { title: "Steel Path", description: "Prepare checklist, mods e setup antes de missões mais difíceis.", href: "/steel-path", badge: "Steel Path", badgeVariant: "steel" as const }
+    ];
+  }
+
+  return baseLinks;
 }
 
 function PraedosSpecialSection() {

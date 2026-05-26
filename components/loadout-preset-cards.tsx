@@ -10,7 +10,7 @@ export function LoadoutPresetCards() {
     <section className="mt-8">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <h2 className="text-2xl font-black">
-          Loadouts prontos
+          Loadouts recomendados
           <span className="mt-1 block text-sm font-normal text-muted-foreground">
             Estruturas para copiar, compartilhar e adaptar aos seus objetivos.
           </span>
@@ -48,7 +48,7 @@ export function LoadoutPresetCards() {
                   mode="share"
                   text={text}
                   label="Compartilhar"
-                  shareTitle={`${loadout.name} - WarframeFool`}
+                  shareTitle={`${loadout.name} - Warframe Fool`}
                   shareText={text}
                 />
                 {loadout.relatedBuilds.length ? (

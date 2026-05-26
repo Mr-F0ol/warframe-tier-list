@@ -182,7 +182,7 @@ const faq = [
   },
   {
     question: "Qual Amp usar contra Void Angels?",
-    answer: "5-4-7 é uma recomendação confortável para Void Angels e Zariman porque não depende tanto de ficar colado no alvo. Se você já domina o combate, teste variações mais agressivas."
+    answer: "5-4-7 é uma recomendação confortável para Void Angels e Zariman porque não depende tanto de ficar colado no alvo. Se você já domina o combate, valide variações mais agressivas."
   }
 ];
 

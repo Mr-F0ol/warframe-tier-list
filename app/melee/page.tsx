@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Guia de melee Warframe com armas recomendadas para dano, utilidade, stat-stick, Incarnon, Steel Path e farm.",
   alternates: { canonical: "/melee" },
   openGraph: {
-    title: "Melee Warframe | WarframeFool",
+    title: "Melee Warframe | Warframe Fool",
     description: "Melhores melee para dano, mobilidade, stat-stick e farms repetidos.",
     url: "/melee"
   },
@@ -45,7 +45,7 @@ export default function MeleePage() {
       ]}
       structuredData={itemListSchema}
     >
-      <SectionBlock title="Melee recomendadas" description="A lista abaixo usa os mesmos dados principais do WarframeFool para manter consistência com a tier list.">
+      <SectionBlock title="Melee recomendadas" description="A lista abaixo usa os mesmos dados principais do Warframe Fool para manter consistência com a tier list.">
         <RankCardGrid
           items={meleeWeapons.map(weapon => ({
             id: weapon.id,

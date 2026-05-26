@@ -93,31 +93,87 @@ export const guidePages: Record<string, GuidePageContent> = {
   "steel-path": {
     slug: "steel-path",
     title: "Steel Path no Warframe",
-    description: "Prioridades para entrar no Steel Path com segurança: primeiro sobreviver, depois garantir dano, e só no endgame otimizar builds caras.",
+    description: "Checklist para entrar no Steel Path com segurança: sobreviver, causar dano consistente, lidar com Eximus e preparar builds sem gastar recursos à toa.",
     eyebrow: "Endgame",
     sections: [
       {
-        title: "Base segura primeiro",
-        description: "Iniciante no Steel Path deve resolver sobrevivência antes de perseguir dano máximo ou builds caras.",
+        title: "O que é Steel Path",
+        description: "Steel Path aumenta a exigência de dano, sobrevivência e consistência. Não é só bater mais forte: o loadout precisa sustentar a missão inteira.",
         cards: [
-          { title: "Iniciante", description: "Use um Warframe confiável, arma simples e foco em não morrer. Dante, Revenant, Wisp e Protea reduzem erro e deixam você aprender o ritmo.", href: "/melhores-warframes", tags: ["Sobrevivência"] },
-          { title: "Intermediário", description: "Tenha pelo menos uma arma para clear e outra resposta para Eximus, armadura alta ou alvo resistente.", href: "/melhores-armas-primarias", tags: ["Dano"] },
-          { title: "Endgame", description: "Refine secundária, melee, Arcanes, Helminth e elementos por missão; Laetum, Kuva Nukor e outras opções entram conforme função.", href: "/melhores-armas-secundarias", tags: ["Backup"] }
+          { title: "Mais resistência inimiga", description: "Prepare dano, status, elementos e controle. Uma arma confortável no mapa normal pode ficar lenta aqui.", href: "/tier-list", tags: ["Dano"] },
+          { title: "Mais punição por erro", description: "Warframe frágil, energia instável ou build sem sustain tornam missões simples bem mais longas.", href: "/melhores-warframes", tags: ["Sobrevivência"] },
+          { title: "Consistência vale mais", description: "O melhor setup é aquele que você repete sem morrer, sem ficar sem munição e sem travar em Eximus.", href: "/loadouts", tags: ["Loadout"] }
         ]
       },
       {
-        title: "Quando investir pesado",
-        description: "Forma, Catalisador, Arcanes e Rivens rendem mais quando a peça resolve várias missões e sobrevive a mudanças de meta.",
+        title: "Requisitos antes de entrar",
+        description: "Não precisa ter tudo perfeito, mas alguns pontos reduzem muito a frustração.",
         cards: [
-          { title: "Incarnon com função clara", description: "Priorize armas Incarnon que resolvem uma dor real: clear, alvo pesado, mobilidade ou utilidade.", href: "/incarnon", tags: ["Incarnon"] },
-          { title: "Builds por objetivo", description: "Use as páginas de builds como base editável e registre sua configuração real depois dos testes.", href: "/builds", tags: ["Builds"] },
-          { title: "Meta muda", description: "Updates, hotfixes, Arcanes, Rivens, Helminth e balanceamentos podem mudar a melhor escolha. Salve loadouts por objetivo e revise depois.", href: "/loadouts", tags: ["Organização"] }
+          { title: "Warframe confiável", description: "Tenha defesa, escudo, redução de dano, overguard, invisibilidade, controle ou outro plano claro de sobrevivência.", href: "/melhores-warframes", tags: ["Warframe"] },
+          { title: "Arma principal forte", description: "Leve uma arma capaz de matar grupos ou uma resposta para alvo pesado. Idealmente, use os dois papéis no loadout.", href: "/melhores-armas-primarias", tags: ["Armas"] },
+          { title: "Mods básicos upados", description: "Dano, multishot, elemental, crítico/status e sobrevivência precisam estar em um nível minimamente funcional.", href: "/builds", tags: ["Mods"] }
+        ]
+      },
+      {
+        title: "Checklist mínimo",
+        description: "Use este checklist antes de começar missões longas ou nós mais difíceis.",
+        cards: [
+          { title: "Sobrevivência confiável", description: "Um Warframe que não dependa de sorte para ficar vivo.", tags: ["1"] },
+          { title: "Dano suficiente", description: "Uma arma principal com Catalisador, mods base e elemento coerente.", tags: ["2"] },
+          { title: "Sustain ou controle", description: "Alguma fonte de cura, escudo, redução de dano, controle ou geração de energia.", tags: ["3"] },
+          { title: "Forma nos itens centrais", description: "Polarize apenas o que já faz parte do seu setup principal.", tags: ["4"] },
+          { title: "Plano contra armadura e Eximus", description: "Use status, elementos, strip, dano dedicado ou uma arma reserva para inimigos que travam a missão.", tags: ["5"] },
+          { title: "Loadout salvo", description: "Salve a combinação para não remontar tudo sempre que entrar no Steel Path.", href: "/loadouts", tags: ["6"] }
+        ]
+      },
+      {
+        title: "Warframes seguros",
+        description: "Escolha pela função que falta na sua conta: segurança, suporte, clear ou controle.",
+        cards: [
+          { title: "Revenant", description: "Base simples de sobrevivência para quem quer errar menos enquanto aprende o ritmo.", href: "/melhores-warframes", tags: ["Seguro"] },
+          { title: "Dante", description: "Overguard, dano e conforto para missões variadas, especialmente quando a conta precisa de margem de erro.", href: "/melhores-warframes", tags: ["Geral"] },
+          { title: "Wisp e Protea", description: "Suporte, energia, buffs e defesa de objetivo para deixar armas fortes mais consistentes.", href: "/melhores-warframes", tags: ["Suporte"] },
+          { title: "Saryn e Citrine", description: "Boas quando você já entende rotação, energia e precisa de clear/status ou suporte defensivo.", href: "/melhores-warframes", tags: ["Clear"] }
+        ]
+      },
+      {
+        title: "Armas recomendadas",
+        description: "Separe função de clear, alvo pesado e conforto em vez de depender de uma única arma para tudo.",
+        cards: [
+          { title: "Torid Incarnon", description: "Excelente para clear de grupos, missões densas e Steel Path quando bem investida.", href: "/builds/torid-incarnon", tags: ["Clear"] },
+          { title: "Felarx", description: "Resposta forte para bosses, Eximus e inimigos resistentes que seguram a missão.", href: "/builds/felarx", tags: ["Alvo pesado"] },
+          { title: "Laetum", description: "Secundária confiável para cobrir alvo resistente quando a primária está focada em clear.", href: "/builds/laetum", tags: ["Secundária"] },
+          { title: "Praedos", description: "Melee de mobilidade e conforto para reduzir tempo em rotas repetidas.", href: "/builds/praedos", tags: ["Mobilidade"] }
+        ]
+      },
+      {
+        title: "Mods importantes",
+        description: "Sem prometer lista única: priorize categorias que sustentam a build.",
+        cards: [
+          { title: "Dano e multishot", description: "Base para a maioria das armas. Versões Galvanized entram quando liberadas.", href: "/builds", tags: ["Armas"] },
+          { title: "Elementos por facção", description: "Ajuste conforme inimigos e objetivo. Viral/Calor pode ser confortável em uso geral quando aplicável.", href: "/tier-list", tags: ["Elemento"] },
+          { title: "Sobrevivência", description: "Adaptation, Rolling Guard, escudo, vida, armor, overguard ou controle conforme Warframe.", href: "/melhores-warframes", tags: ["Defesa"] },
+          { title: "Arcanes", description: "Use Arcanes para estabilizar dano, energia, arma ou sobrevivência quando o básico já estiver pronto.", href: "/meta-atual", tags: ["Arcane"] }
+        ]
+      },
+      {
+        title: "Erros comuns",
+        description: "O Steel Path costuma punir mais falta de plano do que falta de um item perfeito.",
+        cards: [
+          { title: "Entrar sem dano e defesa", description: "Se você morre e demora para matar, ajuste o básico antes de buscar otimização fina.", tags: ["Base"] },
+          { title: "Copiar build cara cedo", description: "Uma build endgame pode não funcionar sem mods, Arcanes, Forma e evolução correta.", href: "/comece-aqui", tags: ["Progressão"] },
+          { title: "Ignorar Eximus", description: "Tenha uma resposta para inimigos resistentes, seja arma dedicada, status, strip ou controle.", href: "/builds/felarx", tags: ["Eximus"] },
+          { title: "Não salvar setup", description: "Sem loadout organizado, você perde tempo remontando e esquece ajustes por facção.", href: "/loadouts", tags: ["Organização"] }
         ]
       }
     ],
     links: [
+      { title: "Comece Aqui", description: "Veja o caminho por estágio da conta.", href: "/comece-aqui" },
       { title: "Incarnon", description: "Veja quais armas Incarnon priorizar.", href: "/incarnon" },
       { title: "Build Felarx", description: "Estrutura para dano em alvo pesado.", href: "/builds/felarx" },
+      { title: "Build Torid Incarnon", description: "Clear de grupos para Steel Path e missões longas.", href: "/builds/torid-incarnon" },
+      { title: "Loadouts", description: "Monte e salve setups por objetivo.", href: "/loadouts" },
+      { title: "Farm", description: "Organize créditos, Endo, Kuva e recursos para fortalecer builds.", href: "/farm" },
       { title: "Tier List", description: "Volte ao ranking completo do site.", href: "/tier-list" }
     ]
   }

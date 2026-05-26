@@ -1,6 +1,6 @@
 {
   "updatedAt": "2026-05-18",
-  "currentPatch": "Update 42.0.10 - Voruna Prime",
+  "currentPatch": "Meta Update 42.0.10",
   "warframes": [
     {
       "tier": "S",
@@ -2955,7 +2955,7 @@
             },
             {
               "name": "Vinquibus",
-              "note": "Bayonet híbrida primária/melee do Update 41; ainda merece teste de longo prazo.",
+              "note": "Bayonet híbrida primária/melee do Update 41; ainda merece validação de longo prazo.",
               "baseName": "Vinquibus",
               "variant": "Normal",
               "variantTags": [

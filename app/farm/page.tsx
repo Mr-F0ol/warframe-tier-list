@@ -6,18 +6,18 @@ import { Card } from "@/components/ui/card";
 import { siteMeta } from "@/data/siteMeta";
 
 export const metadata: Metadata = {
-  title: "Farm Warframe — Créditos, Recursos e Rotas para Evoluir Mais Rápido",
-  description: "Guia de farm Warframe em português com prioridades para créditos, recursos, equipamentos confortáveis e rotas de repetição.",
+  title: "Farm Warframe — Guias de Créditos, Endo, Kuva e Recursos",
+  description: "Guia de farm Warframe em português com créditos, Endo, Kuva, Oxio, Criótico, Telúrio, Foco e recursos importantes por estágio da conta.",
   alternates: { canonical: "/farm" },
   openGraph: {
-    title: "Farm Warframe | WarframeFool",
+    title: "Farm Warframe — Guias de Créditos, Endo, Kuva e Recursos",
     description: "Guias de farm para créditos, recursos e evolução consistente no Warframe.",
     url: "/farm"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Farm Warframe — Créditos, Recursos e Rotas para Evoluir Mais Rápido",
-    description: "Guia de farm Warframe em português com prioridades para créditos, recursos, equipamentos confortáveis e rotas de repetição."
+    title: "Farm Warframe — Guias de Créditos, Endo, Kuva e Recursos",
+    description: "Guia de farm Warframe em português com créditos, Endo, Kuva, Oxio, Criótico, Telúrio, Foco e recursos importantes por estágio da conta."
   }
 };
 
@@ -64,11 +64,11 @@ export default function FarmPage() {
               <div className="mt-4 pt-1">
                 {card.href ? (
                   <Button asChild size="sm" variant="secondary">
-                    <Link href={card.href}>Abrir guia completo</Link>
+                    <Link href={card.href}>Abrir guia</Link>
                   </Button>
                 ) : (
                   <Button size="sm" variant="outline" disabled>
-                    Guia em preparação
+                    Guia em breve
                   </Button>
                 )}
               </div>
@@ -90,8 +90,12 @@ export default function FarmPage() {
       <InternalLinks
         links={[
           { title: "Farm de créditos", description: "Guia detalhado para organizar crédito sem prometer números irreais.", href: "/farm-creditos" },
+          { title: "Farm de Endo", description: "Evolua mods importantes sem desperdiçar recursos cedo.", href: "/farm-endo" },
+          { title: "Farm de Kuva", description: "Planeje Rivens e Kuva sem gastar tudo sem limite.", href: "/farm-kuva" },
+          { title: "Progressão", description: "Veja onde cada farm entra no roadmap da conta.", href: "/progressao" },
+          { title: "Loadouts", description: "Salve setups para repetir rotas com mais consistência.", href: "/loadouts" },
           { title: "Steel Path", description: "Monte uma base segura antes de rotas difíceis.", href: "/steel-path" },
-          { title: "Tier List", description: "Compare Warframes e armas antes de investir.", href: "/tier-list" }
+          { title: "Builds", description: "Use armas e Warframes adequados para rotas repetidas.", href: "/builds" }
         ]}
       />
     </SeoPage>
@@ -119,20 +123,20 @@ const farmSummaryCards = [
   },
   {
     resource: "Endo",
-    bestMethod: "Atividades repetíveis que sua conta completa sem falhar e sem gastar recursos demais.",
-    beginnerAlternative: "Converter mods duplicados e priorizar missões confortáveis.",
+    bestMethod: "Arbitrations, Ayatan Sculptures, dissolução de mods duplicados e missões adequadas ao progresso.",
+    beginnerAlternative: "Converter mods duplicados, procurar Ayatan e evitar upar mods que serão substituídos cedo.",
     warframes: "Dante, Revenant, Wisp, Khora ou outro Warframe seguro.",
-    tip: "Evolua primeiro mods usados em várias builds.",
-    commonMistake: "Gastar Endo em mods caros que você ainda não usa.",
+    tip: "Evolua primeiro dano, multishot, sobrevivência e utilidade usados em várias builds.",
+    commonMistake: "Upar muitos mods ao mesmo tempo ou gastar Endo em mod pouco usado.",
     href: "/farm-endo"
   },
   {
     resource: "Kuva",
-    bestMethod: "Rotas de Kuva quando a conta já tem dano e sobrevivência suficientes.",
-    beginnerAlternative: "Antes de rolar Rivens, fortalecer mods base e armas consistentes.",
+    bestMethod: "Kuva Survival, Kuva Siphon/Flood, Requiem, Steel Path e recompensas específicas conforme progresso.",
+    beginnerAlternative: "Kuva Siphon/Flood quando disponíveis e desbloqueio do conteúdo necessário.",
     warframes: "Revenant, Dante, Protea e Wisp ajudam pela estabilidade.",
-    tip: "Defina um limite de rolagens antes de começar.",
-    commonMistake: "Gastar Kuva em Riven de arma que não faz parte do loadout.",
+    tip: "Defina limite de rolagens e use booster apenas quando a sessão for longa e planejada.",
+    commonMistake: "Gastar Kuva tentando rolar Riven sem limite claro.",
     href: "/farm-kuva"
   },
   {

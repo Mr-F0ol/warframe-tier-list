@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "Início" },
+  { href: "/comece-aqui", label: "Comece Aqui" },
   { href: "/tier-list", label: "Tier List" },
   { href: "/meta-atual", label: "Meta" },
   { href: "/builds", label: "Builds" },
@@ -30,7 +31,7 @@ export function SiteNavbar() {
         <Link href="/" className="flex min-w-0 items-center gap-3" onClick={() => setOpen(false)}>
           <Image
             src="/assets/site-logo.svg"
-            alt="WarframeFool"
+            alt="Warframe Fool"
             width={44}
             height={44}
             priority

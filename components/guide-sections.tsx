@@ -53,7 +53,7 @@ export function GuideSections() {
         </h2>
         <div className="mt-3 grid gap-3 md:grid-cols-3">
           <GuideCard title="Warframes de dano" items={["Força se a habilidade escala dano, buff ou strip.", "Alcance para nukes, controle e aplicação de status.", "Eficiência ou geração de energia para manter rotação.", "Sobrevivência: Adaptation, Rolling Guard, escudo ou overguard."]} />
-          <GuideCard title="Armas primárias" items={["Multishot e dano base quase sempre são prioridade.", "Crítico em armas com chance crítica alta.", "Viral + Heat ou corrosivo conforme inimigo e build.", "Galvanized mods e Primary Merciless/Deadhead quando liberar."]} />
+          <GuideCard title="Armas primárias" items={["Multishot costuma ser prioridade em armas principais.", "Use Critical Delay, Point Strike ou opções equivalentes quando a arma aproveita chance crítica.", "Viral + Calor ou corrosivo podem funcionar conforme inimigo e build.", "Galvanized mods e Primary Merciless/Deadhead quando liberar."]} />
           <GuideCard title="Secundárias e melee" items={["Secundárias podem ser primer com status e multishot.", "Melee valoriza combo, crítico, status e velocidade.", "Praedos é excelente mesmo pelo bônus de mobilidade.", "Use Condition Overload quando a arma ou equipe aplica vários status."]} />
         </div>
       </section>

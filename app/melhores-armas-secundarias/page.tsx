@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Melhores secundárias para iniciar com suporte, evoluir com dano reserva e chegar ao endgame com primer, Incarnon e consistência.",
   alternates: { canonical: "/melhores-armas-secundarias" },
   openGraph: {
-    title: "Melhores armas secundárias Warframe | WarframeFool",
+    title: "Melhores armas secundárias Warframe | Warframe Fool",
     description: "Ranking prático de secundárias como Laetum, Dual Toxocyst, Lex Incarnon e Kuva Nukor, com foco em função real no loadout.",
     url: "/melhores-armas-secundarias"
   },

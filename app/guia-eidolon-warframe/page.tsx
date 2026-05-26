@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Guia em português para caçar Eidolon no Warframe com Amp, escolas de foco, lures, funções do squad, erros comuns e preparação para Teralyst, Gantulyst e Hydrolyst.",
   alternates: { canonical: "/guia-eidolon-warframe" },
   openGraph: {
-    title: "Guia Eidolon Warframe 2026 | WarframeFool",
+    title: "Guia Eidolon Warframe 2026 | Warframe Fool",
     description: "Aprenda a preparar Amp, foco, lures e loadout para capturar Eidolons com mais consistência.",
     url: "/guia-eidolon-warframe"
   },

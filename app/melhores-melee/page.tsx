@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Melhores armas melee para iniciar com segurança, ganhar mobilidade, montar utilidade e investir em dano ou Incarnon no endgame.",
   alternates: { canonical: "/melhores-melee" },
   openGraph: {
-    title: "Melhores melee Warframe | WarframeFool",
+    title: "Melhores melee Warframe | Warframe Fool",
     description: "Ranking prático de melee como Glaive Prime, Ceramic Dagger Incarnon, Praedos e Dual Ichor, separando utilidade, dano e investimento.",
     url: "/melhores-melee"
   },

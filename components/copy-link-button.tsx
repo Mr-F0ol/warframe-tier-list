@@ -20,8 +20,8 @@ export function CopyLinkButton({
   text,
   label = "Copiar link",
   copiedLabel = "Link copiado",
-  shareTitle = "WarframeFool",
-  shareText = "Guia Warframe em português no WarframeFool.",
+  shareTitle = "Warframe Fool",
+  shareText = "Guia Warframe em português no Warframe Fool.",
   mode = "copy",
   className
 }: CopyLinkButtonProps) {

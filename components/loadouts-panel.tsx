@@ -13,6 +13,7 @@ import type { Loadout, LoadoutInput, TierListData } from "@/lib/types";
 
 interface LoadoutsPanelProps {
   tierList: TierListData;
+  showHeading?: boolean;
 }
 
 const emptyForm: LoadoutInput = {
@@ -27,7 +28,7 @@ const emptyForm: LoadoutInput = {
 
 const storageKey = "warframefool-loadouts";
 
-export function LoadoutsPanel({ tierList }: LoadoutsPanelProps) {
+export function LoadoutsPanel({ tierList, showHeading = true }: LoadoutsPanelProps) {
   const [form, setForm] = useState<LoadoutInput>(emptyForm);
   const [loadouts, setLoadouts] = useState<Loadout[]>([]);
   const [status, setStatus] = useState("Pronto para salvar");
@@ -78,14 +79,17 @@ export function LoadoutsPanel({ tierList }: LoadoutsPanelProps) {
 
   return (
     <section className="mt-8">
-      <h2 className="text-2xl font-black">
-        Meus Loadouts
-        <span className="mt-1 block text-sm font-normal text-muted-foreground">
-          Organize combinações de Warframe, armas e notas por objetivo. Os loadouts ficam salvos neste navegador.
-        </span>
-      </h2>
+      {showHeading ? (
+        <h2 className="text-2xl font-black">
+          Meus Loadouts
+          <span className="mt-1 block text-sm font-normal text-muted-foreground">
+            Organize combinações de Warframe, armas e notas por objetivo. Os loadouts ficam salvos neste navegador.
+          </span>
+        </h2>
+      ) : null}
       <div className="mt-3 grid gap-3 lg:grid-cols-[minmax(0,420px)_1fr]">
         <Card className="p-4">
+          <h3 className="mb-3 text-lg font-black text-yellow-100">Criar combinação</h3>
           <form className="grid gap-3" onSubmit={submitLoadout}>
             <Field id="loadout-name" label="Nome do loadout">
               <Input id="loadout-name" value={form.name} onChange={event => setForm({ ...form, name: event.target.value })} required placeholder="Ex: Steel Path seguro" />

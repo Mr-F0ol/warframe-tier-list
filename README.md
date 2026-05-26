@@ -1,17 +1,22 @@
 # Warframe Fool
 
-Warframe Fool é um guia em português para tier list, builds, farms, armas Incarnon, Steel Path, meta atual e organização de loadouts do Warframe.
+Warframe Fool é um guia brasileiro de Warframe com tier list, builds, meta atual, armas Incarnon, guias de farm, Steel Path e organização de loadouts.
 
-Stack atual:
+URL atual:
+
+```txt
+https://warframefool.vercel.app
+```
+
+Warframe é marca da Digital Extremes. Este site é um projeto independente de fãs.
+
+## Stack
 
 - Next.js App Router
 - React
 - TypeScript
 - Tailwind CSS
-- componentes no estilo shadcn/ui
-- Vercel como hospedagem principal
-
-> Warframe é marca da Digital Extremes. Este site é um projeto independente de fãs.
+- Vercel
 
 ## Rodar localmente
 
@@ -21,7 +26,7 @@ Instale as dependências:
 npm install
 ```
 
-Rode em modo desenvolvimento:
+Inicie o ambiente local:
 
 ```bash
 npm run dev
@@ -29,7 +34,7 @@ npm run dev
 
 Abra:
 
-```bash
+```txt
 http://localhost:3000
 ```
 
@@ -45,64 +50,99 @@ Validação de TypeScript:
 npm run typecheck
 ```
 
-Check completo usado antes de deploy:
+Check usado antes de deploy:
 
 ```bash
 npm run deploy:check
 ```
 
-## Editar dados do site
+## Estrutura de dados
 
-Os conteúdos novos foram organizados em arquivos editáveis:
+Os dados principais ficam separados para facilitar revisão:
 
-- `data/weapons.ts`: armas, tiers, categoria, foco, Incarnon, custo e links de builds.
-- `data/warframes.ts`: Warframes recomendados, função, prioridade e uso.
-- `data/builds.ts`: páginas de build como Felarx, Laetum, Praedos e Torid Incarnon.
+- `data/siteMeta.ts`: nome do site, URL, data de revisão e update base.
+- `data/tier-list.json`: tier list principal usada em `/tier-list`.
+- `data/tier-meta.json`: detalhes, tags e contexto dos itens da tier list.
+- `data/builds.ts`: guias de Felarx, Laetum, Praedos, Torid Incarnon, Dual Toxocyst Incarnon e Ceramic Dagger Incarnon.
+- `data/weapons.ts`: armas destacadas, tiers, categoria, foco e links de build.
+- `data/warframes.ts`: Warframes recomendados e prioridade de uso.
 - `data/farms.ts`: guias de créditos, Endo, Kuva, Oxio, Criótico e Telúrio.
 - `data/incarnon.ts`: prioridades e cards de armas Incarnon.
-- `data/loadouts.ts`: cards de loadouts prontos para copiar/compartilhar.
-- `data/guide-pages.ts`: páginas de guias complementares.
-- `data/comparisons.ts`: comparações editáveis entre armas e Warframes.
-- `data/loadout-presets.ts`: compatibilidade para os cards antigos de loadout.
-- `data/tier-list.json`: tier list principal usada pelo componente interativo.
-- `data/tier-meta.json`: tags, detalhes e metadados da tier list.
+- `data/loadouts.ts`: loadouts recomendados para copiar e adaptar.
+- `data/guide-pages.ts`: conteúdo de guias complementares.
+- `data/comparisons.ts`: comparações simples entre armas e Warframes.
 
-Para criar uma nova página de build:
+## Páginas principais
 
-1. Adicione um novo item em `data/builds.ts`.
-2. Preencha `slug`, `name`, `summary`, `mainRole`, `strengths`, `weaknesses`, `recommendedMods`, `substituteMods`, `approximateForma`, `recommendedArcanes`, `bestUse` e `investmentPriority`.
-3. A rota `/builds/[slug]` será gerada automaticamente se o item estiver em `buildGuides`.
+- `/`: Home.
+- `/comece-aqui`: roteiro por estágio da conta.
+- `/progressao`: roadmap de progressão por etapas.
+- `/tier-list`: tier list completa.
+- `/meta-atual`: resumo do meta.
+- `/builds`: lista de builds.
+- `/farm`: guias de farm.
+- `/farm-endo`: guia de Endo por estágio.
+- `/farm-kuva`: guia de Kuva por estágio.
+- `/loadouts`: organização de setups.
+- `/steel-path`: checklist e preparação.
+- `/builds/dual-toxocyst-incarnon`: build de secundária Incarnon.
+- `/builds/ceramic-dagger-incarnon`: build de melee Incarnon.
 
-Evite colocar números ou builds fechadas sem teste. Use texto editável e registre variações quando Riven, Arcanes, hotfixes ou balanceamentos mudarem o resultado.
+## Editar navegação e sitemap
 
-## Salvamento em nuvem futuro
+- Navbar principal: `components/site-navbar.tsx`.
+- Rodapé: `components/site-footer.tsx`.
+- Sitemap: `app/sitemap.ts`.
+- Robots: `app/robots.ts`.
 
-O site não implementa login agora. Os loadouts salvos pelo usuário ficam no navegador.
+## Editar builds
 
-Para uma versão futura com salvamento em nuvem, opções gratuitas recomendadas:
+Para adicionar uma build:
 
-- Neon
-- Supabase
+1. Crie um novo item em `data/builds.ts`.
+2. Use um `slug` curto e consistente com a rota desejada.
+3. Revise resumo, função, mods principais, substituições, Arcanes, forma aproximada, obtenção, pontos fortes, pontos fracos e links internos.
+4. A rota `/builds/[slug]` passa a funcionar quando o item existe em `buildGuides`.
 
-Quando essa etapa for implementada, a variável de conexão poderá ser configurada no ambiente da Vercel:
+Evite números fechados sem validação. Registre variações quando Rivens, Arcanes, Incarnon, Helminth, hotfixes ou balanceamentos mudarem o resultado.
 
-```env
-DATABASE_URL=postgresql://usuario:senha@host/database?sslmode=require
-```
+## Editar farms
 
-Depois rode:
+Use `data/farms.ts` para revisar:
 
-```bash
-npm run db:schema
-```
+- título e descrição SEO de cada recurso.
+- melhor método geral.
+- método para iniciante, intermediário e endgame.
+- Warframes recomendados.
+- dicas rápidas, erros comuns e links relacionados.
 
-Não é necessário configurar banco para rodar a versão atual do guia.
+As páginas `/farm-endo`, `/farm-kuva`, `/farm-creditos` e demais guias usam esses dados.
+
+## Editar tier list
+
+Use:
+
+- `data/tier-list.json` para mudar posição, tier, nota, imagem e variante.
+- `data/tier-meta.json` para ajustar função, investimento, tags e contexto.
+
+Itens sem validação não devem entrar ranqueados como S/A/B/C/D. Use tier sem nota ou mantenha fora da lista pública até revisar.
+
+## Editar metadata
+
+Use `data/siteMeta.ts` para manter o site consistente:
+
+- `siteName`
+- `siteUrl`
+- `lastUpdated`
+- `lastUpdatedISO`
+- `updateBase`
+- `updateLabel`
+
+Isso evita páginas exibindo datas ou updates diferentes.
 
 ## Deploy na Vercel
 
-1. Faça login na Vercel.
-2. Conecte o repositório ou rode deploy pelo CLI.
-3. Rode antes do deploy:
+Antes de publicar, rode:
 
 ```bash
 npm run deploy:check
@@ -114,36 +154,11 @@ Deploy pelo CLI:
 npx vercel deploy --prod
 ```
 
-O domínio gratuito atual pode usar o formato:
+O domínio de produção atual é:
 
 ```txt
 https://warframefool.vercel.app
 ```
-
-## Domínio customizado
-
-Na Vercel:
-
-1. Abra o projeto.
-2. Vá em Settings > Domains.
-3. Adicione o domínio.
-4. Configure o DNS conforme instrução da Vercel.
-
-Sugestões de domínio:
-
-- `warframefool.com.br`
-- `warframefool.com`
-- `guiatenno.com.br`
-- `tennobuilds.com.br`
-- `warframemeta.com.br`
-- `warframefool.is-a.dev`
-
-## Outras hospedagens gratuitas
-
-- Vercel: melhor encaixe para Next.js App Router.
-- Cloudflare Pages: boa opção para front-end estático ou adaptado.
-- Netlify: alternativa simples para deploy por Git.
-- GitHub Pages: use apenas se exportar o projeto como estático e não depender das API routes.
 
 ## SEO técnico
 
@@ -155,8 +170,18 @@ O projeto inclui:
 - Twitter Card
 - sitemap.xml
 - robots.txt
-- JSON-LD básico nas páginas de conteúdo
-- títulos pensados para busca em português
+- JSON-LD em páginas de conteúdo
+- breadcrumbs em guias e builds
+- links internos entre tier list, builds, farm, Incarnon, loadouts e meta
+
+## Loadouts
+
+A versão atual salva loadouts no navegador. Login e sincronização em nuvem não fazem parte desta etapa.
+
+Opções futuras possíveis:
+
+- Neon
+- Supabase
 
 ## Scripts
 
@@ -171,10 +196,8 @@ npm run db:schema
 
 ## Próximos passos futuros
 
-- Conectar salvamento em nuvem com Neon ou Supabase.
-- Implementar login opcional para loadouts pessoais.
-- Adicionar editor interno para builds.
-- Criar mais páginas de build por Warframe e arma.
-- Adicionar imagens otimizadas para armas e Warframes.
-- Criar histórico de mudanças por patch/hotfix.
-- Adicionar testes automatizados de componentes críticos.
+- Adicionar mais páginas de build por Warframe e arma.
+- Criar histórico de mudanças por patch.
+- Adicionar imagens otimizadas locais para itens principais.
+- Criar editor interno para facilitar revisão dos dados.
+- Adicionar verificações automatizadas para componentes críticos.

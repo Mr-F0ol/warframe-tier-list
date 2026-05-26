@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Melhores armas primárias para Steel Path, Incarnon, bosses e clear no Warframe.",
   alternates: { canonical: "/melhores-armas-primarias" },
   openGraph: {
-    title: "Melhores armas primárias Warframe | WarframeFool",
+    title: "Melhores armas primárias Warframe | Warframe Fool",
     description: "Ranking prático de primárias como Torid Incarnon, Felarx, Latron e Burston.",
     url: "/melhores-armas-primarias"
   },

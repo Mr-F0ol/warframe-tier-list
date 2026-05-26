@@ -5,6 +5,8 @@ import { siteMeta } from "@/data/siteMeta";
 const staticRoutes = [
   { path: "", priority: 1 },
   { path: "/tier-list", priority: 0.95 },
+  { path: "/comece-aqui", priority: 0.9 },
+  { path: "/progressao", priority: 0.88 },
   { path: "/builds", priority: 0.9 },
   { path: "/incarnon", priority: 0.85 },
   { path: "/melhores-incarnon", priority: 0.85 },

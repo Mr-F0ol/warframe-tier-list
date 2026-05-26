@@ -2,15 +2,13 @@ import Link from "next/link";
 
 const footerLinks = [
   { href: "/", label: "Início" },
+  { href: "/comece-aqui", label: "Comece Aqui" },
+  { href: "/progressao", label: "Progressão" },
   { href: "/tier-list", label: "Tier List" },
-  { href: "/melhores-warframes", label: "Warframes" },
-  { href: "/melhores-armas-primarias", label: "Primárias" },
-  { href: "/melhores-armas-secundarias", label: "Secundárias" },
-  { href: "/melhores-melee", label: "Melee" },
-  { href: "/incarnon", label: "Incarnon" },
-  { href: "/melhores-incarnon", label: "Melhores Incarnon" },
   { href: "/builds", label: "Builds" },
+  { href: "/incarnon", label: "Incarnon" },
   { href: "/farm", label: "Farm" },
+  { href: "/loadouts", label: "Loadouts" },
   { href: "/meta-atual", label: "Meta Atual" },
   { href: "/steel-path", label: "Steel Path" },
   { href: "/sobre", label: "Sobre" }

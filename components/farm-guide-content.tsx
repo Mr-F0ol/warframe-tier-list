@@ -10,7 +10,7 @@ export function FarmGuideContent({ guide }: { guide: FarmGuide }) {
       <section className="mt-8 grid gap-3 lg:grid-cols-[1.1fr_.9fr]">
         <Card className="border-l-4 border-l-yellow-300 p-4">
           <Badge variant="meta">Melhor método</Badge>
-          <h2 className="mt-3 text-xl font-black text-yellow-100">Melhor lugar para farmar</h2>
+          <h2 className="mt-3 text-xl font-black text-yellow-100">Melhor método geral</h2>
           <p className="mt-2 text-sm leading-6 text-muted-foreground">{guide.bestPlace}</p>
         </Card>
         <Card className="border-l-4 border-l-cyan-300 p-4">
@@ -30,6 +30,26 @@ export function FarmGuideContent({ guide }: { guide: FarmGuide }) {
           ))}
         </div>
       </SectionBlock>
+
+      {guide.detailSections?.length ? (
+        <SectionBlock title="Plano por estágio da conta" description="Compare iniciante, intermediário e endgame antes de gastar booster, Forma ou tempo em uma rota.">
+          <div className="grid gap-3 md:grid-cols-2">
+            {guide.detailSections.map(section => (
+              <Card key={section.title} className="p-4">
+                <h3 className="text-lg font-black text-yellow-100">{section.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">{section.description}</p>
+                {section.items?.length ? (
+                  <ul className="mt-3 grid gap-2 text-sm leading-6 text-muted-foreground">
+                    {section.items.map(item => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                ) : null}
+              </Card>
+            ))}
+          </div>
+        </SectionBlock>
+      ) : null}
 
       <SectionBlock title="Dicas rápidas" description="Ajustes simples para transformar um farm possível em uma rotina repetível.">
         <InfoCardGrid cards={guide.quickTips.map((tip, index) => ({ title: `Dica ${index + 1}`, description: tip, tags: [guide.resource] }))} />

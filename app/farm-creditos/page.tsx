@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: page.seoDescription,
   alternates: { canonical: "/farm-creditos" },
   openGraph: {
-    title: "Farm de créditos Warframe | WarframeFool",
+    title: "Farm de créditos Warframe | Warframe Fool",
     description: page.seoDescription,
     url: "/farm-creditos"
   },

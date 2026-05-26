@@ -5,10 +5,10 @@ import { LayoutGrid, ListChecks, Search, Shield, SlidersHorizontal, Swords } fro
 import { useMemo, useState } from "react";
 import { CopyLinkButton } from "@/components/copy-link-button";
 import { ItemDetailDialog } from "@/components/item-detail-dialog";
-import { LoadoutsPanel } from "@/components/loadouts-panel";
 import { MissionRecommender } from "@/components/mission-recommender";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { buildGuides } from "@/data/builds";
@@ -175,7 +175,7 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
 
         <div className="mt-3 flex flex-wrap items-center justify-between gap-3 border-t border-border/60 pt-3">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Meta atual · Atualizado em {siteMeta.lastUpdated} · {siteMeta.updatePatchLabel}
+            Meta atual · Atualizado em {siteMeta.lastUpdated} · {siteMeta.updateLabel}
           </p>
           <CopyLinkButton label="Copiar link da tier list" url="https://warframefool.vercel.app/tier-list" />
         </div>
@@ -216,7 +216,7 @@ export function TierListApp({ tierList, tierMeta }: TierListAppProps) {
       </section>
 
       <MissionRecommender itemIndex={itemIndex} tierMeta={tierMeta} variantLabels={variantLabels} onSelect={setSelectedItem} />
-      <LoadoutsPanel tierList={tierList} />
+      <LoadoutsCta />
 
       <ItemDetailDialog
         item={selectedItem}
@@ -286,16 +286,29 @@ function TierRows(props: {
         return (
           <article
             key={`${props.category?.id || props.context}-${row.tier}`}
-            className="tier-row-shell grid min-h-[64px] grid-cols-[48px_1fr] overflow-hidden rounded-lg border border-border/60 bg-card/65 sm:grid-cols-[56px_1fr] md:grid-cols-[64px_1fr]"
+            className="tier-row-shell overflow-hidden rounded-lg border border-border/60 bg-card/65"
           >
-            <div className={cn("grid place-items-center border-r border-white/10 p-2 text-center font-black", `tier-label-${row.tier}`)}>
-              <div>
-                <strong className={cn("block leading-none", row.tier === "U" ? "text-sm md:text-base" : "text-2xl md:text-3xl")}>
-                  {row.tier === "U" ? "Novo" : row.tier}
+            <header className={cn("flex flex-wrap items-center justify-between gap-2 border-b border-white/10 px-3 py-2", `tier-label-${row.tier}`)}>
+              <div className="flex min-w-0 items-center gap-2">
+                <strong className="grid h-8 w-8 shrink-0 place-items-center rounded-md border border-white/15 bg-background/35 text-base leading-none">
+                  {row.tier === "U" ? "N" : row.tier}
                 </strong>
+                <span className="min-w-0 text-sm font-black text-foreground">
+                  {row.tier === "U" ? "Itens aguardando validação" : row.label}
+                </span>
               </div>
-            </div>
-            <div className="flex flex-wrap content-start gap-2 p-2 md:p-2.5">
+              <span className="text-xs font-bold uppercase text-muted-foreground">
+                {visibleItems.length} {visibleItems.length === 1 ? "item" : "itens"}
+              </span>
+            </header>
+            <div
+              className={cn(
+                "grid gap-2 p-2 md:p-2.5",
+                props.viewMode === "detailed"
+                  ? "grid-cols-[repeat(auto-fill,minmax(260px,1fr))] max-[560px]:grid-cols-1"
+                  : "grid-cols-[repeat(auto-fill,minmax(190px,1fr))] max-[520px]:grid-cols-1"
+              )}
+            >
               {visibleItems.map(item => (
                 <ItemCard
                   key={item.name}
@@ -328,12 +341,20 @@ function ItemCard(props: {
   const bestUse = detail.bestUses.length ? detail.bestUses.slice(0, 3).join(" · ") : "Uso geral";
   const buildHref = buildHrefForItem(props.item);
   const copyUrl = `https://warframefool.vercel.app${buildHref || "/tier-list"}`;
+  const copyText = [
+    `${props.item.name} — Tier ${props.item.tier}`,
+    `Categoria: ${categoryLabel}`,
+    `Função: ${detail.role}`,
+    `Melhor uso: ${bestUse}`,
+    `Investimento: ${investment}`,
+    buildHref ? `Build: ${copyUrl}` : "Guia detalhado em preparação."
+  ].join("\n");
 
   return (
     <article
       className={cn(
-        "tier-item-card group grid min-w-[152px] max-w-[218px] max-[520px]:min-w-full max-[520px]:max-w-full gap-2 overflow-hidden rounded-lg border border-border/60 bg-card/70 p-3 text-left transition duration-200 hover:border-cyan-300/45 hover:bg-secondary/55 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-        props.viewMode === "detailed" && "min-w-[238px] max-w-[316px] max-[520px]:min-w-full max-[520px]:max-w-full grid-cols-[42px_1fr] gap-x-3",
+        "tier-item-card group grid h-full min-w-0 gap-2 overflow-hidden rounded-lg border border-border/60 bg-card/70 p-3 text-left transition duration-200 hover:border-cyan-300/45 hover:bg-secondary/55 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        props.viewMode === "detailed" && "grid-cols-[42px_1fr] gap-x-3",
         props.viewMode === "compact" && "min-h-[64px] content-between"
       )}
     >
@@ -364,15 +385,36 @@ function ItemCard(props: {
         ))}
       </span>
       <div className={cn("flex flex-wrap gap-2 pt-1", props.viewMode === "detailed" && "col-span-full")}>
-        <Button type="button" size="sm" variant="outline" onClick={props.onSelect}>Detalhes</Button>
         {buildHref ? (
           <Button asChild size="sm" variant="secondary">
             <Link href={buildHref}>Ver build</Link>
           </Button>
-        ) : null}
-        <CopyLinkButton url={copyUrl} label="Copiar" className="min-h-8" />
+        ) : (
+          <Button type="button" size="sm" variant="outline" disabled>
+            Guia em breve
+          </Button>
+        )}
+        <CopyLinkButton url={copyUrl} text={copyText} label="Copiar resumo" className="min-h-8" />
       </div>
     </article>
+  );
+}
+
+function LoadoutsCta() {
+  return (
+    <section className="mt-8">
+      <Card className="flex flex-col gap-4 p-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h2 className="text-xl font-black text-yellow-100">Quer montar seu setup?</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">
+            Use a página de Loadouts para organizar combinações de Warframe, armas, escola do Operador, companheiro e foco do setup.
+          </p>
+        </div>
+        <Button asChild className="shrink-0">
+          <Link href="/loadouts">Abrir Loadouts</Link>
+        </Button>
+      </Card>
+    </section>
   );
 }
 export function ItemImage({ item }: { item: Pick<ItemRecord, "name" | "baseName" | "image" | "variantTags"> }) {
@@ -443,11 +485,11 @@ function difficultyLevelForItem(item: ItemRecord) {
 }
 
 function buildHrefForItem(item: ItemRecord) {
-  const normalized = normalizeSlug(item.baseName || item.name);
-  const direct = buildGuides.find(build => build.slug === normalized);
+  const candidates = [item.name, item.baseName || ""].filter(Boolean).map(normalizeSlug);
+  const direct = buildGuides.find(build => candidates.includes(build.slug));
   if (direct) return `/builds/${direct.slug}`;
 
-  const byName = buildGuides.find(build => normalizeSlug(build.name) === normalized);
+  const byName = buildGuides.find(build => candidates.includes(normalizeSlug(build.name)));
   return byName ? `/builds/${byName.slug}` : undefined;
 }
 

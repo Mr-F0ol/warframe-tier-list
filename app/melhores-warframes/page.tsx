@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Melhores Warframes para Steel Path, farm, suporte, bosses e conteúdo geral, com foco em investimento seguro no Warframe.",
   alternates: { canonical: "/melhores-warframes" },
   openGraph: {
-    title: "Melhores Warframes 2026 | WarframeFool",
+    title: "Melhores Warframes 2026 | Warframe Fool",
     description: "Ranking prático de Warframes normais e Prime para investir com segurança.",
     url: "/melhores-warframes"
   },

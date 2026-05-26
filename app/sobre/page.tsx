@@ -3,17 +3,17 @@ import { InfoCardGrid, InternalLinks, SectionBlock, SeoPage } from "@/components
 import { siteMeta } from "@/data/siteMeta";
 
 export const metadata: Metadata = {
-  title: "Sobre o WarframeFool",
-  description: "Conheça o WarframeFool: tier list, builds e guias em português para jogadores brasileiros de Warframe.",
+  title: "Sobre o Warframe Fool",
+  description: "Conheça o Warframe Fool: tier list, builds e guias em português para jogadores brasileiros de Warframe.",
   alternates: { canonical: "/sobre" },
   openGraph: {
-    title: "Sobre o WarframeFool",
+    title: "Sobre o Warframe Fool",
     description: "Tier list, builds e guias em português para Warframe.",
     url: "/sobre"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sobre o WarframeFool",
+    title: "Sobre o Warframe Fool",
     description: "Tier list, builds e guias em português para jogadores brasileiros de Warframe."
   }
 };
@@ -22,7 +22,7 @@ export default function SobrePage() {
   return (
     <SeoPage
       eyebrow="Sobre"
-      title="Sobre o WarframeFool"
+      title="Sobre o Warframe Fool"
       description="Um projeto independente de fãs para transformar tier list, builds e guias de Warframe em uma ferramenta clara para jogadores brasileiros."
       breadcrumbs={[
         { label: "Início", href: "/" },
@@ -33,7 +33,7 @@ export default function SobrePage() {
         <InfoCardGrid
           cards={[
             { title: "Tier list prática", description: "Ranking focado em uso real, conforto, custo de investimento, Steel Path, farm e bosses.", tags: ["Meta", "Investimento"] },
-            { title: "Builds por objetivo", description: "Estruturas para comparar builds testadas sem inventar números sem contexto.", href: "/builds", tags: ["Builds"] },
+            { title: "Builds por objetivo", description: "Estruturas para comparar builds úteis sem inventar números sem contexto.", href: "/builds", tags: ["Builds"] },
             { title: "Guias em português", description: "Conteúdo pensado para jogadores brasileiros, com linguagem direta e páginas fáceis de consultar.", href: "/steel-path", tags: ["BR", "Guias"] }
           ]}
         />
@@ -73,7 +73,7 @@ export default function SobrePage() {
         </div>
       </SectionBlock>
 
-      <SectionBlock title="Transparência" description="O WarframeFool é um guia de fãs, não uma fonte oficial ou promessa de meta permanente.">
+      <SectionBlock title="Transparência" description="O Warframe Fool é um guia de fãs, não uma fonte oficial ou promessa de meta permanente.">
         <InfoCardGrid
           cards={[
             { title: "Sem promessa universal", description: "Builds variam por mods, Arcanes, Rivens, Helminth, estilo de jogo e objetivo da missão.", tags: ["Contexto"] },

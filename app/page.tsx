@@ -13,17 +13,17 @@ import { getTierListData } from "@/lib/tier-data";
 import { buildItemIndex } from "@/lib/tier-utils";
 
 export const metadata: Metadata = {
-  title: "WarframeFool — Tier List Warframe 2026, Builds e Guias em Português",
+  title: "Warframe Fool — Tier List, Builds e Meta Warframe",
   description: "Guia brasileiro de Warframe com tier list 2026, builds, Incarnon, farm, Steel Path e loadouts para organizar seus investimentos.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "WarframeFool — Tier List Warframe 2026, Builds e Guias em Português",
+    title: "Warframe Fool — Tier List, Builds e Meta Warframe",
     description: "Tier list, builds, Incarnon, farm e loadouts em português para Warframe.",
     url: "/"
   },
   twitter: {
     card: "summary_large_image",
-    title: "WarframeFool — Tier List Warframe 2026, Builds e Guias em Português",
+    title: "Warframe Fool — Tier List, Builds e Meta Warframe",
     description: "Guia brasileiro de Warframe com tier list 2026, builds, Incarnon, farm, Steel Path e loadouts para organizar seus investimentos."
   }
 };
@@ -44,7 +44,7 @@ export default async function HomePage() {
               Atualizado em {siteMeta.lastUpdated} - {siteMeta.updateLabel}
             </span>
             <h1 className="mt-5 max-w-4xl text-5xl font-black tracking-normal text-foreground drop-shadow-2xl sm:text-6xl md:text-7xl">
-              WarframeFool
+              Warframe Fool
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-8 text-cyan-50/90 sm:text-lg">
               Tier List Warframe 2026, builds e guias em português para decidir onde gastar Forma, Catalisador e tempo em Steel Path, farm, bosses e missões rápidas.
@@ -52,6 +52,9 @@ export default async function HomePage() {
             <div className="mt-7 flex flex-wrap gap-2">
               <Button asChild>
                 <Link href="/tier-list">Abrir Tier List</Link>
+              </Button>
+              <Button asChild variant="secondary">
+                <Link href="/comece-aqui">Comece aqui</Link>
               </Button>
               <Button asChild variant="secondary">
                 <Link href="/builds">Ver Builds</Link>
@@ -79,19 +82,36 @@ export default async function HomePage() {
         <MetaStatus />
         <QuickPicks itemIndex={itemIndex} />
 
+        <section className="mt-8 rounded-lg border border-cyan-300/25 bg-cyan-300/10 p-4">
+          <h2 className="text-xl font-black text-yellow-100">Não sabe por onde começar?</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">
+            Use o guia Comece Aqui para escolher o próximo passo conforme sua conta: iniciante, meio do jogo, pré-Steel Path, Steel Path ou endgame.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <Button asChild size="sm" variant="secondary">
+              <Link href="/comece-aqui">Começar agora</Link>
+            </Button>
+            <Button asChild size="sm" variant="outline">
+              <Link href="/progressao">Ver roadmap</Link>
+            </Button>
+          </div>
+        </section>
+
         <section id="guias-recomendados" className="mt-8 scroll-mt-24">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <h2 className="text-2xl font-black">
               Navegação principal
               <span className="mt-1 block text-sm font-normal text-muted-foreground">
-                Caminhos rápidos para as áreas mais usadas do WarframeFool.
+                Caminhos rápidos para as áreas mais usadas do Warframe Fool.
               </span>
             </h2>
             <Badge variant="outline">Guia em português</Badge>
           </div>
           <div className="mt-3 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             <GuideLink href="/tier-list" title="Tier List completa" description="Ranking com filtros por tier, função, variante, arma e busca por nome." />
-            <GuideLink href="/builds" title="Builds recomendadas" description="Estruturas para Felarx, Laetum, Praedos e futuras builds testadas." />
+            <GuideLink href="/comece-aqui" title="Comece aqui" description="Um roteiro simples para escolher prioridade por estágio da conta." />
+            <GuideLink href="/progressao" title="Progressão" description="Roadmap para planetas, mods, farms, Incarnon, Steel Path e builds caras." />
+            <GuideLink href="/builds" title="Builds recomendadas" description="Estruturas para Felarx, Laetum, Praedos e futuras builds revisadas." />
             <GuideLink href="/incarnon" title="Armas Incarnon" description="Priorize adaptadores que realmente mudam Steel Path, bosses e farm." />
             <GuideLink href="/farm" title="Farm Warframe" description="Rotas e prioridades para créditos, recursos e repetição eficiente." />
             <GuideLink href="/loadouts" title="Loadouts" description="Salve suas combinações favoritas e consulte depois." />
@@ -124,7 +144,7 @@ export default async function HomePage() {
         <section className="mt-8 rounded-lg border border-yellow-300/20 bg-yellow-300/10 p-4">
           <h2 className="text-lg font-black text-yellow-100">Aviso de meta</h2>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">
-            Warframe muda com hotfixes, Rivens, Arcanes e novos Incarnon. Use o WarframeFool como guia prático de prioridade e valide builds caras na sua própria conta.
+            Warframe muda com hotfixes, Rivens, Arcanes e novos Incarnon. Use o Warframe Fool como guia prático de prioridade e valide builds caras na sua própria conta.
           </p>
         </section>
         <Sources />

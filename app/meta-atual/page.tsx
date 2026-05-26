@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: "Resumo do meta atual de Warframe com escolhas para iniciante, intermediário e endgame em Warframes, armas, Incarnon e setups.",
   alternates: { canonical: "/meta-atual" },
   openGraph: {
-    title: "Meta Atual Warframe 2026 | WarframeFool",
+    title: "Meta Atual Warframe 2026 | Warframe Fool",
     description: "Resumo rápido do meta atual para decidir investimentos sem esquecer que updates, hotfixes e balanceamentos podem mudar prioridades.",
     url: "/meta-atual"
   },

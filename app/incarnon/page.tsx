@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Guia de armas Incarnon para priorizar investimento no Warframe: primárias, secundárias e melee.",
   alternates: { canonical: "/incarnon" },
   openGraph: {
-    title: "Armas Incarnon Warframe | WarframeFool",
+    title: "Armas Incarnon Warframe | Warframe Fool",
     description: "Prioridades Incarnon para Steel Path, bosses, farm e endgame.",
     url: "/incarnon"
   },

@@ -141,7 +141,8 @@ export const weapons: WeaponGuide[] = [
     buildDifficulty: "Alta",
     formaCount: null,
     investmentNote: "Boa prioridade para intermediário/endgame quando você quer uma secundária que também ajude no clear.",
-    hasIncarnon: true
+    hasIncarnon: true,
+    buildHref: "/builds/dual-toxocyst-incarnon"
   },
   {
     id: "lex-incarnon",
@@ -201,7 +202,8 @@ export const weapons: WeaponGuide[] = [
     buildDifficulty: "Alta",
     formaCount: null,
     investmentNote: "Prioridade alta se você usa Warframes que aproveitam stat-stick; caso contrário, trate como investimento de nicho.",
-    hasIncarnon: true
+    hasIncarnon: true,
+    buildHref: "/builds/ceramic-dagger-incarnon"
   },
   {
     id: "praedos",

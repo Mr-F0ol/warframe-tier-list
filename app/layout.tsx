@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteMeta.siteUrl),
   title: {
     default: title,
-    template: "%s | WarframeFool"
+    template: "%s | Warframe Fool"
   },
   description,
   applicationName: "Warframe Fool",

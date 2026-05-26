@@ -110,7 +110,7 @@ export function NextGuideLinks({ links }: { links: GuideCardItem[] }) {
   return (
     <section className="mt-8">
       <div className="mb-3">
-        <h2 className="text-2xl font-black text-foreground">Próximo guia recomendado</h2>
+        <h2 className="text-2xl font-black text-foreground">Links relacionados</h2>
         <p className="mt-1 text-sm leading-6 text-muted-foreground">Continue por guias relacionados para montar uma conta mais consistente.</p>
       </div>
       <GuideCardGrid items={links} />
