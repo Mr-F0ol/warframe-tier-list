@@ -93,6 +93,7 @@ export default function FarmPage() {
           { title: "Farm de Endo", description: "Evolua mods importantes sem desperdiçar recursos cedo.", href: "/farm-endo" },
           { title: "Farm de Kuva", description: "Planeje Rivens e Kuva sem gastar tudo sem limite.", href: "/farm-kuva" },
           { title: "Progressão", description: "Veja onde cada farm entra no roadmap da conta.", href: "/progressao" },
+          { title: "Planejador", description: "Receba sugestão de farm conforme estágio, objetivo e investimento.", href: "/planejador" },
           { title: "Loadouts", description: "Salve setups para repetir rotas com mais consistência.", href: "/loadouts" },
           { title: "Steel Path", description: "Monte uma base segura antes de rotas difíceis.", href: "/steel-path" },
           { title: "Builds", description: "Use armas e Warframes adequados para rotas repetidas.", href: "/builds" }

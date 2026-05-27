@@ -71,12 +71,17 @@ Os dados principais ficam separados para facilitar revisão:
 - `data/loadouts.ts`: loadouts recomendados para copiar e adaptar.
 - `data/guide-pages.ts`: conteúdo de guias complementares.
 - `data/comparisons.ts`: comparações simples entre armas e Warframes.
+- `data/planner.ts`: opções e regras do Planejador Warframe.
+- `data/compareItems.ts`: itens usados no Comparador Warframe.
 
 ## Páginas principais
 
 - `/`: Home.
 - `/comece-aqui`: roteiro por estágio da conta.
 - `/progressao`: roadmap de progressão por etapas.
+- `/planejador`: ferramenta interativa para sugerir próximo investimento.
+- `/comparar`: comparador de Warframes, armas e builds.
+- `/ferramentas`: central com Planejador, Comparador, Loadouts e atalhos úteis.
 - `/tier-list`: tier list completa.
 - `/meta-atual`: resumo do meta.
 - `/builds`: lista de builds.
@@ -117,6 +122,34 @@ Use `data/farms.ts` para revisar:
 - dicas rápidas, erros comuns e links relacionados.
 
 As páginas `/farm-endo`, `/farm-kuva`, `/farm-creditos` e demais guias usam esses dados.
+
+## Editar Planejador
+
+Use `data/planner.ts` para revisar:
+
+- opções de estágio da conta, objetivo, estilo e investimento.
+- itens marcáveis como já obtidos.
+- regras de recomendação em `plannerRules`.
+- links internos exibidos no resultado.
+
+O componente `components/planner-tool.tsx` roda no navegador, não usa API externa, não usa login e salva planos em `localStorage`.
+
+Para testar o salvamento local:
+
+1. Abra `/planejador`.
+2. Complete as etapas obrigatórias.
+3. Clique em `Salvar plano neste navegador`.
+4. Recarregue a página e confira a seção `Planos salvos`.
+
+## Editar Comparador
+
+Use `data/compareItems.ts` para revisar itens comparáveis:
+
+- nome, categoria, tier, função, investimento e dificuldade.
+- melhor uso, pontos fortes, pontos fracos e nota.
+- `href` apenas quando existir página relacionada.
+
+O componente `components/ComparisonTool.tsx` evita links quebrados e funciona com dois ou três itens.
 
 ## Editar tier list
 

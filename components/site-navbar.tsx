@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { href: "/", label: "Início" },
   { href: "/comece-aqui", label: "Comece Aqui" },
+  { href: "/planejador", label: "Planejador" },
   { href: "/tier-list", label: "Tier List" },
   { href: "/meta-atual", label: "Meta" },
   { href: "/builds", label: "Builds" },

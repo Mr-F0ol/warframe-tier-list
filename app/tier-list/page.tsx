@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { TierListApp } from "@/components/tier-list-app";
 import { SeoPage, SectionBlock } from "@/components/seo/seo-page";
+import { Button } from "@/components/ui/button";
 import { getTierListData, getTierMetaData } from "@/lib/tier-data";
 import { itemListJsonLd } from "@/lib/seo";
 import { flattenWarframes, flattenWeapons } from "@/lib/tier-utils";
@@ -46,6 +48,16 @@ export default async function TierListPage() {
     >
       <SectionBlock title="Ranking interativo" description="Use os filtros para encontrar o melhor investimento para sua conta.">
         <TierListApp tierList={tierList} tierMeta={tierMeta} />
+      </SectionBlock>
+      <SectionBlock title="Quer comparar antes de investir?" description="Use o comparador para avaliar duas ou três opções por função, custo e melhor uso.">
+        <div className="flex flex-wrap gap-2">
+          <Button asChild variant="secondary">
+            <Link href="/comparar">Compare itens</Link>
+          </Button>
+          <Button asChild variant="outline">
+            <Link href="/planejador">Usar Planejador</Link>
+          </Button>
+        </div>
       </SectionBlock>
     </SeoPage>
   );

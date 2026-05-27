@@ -47,6 +47,7 @@ export default function ProgressaoPage() {
         </Card>
         <GuideCtaRow
           items={[
+            { href: "/planejador", label: "Gerar plano" },
             { href: "/comece-aqui", label: "Ver Comece Aqui" },
             { href: "/tier-list", label: "Abrir Tier List", variant: "outline" },
             { href: "/farm", label: "Ver Farm", variant: "outline" },
@@ -93,6 +94,8 @@ export default function ProgressaoPage() {
       <InternalLinks
         links={[
           { title: "Tier List", description: "Compare prioridades antes de gastar Forma e Catalisador.", href: "/tier-list" },
+          { title: "Planejador", description: "Gere um plano prático para a etapa atual da sua conta.", href: "/planejador" },
+          { title: "Comparador", description: "Compare armas, Warframes e builds antes de investir.", href: "/comparar" },
           { title: "Builds", description: "Veja guias de Felarx, Laetum, Praedos, Torid e outras armas Incarnon.", href: "/builds" },
           { title: "Farm de créditos", description: "Organize créditos por estágio da conta.", href: "/farm-creditos" },
           { title: "Farm de Endo", description: "Evolua mods sem gastar recursos em prioridade errada.", href: "/farm-endo" },

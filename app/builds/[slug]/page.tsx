@@ -357,7 +357,9 @@ function nextGuideItems(build: NonNullable<ReturnType<typeof getBuildGuide>>) {
     { title: "Farm", description: "Use armas consistentes em rotas repetidas sem perder tempo ajustando setup.", href: "/farm", badge: "Farm", badgeVariant: "farm" as const },
     { title: "Incarnon", description: "Veja como priorizar armas e evoluções Incarnon no seu progresso.", href: "/incarnon", badge: "Incarnon", badgeVariant: "steel" as const },
     { title: "Comece Aqui", description: "Escolha o próximo passo conforme estágio da conta.", href: "/comece-aqui", badge: "Roteiro", badgeVariant: "outline" as const },
-    { title: "Progressão", description: "Veja quando priorizar mods, farms, Incarnon, Steel Path e builds caras.", href: "/progressao", badge: "Roadmap", badgeVariant: "cyan" as const }
+    { title: "Progressão", description: "Veja quando priorizar mods, farms, Incarnon, Steel Path e builds caras.", href: "/progressao", badge: "Roadmap", badgeVariant: "cyan" as const },
+    { title: "Planejador", description: "Use esta build dentro de um plano de investimento para sua conta.", href: "/planejador", badge: "Plano", badgeVariant: "meta" as const },
+    { title: "Comparador", description: "Compare esta opção com outras armas e Warframes antes de gastar Forma.", href: "/comparar", badge: "Comparar", badgeVariant: "outline" as const }
   ];
 
   if (["torid-incarnon", "dual-toxocyst-incarnon", "ceramic-dagger-incarnon"].includes(build.slug)) {

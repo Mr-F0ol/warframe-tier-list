@@ -4,6 +4,9 @@ const footerLinks = [
   { href: "/", label: "Início" },
   { href: "/comece-aqui", label: "Comece Aqui" },
   { href: "/progressao", label: "Progressão" },
+  { href: "/planejador", label: "Planejador" },
+  { href: "/comparar", label: "Comparador" },
+  { href: "/ferramentas", label: "Ferramentas" },
   { href: "/tier-list", label: "Tier List" },
   { href: "/builds", label: "Builds" },
   { href: "/incarnon", label: "Incarnon" },
@@ -13,8 +16,6 @@ const footerLinks = [
   { href: "/steel-path", label: "Steel Path" },
   { href: "/sobre", label: "Sobre" }
 ];
-
-const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/Mr-F0ol/warframe-tier-list";
 
 export function SiteFooter() {
   return (
@@ -28,9 +29,9 @@ export function SiteFooter() {
           <p className="mt-3 max-w-2xl text-xs leading-5 text-muted-foreground">
             Warframe é marca da Digital Extremes. Este site é um projeto independente de fãs. Não é oficial, não é afiliado e pode ficar desatualizado após hotfixes, Arcanes, Rivens ou balanceamentos.
           </p>
-          <a href={githubUrl} className="mt-3 inline-flex text-sm font-bold text-cyan-100 hover:text-yellow-100" target="_blank" rel="noreferrer">
-            GitHub do projeto
-          </a>
+          <span className="mt-3 inline-flex rounded-md border border-border/70 px-3 py-2 text-sm font-bold text-muted-foreground">
+            GitHub em breve
+          </span>
           <a href="#conteudo" className="ml-0 mt-3 block text-sm font-bold text-cyan-100 hover:text-yellow-100 sm:ml-4 sm:inline-flex">
             Voltar ao topo
           </a>

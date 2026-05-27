@@ -41,6 +41,12 @@ export default function ComeceAquiPage() {
         <InfoCardGrid
           cards={[
             {
+              title: "Não sei o que priorizar",
+              description: "Use o Planejador para receber uma sugestão de Warframe, arma, farm e próximo passo conforme sua conta.",
+              href: "/planejador",
+              tags: ["Planejador"]
+            },
+            {
               title: "Sou iniciante: o que pegar primeiro?",
               description: "Priorize sobrevivência, arma simples, mods base e uma rota de farm que você completa sem morrer.",
               href: "/tier-list",
@@ -112,6 +118,8 @@ export default function ComeceAquiPage() {
       <InternalLinks
         links={[
           { title: "Progressão", description: "Veja um roadmap completo para evoluir a conta por etapas.", href: "/progressao" },
+          { title: "Planejador", description: "Gere um plano prático com prioridade, build, farm e próximos passos.", href: "/planejador" },
+          { title: "Comparador", description: "Compare duas ou três opções antes de gastar recursos.", href: "/comparar" },
           { title: "Builds", description: "Veja guias de Felarx, Laetum, Praedos e Torid Incarnon.", href: "/builds" },
           { title: "Incarnon", description: "Entenda prioridades antes de gastar adaptadores e recursos.", href: "/incarnon" },
           { title: "Farm de créditos", description: "Organize créditos por estágio da conta.", href: "/farm-creditos" },

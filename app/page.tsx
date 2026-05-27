@@ -57,6 +57,9 @@ export default async function HomePage() {
                 <Link href="/comece-aqui">Comece aqui</Link>
               </Button>
               <Button asChild variant="secondary">
+                <Link href="/planejador">Abrir Planejador</Link>
+              </Button>
+              <Button asChild variant="secondary">
                 <Link href="/builds">Ver Builds</Link>
               </Button>
               <Button asChild variant="outline">
@@ -85,9 +88,12 @@ export default async function HomePage() {
         <section className="mt-8 rounded-lg border border-cyan-300/25 bg-cyan-300/10 p-4">
           <h2 className="text-xl font-black text-yellow-100">Não sabe por onde começar?</h2>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">
-            Use o guia Comece Aqui para escolher o próximo passo conforme sua conta: iniciante, meio do jogo, pré-Steel Path, Steel Path ou endgame.
+            Use o Planejador para gerar uma recomendação prática ou consulte o guia Comece Aqui para escolher o próximo passo conforme sua conta.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
+            <Button asChild size="sm">
+              <Link href="/planejador">Abrir Planejador</Link>
+            </Button>
             <Button asChild size="sm" variant="secondary">
               <Link href="/comece-aqui">Começar agora</Link>
             </Button>
@@ -111,11 +117,14 @@ export default async function HomePage() {
             <GuideLink href="/tier-list" title="Tier List completa" description="Ranking com filtros por tier, função, variante, arma e busca por nome." />
             <GuideLink href="/comece-aqui" title="Comece aqui" description="Um roteiro simples para escolher prioridade por estágio da conta." />
             <GuideLink href="/progressao" title="Progressão" description="Roadmap para planetas, mods, farms, Incarnon, Steel Path e builds caras." />
+            <GuideLink href="/planejador" title="Planejador Warframe" description="Responda algumas perguntas e descubra o próximo investimento ideal para sua conta." />
+            <GuideLink href="/comparar" title="Comparador Warframe" description="Compare builds, armas e Warframes antes de gastar Forma, Catalisador ou Arcanes." />
             <GuideLink href="/builds" title="Builds recomendadas" description="Estruturas para Felarx, Laetum, Praedos e futuras builds revisadas." />
             <GuideLink href="/incarnon" title="Armas Incarnon" description="Priorize adaptadores que realmente mudam Steel Path, bosses e farm." />
             <GuideLink href="/farm" title="Farm Warframe" description="Rotas e prioridades para créditos, recursos e repetição eficiente." />
             <GuideLink href="/loadouts" title="Loadouts" description="Salve suas combinações favoritas e consulte depois." />
             <GuideLink href="/steel-path" title="Steel Path" description="Base segura para sobrevivência, dano e investimento de endgame." />
+            <GuideLink href="/ferramentas" title="Ferramentas" description="Acesse Planejador, Comparador, Loadouts, Progressão e Tier List em um só lugar." />
           </div>
         </section>
 

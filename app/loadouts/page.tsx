@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LoadoutPresetCards } from "@/components/loadout-preset-cards";
 import { LoadoutsPanel } from "@/components/loadouts-panel";
 import { InternalLinks, SectionBlock, SeoPage } from "@/components/seo/seo-page";
+import { Button } from "@/components/ui/button";
 import { getTierListData } from "@/lib/tier-data";
 
 export const metadata: Metadata = {
@@ -53,8 +55,24 @@ export default async function LoadoutsPage() {
         </div>
       </SectionBlock>
       <LoadoutPresetCards />
+      <SectionBlock title="Quer montar um loadout do zero?" description="Use o Planejador para escolher Warframe, armas e farms antes de montar o loadout.">
+        <div className="rounded-lg border border-cyan-300/25 bg-cyan-300/10 p-4">
+          <p className="max-w-3xl text-sm leading-6 text-muted-foreground">
+            O Planejador gera um plano com prioridade, Warframe, armas, farm recomendado e onde gastar Forma. Depois você pode voltar aqui para salvar a combinação.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <Button asChild>
+              <Link href="/planejador">Abrir Planejador</Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href="/comparar">Comparar itens</Link>
+            </Button>
+          </div>
+        </div>
+      </SectionBlock>
       <InternalLinks
         links={[
+          { title: "Planejador", description: "Escolha prioridade antes de salvar um loadout novo.", href: "/planejador" },
           { title: "Builds", description: "Use os guias de build antes de salvar combinações finais.", href: "/builds" },
           { title: "Steel Path", description: "Monte loadouts voltados para conteúdo difícil.", href: "/steel-path" },
           { title: "Farm", description: "Organize loadouts para repetição e eficiência.", href: "/farm" }
