@@ -4,6 +4,7 @@ const footerLinks = [
   { href: "/", label: "Início" },
   { href: "/comece-aqui", label: "Comece Aqui" },
   { href: "/progressao", label: "Progressão" },
+  { href: "/minha-conta", label: "Minha Conta" },
   { href: "/planejador", label: "Planejador" },
   { href: "/comparar", label: "Comparador" },
   { href: "/ferramentas", label: "Ferramentas" },

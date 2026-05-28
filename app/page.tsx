@@ -118,6 +118,7 @@ export default async function HomePage() {
             <GuideLink href="/comece-aqui" title="Comece aqui" description="Um roteiro simples para escolher prioridade por estágio da conta." />
             <GuideLink href="/progressao" title="Progressão" description="Roadmap para planetas, mods, farms, Incarnon, Steel Path e builds caras." />
             <GuideLink href="/planejador" title="Planejador Warframe" description="Responda algumas perguntas e descubra o próximo investimento ideal para sua conta." />
+            <GuideLink href="/minha-conta" title="Minha Conta" description="Marque Warframes, armas, sistemas e recursos que você já tem para receber recomendações mais personalizadas." />
             <GuideLink href="/comparar" title="Comparador Warframe" description="Compare builds, armas e Warframes antes de gastar Forma, Catalisador ou Arcanes." />
             <GuideLink href="/builds" title="Builds recomendadas" description="Estruturas para Felarx, Laetum, Praedos e futuras builds revisadas." />
             <GuideLink href="/incarnon" title="Armas Incarnon" description="Priorize adaptadores que realmente mudam Steel Path, bosses e farm." />

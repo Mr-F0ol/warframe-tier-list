@@ -3,25 +3,25 @@ import { InfoCardGrid, SeoPage } from "@/components/seo/seo-page";
 import { articleJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Ferramentas Warframe — Planejador, Comparador e Loadouts",
-  description: "Use ferramentas em português para planejar builds, comparar armas, montar loadouts e escolher prioridades no Warframe.",
+  title: "Ferramentas Warframe — Minha Conta, Planejador e Comparador",
+  description: "Use ferramentas em português para marcar sua conta, planejar builds, comparar armas, montar loadouts e escolher prioridades no Warframe.",
   alternates: { canonical: "/ferramentas" },
   openGraph: {
-    title: "Ferramentas Warframe — Planejador, Comparador e Loadouts",
-    description: "Planejador, comparador, loadouts, tier list e progressão para jogadores brasileiros de Warframe.",
+    title: "Ferramentas Warframe — Minha Conta, Planejador e Comparador",
+    description: "Minha Conta, Planejador, Comparador, Loadouts, Tier List e Progressão para jogadores brasileiros de Warframe.",
     url: "/ferramentas"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ferramentas Warframe — Planejador, Comparador e Loadouts",
-    description: "Use ferramentas em português para planejar builds, comparar armas, montar loadouts e escolher prioridades."
+    title: "Ferramentas Warframe — Minha Conta, Planejador e Comparador",
+    description: "Use ferramentas em português para marcar sua conta, planejar builds, comparar armas, montar loadouts e escolher prioridades."
   }
 };
 
 export default function FerramentasPage() {
   const schema = articleJsonLd({
     title: "Ferramentas Warframe",
-    description: "Central de ferramentas do Warframe Fool.",
+    description: "Central de ferramentas do Warframe Fool com Minha Conta, Planejador, Comparador, Loadouts e Progressão.",
     path: "/ferramentas"
   });
 
@@ -39,6 +39,7 @@ export default function FerramentasPage() {
       <section className="mt-8">
         <InfoCardGrid
           cards={[
+            { title: "Minha Conta", description: "Marque Warframes, armas, sistemas e recursos para personalizar recomendações.", href: "/minha-conta", tags: ["Inventário"] },
             { title: "Planejador Warframe", description: "Responda perguntas e receba um plano com Warframe, arma, farm e próximos passos.", href: "/planejador", tags: ["Novo"] },
             { title: "Comparador Warframe", description: "Compare Warframes, armas e builds antes de gastar Forma e Arcanes.", href: "/comparar", tags: ["Comparar"] },
             { title: "Loadouts", description: "Salve combinações de Warframe, armas, escola do Operador e notas.", href: "/loadouts", tags: ["Organizar"] },

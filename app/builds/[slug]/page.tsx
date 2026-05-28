@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { AccountItemActions } from "@/components/account-item-actions";
 import { CopyLinkButton } from "@/components/copy-link-button";
 import { FaqSection, GuideCardGrid, GuideCtaRow, NextGuideLinks } from "@/components/guide-ui";
 import { Badge } from "@/components/ui/badge";
@@ -70,6 +71,10 @@ export default async function BuildDetailPage({ params }: BuildPageProps) {
           ]}
         />
       </SectionBlock>
+
+      <section className="mt-8">
+        <AccountItemActions itemId={build.slug} itemName={build.name} />
+      </section>
 
       <section className="mt-8 grid gap-3 lg:grid-cols-[1.25fr_.75fr]">
         <article className="surface-panel rounded-lg p-5">

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { AccountStatusBadges } from "@/components/account-status-badges";
 import { Breadcrumbs, type BreadcrumbItem } from "@/components/breadcrumbs";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -145,6 +146,7 @@ export function RankCard({ item }: { item: RankCardItem }) {
         <Badge variant={item.tier === "S" ? "gold" : "cyan"}>Tier {item.tier}</Badge>
       </div>
       <p className="mt-3 text-sm leading-6 text-muted-foreground">{item.description}</p>
+      <AccountStatusBadges itemId={item.id} itemName={item.name} compact className="mt-3" />
       <div className="mt-4 flex flex-wrap gap-2">
         {item.focus.map(tag => (
           <Badge key={tag} variant="outline">{tag}</Badge>

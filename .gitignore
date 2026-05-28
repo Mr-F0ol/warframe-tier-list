@@ -17,3 +17,4 @@ server.out.log
 *.tsbuildinfo
 tsconfig.tsbuildinfo
 
+.vercel

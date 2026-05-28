@@ -61,6 +61,7 @@ export default function PlanejadorPage() {
         <InfoCardGrid
           cards={[
             { title: "Comparador Warframe", description: "Compare duas ou três opções antes de fechar investimento.", href: "/comparar", tags: ["Comparar"] },
+            { title: "Minha Conta", description: "Marque seus itens obtidos e use esses dados no Planejador.", href: "/minha-conta", tags: ["Inventário"] },
             { title: "Loadouts", description: "Transforme o plano em uma combinação salva para consultar depois.", href: "/loadouts", tags: ["Organizar"] },
             { title: "Progressão", description: "Veja o roteiro geral da conta por etapa.", href: "/progressao", tags: ["Roadmap"] }
           ]}

@@ -55,14 +55,17 @@ export default async function LoadoutsPage() {
         </div>
       </SectionBlock>
       <LoadoutPresetCards />
-      <SectionBlock title="Quer montar um loadout do zero?" description="Use o Planejador para escolher Warframe, armas e farms antes de montar o loadout.">
+      <SectionBlock title="Quer montar um loadout do zero?" description="Use Minha Conta para marcar quais Warframes e armas você possui antes de montar loadouts.">
         <div className="rounded-lg border border-cyan-300/25 bg-cyan-300/10 p-4">
           <p className="max-w-3xl text-sm leading-6 text-muted-foreground">
-            O Planejador gera um plano com prioridade, Warframe, armas, farm recomendado e onde gastar Forma. Depois você pode voltar aqui para salvar a combinação.
+            Marque seus itens em Minha Conta e use o Planejador para gerar prioridade, Warframe, armas, farm recomendado e onde gastar Forma. Depois você pode voltar aqui para salvar a combinação.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             <Button asChild>
               <Link href="/planejador">Abrir Planejador</Link>
+            </Button>
+            <Button asChild variant="secondary">
+              <Link href="/minha-conta">Abrir Minha Conta</Link>
             </Button>
             <Button asChild variant="outline">
               <Link href="/comparar">Comparar itens</Link>

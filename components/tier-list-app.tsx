@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { LayoutGrid, ListChecks, Search, Shield, SlidersHorizontal, Swords } from "lucide-react";
 import { useMemo, useState } from "react";
+import { AccountStatusBadges } from "@/components/account-status-badges";
 import { CopyLinkButton } from "@/components/copy-link-button";
 import { ItemDetailDialog } from "@/components/item-detail-dialog";
 import { MissionRecommender } from "@/components/mission-recommender";
@@ -383,6 +384,7 @@ function ItemCard(props: {
             {labelForTag(tag, props.tierMeta, props.variantLabels)}
           </Badge>
         ))}
+        <AccountStatusBadges itemName={props.item.name} compact />
       </span>
       <div className={cn("flex flex-wrap gap-2 pt-1", props.viewMode === "detailed" && "col-span-full")}>
         {buildHref ? (

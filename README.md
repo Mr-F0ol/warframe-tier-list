@@ -73,15 +73,17 @@ Os dados principais ficam separados para facilitar revisão:
 - `data/comparisons.ts`: comparações simples entre armas e Warframes.
 - `data/planner.ts`: opções e regras do Planejador Warframe.
 - `data/compareItems.ts`: itens usados no Comparador Warframe.
+- `data/accountItems.ts`: itens usados em Minha Conta, com farms, builds e prioridades relacionadas.
 
 ## Páginas principais
 
 - `/`: Home.
 - `/comece-aqui`: roteiro por estágio da conta.
 - `/progressao`: roadmap de progressão por etapas.
+- `/minha-conta`: inventário local para marcar itens obtidos, desejados e em build.
 - `/planejador`: ferramenta interativa para sugerir próximo investimento.
 - `/comparar`: comparador de Warframes, armas e builds.
-- `/ferramentas`: central com Planejador, Comparador, Loadouts e atalhos úteis.
+- `/ferramentas`: central com Minha Conta, Planejador, Comparador, Loadouts e atalhos úteis.
 - `/tier-list`: tier list completa.
 - `/meta-atual`: resumo do meta.
 - `/builds`: lista de builds.
@@ -140,6 +142,32 @@ Para testar o salvamento local:
 2. Complete as etapas obrigatórias.
 3. Clique em `Salvar plano neste navegador`.
 4. Recarregue a página e confira a seção `Planos salvos`.
+
+## Editar Minha Conta
+
+Use `data/accountItems.ts` para revisar itens do inventário local:
+
+- Warframes, armas, mods, Arcanes, sistemas e recursos.
+- `href` apenas quando existir página relacionada.
+- `relatedFarms` e `relatedBuilds` para recomendações internas.
+- `priorityHint` para orientar o jogador sem prometer dados fixos.
+
+O componente `components/account-inventory.tsx` usa `localStorage` com a chave `warframe-fool-account-progress`. Não há login, banco ou sincronização online.
+
+Funcionalidades disponíveis:
+
+- marcar `Tenho`, `Quero pegar`, `Buildando` e `Favorito`.
+- registrar Formas, Catalisador/Reator e notas locais.
+- exportar progresso como JSON.
+- importar JSON exportado pela própria página.
+- limpar dados locais com confirmação.
+
+Integrações principais:
+
+- `/planejador` pode usar itens marcados em Minha Conta.
+- `/builds` e páginas de build mostram status local quando houver item relacionado.
+- `/tier-list` mostra badges locais em itens reconhecidos.
+- `/farm` mostra farms relacionados aos itens marcados como desejados ou em build.
 
 ## Editar Comparador
 

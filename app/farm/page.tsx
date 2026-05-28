@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AccountFarmRecommendations } from "@/components/account-farm-recommendations";
 import { InfoCardGrid, InternalLinks, SectionBlock, SeoPage } from "@/components/seo/seo-page";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -76,6 +77,8 @@ export default function FarmPage() {
           ))}
         </div>
       </SectionBlock>
+
+      <AccountFarmRecommendations />
 
       <SectionBlock title="Prioridade prática" description="Farm bom é farm que sua conta consegue repetir sem morrer, sem ficar sem energia e sem depender de setup lento.">
         <InfoCardGrid

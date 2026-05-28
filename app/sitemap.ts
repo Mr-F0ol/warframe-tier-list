@@ -7,6 +7,7 @@ const staticRoutes = [
   { path: "/tier-list", priority: 0.95 },
   { path: "/comece-aqui", priority: 0.9 },
   { path: "/progressao", priority: 0.88 },
+  { path: "/minha-conta", priority: 0.86 },
   { path: "/planejador", priority: 0.9 },
   { path: "/comparar", priority: 0.86 },
   { path: "/ferramentas", priority: 0.82 },

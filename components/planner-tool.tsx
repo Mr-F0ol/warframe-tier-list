@@ -15,10 +15,12 @@ import {
   type PlannerAnswers,
   type PlannerRecommendation
 } from "@/data/planner";
+import { accountItemMap, findAccountItemByName } from "@/data/accountItems";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import { loadAccountProgress, type AccountProgress } from "@/lib/accountStorage";
 import { cn } from "@/lib/utils";
 
 const storageKey = "warframe-fool-planner-plans";
@@ -43,10 +45,15 @@ const initialAnswers: PlannerAnswers = {
 export function PlannerTool() {
   const [answers, setAnswers] = useState<PlannerAnswers>(initialAnswers);
   const [savedPlans, setSavedPlans] = useState<SavedPlan[]>([]);
+  const [accountProgress, setAccountProgress] = useState<AccountProgress | null>(null);
   const [message, setMessage] = useState("");
 
   useEffect(() => {
     let mounted = true;
+    const accountResult = loadAccountProgress();
+    window.requestAnimationFrame(() => {
+      if (mounted) setAccountProgress(accountResult.progress);
+    });
     try {
       const raw = window.localStorage.getItem(storageKey);
       if (!raw) return undefined;
@@ -133,6 +140,26 @@ export function PlannerTool() {
     setMessage("Respostas limpas. Você pode refazer o planejamento.");
   }
 
+  function useAccountData() {
+    const result = loadAccountProgress();
+    setAccountProgress(result.progress);
+    const ownedItems = Object.entries(result.progress.items)
+      .filter(([, state]) => state.owned)
+      .map(([itemId]) => plannerOwnedNameForItem(itemId))
+      .filter((item): item is string => Boolean(item));
+
+    if (!ownedItems.length) {
+      setMessage("Você ainda não marcou itens em Minha Conta.");
+      return;
+    }
+
+    setAnswers(current => ({
+      ...current,
+      ownedItems: Array.from(new Set([...current.ownedItems, ...ownedItems]))
+    }));
+    setMessage("Itens obtidos da Minha Conta foram aplicados ao Planejador.");
+  }
+
   return (
     <div className="mt-8 grid gap-8">
       <Card className="p-4 md:p-5">
@@ -146,6 +173,12 @@ export function PlannerTool() {
           <Button type="button" variant="outline" size="sm" onClick={resetPlanner}>
             <RotateCcw className="h-4 w-4" aria-hidden="true" />
             Limpar respostas
+          </Button>
+          <Button type="button" variant="secondary" size="sm" onClick={useAccountData}>
+            Usar dados da Minha Conta
+          </Button>
+          <Button asChild variant="ghost" size="sm">
+            <Link href="/minha-conta">Abrir Minha Conta</Link>
           </Button>
         </div>
 
@@ -232,7 +265,7 @@ export function PlannerTool() {
           </Card>
         ) : primary ? (
           <div className="grid gap-4">
-            <ResultCards recommendation={primary} secondary={recommendations.slice(1)} />
+            <ResultCards recommendation={primary} secondary={recommendations.slice(1)} accountProgress={accountProgress} />
             <div className="flex flex-wrap gap-2">
               <Button type="button" onClick={() => void copyPlan()}>
                 <Copy className="h-4 w-4" aria-hidden="true" />
@@ -345,7 +378,17 @@ function OptionGrid({
   );
 }
 
-function ResultCards({ recommendation, secondary }: { recommendation: PlannerRecommendation; secondary: PlannerRecommendation[] }) {
+function ResultCards({
+  recommendation,
+  secondary,
+  accountProgress
+}: {
+  recommendation: PlannerRecommendation;
+  secondary: PlannerRecommendation[];
+  accountProgress: AccountProgress | null;
+}) {
+  const accountHints = accountProgress ? buildAccountHints(recommendation, accountProgress) : [];
+
   return (
     <div className="grid gap-3">
       <Card className="border-cyan-300/35 p-4">
@@ -382,6 +425,18 @@ function ResultCards({ recommendation, secondary }: { recommendation: PlannerRec
           </ul>
         </Card>
       ) : null}
+      {accountHints.length ? (
+        <Card className="p-4">
+          <h3 className="text-lg font-black text-yellow-100">Status da Minha Conta</h3>
+          <ul className="mt-3 grid gap-2 text-sm leading-6 text-muted-foreground">
+            {accountHints.map(hint => (
+              <li key={`${hint.name}-${hint.status}`}>
+                <b className="text-cyan-100">{hint.name}:</b> {hint.status}
+              </li>
+            ))}
+          </ul>
+        </Card>
+      ) : null}
       <Card className="p-4">
         <h3 className="text-lg font-black text-yellow-100">Links úteis</h3>
         <div className="mt-3 flex flex-wrap gap-2">
@@ -400,6 +455,40 @@ function ResultCards({ recommendation, secondary }: { recommendation: PlannerRec
       </Card>
     </div>
   );
+}
+
+function plannerOwnedNameForItem(itemId: string) {
+  const directMap: Record<string, string> = {
+    "arcanes-primarios": "Arcanes primários/secundários",
+    "arcanes-secundarios": "Arcanes primários/secundários",
+    helminth: "Helminth liberado"
+  };
+  if (directMap[itemId]) return directMap[itemId];
+
+  const accountItem = accountItemMap.get(itemId);
+  if (accountItem) return accountItem.name;
+
+  const bySlug = itemId
+    .split("-")
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+
+  const item = findAccountItemByName(bySlug);
+  return item?.name;
+}
+
+function buildAccountHints(recommendation: PlannerRecommendation, accountProgress: AccountProgress) {
+  return [...recommendation.warframes, ...recommendation.weapons]
+    .map(name => {
+      const item = findAccountItemByName(name);
+      if (!item) return null;
+      const state = accountProgress.items[item.id];
+      if (state?.owned) return { name: item.name, status: "Você já marcou este item como obtido." };
+      if (state?.wanted) return { name: item.name, status: "Você marcou este item como prioridade." };
+      if (state?.building) return { name: item.name, status: "Você marcou este item como buildando." };
+      return null;
+    })
+    .filter((hint): hint is { name: string; status: string } => Boolean(hint));
 }
 
 function ResultCard({ title, value }: { title: string; value: string }) {
