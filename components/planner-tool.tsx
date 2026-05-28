@@ -25,6 +25,8 @@ import { cn } from "@/lib/utils";
 
 const storageKey = "warframe-fool-planner-plans";
 const baseUrl = "https://warframefool.vercel.app";
+const maxSavedPlansBytes = 120 * 1024;
+const maxSavedPlans = 8;
 
 interface SavedPlan {
   id: string;
@@ -56,10 +58,10 @@ export function PlannerTool() {
     });
     try {
       const raw = window.localStorage.getItem(storageKey);
-      if (!raw) return undefined;
-      const parsed = JSON.parse(raw) as SavedPlan[];
+      if (!raw || raw.length > maxSavedPlansBytes) return undefined;
+      const parsed = JSON.parse(raw) as unknown;
       if (Array.isArray(parsed)) {
-        const validPlans = parsed.filter(plan => plan?.id && plan?.recommendation?.title);
+        const validPlans = parsed.map(sanitizeSavedPlan).filter((plan): plan is SavedPlan => Boolean(plan)).slice(0, maxSavedPlans);
         window.requestAnimationFrame(() => {
           if (mounted) setSavedPlans(validPlans);
         });
@@ -117,7 +119,7 @@ export function PlannerTool() {
 
     try {
       const nextPlans = [plan, ...savedPlans].slice(0, 8);
-      window.localStorage.setItem(storageKey, JSON.stringify(nextPlans));
+      window.localStorage.setItem(storageKey, JSON.stringify(nextPlans.map(sanitizeSavedPlan).filter(Boolean)));
       setSavedPlans(nextPlans);
       setMessage("Plano salvo neste navegador.");
     } catch {
@@ -129,7 +131,7 @@ export function PlannerTool() {
     const nextPlans = savedPlans.filter(plan => plan.id !== id);
     setSavedPlans(nextPlans);
     try {
-      window.localStorage.setItem(storageKey, JSON.stringify(nextPlans));
+      window.localStorage.setItem(storageKey, JSON.stringify(nextPlans.map(sanitizeSavedPlan).filter(Boolean)));
     } catch {
       setMessage("Plano removido da tela, mas o navegador bloqueou a atualização do armazenamento.");
     }
@@ -328,6 +330,69 @@ export function PlannerTool() {
       </section>
     </div>
   );
+}
+
+function sanitizeSavedPlan(value: unknown): SavedPlan | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  const plan = value as Partial<SavedPlan>;
+  if (!plan.answers || !plan.recommendation) return null;
+  const title = sanitizePlannerText(plan.recommendation.title, 120);
+  if (!title) return null;
+
+  return {
+    id: /^[a-zA-Z0-9_-]{1,80}$/.test(String(plan.id || "")) ? String(plan.id) : `${Date.now()}-${Math.round(Math.random() * 10000)}`,
+    name: sanitizePlannerText(plan.name || title, 120),
+    createdAt: sanitizePlannerText(plan.createdAt, 40) || new Date().toLocaleString("pt-BR", { dateStyle: "short", timeStyle: "short" }),
+    answers: {
+      stage: sanitizePlannerText(plan.answers.stage, 40) as PlannerAnswers["stage"],
+      goal: sanitizePlannerText(plan.answers.goal, 40) as PlannerAnswers["goal"],
+      playstyle: sanitizePlannerText(plan.answers.playstyle, 40) as PlannerAnswers["playstyle"],
+      investment: sanitizePlannerText(plan.answers.investment, 40) as PlannerAnswers["investment"],
+      ownedItems: Array.isArray(plan.answers.ownedItems)
+        ? plan.answers.ownedItems.map(item => sanitizePlannerText(item, 80)).filter(Boolean).slice(0, 80)
+        : []
+    },
+    recommendation: {
+      ...plan.recommendation,
+      id: sanitizePlannerText(plan.recommendation.id, 80) || `saved-${Date.now()}`,
+      title,
+      reason: sanitizePlannerText(plan.recommendation.reason, 400),
+      priority: sanitizePlannerPriority(plan.recommendation.priority),
+      warframes: safeStringList(plan.recommendation.warframes, 12),
+      weapons: safeStringList(plan.recommendation.weapons, 12),
+      farms: safeStringList(plan.recommendation.farms, 12),
+      build: sanitizePlannerText(plan.recommendation.build, 400),
+      forma: sanitizePlannerText(plan.recommendation.forma, 400),
+      avoid: safeStringList(plan.recommendation.avoid, 12),
+      now: sanitizePlannerText(plan.recommendation.now, 400),
+      next: sanitizePlannerText(plan.recommendation.next, 400),
+      links: Array.isArray(plan.recommendation.links)
+        ? plan.recommendation.links
+            .filter(link => link && typeof link.href === "string" && link.href.startsWith("/"))
+            .map(link => ({
+              label: sanitizePlannerText(link.label, 80),
+              href: sanitizePlannerText(link.href, 120)
+            }))
+            .slice(0, 12)
+        : []
+    }
+  };
+}
+
+function sanitizePlannerPriority(value: unknown): PlannerRecommendation["priority"] {
+  return value === "Alta" || value === "Média" || value === "Baixa" ? value : "Média";
+}
+
+function safeStringList(value: unknown, maxItems: number) {
+  return Array.isArray(value) ? value.map(item => sanitizePlannerText(item, 120)).filter(Boolean).slice(0, maxItems) : [];
+}
+
+function sanitizePlannerText(value: unknown, maxLength: number) {
+  return String(value ?? "")
+    .replace(/[\u0000-\u001f\u007f]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, maxLength);
 }
 
 function PlannerStep({ number, title, children }: { number: number; title: string; children: ReactNode }) {

@@ -27,6 +27,8 @@ const emptyForm: LoadoutInput = {
 };
 
 const storageKey = "warframefool-loadouts";
+const maxStoredLoadoutsBytes = 100 * 1024;
+const maxStoredLoadouts = 50;
 
 export function LoadoutsPanel({ tierList, showHeading = true }: LoadoutsPanelProps) {
   const [form, setForm] = useState<LoadoutInput>(emptyForm);
@@ -54,13 +56,13 @@ export function LoadoutsPanel({ tierList, showHeading = true }: LoadoutsPanelPro
     event.preventDefault();
     const loadout: Loadout = {
       id: createId(),
-      name: form.name.trim(),
-      objective: form.objective?.trim() || "",
-      warframe: form.warframe.trim(),
-      primary: form.primary?.trim() || "",
-      secondary: form.secondary?.trim() || "",
-      melee: form.melee?.trim() || "",
-      notes: form.notes?.trim() || "",
+      name: sanitizeLoadoutText(form.name, 80),
+      objective: sanitizeLoadoutText(form.objective, 80),
+      warframe: sanitizeLoadoutText(form.warframe, 80),
+      primary: sanitizeLoadoutText(form.primary, 80),
+      secondary: sanitizeLoadoutText(form.secondary, 80),
+      melee: sanitizeLoadoutText(form.melee, 80),
+      notes: sanitizeLoadoutText(form.notes, 600),
       createdAt: new Date().toISOString()
     };
     const nextLoadouts = [loadout, ...loadouts];
@@ -203,7 +205,10 @@ function readStoredLoadouts() {
   if (typeof window === "undefined") return [];
   try {
     const raw = window.localStorage.getItem(storageKey);
-    return raw ? (JSON.parse(raw) as Loadout[]) : [];
+    if (!raw || raw.length > maxStoredLoadoutsBytes) return [];
+    const parsed = JSON.parse(raw) as unknown;
+    if (!Array.isArray(parsed)) return [];
+    return parsed.slice(0, maxStoredLoadouts).map(sanitizeStoredLoadout).filter((loadout): loadout is Loadout => Boolean(loadout));
   } catch {
     return [];
   }
@@ -211,10 +216,38 @@ function readStoredLoadouts() {
 
 function writeStoredLoadouts(loadouts: Loadout[]) {
   try {
-    window.localStorage.setItem(storageKey, JSON.stringify(loadouts));
+    window.localStorage.setItem(storageKey, JSON.stringify(loadouts.slice(0, maxStoredLoadouts).map(sanitizeStoredLoadout).filter(Boolean)));
   } catch {
     return;
   }
+}
+
+function sanitizeStoredLoadout(value: unknown): Loadout | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  const loadout = value as Partial<Loadout>;
+  const name = sanitizeLoadoutText(loadout.name, 80);
+  const warframe = sanitizeLoadoutText(loadout.warframe, 80);
+  if (!name || !warframe) return null;
+
+  return {
+    id: /^[a-zA-Z0-9_-]{1,80}$/.test(String(loadout.id || "")) ? String(loadout.id) : createId(),
+    name,
+    objective: sanitizeLoadoutText(loadout.objective, 80),
+    warframe,
+    primary: sanitizeLoadoutText(loadout.primary, 80),
+    secondary: sanitizeLoadoutText(loadout.secondary, 80),
+    melee: sanitizeLoadoutText(loadout.melee, 80),
+    notes: sanitizeLoadoutText(loadout.notes, 600),
+    createdAt: typeof loadout.createdAt === "string" ? loadout.createdAt : new Date().toISOString()
+  };
+}
+
+function sanitizeLoadoutText(value: unknown, maxLength: number) {
+  return String(value ?? "")
+    .replace(/[\u0000-\u001f\u007f]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, maxLength);
 }
 
 function createId() {

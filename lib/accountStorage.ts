@@ -1,5 +1,9 @@
+import { accountItemMap } from "@/data/accountItems";
+
 export const accountStorageKey = "warframe-fool-account-progress";
 export const accountProgressVersion = 1;
+const maxAccountProgressBytes = 200 * 1024;
+const maxAccountProgressItems = 500;
 
 export interface AccountItemState {
   owned?: boolean;
@@ -81,6 +85,13 @@ export function resetAccountProgress() {
 }
 
 export function parseAccountProgress(raw: string): AccountStorageResult {
+  if (raw.length > maxAccountProgressBytes) {
+    return {
+      progress: createEmptyAccountProgress(),
+      error: "O arquivo informado é grande demais para importar com segurança."
+    };
+  }
+
   try {
     const parsed = JSON.parse(raw) as unknown;
     const result = validateProgress(parsed);
@@ -148,8 +159,8 @@ function sanitizeProgress(progress: AccountProgress): AccountProgress {
   const now = new Date().toISOString();
   const items: Record<string, AccountItemState> = {};
 
-  Object.entries(progress.items || {}).forEach(([itemId, state]) => {
-    if (!itemId || !isRecord(state)) return;
+  Object.entries(progress.items || {}).slice(0, maxAccountProgressItems).forEach(([itemId, state]) => {
+    if (!accountItemMap.has(itemId) || !isRecord(state)) return;
     const sanitized = sanitizeItemState(state);
     if (!isEmptyState(sanitized)) items[itemId] = sanitized;
   });
@@ -165,7 +176,9 @@ function sanitizeProgress(progress: AccountProgress): AccountProgress {
 function sanitizeItemState(value: unknown): AccountItemState {
   if (!isRecord(value)) return {};
   const formaValue = Number(value.formaInvested || 0);
-  const notes = typeof value.notes === "string" ? value.notes.slice(0, 240) : "";
+  const notes = typeof value.notes === "string"
+    ? value.notes.replace(/[\u0000-\u001f\u007f]/g, " ").replace(/\s+/g, " ").trim().slice(0, 240)
+    : "";
 
   return {
     owned: Boolean(value.owned),

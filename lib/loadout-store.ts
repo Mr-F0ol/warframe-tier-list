@@ -97,20 +97,22 @@ export async function deleteLoadout(id: string) {
 
 function normalizeLoadoutInput(input: LoadoutInput) {
   return {
-    name: normalizeText(input.name),
-    objective: normalizeText(input.objective),
-    warframe: normalizeText(input.warframe),
-    primary: normalizeText(input.primary),
-    secondary: normalizeText(input.secondary),
-    melee: normalizeText(input.melee),
-    notes: normalizeText(input.notes)
+    name: normalizeText(input.name, 80),
+    objective: normalizeText(input.objective, 80),
+    warframe: normalizeText(input.warframe, 80),
+    primary: normalizeText(input.primary, 80),
+    secondary: normalizeText(input.secondary, 80),
+    melee: normalizeText(input.melee, 80),
+    notes: normalizeText(input.notes, 600)
   };
 }
 
 async function readFallbackLoadouts(): Promise<Loadout[]> {
   try {
     const raw = await fs.readFile(fallbackPath, "utf8");
-    return JSON.parse(raw) as Loadout[];
+    const parsed = JSON.parse(raw) as unknown;
+    if (!Array.isArray(parsed)) return [];
+    return parsed.map(normalizeStoredLoadout).filter((loadout): loadout is Loadout => Boolean(loadout));
   } catch {
     return [];
   }
@@ -118,5 +120,25 @@ async function readFallbackLoadouts(): Promise<Loadout[]> {
 
 async function writeFallbackLoadouts(loadouts: Loadout[]) {
   await fs.mkdir(path.dirname(fallbackPath), { recursive: true });
-  await fs.writeFile(fallbackPath, JSON.stringify(loadouts, null, 2));
+  await fs.writeFile(fallbackPath, JSON.stringify(loadouts.map(normalizeStoredLoadout).filter(Boolean), null, 2));
+}
+
+function normalizeStoredLoadout(value: unknown): Loadout | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  const loadout = value as Partial<Loadout>;
+  const name = normalizeText(loadout.name, 80);
+  const warframe = normalizeText(loadout.warframe, 80);
+  if (!name || !warframe) return null;
+
+  return {
+    id: /^[a-zA-Z0-9_-]{1,80}$/.test(String(loadout.id || "")) ? String(loadout.id) : crypto.randomUUID(),
+    name,
+    objective: normalizeText(loadout.objective, 80),
+    warframe,
+    primary: normalizeText(loadout.primary, 80),
+    secondary: normalizeText(loadout.secondary, 80),
+    melee: normalizeText(loadout.melee, 80),
+    notes: normalizeText(loadout.notes, 600),
+    createdAt: typeof loadout.createdAt === "string" ? loadout.createdAt : new Date().toISOString()
+  };
 }

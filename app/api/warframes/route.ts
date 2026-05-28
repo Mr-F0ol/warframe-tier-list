@@ -1,21 +1,23 @@
-import { type NextRequest, NextResponse } from "next/server";
+import { type NextRequest } from "next/server";
 import { flattenWarframes, getTierListData } from "@/lib/tier-data";
+import { apiJson, pickAllowedParam, sanitizeSearchParam } from "@/lib/api-security";
 
 export const runtime = "nodejs";
+const allowedTiers = ["all", "S", "A", "B", "C", "D", "U"] as const;
 
 export async function GET(request: NextRequest) {
   const data = await getTierListData();
   const items = filterItems(flattenWarframes(data), request.nextUrl.searchParams);
-  return NextResponse.json(items);
+  return apiJson(items);
 }
 
 function filterItems<T extends { tier?: string; name: string; note?: string; category?: string; categoryTitle?: string }>(
   items: T[],
   params: URLSearchParams
 ) {
-  const tier = params.get("tier");
-  const category = params.get("category");
-  const q = String(params.get("q") || "").trim().toLowerCase();
+  const tier = pickAllowedParam(params.get("tier"), allowedTiers, "all");
+  const category = sanitizeSearchParam(params.get("category"), 40);
+  const q = sanitizeSearchParam(params.get("q")).toLowerCase();
 
   return items.filter(item => {
     const matchesTier = !tier || tier === "all" || item.tier === tier;
