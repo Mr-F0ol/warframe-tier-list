@@ -1,0 +1,40 @@
+name: ZAP Baseline
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "URL para testar"
+        required: true
+        default: "https://warframefool.vercel.app"
+  schedule:
+    - cron: "37 8 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  baseline:
+    name: OWASP ZAP baseline scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: ZAP Baseline
+        uses: zaproxy/action-baseline@v0.14.0
+        with:
+          target: ${{ inputs.target || 'https://warframefool.vercel.app' }}
+          fail_action: false
+          allow_issue_writing: false
+          cmd_options: "-a -r zap-report.html -w zap-report.md -J zap-report.json"
+
+      - name: Upload ZAP report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zap-baseline-report
+          path: |
+            zap-report.html
+            zap-report.md
+            zap-report.json
+          if-no-files-found: ignore

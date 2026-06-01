@@ -1,0 +1,38 @@
+version: 2
+
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/Buenos_Aires"
+    open-pull-requests-limit: 5
+    groups:
+      next-react:
+        patterns:
+          - "next"
+          - "react"
+          - "react-dom"
+      tooling:
+        patterns:
+          - "typescript"
+          - "eslint*"
+          - "@types/*"
+          - "tailwindcss"
+          - "postcss"
+          - "autoprefixer"
+    commit-message:
+      prefix: "deps"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:30"
+      timezone: "America/Buenos_Aires"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "ci"
