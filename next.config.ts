@@ -2,11 +2,11 @@ import type { NextConfig } from "next";
 
 const scriptSrc = process.env.NODE_ENV === "development"
   ? "script-src 'self' 'unsafe-inline' 'unsafe-eval'"
-  : "script-src 'self' 'unsafe-inline'";
+  : "script-src 'self'";
 
 const securityHeaders = [
   {
-    key: "Content-Security-Policy",
+    key: "Content-Security-Policy-Report-Only",
     value: [
       "default-src 'self'",
       scriptSrc,
@@ -35,15 +35,16 @@ const securityHeaders = [
   },
   {
     key: "Permissions-Policy",
-    value: "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+    value: "camera=(), microphone=(), geolocation=()"
   },
   {
     key: "Strict-Transport-Security",
-    value: "max-age=63072000; includeSubDomains; preload"
+    value: "max-age=31536000"
   }
 ];
 
 const nextConfig: NextConfig = {
+  poweredByHeader: false,
   images: {
     remotePatterns: [
       {

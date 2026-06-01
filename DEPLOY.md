@@ -41,7 +41,7 @@ Crie um banco no Neon ou Supabase e copie a connection string.
 Use uma URL parecida com:
 
 ```env
-DATABASE_URL=postgresql://usuario:senha@host/database?sslmode=require
+DATABASE_URL=postgresql://<usuario>:<senha>@<host>/<database>?sslmode=require
 ```
 
 ## 4. Configurar Vercel
@@ -52,7 +52,7 @@ DATABASE_URL=postgresql://usuario:senha@host/database?sslmode=require
 4. Em **Environment Variables**, adicione:
 
 ```env
-DATABASE_URL=postgresql://...
+DATABASE_URL=<connection-string-do-provedor>
 ```
 
 5. Faça o deploy.
