@@ -28,7 +28,7 @@ Fora de escopo:
 
 ## Divulgação responsável
 
-Se encontrar uma falha, envie um relatório privado para `SEU_EMAIL_DE_SEGURANCA`. Substitua esse placeholder por um contato real antes do deploy.
+Se encontrar uma falha, envie um relatório privado para `Diogofernandes627@gmail.com`.
 
 Inclua:
 

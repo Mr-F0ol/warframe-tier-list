@@ -91,7 +91,7 @@ export default function SegurancaPage() {
             Não publique detalhes antes da correção e não envie credenciais, tokens ou dados pessoais sensíveis no primeiro contato.
           </p>
           <p className="mt-3 rounded-md border border-border/70 bg-background/60 px-3 py-2 text-sm font-bold text-cyan-100">
-            Contato de segurança: SEU_EMAIL_DE_SEGURANCA
+            Contato de segurança: Diogofernandes627@gmail.com
           </p>
           <p className="mt-3 text-sm leading-6 text-muted-foreground">
             Última revisão pública de segurança: 1 de junho de 2026.

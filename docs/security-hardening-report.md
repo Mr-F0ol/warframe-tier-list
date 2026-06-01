@@ -17,7 +17,7 @@ O site continua usando App Router do Next.js e armazenamento local no navegador 
 | Prototype pollution via JSON (`__proto__`, `prototype`, `constructor`) | Médio | Bloqueado em parsing defensivo compartilhado. |
 | CSP obrigatória podendo quebrar Next.js/estilos | Médio | Aplicada como `Content-Security-Policy-Report-Only`. |
 | `.env.example` com valor parecendo credencial | Baixo/Médio | Substituído por placeholder vazio. |
-| Dependência transitiva vulnerável em `postcss` dentro do Next | Médio | Documentada; sem fix automático seguro nesta fase. |
+| Dependência transitiva vulnerável em `postcss` dentro do Next | Médio | Resolvida com `overrides` do npm para `postcss` 8.5.14 e validação de build/audit. |
 | Falta de pipeline unificado de segurança | Médio | Criado workflow `security-checks.yml`. |
 
 ## 3. Arquivos criados
@@ -93,14 +93,7 @@ O site continua usando App Router do Next.js e armazenamento local no navegador 
 
 ## 7. Vulnerabilidades de dependência restantes
 
-`npm audit --audit-level=moderate` encontrou:
-
-- `postcss` transitivo dentro de `next`;
-- severidade: moderada;
-- advisory: GHSA-qx2v-qp2m-jg93;
-- npm indica "No fix available" sem mudança de dependência.
-
-`npm audit fix --force` não deve ser usado nesta fase, pois pode aplicar mudança quebrável. O acompanhamento deve ser feito via Dependabot/atualização segura do Next.js.
+`npm audit --audit-level=moderate` passou após fixar `postcss` 8.5.14 e aplicar `overrides` no npm. O pacote vulnerável aninhado em `node_modules/next/node_modules/postcss` foi removido/deduplicado para a versão segura da raiz.
 
 ## 8. Configurações manuais pendentes
 
@@ -114,7 +107,7 @@ Principais pendências:
 - Habilitar Secret Scanning, Push Protection e Code Scanning quando disponíveis.
 - Proteger Preview Deployments na Vercel.
 - Revisar variáveis Production/Preview e marcar segredos como Sensitive quando aplicável.
-- Substituir `SEU_EMAIL_DE_SEGURANCA` em `/seguranca`, `SECURITY.md` e `public/.well-known/security.txt` antes do deploy.
+- Revisar se o contato público `Diogofernandes627@gmail.com` deve permanecer como e-mail de divulgação responsável.
 
 ## 9. Possíveis pontos de quebra
 
@@ -146,10 +139,10 @@ Resultados:
 - `npm test`: passou, 8 testes de segurança.
 - `npm run typecheck`: passou.
 - `npm run build`: passou, 46 páginas geradas.
-- `npm run security:audit`: passou em nível alto/crítico; ainda lista vulnerabilidade moderada transitiva.
+- `npm run security:audit`: passou.
 - `npm run security:check`: passou; executou lint, testes de segurança, build e auditoria de produção.
-- `npm audit --audit-level=moderate`: falhou por vulnerabilidade moderada conhecida em `postcss` transitivo do Next.
-- `npm ls --depth=0`: listou `@emnapi/runtime` como extraneous opcional em `node_modules`, mesmo após `npm prune`; não está declarado como dependência direta do projeto.
+- `npm audit --audit-level=moderate`: passou após override de `postcss`.
+- `npm ls postcss`: confirmou `postcss@8.5.14` deduplicado também no Next.
 - Validação YAML com `js-yaml`: passou para workflows e Dependabot.
 
 ## 11. Validar headers depois do deploy
@@ -203,9 +196,9 @@ Não há indicação de rotação obrigatória nesta revisão. Ainda assim, se a
 
 ## 15. Próximos passos recomendados
 
-1. Substituir `SEU_EMAIL_DE_SEGURANCA`.
+1. Confirmar se `Diogofernandes627@gmail.com` é o contato definitivo para divulgação responsável.
 2. Ativar proteções manuais em GitHub/Vercel.
 3. Abrir PR da branch `security-hardening`.
 4. Rodar ZAP Baseline manual após deploy em preview.
 5. Monitorar violações CSP Report-Only antes de migrar para CSP obrigatória.
-6. Acompanhar atualização segura do Next/PostCSS via Dependabot.
+6. Acompanhar atualizações seguras do Next/PostCSS via Dependabot.
