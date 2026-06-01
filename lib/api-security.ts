@@ -1,4 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server";
+import { parseBoundedJson } from "@/lib/local-storage-security";
 
 const defaultMaxJsonBytes = 16 * 1024;
 
@@ -23,11 +24,13 @@ export async function readJsonBody<T>(request: NextRequest, maxBytes = defaultMa
     throw new ApiInputError("Dados muito grandes para salvar.", 413);
   }
 
-  try {
-    return (await request.json()) as T;
-  } catch {
-    throw new ApiInputError("JSON inválido.");
-  }
+  const raw = await request.text();
+  const parsed = parseBoundedJson<T>(raw, {
+    maxBytes,
+    label: "JSON da requisição"
+  });
+  if (!parsed.ok) throw new ApiInputError(parsed.error, parsed.error.includes("grande demais") ? 413 : 400);
+  return parsed.data;
 }
 
 export function apiJson(data: unknown, init?: ResponseInit) {

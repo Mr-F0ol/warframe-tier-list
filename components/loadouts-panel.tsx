@@ -10,6 +10,12 @@ import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import type { Loadout, LoadoutInput, TierListData } from "@/lib/types";
+import {
+  isRecord,
+  readJsonFromLocalStorage,
+  sanitizePlainText,
+  writeJsonToLocalStorage
+} from "@/lib/local-storage-security";
 
 interface LoadoutsPanelProps {
   tierList: TierListData;
@@ -29,6 +35,7 @@ const emptyForm: LoadoutInput = {
 const storageKey = "warframefool-loadouts";
 const maxStoredLoadoutsBytes = 100 * 1024;
 const maxStoredLoadouts = 50;
+const storedLoadoutsVersion = 1;
 
 export function LoadoutsPanel({ tierList, showHeading = true }: LoadoutsPanelProps) {
   const [form, setForm] = useState<LoadoutInput>(emptyForm);
@@ -202,24 +209,26 @@ function namesForWeaponCategory(tierList: TierListData, categoryId: string) {
 }
 
 function readStoredLoadouts() {
-  if (typeof window === "undefined") return [];
-  try {
-    const raw = window.localStorage.getItem(storageKey);
-    if (!raw || raw.length > maxStoredLoadoutsBytes) return [];
-    const parsed = JSON.parse(raw) as unknown;
-    if (!Array.isArray(parsed)) return [];
-    return parsed.slice(0, maxStoredLoadouts).map(sanitizeStoredLoadout).filter((loadout): loadout is Loadout => Boolean(loadout));
-  } catch {
-    return [];
-  }
+  const result = readJsonFromLocalStorage<unknown>(storageKey, {
+    maxBytes: maxStoredLoadoutsBytes,
+    label: "Loadouts salvos"
+  });
+  if (!result.ok) return [];
+  const values = storedLoadoutValues(result.data);
+  return values.slice(0, maxStoredLoadouts).map(sanitizeStoredLoadout).filter((loadout): loadout is Loadout => Boolean(loadout));
 }
 
 function writeStoredLoadouts(loadouts: Loadout[]) {
-  try {
-    window.localStorage.setItem(storageKey, JSON.stringify(loadouts.slice(0, maxStoredLoadouts).map(sanitizeStoredLoadout).filter(Boolean)));
-  } catch {
-    return;
-  }
+  writeJsonToLocalStorage(storageKey, {
+    version: storedLoadoutsVersion,
+    loadouts: loadouts.slice(0, maxStoredLoadouts).map(sanitizeStoredLoadout).filter(Boolean)
+  });
+}
+
+function storedLoadoutValues(value: unknown): unknown[] {
+  if (Array.isArray(value)) return value;
+  if (isRecord(value) && value.version === storedLoadoutsVersion && Array.isArray(value.loadouts)) return value.loadouts;
+  return [];
 }
 
 function sanitizeStoredLoadout(value: unknown): Loadout | null {
@@ -243,11 +252,7 @@ function sanitizeStoredLoadout(value: unknown): Loadout | null {
 }
 
 function sanitizeLoadoutText(value: unknown, maxLength: number) {
-  return String(value ?? "")
-    .replace(/[\u0000-\u001f\u007f]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim()
-    .slice(0, maxLength);
+  return sanitizePlainText(value, maxLength);
 }
 
 function createId() {

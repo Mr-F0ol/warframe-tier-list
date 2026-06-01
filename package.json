@@ -8,8 +8,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "npm run test:security",
+    "test:security": "node --experimental-strip-types --test scripts/security-storage.test.ts",
     "typecheck": "tsc --noEmit",
     "check": "npm run typecheck && npm run build",
+    "security:audit": "npm audit --omit=dev --audit-level=high",
+    "security:check": "npm run lint && npm run test:security && npm run build && npm run security:audit",
     "validate:migration": "node scripts/validate-migration.js",
     "db:schema": "node scripts/apply-schema.js",
     "deploy:check": "npm run validate:migration && npm run typecheck && npm run build"

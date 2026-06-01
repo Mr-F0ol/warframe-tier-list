@@ -21,12 +21,20 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { loadAccountProgress, type AccountProgress } from "@/lib/accountStorage";
+import {
+  isRecord,
+  readJsonFromLocalStorage,
+  removeLocalStorageItem,
+  sanitizePlainText,
+  writeJsonToLocalStorage
+} from "@/lib/local-storage-security";
 import { cn } from "@/lib/utils";
 
 const storageKey = "warframe-fool-planner-plans";
 const baseUrl = "https://warframefool.vercel.app";
 const maxSavedPlansBytes = 120 * 1024;
 const maxSavedPlans = 8;
+const savedPlansVersion = 1;
 
 interface SavedPlan {
   id: string;
@@ -56,20 +64,21 @@ export function PlannerTool() {
     window.requestAnimationFrame(() => {
       if (mounted) setAccountProgress(accountResult.progress);
     });
-    try {
-      const raw = window.localStorage.getItem(storageKey);
-      if (!raw || raw.length > maxSavedPlansBytes) return undefined;
-      const parsed = JSON.parse(raw) as unknown;
-      if (Array.isArray(parsed)) {
-        const validPlans = parsed.map(sanitizeSavedPlan).filter((plan): plan is SavedPlan => Boolean(plan)).slice(0, maxSavedPlans);
-        window.requestAnimationFrame(() => {
-          if (mounted) setSavedPlans(validPlans);
-        });
-      }
-    } catch {
-      window.localStorage.removeItem(storageKey);
+    const parsed = readJsonFromLocalStorage<unknown>(storageKey, {
+      maxBytes: maxSavedPlansBytes,
+      label: "Planos salvos"
+    });
+
+    if (!parsed.ok) {
+      removeLocalStorageItem(storageKey);
       window.requestAnimationFrame(() => {
         if (mounted) setMessage("Planos salvos corrompidos foram limpos deste navegador.");
+      });
+    } else {
+      const planValues = savedPlanValues(parsed.data);
+      const validPlans = planValues.map(sanitizeSavedPlan).filter((plan): plan is SavedPlan => Boolean(plan)).slice(0, maxSavedPlans);
+      window.requestAnimationFrame(() => {
+        if (mounted) setSavedPlans(validPlans);
       });
     }
     return () => {
@@ -117,23 +126,28 @@ export function PlannerTool() {
       recommendation: primary
     };
 
-    try {
-      const nextPlans = [plan, ...savedPlans].slice(0, 8);
-      window.localStorage.setItem(storageKey, JSON.stringify(nextPlans.map(sanitizeSavedPlan).filter(Boolean)));
+    const nextPlans = [plan, ...savedPlans].slice(0, 8);
+    const result = writeJsonToLocalStorage(storageKey, {
+      version: savedPlansVersion,
+      plans: nextPlans.map(sanitizeSavedPlan).filter(Boolean)
+    });
+    if (result.ok) {
       setSavedPlans(nextPlans);
       setMessage("Plano salvo neste navegador.");
-    } catch {
-      setMessage("Não foi possível salvar neste navegador.");
+    } else {
+      setMessage(result.error || "Não foi possível salvar neste navegador.");
     }
   }
 
   function removePlan(id: string) {
     const nextPlans = savedPlans.filter(plan => plan.id !== id);
     setSavedPlans(nextPlans);
-    try {
-      window.localStorage.setItem(storageKey, JSON.stringify(nextPlans.map(sanitizeSavedPlan).filter(Boolean)));
-    } catch {
-      setMessage("Plano removido da tela, mas o navegador bloqueou a atualização do armazenamento.");
+    const result = writeJsonToLocalStorage(storageKey, {
+      version: savedPlansVersion,
+      plans: nextPlans.map(sanitizeSavedPlan).filter(Boolean)
+    });
+    if (!result.ok) {
+      setMessage(result.error || "Plano removido da tela, mas o navegador bloqueou a atualização do armazenamento.");
     }
   }
 
@@ -379,6 +393,12 @@ function sanitizeSavedPlan(value: unknown): SavedPlan | null {
   };
 }
 
+function savedPlanValues(value: unknown): unknown[] {
+  if (Array.isArray(value)) return value;
+  if (isRecord(value) && value.version === savedPlansVersion && Array.isArray(value.plans)) return value.plans;
+  return [];
+}
+
 function sanitizePlannerPriority(value: unknown): PlannerRecommendation["priority"] {
   return value === "Alta" || value === "Média" || value === "Baixa" ? value : "Média";
 }
@@ -388,11 +408,7 @@ function safeStringList(value: unknown, maxItems: number) {
 }
 
 function sanitizePlannerText(value: unknown, maxLength: number) {
-  return String(value ?? "")
-    .replace(/[\u0000-\u001f\u007f]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim()
-    .slice(0, maxLength);
+  return sanitizePlainText(value, maxLength);
 }
 
 function PlannerStep({ number, title, children }: { number: number; title: string; children: ReactNode }) {

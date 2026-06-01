@@ -1,4 +1,12 @@
 import { accountItemMap } from "@/data/accountItems";
+import {
+  isRecord,
+  parseBoundedJson,
+  readJsonFromLocalStorage,
+  removeLocalStorageItem,
+  sanitizePlainText,
+  writeJsonToLocalStorage
+} from "@/lib/local-storage-security";
 
 export const accountStorageKey = "warframe-fool-account-progress";
 export const accountProgressVersion = 1;
@@ -38,76 +46,56 @@ export function createEmptyAccountProgress(now = new Date().toISOString()): Acco
 }
 
 export function loadAccountProgress(): AccountStorageResult {
-  const storage = getLocalStorage();
-  if (!storage) {
+  const result = readJsonFromLocalStorage<unknown>(accountStorageKey, {
+    maxBytes: maxAccountProgressBytes,
+    label: "Progresso salvo"
+  });
+
+  if (!result.ok) {
     return {
       progress: createEmptyAccountProgress(),
-      error: "O navegador bloqueou o armazenamento local. Você ainda pode usar a página, mas os dados podem não ficar salvos."
+      error: result.error
     };
   }
 
-  try {
-    const raw = storage.getItem(accountStorageKey);
-    if (!raw) return { progress: createEmptyAccountProgress() };
-    return parseAccountProgress(raw);
-  } catch {
-    return {
-      progress: createEmptyAccountProgress(),
-      error: "Não foi possível ler os dados salvos neste navegador."
-    };
-  }
+  if (!result.data) return { progress: createEmptyAccountProgress() };
+  return validateParsedAccountProgress(result.data);
 }
 
 export function saveAccountProgress(progress: AccountProgress) {
-  const storage = getLocalStorage();
-  if (!storage) return { ok: false, error: "O navegador bloqueou o armazenamento local." };
-
-  try {
-    storage.setItem(accountStorageKey, JSON.stringify(sanitizeProgress(progress)));
+  const result = writeJsonToLocalStorage(accountStorageKey, sanitizeProgress(progress));
+  if (result.ok) {
     notifyAccountProgressChanged();
     return { ok: true };
-  } catch {
-    return { ok: false, error: "Não foi possível salvar os dados neste navegador." };
   }
+
+  return result;
 }
 
 export function resetAccountProgress() {
-  const storage = getLocalStorage();
-  if (!storage) return { ok: false, error: "O navegador bloqueou o armazenamento local." };
-
-  try {
-    storage.removeItem(accountStorageKey);
+  const result = removeLocalStorageItem(accountStorageKey);
+  if (result.ok) {
     notifyAccountProgressChanged();
     return { ok: true };
-  } catch {
-    return { ok: false, error: "Não foi possível limpar os dados salvos." };
   }
+
+  return result;
 }
 
 export function parseAccountProgress(raw: string): AccountStorageResult {
-  if (raw.length > maxAccountProgressBytes) {
+  const result = parseBoundedJson<unknown>(raw, {
+    maxBytes: maxAccountProgressBytes,
+    label: "Arquivo de progresso"
+  });
+
+  if (!result.ok) {
     return {
       progress: createEmptyAccountProgress(),
-      error: "O arquivo informado é grande demais para importar com segurança."
+      error: result.error
     };
   }
 
-  try {
-    const parsed = JSON.parse(raw) as unknown;
-    const result = validateProgress(parsed);
-    if (!result.progress) {
-      return {
-        progress: createEmptyAccountProgress(),
-        error: result.error || "O progresso importado não tem um formato válido."
-      };
-    }
-    return { progress: result.progress };
-  } catch {
-    return {
-      progress: createEmptyAccountProgress(),
-      error: "O JSON informado não é válido."
-    };
-  }
+  return validateParsedAccountProgress(result.data);
 }
 
 export function exportAccountProgress(progress: AccountProgress) {
@@ -155,6 +143,17 @@ function validateProgress(value: unknown): { progress?: AccountProgress; error?:
   return { progress: sanitizeProgress(value as unknown as AccountProgress) };
 }
 
+function validateParsedAccountProgress(value: unknown): AccountStorageResult {
+  const result = validateProgress(value);
+  if (!result.progress) {
+    return {
+      progress: createEmptyAccountProgress(),
+      error: result.error || "O progresso importado não tem um formato válido."
+    };
+  }
+  return { progress: result.progress };
+}
+
 function sanitizeProgress(progress: AccountProgress): AccountProgress {
   const now = new Date().toISOString();
   const items: Record<string, AccountItemState> = {};
@@ -176,9 +175,7 @@ function sanitizeProgress(progress: AccountProgress): AccountProgress {
 function sanitizeItemState(value: unknown): AccountItemState {
   if (!isRecord(value)) return {};
   const formaValue = Number(value.formaInvested || 0);
-  const notes = typeof value.notes === "string"
-    ? value.notes.replace(/[\u0000-\u001f\u007f]/g, " ").replace(/\s+/g, " ").trim().slice(0, 240)
-    : "";
+  const notes = sanitizePlainText(value.notes, 240);
 
   return {
     owned: Boolean(value.owned),
@@ -196,20 +193,7 @@ function isEmptyState(state: AccountItemState) {
   return !state.owned && !state.wanted && !state.building && !state.favorite && !state.catalystInstalled && !state.formaInvested && !state.notes;
 }
 
-function getLocalStorage() {
-  if (typeof window === "undefined") return null;
-  try {
-    return window.localStorage;
-  } catch {
-    return null;
-  }
-}
-
 function notifyAccountProgressChanged() {
   if (typeof window === "undefined") return;
   window.dispatchEvent(new Event("warframe-fool-account-progress-changed"));
-}
-
-function isRecord(value: unknown): value is Record<string, unknown> {
-  return Boolean(value && typeof value === "object" && !Array.isArray(value));
 }
