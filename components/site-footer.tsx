@@ -15,6 +15,7 @@ const footerLinks = [
   { href: "/loadouts", label: "Loadouts" },
   { href: "/meta-atual", label: "Meta Atual" },
   { href: "/steel-path", label: "Steel Path" },
+  { href: "/seguranca", label: "Segurança" },
   { href: "/sobre", label: "Sobre" }
 ];
 

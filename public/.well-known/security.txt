@@ -1,0 +1,4 @@
+Contact: mailto:SEU_EMAIL_DE_SEGURANCA
+Policy: https://warframefool.vercel.app/seguranca
+Preferred-Languages: pt-BR
+Expires: 2027-06-01T00:00:00Z

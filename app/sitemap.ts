@@ -36,6 +36,7 @@ const staticRoutes = [
   { path: "/arcanes-amp-warframe", priority: 0.85 },
   { path: "/melhores-warframes-farm-foco", priority: 0.85 },
   { path: "/loadouts", priority: 0.6 },
+  { path: "/seguranca", priority: 0.55 },
   { path: "/sobre", priority: 0.6 }
 ];
 

@@ -235,6 +235,46 @@ O projeto inclui:
 - breadcrumbs em guias e builds
 - links internos entre tier list, builds, farm, Incarnon, loadouts e meta
 
+## Segurança
+
+Páginas e documentos:
+
+- `/seguranca`: postura pública de segurança, dados locais e divulgação responsável.
+- `SECURITY.md`: escopo, postura atual e processo de disclosure.
+- `docs/security-audit-initial.md`: auditoria inicial do repositório.
+- `docs/csp-rollout.md`: política CSP em Report-Only e plano de migração.
+- `docs/incident-response.md`: checklist de contenção, rollback, rotação e recuperação.
+- `docs/manual-security-checklist.md`: tarefas manuais em GitHub, Vercel e domínio futuro.
+- `docs/security-scanning.md`: uso seguro do OWASP ZAP Baseline.
+- `docs/security-hardening-report.md`: relatório final da fase de hardening.
+
+Configurações aplicadas:
+
+- Headers em `next.config.ts`: CSP Report-Only, HSTS, `X-Frame-Options`, `X-Content-Type-Options`, `Permissions-Policy` e `Referrer-Policy`.
+- APIs com respostas sem stack trace, `Cache-Control` controlado e validação de payload.
+- Import/export da Minha Conta com validação de versão, tamanho, estrutura, itens conhecidos e bloqueio de chaves perigosas.
+- Planejador e Loadouts locais usam leitura/escrita JSON defensiva com limite de tamanho e migração compatível.
+- Sem CORS customizado; as APIs respondem apenas no mesmo domínio. Se CORS for necessário no futuro, usar allowlist explícita e `Vary: Origin`.
+- `.env`, `.env.*` e arquivos locais de ambiente ficam ignorados no Git; apenas `.env.example` pode ser versionado.
+
+Automação adicionada:
+
+- `.github/dependabot.yml`: atualizações semanais de npm e GitHub Actions.
+- `.github/workflows/security-checks.yml`: lint, testes de segurança, build e auditoria de produção.
+- `.github/workflows/codeql.yml`: CodeQL para JavaScript/TypeScript.
+- `.github/workflows/secret-scan.yml`: varredura de segredos verificados com TruffleHog.
+- `.github/workflows/zap-baseline.yml`: OWASP ZAP Baseline passivo contra produção por agenda/manual, com relatório artifact.
+
+Checklist externo que precisa ser mantido no painel:
+
+- GitHub e Vercel com passkey ou TOTP.
+- Recovery codes guardados offline.
+- Menor privilégio para colaboradores.
+- Branch `main` protegida.
+- GitHub Secret Scanning e Push Protection habilitados no painel, quando disponíveis.
+- Vercel Production Deployment público e previews protegidos.
+- Se houver domínio próprio: MFA no registrador, registrar lock, DNSSEC quando suportado e revisão de registros DNS órfãos.
+
 ## Loadouts
 
 A versão atual salva loadouts no navegador. Login e sincronização em nuvem não fazem parte desta etapa.
